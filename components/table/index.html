@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table — Digirella</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../interactive.css">
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body class="ix">
+<header class="masthead">
+  <div class="masthead__inner">
+    <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
+    <a class="masthead__brand" href="../../index.html">digirella</a>
+    <span class="masthead__tag">Design system</span>
+    <span class="masthead__spacer"></span>
+    <span class="masthead__meta">v1.0 · primary #006A09</span>
+  </div>
+</header>
+
+<div class="frame">
+<nav class="sidenav" id="sidenav" aria-label="Sections">
+<div class="sidenav__section">
+<div class="sidenav__title">Foundations</div>
+<a href="../../foundations/architecture/index.html" data-status="migrated"><span>Architecture</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/palette/index.html" data-status="migrated"><span>Palette</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/semantic-colour/index.html" data-status="migrated"><span>Semantic colour</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/typography/index.html" data-status="ready"><span>Typography</span><span class="flag">New</span></a>
+<a href="../../foundations/spacing/index.html" data-status="migrated"><span>Spacing</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/shape/index.html" data-status="migrated"><span>Shape &amp; border</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/elevation/index.html" data-status="migrated"><span>Elevation</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/motion/index.html" data-status="migrated"><span>Motion</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/colour-accessibility/index.html" data-status="migrated"><span>Colour accessibility</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/interaction-states/index.html" data-status="migrated"><span>Interaction states</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Components</div>
+<div class="sidenav__group">Core</div>
+<a href="../../components/button/index.html" data-status="ready"><span>Button</span><span class="flag">New</span></a>
+<a href="../../components/icon-button/index.html" data-status="migrated"><span>IconButton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/card/index.html" data-status="migrated"><span>Card</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/badge/index.html" data-status="migrated"><span>Badge</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tag/index.html" data-status="migrated"><span>Tag</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Forms</div>
+<a href="../../components/input/index.html" data-status="ready"><span>Text input <span style="color:var(--text-tertiary);font-weight:400">· Textarea</span></span><span class="flag">New</span></a>
+<a href="../../components/formatted-input/index.html" data-status="ready"><span>Formatted input</span><span class="flag">New</span></a>
+<a href="../../components/number-input/index.html" data-status="ready"><span>Number input <span style="color:var(--text-tertiary);font-weight:400">· QuantityStepper · Slider</span></span><span class="flag">New</span></a>
+<a href="../../components/date-picker/index.html" data-status="planned"><span>DatePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/time-picker/index.html" data-status="planned"><span>TimePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/select/index.html" data-status="migrated"><span>Select</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/combobox/index.html" data-status="migrated"><span>Combobox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/multiselect/index.html" data-status="migrated"><span>MultiSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/treeselect/index.html" data-status="migrated"><span>TreeSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/checkbox/index.html" data-status="migrated"><span>Checkbox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/radio/index.html" data-status="migrated"><span>Radio</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/switch/index.html" data-status="migrated"><span>Switch</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/search/index.html" data-status="planned"><span>Search</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/file-upload/index.html" data-status="planned"><span>FileUpload</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Navigation</div>
+<a href="../../components/tabs/index.html" data-status="migrated"><span>Tabs</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/segmented-control/index.html" data-status="migrated"><span>SegmentedControl</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/pagination/index.html" data-status="migrated"><span>Pagination</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/breadcrumb/index.html" data-status="migrated"><span>Breadcrumb</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/steps/index.html" data-status="migrated"><span>Steps</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/side-nav/index.html" data-status="planned"><span>SideNav</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Data</div>
+<a href="../../components/table/index.html" aria-current="page" data-status="migrated"><span>Table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/accordion/index.html" data-status="ready"><span>Accordion</span><span class="flag">New</span></a>
+<a href="../../components/avatar/index.html" data-status="migrated"><span>Avatar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/rating/index.html" data-status="migrated"><span>Rating</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/progress-bar/index.html" data-status="migrated"><span>ProgressBar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/skeleton/index.html" data-status="migrated"><span>Skeleton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/divider/index.html" data-status="planned"><span>Divider</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Feedback</div>
+<a href="../../components/dialog/index.html" data-status="migrated"><span>Dialog <span style="color:var(--text-tertiary);font-weight:400">· Modal</span></span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/alert/index.html" data-status="migrated"><span>Alert</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/toast/index.html" data-status="migrated"><span>Toast</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tooltip/index.html" data-status="migrated"><span>Tooltip</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Overlays</div>
+<a href="../../components/drawer/index.html" data-status="migrated"><span>Drawer</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/popover/index.html" data-status="migrated"><span>Popover</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/menu/index.html" data-status="migrated"><span>Menu</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Patterns</div>
+<a href="../../patterns/page-header/index.html" data-status="migrated"><span>Page header</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/product-grid/index.html" data-status="migrated"><span>Product card grid</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/filter-bar/index.html" data-status="migrated"><span>Filter bar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/form-layout/index.html" data-status="migrated"><span>Form layout</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/order-summary/index.html" data-status="migrated"><span>Order summary</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/data-table/index.html" data-status="migrated"><span>Data table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/empty-state/index.html" data-status="migrated"><span>Empty state</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/status-messaging/index.html" data-status="migrated"><span>Status messaging</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/loading-states/index.html" data-status="planned"><span>Loading states</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/page-layout/index.html" data-status="planned"><span>Page layout</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/destructive-actions/index.html" data-status="planned"><span>Destructive actions</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+</div>
+</nav>
+<main>
+<div class="page__eyebrow">Components</div><h1 class="page__title">Table</h1><div class="statusline"><span class="dot" data-status="migrated"></span>Carried over from the previous structure</div><div class="callout"><div>This page carries its content from the previous structure, moved across unchanged. It hasn't been rewritten to the new format yet.</div></div>
+<div class="doc">
+<section id="examples"><h2>Examples</h2>
+<p>Click the headers — sorting works. The checkboxes handle single and bulk selection, and the one in the header has an indeterminate state.</p>
+<div class="demo demo--stack" style="padding:0;overflow:hidden">
+<table class="dtable" data-sort-table="">
+<thead><tr>
+<th style="width:42px"><input aria-label="Tümünü seç" type="checkbox"/></th>
+<th data-sort="text">Product <span class="arrow">▲</span></th>
+<th data-sort="text">Status <span class="arrow">▲</span></th>
+<th data-sort="number">Price <span class="arrow">▲</span></th>
+<th data-sort="number">Views <span class="arrow">▲</span></th>
+</tr></thead>
+<tbody>
+<tr><td><input aria-label="Seç" type="checkbox"/></td><td>iPhone 14 Pro</td><td><span class="badge-ix" data-tone="success">Live</span></td><td>32.400 ₼</td><td>1.847</td></tr>
+<tr><td><input aria-label="Seç" type="checkbox"/></td><td>Sony WH-1000XM5</td><td><span class="badge-ix" data-tone="success">Live</span></td><td>8.950 ₼</td><td>623</td></tr>
+<tr><td><input aria-label="Seç" type="checkbox"/></td><td>Anker power bank</td><td><span class="badge-ix">Draft</span></td><td>1.190 ₼</td><td>0</td></tr>
+<tr><td><input aria-label="Seç" type="checkbox"/></td><td>Logitech MX Master 3S</td><td><span class="badge-ix" data-tone="warning">Low stock</span></td><td>2.740 ₼</td><td>412</td></tr>
+<tr><td><input aria-label="Seç" type="checkbox"/></td><td>Kindle Paperwhite</td><td><span class="badge-ix" data-tone="info">In review</span></td><td>5.600 ₼</td><td>96</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="when-to-use">
+<h2>When to use</h2>
+<table>
+<thead><tr><th style="width:190px">Container</th><th>Use when</th></tr></thead>
+<tbody>
+<tr><td class="tok">Table</td><td class="use">Rows share attributes the user compares across columns — price, status, date. Three or more columns of structured data.</td></tr>
+<tr><td class="tok">List</td><td class="use">Each item is read on its own, not compared. Two attributes at most.</td></tr>
+<tr><td class="tok">Card grid</td><td class="use">The image is the primary content. Browsing rather than comparing.</td></tr>
+<tr><td class="tok">Description list</td><td class="use">One record, many attributes — that is a detail panel, not a one-row table.</td></tr>
+</tbody>
+</table>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 0.8fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Status</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Price</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Views</span>
+</div>
+<div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);"><span style="display:flex;align-items:center;gap:var(--space-4)"><span style="width:40px;height:40px;flex:0 0 40px;border-radius:var(--radius-xs);background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px)"></span>Wireless headphones · ANC</span></span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">2 480 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">1 284</span>
+</div>
+<div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);"><span style="display:flex;align-items:center;gap:var(--space-4)"><span style="width:40px;height:40px;flex:0 0 40px;border-radius:var(--radius-xs);background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px)"></span>Mechanical keyboard 75%</span></span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">1 850 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">642</span>
+</div>
+</div></div><p class="ddt">Prices sit in one column, right-aligned. The user compares two numbers by moving their eye vertically.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:flex;flex-direction:column;gap:var(--space-3)"><div style="display:flex;align-items:center;gap:var(--space-4);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:var(--space-4)"><span style="width:36px;height:36px;flex:0 0 36px;border-radius:var(--radius-xs);background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px)"></span><span style="font-size:var(--font-size-300)">Wireless headphones</span><span style="margin-left:auto;font-size:var(--font-size-300);font-weight:600">2 480 ₼</span></div><div style="display:flex;align-items:center;gap:var(--space-4);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:var(--space-4)"><span style="width:36px;height:36px;flex:0 0 36px;border-radius:var(--radius-xs);background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px)"></span><span style="font-size:var(--font-size-300)">Mechanical keyboard</span><span style="margin-left:auto;font-size:var(--font-size-300);font-weight:600">1 850 ₼</span></div></div></div><p class="ddt">The same data as cards: prices land at different horizontal positions, so every comparison needs a saccade.</p></div>
+</div>
+</section>
+<section id="anatomy">
+<h2>Anatomy</h2>
+<div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-7);align-items:start">
+<div><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 0.8fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Status</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Price</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Views</span>
+</div>
+<div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);"><span style="display:flex;align-items:center;gap:var(--space-4);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span style="width:40px;height:40px;flex:0 0 40px;border-radius:var(--radius-xs);background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px)"></span>Wireless headphones</span></span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">2 480 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">1 284</span>
+</div>
+<div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);background:var(--surface-hover)">
+<span style="font-size:var(--font-size-300);"><span style="display:flex;align-items:center;gap:var(--space-4);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span style="width:40px;height:40px;flex:0 0 40px;border-radius:var(--radius-xs);background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px)"></span>Mechanical keyboard</span></span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">1 850 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">642</span>
+</div>
+<div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);"><span style="display:flex;align-items:center;gap:var(--space-4);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span style="width:40px;height:40px;flex:0 0 40px;border-radius:var(--radius-xs);background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px)"></span>35mm film camera</span></span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-sunken);color:var(--text-secondary)">Sold</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">4 200 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">—</span>
+</div>
+</div></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Header row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px"><code>--surface-sunken</code> fill, 11px uppercase overline in <code>--text-tertiary</code>. Sticky when the table scrolls.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Column</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">A CSS grid track. Widths are declared, never computed from content — otherwise columns jump as data loads.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">46px comfortable, 38px compact, 65px with a 40px thumbnail. Separated by a 1px hairline, never a fill.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Hover</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px"><code>--surface-hover</code> across the whole row. Only when the row is interactive.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Cell</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">14px. Numeric cells right-aligned with tabular figures.</div></div></div>
+</div>
+</div>
+<div class="rule" style="margin-top:var(--space-6)"><b>No stripes</b><span>Zebra striping exists to help the eye track a row across a wide table. Hairline dividers plus a row hover do the same job without adding a second background colour to every screen.</span></div>
+</section>
+<section id="columns-amp-alignment">
+<h2>Columns &amp; alignment</h2>
+<p class="doc-lead">Alignment is not taste. Left for text, right for numbers, and the reason is scanning: right-aligned figures line up their digits, so 1 284 and 642 can be compared without reading them.</p>
+<table>
+<thead><tr><th style="width:150px">Content</th><th style="width:110px">Align</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td class="tok">Text</td><td class="use">Left</td><td class="use">Names, titles, descriptions. The first column is always the row's identity.</td></tr>
+<tr><td class="tok">Numbers</td><td class="use">Right</td><td class="use">Prices, counts, percentages. <code>align: 'right'</code> also switches the column to tabular figures.</td></tr>
+<tr><td class="tok">Dates</td><td class="use">Left</td><td class="use">Read as text, not compared digit by digit. One format across the whole table.</td></tr>
+<tr><td class="tok">Status</td><td class="use">Left</td><td class="use">A Badge, never bare coloured text.</td></tr>
+<tr><td class="tok">Actions</td><td class="use">Right</td><td class="use">Last column, fixed width, icon-only or a Menu.</td></tr>
+<tr><td class="tok">Never</td><td class="use">Centre</td><td class="use">Centring destroys both the left edge of text and the digit alignment of numbers.</td></tr>
+</tbody>
+</table>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Price</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Views</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Wireless headphones</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">2 480 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">1 284</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Mechanical keyboard</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">1 850 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">642</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Vintage lamp</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">780 ₼</span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);">89</span>
+</div>
+</div></div><p class="ddt">Right-aligned figures share a decimal edge. Magnitude is visible before the number is read.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Price</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Views</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Wireless headphones</span>
+<span style="font-size:var(--font-size-300);"><span style="text-align:center;display:block">2 480 ₼</span></span>
+<span style="font-size:var(--font-size-300);"><span style="text-align:center;display:block">1 284</span></span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Mechanical keyboard</span>
+<span style="font-size:var(--font-size-300);"><span style="text-align:center;display:block">1 850 ₼</span></span>
+<span style="font-size:var(--font-size-300);"><span style="text-align:center;display:block">642</span></span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Vintage lamp</span>
+<span style="font-size:var(--font-size-300);"><span style="text-align:center;display:block">780 ₼</span></span>
+<span style="font-size:var(--font-size-300);"><span style="text-align:center;display:block">89</span></span>
+</div>
+</div></div><p class="ddt">Centred figures give the eye no shared edge. 780 and 1 284 look the same width.</p></div>
+</div>
+<div style="margin-top:var(--space-6)">
+<div class="rule"><b>Count</b><span>Five to seven columns on desktop. Past that, the least-used columns belong in an expandable row or the detail page.</span></div>
+<div class="rule"><b>Widths</b><span>Declared as grid tracks — <code>2.2fr</code> for the identity column, fixed <code>px</code> for status and actions.</span></div>
+<div class="rule"><b>Order</b><span>Identity, then the attribute the user came to compare, then supporting data, then actions.</span></div>
+</div>
+<div class="api">columns: { key, header, width?, align?, render? }[]  ·  density: comfortable | compact</div>
+</section>
+<section id="density">
+<h2>Density</h2>
+<div style="display:flex;flex-direction:column;gap:var(--space-6)">
+<div><div class="cap">Comfortable — 46px · default</div><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Status</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Price</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Wireless headphones</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">2 480 ₼</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Mechanical keyboard</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">1 850 ₼</span>
+</div>
+</div></div>
+<div><div class="cap">Compact — 38px · dashboards and long lists</div><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Status</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Price</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-3) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Wireless headphones</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">2 480 ₼</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-3) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Mechanical keyboard</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">1 850 ₼</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-3) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">35mm film camera</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-sunken);color:var(--text-secondary)">Sold</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">4 200 ₼</span>
+</div>
+</div></div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Comfortable</b><span><code>density="comfortable"</code> — the default, and required whenever rows carry thumbnails or two lines of text.</span></div>
+<div class="rule"><b>Compact</b><span><code>density="compact"</code> — twenty or more rows where the user scans rather than reads. 38px is the floor; below that the row stops being a reliable target even for a precise pointer.</span></div>
+<div class="rule"><b>Consistency</b><span>One density per view. Two tables of different densities on the same screen look like a bug.</span></div>
+</div>
+</section>
+<section id="selection">
+<h2>Selection</h2>
+<p class="doc-lead">Add a checkbox column only when a bulk action exists. A table where selection does nothing is a table with a permanently useless first column.</p>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:40px 2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;border:1px solid var(--border-strong);background:var(--surface-card)"></span></span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Status</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right;">Price</span>
+</div>
+<div style="display:grid;grid-template-columns:40px 2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);background:var(--surface-brand-subtle)">
+<span style="font-size:var(--font-size-300);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--color-primary);border:1px solid var(--color-primary)">✓</span></span>
+<span style="font-size:var(--font-size-300);">Wireless headphones · ANC</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">2 480 ₼</span>
+</div>
+<div style="display:grid;grid-template-columns:40px 2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);background:var(--surface-brand-subtle)">
+<span style="font-size:var(--font-size-300);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--color-primary);border:1px solid var(--color-primary)">✓</span></span>
+<span style="font-size:var(--font-size-300);">Mechanical keyboard 75%</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">1 850 ₼</span>
+</div>
+<div style="display:grid;grid-template-columns:40px 2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;border:1px solid var(--border-strong);background:var(--surface-card)"></span></span>
+<span style="font-size:var(--font-size-300);">35mm film camera</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-sunken);color:var(--text-secondary)">Sold</span></span>
+<span style="font-size:var(--font-size-300);text-align:right;font-variant-numeric:tabular-nums;">4 200 ₼</span>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Selected</b><span><code>--surface-brand-subtle</code> tint, never a fill. The row content must stay readable and keep its own hover on top.</span></div>
+<div class="rule"><b>Header box</b><span>Selects the current page only, and says so. "Select all 486" is a separate, explicit action.</span></div>
+<div class="rule"><b>Persistence</b><span>Selection survives sorting. It does not survive changing page or filter — silently acting on rows the user can no longer see is how bulk deletes go wrong.</span></div>
+</div>
+<div class="api">selectable, selected: string[], onSelect</div>
+</section>
+<section id="expandable-rows">
+<h2>Expandable rows</h2>
+<p class="doc-lead">Secondary detail that would otherwise force a ninth column. Only one row expands at a time, and the trigger is the chevron — not the row, which keeps its own click target.</p>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:32px 2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)"><span></span><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Listing</span><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Status</span><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right">Price</span></div>
+<div style="display:grid;grid-template-columns:32px 2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle)">
+<span style="color:var(--text-secondary);font-size:10px;transform:rotate(90deg)">▶</span>
+<span style="font-size:var(--font-size-300)">Wireless headphones · ANC</span><span><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">2 480 ₼</span>
+</div>
+<div style="padding:var(--space-5) var(--space-6) var(--space-6) calc(var(--space-6) + 32px + var(--space-5));background:var(--surface-sunken);border-top:1px solid var(--border-subtle);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
+<div><div style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px">SKU</div><div style="font-size:var(--font-size-300)">SIP-0084112</div></div><div><div style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px">Listed</div><div style="font-size:var(--font-size-300)">12 Mar 2026</div></div><div><div style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px">Watchers</div><div style="font-size:var(--font-size-300)">24</div></div><div><div style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px">Condition</div><div style="font-size:var(--font-size-300)">New · boxed</div></div><div><div style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px">Ships from</div><div style="font-size:var(--font-size-300)">Istanbul</div></div><div><div style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px">Returns</div><div style="font-size:var(--font-size-300)">14 days, free</div></div>
+</div>
+<div style="display:grid;grid-template-columns:32px 2fr 1fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle)">
+<span style="color:var(--text-secondary);font-size:10px">▶</span>
+<span style="font-size:var(--font-size-300)">Mechanical keyboard 75%</span><span><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">1 850 ₼</span>
+</div>
+</div>
+<div class="rule" style="margin-top:var(--space-5)"><b>Not for</b><span>Anything the user needs in order to compare rows. Detail that matters for comparison belongs in a column.</span></div>
+</section>
+<section id="sorting">
+<h2>Sorting</h2>
+<p class="doc-lead">Only sortable headers get a hover. A header that cannot be sorted must not change on hover — the user will click it, nothing will happen, and they will not trust the next header either.</p>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr 0.8fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);display:flex;align-items:center;gap:var(--space-2);cursor:pointer">Listing <svg fill="none" height="12" style="color:var(--text-tertiary);flex:0 0 12px;opacity:.6" viewbox="0 0 12 12" width="12"><path d="M4 5L6 3L8 5M4 7L6 9L8 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"></path></svg></span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Status</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);display:flex;align-items:center;justify-content:flex-end;gap:var(--space-2);cursor:pointer;color:var(--text-primary)">Price <svg fill="none" height="12" style="color:var(--color-primary);flex:0 0 12px;" viewbox="0 0 12 12" width="12"><path d="M6 2.5V9.5M6 2.5L3 5.5M6 2.5L9 5.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);display:flex;align-items:center;justify-content:flex-end;gap:var(--space-2);cursor:pointer;color:var(--text-secondary)">Views <svg fill="none" height="12" style="color:var(--text-tertiary);flex:0 0 12px;opacity:.6" viewbox="0 0 12 12" width="12"><path d="M4 5L6 3L8 5M4 7L6 9L8 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"></path></svg></span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle)"><span style="font-size:var(--font-size-300)">Vintage lamp</span><span><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">780 ₼</span><span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);font-size:var(--font-size-300)">89</span></div><div style="display:grid;grid-template-columns:2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle)"><span style="font-size:var(--font-size-300)">Mechanical keyboard 75%</span><span><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">1 850 ₼</span><span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);font-size:var(--font-size-300)">642</span></div><div style="display:grid;grid-template-columns:2fr 1fr 1fr 0.8fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle)"><span style="font-size:var(--font-size-300)">Wireless headphones · ANC</span><span><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">2 480 ₼</span><span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--text-secondary);font-size:var(--font-size-300)">1 284</span></div>
+</div>
+<table style="margin-top:var(--space-6)">
+<thead><tr><th style="width:150px">State</th><th>Appearance</th></tr></thead>
+<tbody>
+<tr><td class="tok">sortable</td><td class="use">Faint double chevron at 60% opacity. Signals the affordance without competing with the label.</td></tr>
+<tr><td class="tok">hover</td><td class="use">Header text darkens to <code>--text-secondary</code>, cursor pointer. No background change — the header row already has a fill.</td></tr>
+<tr><td class="tok">active</td><td class="use">Single arrow in <code>--color-primary</code>, header text <code>--text-primary</code>. Exactly one column at a time.</td></tr>
+<tr><td class="tok">not sortable</td><td class="use">No icon, no hover, no pointer.</td></tr>
+</tbody>
+</table>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Direction</b><span>First click gives the useful direction, not always ascending: descending for dates and counts, ascending for names and prices.</span></div>
+<div class="rule"><b>Single</b><span>One sort column. Multi-column sorting is invisible in the UI and nobody can predict its result.</span></div>
+<div class="rule"><b>Persistence</b><span>Sort survives pagination and lives in the URL, so a shared link shows the same table.</span></div>
+</div>
+</section>
+<section id="row-interaction">
+<h2>Row interaction</h2>
+<p class="doc-lead">Decide one thing per table: the row is a link, or the row holds controls. A row that is both produces clicks the user did not intend.</p>
+<table>
+<thead><tr><th style="width:170px">Pattern</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td class="tok">Row as link</td><td class="use">The whole row navigates. Cursor pointer, hover fill, and the identity cell is a real <code>&lt;a&gt;</code> so it can be middle-clicked.</td></tr>
+<tr><td class="tok">Row with actions</td><td class="use">The row does not navigate. Actions live in the last column; the identity cell carries the link.</td></tr>
+<tr><td class="tok">Inline edit</td><td class="use">Only for a single field, committed on blur, with an undo toast. Anything larger is a Drawer.</td></tr>
+</tbody>
+</table>
+<div class="rule" style="margin-top:var(--space-5)"><b>Nested controls</b><span>Any checkbox, menu or button inside a clickable row must stop propagation. Otherwise ticking a checkbox navigates away.</span></div>
+</section>
+<section id="bulk-actions">
+<h2>Bulk actions</h2>
+<p class="doc-lead">When rows are selected, the header row is replaced by an action bar in the same place. Nothing shifts, and the count is always visible.</p>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:flex;align-items:center;gap:var(--space-4);padding:var(--space-3) var(--space-6);background:var(--surface-brand-subtle);border-bottom:1px solid var(--color-primary-border)">
+<span style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">2 selected</span>
+<span style="display:flex;gap:var(--space-3);margin-left:var(--space-4)">
+<button class="btn btn--secondary" type="button">End listings</button>
+<button class="btn btn--secondary" type="button">Edit price</button>
+<button class="btn btn--ghost" type="button">Delete</button>
+</span>
+<span style="margin-left:auto;font-size:var(--font-size-200);color:var(--text-secondary);cursor:pointer">Clear selection</span>
+</div>
+<div style="display:grid;grid-template-columns:40px 2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);background:var(--surface-brand-subtle);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--color-primary);border:1px solid var(--color-primary)">✓</span><span style="font-size:var(--font-size-300)">Wireless headphones · ANC</span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">2 480 ₼</span></div><div style="display:grid;grid-template-columns:40px 2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);background:var(--surface-brand-subtle);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--color-primary);border:1px solid var(--color-primary)">✓</span><span style="font-size:var(--font-size-300)">Mechanical keyboard 75%</span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">1 850 ₼</span></div><div style="display:grid;grid-template-columns:40px 2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;border:1px solid var(--border-strong);background:var(--surface-card)"></span><span style="font-size:var(--font-size-300)">35mm film camera</span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">4 200 ₼</span></div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Count first</b><span>"2 selected" precedes the actions, so the scope of a destructive click is read before the button.</span></div>
+<div class="rule"><b>Destructive</b><span>Ghost danger in the bar, then a confirmation dialog that repeats the count: "Delete 2 listings?"</span></div>
+<div class="rule"><b>Escape</b><span>"Clear selection" is always present. Users select by accident more often than they select on purpose.</span></div>
+</div>
+</section>
+<section id="pagination-amp-scroll">
+<h2>Pagination &amp; scroll</h2>
+<div class="demo" style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap">
+<span style="font-size:var(--font-size-300);color:var(--text-secondary)">Showing <b style="color:var(--text-primary)">1–24</b> of 486</span>
+<span style="display:flex;align-items:center;gap:var(--space-2)">
+<span style="min-width:34px;height:34px;padding:0 var(--space-3);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:var(--font-size-300);font-weight:500;border:1px solid var(--border-default);">‹</span><span style="min-width:34px;height:34px;padding:0 var(--space-3);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:var(--font-size-300);font-weight:600;background:var(--color-primary);color:var(--color-on-primary);">1</span><span style="min-width:34px;height:34px;padding:0 var(--space-3);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:var(--font-size-300);font-weight:500;">2</span><span style="min-width:34px;height:34px;padding:0 var(--space-3);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:var(--font-size-300);font-weight:500;">3</span><span style="min-width:34px;height:34px;padding:0 var(--space-3);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:var(--font-size-300);font-weight:500;color:var(--text-tertiary);">…</span><span style="min-width:34px;height:34px;padding:0 var(--space-3);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:var(--font-size-300);font-weight:500;">21</span><span style="min-width:34px;height:34px;padding:0 var(--space-3);display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:var(--font-size-300);font-weight:500;border:1px solid var(--border-default);">›</span>
+</span>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Always paginate</b><span>Tables get pages, not infinite scroll. A total count tells the user the size of the job; a footer needs to be reachable.</span></div>
+<div class="rule"><b>Sticky header</b><span>The header row sticks while the body scrolls. Beyond about fifteen rows, column meaning is otherwise lost.</span></div>
+<div class="rule"><b>Horizontal</b><span>If columns must scroll sideways, pin the identity column. A scrolled row with no visible name is unreadable.</span></div>
+<div class="rule"><b>Page size</b><span>24 by default. Offer 50 and 100 only where users genuinely export or audit.</span></div>
+</div>
+</section>
+<section id="loading-empty-error">
+<h2>Loading, empty, error</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
+<div>
+<div class="cap">Loading</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-5);background:var(--surface-sunken)"><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Listing</span><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right">Price</span></div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-5);border-top:1px solid var(--border-subtle)"><span style="height:10px;width:80%;border-radius:2px;background:var(--neutral-10)"></span><span style="height:10px;width:60%;border-radius:2px;background:var(--neutral-10);margin-left:auto"></span></div><div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-5);border-top:1px solid var(--border-subtle)"><span style="height:10px;width:80%;border-radius:2px;background:var(--neutral-10)"></span><span style="height:10px;width:60%;border-radius:2px;background:var(--neutral-10);margin-left:auto"></span></div><div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-5);border-top:1px solid var(--border-subtle)"><span style="height:10px;width:80%;border-radius:2px;background:var(--neutral-10)"></span><span style="height:10px;width:60%;border-radius:2px;background:var(--neutral-10);margin-left:auto"></span></div>
+</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Skeleton rows matching the real column count, so the layout does not jump when data lands. Header stays real.</p>
+</div>
+<div>
+<div class="cap">Empty</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-5);background:var(--surface-sunken)"><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Listing</span><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right">Price</span></div>
+<div style="padding:var(--space-10) var(--space-5);text-align:center;border-top:1px solid var(--border-subtle)">
+<div style="font-size:var(--font-size-300);font-weight:600">No listings yet</div>
+<div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:var(--space-2)">Create one and it appears here</div>
+<div style="margin-top:var(--space-5)"><button class="btn btn--primary" type="button">Create listing</button></div>
+</div>
+</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Header stays so the shape of the data is visible. Two variants: nothing exists yet (offer creation) versus filters match nothing (offer to clear them).</p>
+</div>
+<div>
+<div class="cap">Error</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-5);background:var(--surface-sunken)"><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Listing</span><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right">Price</span></div>
+<div style="padding:var(--space-9) var(--space-5);text-align:center;border-top:1px solid var(--border-subtle)">
+<div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-danger)">Couldn't load listings</div>
+<div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:var(--space-2)">Check your connection and try again</div>
+<div style="margin-top:var(--space-5)"><button class="btn btn--secondary" type="button">Retry</button></div>
+</div>
+</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Inside the table, not a toast — the failure belongs where the missing data was expected. Retry is always offered.</p>
+</div>
+</div>
+<div class="rule" style="margin-top:var(--space-6)"><b>Missing cells</b><span>An em dash, in <code>--text-tertiary</code>. Never blank — a blank cell reads as a rendering bug — and never "N/A", which is longer and says less.</span></div>
+</section>
+<section id="small-screens">
+<h2>Small screens</h2>
+<p class="doc-lead">A five-column table does not fit a phone, and shrinking type is not an answer. Two legitimate approaches, chosen by whether comparison still matters.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo">
+<div class="cap">Stack — comparison secondary</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-3);max-width:260px">
+<div style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:var(--space-4)"><div style="font-size:var(--font-size-300);font-weight:500">Wireless headphones · ANC</div><div style="display:flex;align-items:center;justify-content:space-between;margin-top:var(--space-3)"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span><span style="font-size:var(--font-size-300);font-weight:700">2 480 ₼</span></div></div><div style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:var(--space-4)"><div style="font-size:var(--font-size-300);font-weight:500">Mechanical keyboard 75%</div><div style="display:flex;align-items:center;justify-content:space-between;margin-top:var(--space-3)"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span><span style="font-size:var(--font-size-300);font-weight:700">1 850 ₼</span></div></div>
+</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Each row becomes a card with a label-value layout. Lowest-priority columns are dropped, not shrunk.</p>
+</div>
+<div class="demo">
+<div class="cap">Pin + scroll — comparison essential</div>
+<div style="max-width:260px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:var(--radius-sm)">
+<div style="display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-4);padding:var(--space-3) var(--space-4);background:var(--surface-sunken)"><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Listing</span><span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right">Price →</span></div>
+<div style="display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-4);padding:var(--space-3) var(--space-4);border-top:1px solid var(--border-subtle);font-size:var(--font-size-200)"><span>Wireless head…</span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">2 480 ₼</span></div><div style="display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-4);padding:var(--space-3) var(--space-4);border-top:1px solid var(--border-subtle);font-size:var(--font-size-200)"><span>Mechanical ke…</span><span style="text-align:right;font-variant-numeric:tabular-nums;font-weight:600">1 850 ₼</span></div>
+</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Identity column pinned, the rest scrolls horizontally. Keeps the comparison the table exists for.</p>
+</div>
+</div>
+</section>
+<section id="best-practices">
+<h2>Best practices</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Status</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Wireless headphones</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-brand-subtle);color:var(--text-success)">Active</span></span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">35mm film camera</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-sunken);color:var(--text-secondary)">Sold</span></span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Leather backpack</span>
+<span style="font-size:var(--font-size-300);"><span style="font-size:var(--font-size-200);font-weight:600;line-height:1;padding:5px 10px;border-radius:var(--radius-xs);background:var(--surface-warning-subtle);color:var(--text-warning)">Draft</span></span>
+</div>
+</div></div><p class="ddt">Status as a Badge: shape and label carry the meaning, colour only reinforces it.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-6);background:var(--surface-sunken)">
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Listing</span>
+<span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);">Status</span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Wireless headphones</span>
+<span style="font-size:var(--font-size-300);"><span style="color:var(--text-success)">Active</span></span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">35mm film camera</span>
+<span style="font-size:var(--font-size-300);"><span style="color:var(--text-secondary)">Sold</span></span>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:var(--space-5);align-items:center;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-subtle);">
+<span style="font-size:var(--font-size-300);">Leather backpack</span>
+<span style="font-size:var(--font-size-300);"><span style="color:var(--text-warning)">Draft</span></span>
+</div>
+</div></div><p class="ddt">Coloured text alone. A red-green colour-blind user sees three identical words, and the column has no visible structure.</p></div>
+</div>
+<div style="margin-top:var(--space-7)">
+<div class="rule"><b>Truncate</b><span>One line with an ellipsis, full value in a <code>title</code>. Wrapping cells make every row a different height and destroy vertical scanning.</span></div>
+<div class="rule"><b>Units</b><span>In the header where possible ("Price (₼)"), not repeated in 24 rows.</span></div>
+<div class="rule"><b>Totals</b><span>A summary row is visually distinct and stays pinned to the bottom. It never sorts with the data.</span></div>
+<div class="rule"><b>Filters</b><span>Above the table, never inside the header row. A header that is both a label and a control is neither.</span></div>
+<div class="rule"><b>Row count</b><span>Below about five rows a table is usually a list. Above 500, it needs search before it needs pagination.</span></div>
+</div>
+</section>
+<section id="content">
+<h2>Content</h2>
+<table>
+<thead><tr><th style="width:150px">Part</th><th style="width:250px">Rule</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td class="tok">Header</td><td class="use">Noun, one or two words, no units repeated per cell.</td><td class="use">Price (₼)</td></tr>
+<tr><td class="tok">Identity cell</td><td class="use">The name the user recognises, not an ID.</td><td class="use">Wireless headphones · ANC</td></tr>
+<tr><td class="tok">Numbers</td><td class="use">Locale-formatted, consistent precision down the column.</td><td class="use">2 480 ₼ · 1 284</td></tr>
+<tr><td class="tok">Dates</td><td class="use">One format throughout. Relative only under 24 hours.</td><td class="use">12 Mar 2026 · 2 hours ago</td></tr>
+<tr><td class="tok">Empty cell</td><td class="use">Em dash in tertiary text.</td><td class="use">—</td></tr>
+<tr><td class="tok">Row count</td><td class="use">Range plus total, above the table.</td><td class="use">Showing 1–24 of 486</td></tr>
+</tbody>
+</table>
+</section>
+<section id="accessibility" style="padding-bottom:var(--space-13)">
+<h2>Accessibility</h2>
+<div class="rule"><b>Semantics</b><span>The component renders CSS grid for layout control, so it must carry <code>role="table"</code>, <code>role="row"</code>, <code>role="columnheader"</code> and <code>role="cell"</code>. Without them a grid table is a pile of divs to a screen reader.</span></div>
+<div class="rule"><b>Sort</b><span><code>aria-sort="ascending|descending|none"</code> on the active columnheader, and the header itself is a real <code>&lt;button&gt;</code>.</span></div>
+<div class="rule"><b>Selection</b><span><code>aria-selected</code> on the row plus a labelled checkbox — "Select Wireless headphones", never "Select row 2".</span></div>
+<div class="rule"><b>Announce</b><span>Row count changes go to a polite live region: "24 of 486 listings". Sorting and filtering are otherwise silent.</span></div>
+<div class="rule"><b>Keyboard</b><span>Tab reaches every interactive cell in reading order. Row actions are never hover-only — an action that appears on hover is invisible to keyboards and absent on touch.</span></div>
+<div class="rule"><b>Colour</b><span>Status never relies on colour alone. Selected rows carry a checked checkbox as well as the tint.</span></div>
+<div class="rule"><b>Targets</b><span>46px comfortable rows and 38px compact rows both clear WCAG 2.5.8. Checkboxes get the full row height as their label target.</span></div>
+</section>
+
+</div>
+<nav class="pagernav">
+<a href="../../components/side-nav/index.html"><span>Previous</span>SideNav</a>
+<a href="../../components/accordion/index.html" style="text-align:right"><span>Next</span>Accordion</a>
+</nav>
+</main>
+<aside class="toc" aria-label="On this page">
+<div class="toc__title">On this page</div>
+<a href="#examples">Examples</a>
+<a href="#when-to-use">When to use</a>
+<a href="#anatomy">Anatomy</a>
+<a href="#columns-amp-alignment">Columns &amp;amp; alignment</a>
+<a href="#density">Density</a>
+<a href="#selection">Selection</a>
+<a href="#expandable-rows">Expandable rows</a>
+<a href="#sorting">Sorting</a>
+<a href="#row-interaction">Row interaction</a>
+<a href="#bulk-actions">Bulk actions</a>
+<a href="#pagination-amp-scroll">Pagination &amp;amp; scroll</a>
+<a href="#loading-empty-error">Loading, empty, error</a>
+<a href="#small-screens">Small screens</a>
+<a href="#best-practices">Best practices</a>
+<a href="#content">Content</a>
+<a href="#accessibility">Accessibility</a>
+</aside>
+</div>
+
+<script src="../../interactive.js"></script>
+<script src="../../site.js"></script>
+</body>
+</html>

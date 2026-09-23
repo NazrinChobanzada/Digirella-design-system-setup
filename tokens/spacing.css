@@ -1,0 +1,22 @@
+/* 4px base grid. */
+:root {
+  --space-0: 0px;
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+  --space-11: 64px;
+  --space-12: 80px;
+  --space-13: 96px;
+
+  --layout-gutter: var(--space-7);
+  --layout-section: var(--space-11);
+  --layout-max-width: 1280px;
+  --layout-content-width: 720px;
+}

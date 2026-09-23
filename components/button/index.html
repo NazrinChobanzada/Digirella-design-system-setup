@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Button — Digirella</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../interactive.css">
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body class="ix">
+<header class="masthead">
+  <div class="masthead__inner">
+    <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
+    <a class="masthead__brand" href="../../index.html">digirella</a>
+    <span class="masthead__tag">Design system</span>
+    <span class="masthead__spacer"></span>
+    <span class="masthead__meta">v1.0 · primary #006A09</span>
+  </div>
+</header>
+
+<div class="frame">
+<nav class="sidenav" id="sidenav" aria-label="Sections">
+<div class="sidenav__section">
+<div class="sidenav__title">Foundations</div>
+<a href="../../foundations/architecture/index.html" data-status="migrated"><span>Architecture</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/palette/index.html" data-status="migrated"><span>Palette</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/semantic-colour/index.html" data-status="migrated"><span>Semantic colour</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/typography/index.html" data-status="ready"><span>Typography</span><span class="flag">New</span></a>
+<a href="../../foundations/spacing/index.html" data-status="migrated"><span>Spacing</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/shape/index.html" data-status="migrated"><span>Shape &amp; border</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/elevation/index.html" data-status="migrated"><span>Elevation</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/motion/index.html" data-status="migrated"><span>Motion</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/colour-accessibility/index.html" data-status="migrated"><span>Colour accessibility</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/interaction-states/index.html" data-status="migrated"><span>Interaction states</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Components</div>
+<div class="sidenav__group">Core</div>
+<a href="../../components/button/index.html" aria-current="page" data-status="ready"><span>Button</span><span class="flag">New</span></a>
+<a href="../../components/icon-button/index.html" data-status="migrated"><span>IconButton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/card/index.html" data-status="migrated"><span>Card</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/badge/index.html" data-status="migrated"><span>Badge</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tag/index.html" data-status="migrated"><span>Tag</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Forms</div>
+<a href="../../components/input/index.html" data-status="ready"><span>Text input <span style="color:var(--text-tertiary);font-weight:400">· Textarea</span></span><span class="flag">New</span></a>
+<a href="../../components/formatted-input/index.html" data-status="ready"><span>Formatted input</span><span class="flag">New</span></a>
+<a href="../../components/number-input/index.html" data-status="ready"><span>Number input <span style="color:var(--text-tertiary);font-weight:400">· QuantityStepper · Slider</span></span><span class="flag">New</span></a>
+<a href="../../components/date-picker/index.html" data-status="planned"><span>DatePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/time-picker/index.html" data-status="planned"><span>TimePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/select/index.html" data-status="migrated"><span>Select</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/combobox/index.html" data-status="migrated"><span>Combobox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/multiselect/index.html" data-status="migrated"><span>MultiSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/treeselect/index.html" data-status="migrated"><span>TreeSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/checkbox/index.html" data-status="migrated"><span>Checkbox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/radio/index.html" data-status="migrated"><span>Radio</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/switch/index.html" data-status="migrated"><span>Switch</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/search/index.html" data-status="planned"><span>Search</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/file-upload/index.html" data-status="planned"><span>FileUpload</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Navigation</div>
+<a href="../../components/tabs/index.html" data-status="migrated"><span>Tabs</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/segmented-control/index.html" data-status="migrated"><span>SegmentedControl</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/pagination/index.html" data-status="migrated"><span>Pagination</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/breadcrumb/index.html" data-status="migrated"><span>Breadcrumb</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/steps/index.html" data-status="migrated"><span>Steps</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/side-nav/index.html" data-status="planned"><span>SideNav</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Data</div>
+<a href="../../components/table/index.html" data-status="migrated"><span>Table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/accordion/index.html" data-status="ready"><span>Accordion</span><span class="flag">New</span></a>
+<a href="../../components/avatar/index.html" data-status="migrated"><span>Avatar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/rating/index.html" data-status="migrated"><span>Rating</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/progress-bar/index.html" data-status="migrated"><span>ProgressBar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/skeleton/index.html" data-status="migrated"><span>Skeleton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/divider/index.html" data-status="planned"><span>Divider</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Feedback</div>
+<a href="../../components/dialog/index.html" data-status="migrated"><span>Dialog <span style="color:var(--text-tertiary);font-weight:400">· Modal</span></span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/alert/index.html" data-status="migrated"><span>Alert</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/toast/index.html" data-status="migrated"><span>Toast</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tooltip/index.html" data-status="migrated"><span>Tooltip</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Overlays</div>
+<a href="../../components/drawer/index.html" data-status="migrated"><span>Drawer</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/popover/index.html" data-status="migrated"><span>Popover</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/menu/index.html" data-status="migrated"><span>Menu</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Patterns</div>
+<a href="../../patterns/page-header/index.html" data-status="migrated"><span>Page header</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/product-grid/index.html" data-status="migrated"><span>Product card grid</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/filter-bar/index.html" data-status="migrated"><span>Filter bar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/form-layout/index.html" data-status="migrated"><span>Form layout</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/order-summary/index.html" data-status="migrated"><span>Order summary</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/data-table/index.html" data-status="migrated"><span>Data table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/empty-state/index.html" data-status="migrated"><span>Empty state</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/status-messaging/index.html" data-status="migrated"><span>Status messaging</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/loading-states/index.html" data-status="planned"><span>Loading states</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/page-layout/index.html" data-status="planned"><span>Page layout</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/destructive-actions/index.html" data-status="planned"><span>Destructive actions</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+</div>
+</nav>
+<main>
+<div class="page__eyebrow">Components</div><h1 class="page__title">Button <span class="flag flag--lg">New</span></h1><p class="page__lede">Buttons start an action. The label says what will happen when someone presses it.</p>
+<div class="doc">
+
+
+<section id="overview">
+<h2>Overview</h2>
+<p>Buttons let people act on the page. Because they carry the most visual weight of any control, their hierarchy is what tells someone where to go next — which is why the system allows one primary button per screen and pushes everything else down a level.</p>
+<div class="demo">
+  <button type="button" class="btn btn--primary">Buy now</button>
+  <button type="button" class="btn btn--secondary">Add to cart</button>
+</div>
+<p class="caption">Every example on this page is the real component. Hover it, press it, tab to it.</p>
+</section>
+
+<div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div><section id="principles" data-part="Guidelines">
+<h2>Principles</h2>
+<p>Four ideas explain most of the decisions on this page.</p>
+<h3>One action should look like the answer</h3>
+<p>A screen with two equally weighted buttons asks a question instead of offering a path. One primary per screen is not a style rule — it is what makes the page readable at a glance, and it holds inside dialogs and drawers too.</p>
+<h3>Weight follows frequency, not value</h3>
+<p>The most common action gets the most weight, even when a rarer one is worth more to the business. A checkout that shouts about its upsell and whispers "Continue" costs more than it earns.</p>
+<h3>The label is the interface</h3>
+<p>People read buttons before they read anything around them. A label that names its object — "Delete listing" — completes the sentence on its own; one that says "OK" sends the reader back to the paragraph above to find out what they are agreeing to.</p>
+<h3>Never dead-end someone</h3>
+<p>A button that cannot be pressed and does not say why is a wall. Either explain what would enable it, or leave it enabled and explain the problem after the press — the second is usually better, because it lets people find out by trying.</p><p>Two or three related actions can sit together. Beyond three, move the extras into a menu — a row of five buttons makes the important one harder to find, not easier.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <button type="button" class="btn btn--primary">Publish</button>
+    <button type="button" class="btn btn--ghost">Save draft</button>
+    <button type="button" class="btn btn--ghost">Preview</button>
+  </div><div class="dodont__note"><b>Do</b> keep one action prominent and let the rest recede.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <button type="button" class="btn btn--secondary">Publish</button>
+    <button type="button" class="btn btn--secondary">Save</button>
+    <button type="button" class="btn btn--secondary">Preview</button>
+    <button type="button" class="btn btn--secondary">Share</button>
+  </div><div class="dodont__note"><b>Don't</b> line up four equal-weight buttons with no hierarchy.</div></div>
+</div>
+</section>
+
+<section id="when-not-to-use-a-button">
+<h2>When not to use a button</h2>
+<p>Use a button when pressing it <strong>does</strong> something: submits a form, opens a dialog, adds to a cart, deletes a listing. One primary button per screen, and everything else at a lower emphasis.</p><p>Don't use a button to move someone to another page — that's a link. If the action changes the address bar and can be opened in a new tab, it's navigation, and it should be marked up as <code>&lt;a&gt;</code>. Styling a link like a button is fine when it's a call to action; using a <code>&lt;button&gt;</code> for navigation is not, because it breaks middle-click, right-click, and screen reader expectations.</p>
+
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <button type="button" class="btn btn--primary">Place order</button>
+    <button type="button" class="btn btn--ghost">Cancel</button>
+  </div><div class="dodont__note"><b>Do</b> pair one primary action with a lower-emphasis escape.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <button type="button" class="btn btn--primary">Place order</button>
+    <button type="button" class="btn btn--primary">Save for later</button>
+  </div><div class="dodont__note"><b>Don't</b> put two primary buttons side by side — neither one wins.</div></div>
+</div>
+</section>
+
+<div class="part" id="part-variants-and-style"><h2 class="part__title">Variants and style</h2></div><section id="anatomy" data-part="Variants and style">
+<h2>Anatomy</h2>
+<div class="demo anatomy">
+  <button type="button" class="btn btn--primary btn--lg"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg></span>Add to cart</button>
+  <ul class="anatomy__key">
+    <li><b>1</b> Container — sets the variant colour and the 4px control radius.</li>
+    <li><b>2</b> Icon — optional, 16px, always to the left of the label.</li>
+    <li><b>3</b> Label — names the action, centred.</li>
+  </ul>
+</div>
+<p>Unlike some systems, Digirella centres the label rather than left-aligning it. Buttons here are sized to their content instead of running full width, so centring reads as intentional rather than lopsided.</p>
+
+<h3>Icons</h3>
+<p>Any variant can carry an icon. It sits to the left of the label at 16px, separated by <code>--space-3</code>, and inherits <code>currentColor</code> — so no variant needs its own icon rule, and the icon changes colour with the button through every state.</p>
+<div class="demo">
+  <button type="button" class="btn btn--primary"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg></span>Add to cart</button>
+  <button type="button" class="btn btn--secondary"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>Create listing</button>
+  <button type="button" class="btn btn--tertiary"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></span>Back</button>
+  <button type="button" class="btn btn--ghost"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>Add photo</button>
+  <button type="button" class="btn btn--danger"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></span>Delete listing</button>
+</div>
+<div class="demo">
+  <button type="button" class="btn btn--primary btn--sm"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg></span>Small</button>
+  <button type="button" class="btn btn--primary btn--md"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg></span>Medium</button>
+  <button type="button" class="btn btn--primary btn--lg"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg></span>Large</button>
+</div>
+<p class="caption">The icon scales with the size step — 14, 16 and 18px — so the optical weight against the label stays constant.</p>
+<p>The icon is decorative: it takes <code>aria-hidden="true"</code> and the label carries the meaning. An icon that needs to be understood on its own belongs on an icon-only button, which has an <code>aria-label</code> instead.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <button type="button" class="btn btn--primary"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg></span>Add to cart</button>
+  </div><div class="dodont__note">One icon, on the left, reinforcing the label.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <button type="button" class="btn btn--primary"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12h11.2L21 7H6"/></svg></span>Add to cart<span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+  </div><div class="dodont__note">Icons on both sides give the eye two places to start.</div></div>
+</div>
+</section>
+
+<section id="variants">
+<h2>Variants</h2>
+<p>Each variant has a job. The decision is always the same two questions: does this action need brand weight, and does its container need to be visible?</p>
+<table>
+<thead><tr><th style="width:88px">Variant</th><th style="width:150px">Example</th><th>Use for</th><th>Don't use for</th></tr></thead>
+<tbody><tr><td>Primary</td><td><button type="button" class="btn btn--primary">Buy now</button></td><td class="use">The single most important action — submit, confirm, continue, buy. Once per screen, and once more inside any dialog or drawer.</td><td class="use">A second primary anywhere on the same screen. Destructive actions. Low-stakes actions like “Preview”.</td></tr><tr><td>Secondary</td><td><button type="button" class="btn btn--secondary">Add to cart</button></td><td class="use">A second action that still deserves brand weight — the step taken <em>before</em> the primary one, like “Search” beside “Save”.</td><td class="use">“Cancel” or “Back”, which are exits rather than choices. More than twice on a screen. Tinted backgrounds, where the border loses its 3:1.</td></tr><tr><td>Tertiary</td><td><button type="button" class="btn btn--tertiary">Back</button></td><td class="use">Supporting actions that need a visible container but no brand weight — “Back”, “Export”, toolbar actions of equal low importance.</td><td class="use">The only button on a screen. Long lists, where stacked borders become noise.</td></tr><tr><td>Ghost</td><td><button type="button" class="btn btn--ghost">Cancel</button></td><td class="use">Dismissals and cancels, and repeated actions in dense rows where a container would add weight to the thing you least want pressed.</td><td class="use">The primary action — it will be missed. Busy backgrounds where the label drops below 4.5:1.</td></tr><tr><td>Danger</td><td><button type="button" class="btn btn--danger">Delete listing</button></td><td class="use">Irreversible or costly actions, always as the confirming button inside a confirmation dialog.</td><td class="use">The trigger that <em>opens</em> the confirmation — that one is a normal button. Actions that are merely unusual. More than once per screen.</td></tr><tr><td>Icon-only</td><td><button type="button" class="iconbtn iconbtn--secondary" aria-label="Add to favourites"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/></svg></button></td>
+<td class="use">Dense contexts where a label will not fit, and actions whose icon is genuinely universal. Takes the same ladder as the labelled button.</td>
+<td class="use">The primary action on a screen. Icons that need a tooltip to be understood. Destructive actions standing alone.</td></tr></tbody>
+</table>
+
+<h3>Icon-only</h3>
+<p>A circular button carrying an icon and nothing else. It takes the <strong>same ladder as the labelled button</strong> — primary, secondary, tertiary, ghost, danger — so a circular action can carry brand weight or a destructive warning rather than always reading as neutral.</p>
+<div class="demo">
+  <button type="button" class="iconbtn iconbtn--primary" aria-label="Add"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+  <button type="button" class="iconbtn iconbtn--secondary" aria-label="Add to favourites"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/></svg></button>
+  <button type="button" class="iconbtn iconbtn--tertiary" aria-label="Share"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7h16v-7M12 3v13M8 7l4-4 4 4"/></svg></button>
+  <button type="button" class="iconbtn iconbtn--ghost" aria-label="Share"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7h16v-7M12 3v13M8 7l4-4 4 4"/></svg></button>
+  <button type="button" class="iconbtn iconbtn--danger" aria-label="Delete"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button>
+</div>
+<div class="demo demo--stack">
+  <div class="cap" style="margin-top:0">Sizes</div>
+  <div style="display:flex;gap:var(--space-5);align-items:center;flex-wrap:wrap">
+    <button type="button" class="iconbtn iconbtn--secondary iconbtn--sm" aria-label="Add, small"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button type="button" class="iconbtn iconbtn--secondary" aria-label="Add, medium"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button type="button" class="iconbtn iconbtn--secondary iconbtn--lg" aria-label="Add, large"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+  </div>
+  <div class="cap">Disabled</div>
+  <div style="display:flex;gap:var(--space-5);align-items:center;flex-wrap:wrap">
+    <button type="button" class="iconbtn iconbtn--primary" aria-label="Add" disabled><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button type="button" class="iconbtn iconbtn--secondary" aria-label="Favourite" disabled><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/></svg></button>
+    <button type="button" class="iconbtn iconbtn--tertiary" aria-label="Share" disabled><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7h16v-7M12 3v13M8 7l4-4 4 4"/></svg></button>
+    <button type="button" class="iconbtn iconbtn--ghost" aria-label="Share" disabled><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7h16v-7M12 3v13M8 7l4-4 4 4"/></svg></button>
+    <button type="button" class="iconbtn iconbtn--danger" aria-label="Delete" disabled><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button>
+  </div>
+</div>
+<p class="caption">The glyph keeps its size when disabled — only the colour drains. An icon that shrinks reads as a rendering fault rather than a state.</p>
+<p>It always needs an <code>aria-label</code>. Pair one with a tooltip when the meaning is not certain, and make the tooltip text identical to the label — differing text breaks voice control.</p>
+
+<h3>Tokens</h3>
+<p>The variant and its colours are the same decision, so they live together. Nothing here is hardcoded.</p>
+<table>
+<thead><tr><th>Variant</th><th>Rest</th><th>Hover</th><th>Active</th><th>Label</th></tr></thead>
+<tbody>
+<tr><td>Primary</td><td><code>--color-primary</code></td><td><code>--color-primary-hover</code></td><td><code>--color-primary-active</code></td><td><code>--color-on-primary</code></td></tr>
+<tr><td>Secondary</td><td><code>--surface-card</code></td><td><code>--surface-brand-subtle</code></td><td><code>--green-10</code></td><td><code>--color-primary</code></td></tr>
+<tr><td>Tertiary</td><td><code>--surface-card</code></td><td><code>--surface-hover</code></td><td><code>--surface-active</code></td><td><code>--text-primary</code></td></tr>
+<tr><td>Ghost</td><td>transparent</td><td><code>--surface-hover</code></td><td><code>--surface-active</code></td><td><code>--text-primary</code></td></tr>
+<tr><td>Danger</td><td><code>--status-danger</code></td><td><code>--red-60</code></td><td><code>--red-60</code></td><td><code>--text-inverse</code></td></tr>
+</tbody>
+</table>
+<p>Secondary carries a <code>--color-primary</code> border and tertiary a <code>--border-strong</code> one. Primary and danger rely on their fill, which is why ghost needs adjacent content to sit against.</p>
+<table>
+<thead><tr><th>Container</th><th>Against card</th><th>1.4.11</th></tr></thead>
+<tbody>
+<tr><td>Secondary border</td><td>6.85:1</td><td>Passes with room</td></tr>
+<tr><td>Tertiary border</td><td>3.12:1</td><td>Passes</td></tr>
+<tr><td>Disabled border</td><td>3.12:1</td><td>Passes</td></tr>
+</tbody>
+</table>
+
+<h3>Type</h3>
+<p>Labels are 14/20 at weight 500 — <code>--type-button-size</code> and <code>--type-button-weight</code>. Medium rather than semibold: at 14px, 600 reads heavier than the surrounding interface, and 500 is already enough to separate an action from a sentence. Labels are never uppercase.</p>
+
+<h3>Focus ring</h3>
+<p>Two rings. Every variant uses <code>--focus-ring</code> — 2px of <code>--color-primary</code> at 2px offset — except danger, which rings in <code>--border-danger</code>. A destructive control that turns brand-green at the moment of keyboard focus is throwing away its warning exactly when someone is about to press Enter.</p>
+<div class="demo demo--sunken">
+  <button type="button" class="btn btn--primary" style="box-shadow:var(--focus-ring)">Primary</button>
+  <button type="button" class="btn btn--secondary" style="box-shadow:var(--focus-ring)">Secondary</button>
+  <button type="button" class="btn btn--danger" style="box-shadow:0 0 0 2px var(--surface-card),0 0 0 4px var(--border-danger)">Danger</button>
+</div>
+</section>
+
+<section id="size-and-spacing">
+<h2>Size and spacing</h2>
+<table>
+<thead><tr><th>Size</th><th>Height</th><th>Use case</th></tr></thead>
+<tbody>
+<tr><td>Small</td><td>30px</td><td>Inside table rows, cards, and toolbars where vertical space is tight.</td></tr>
+<tr><td>Medium</td><td>40px</td><td>The default. Pairs with the 38px form field height.</td></tr>
+<tr><td>Large</td><td>50px</td><td>Hero calls to action and the final step of a checkout flow.</td></tr>
+</tbody>
+</table>
+<div class="demo">
+  <button type="button" class="btn btn--primary btn--sm">Small</button>
+  <button type="button" class="btn btn--primary btn--md">Medium</button>
+  <button type="button" class="btn btn--primary btn--lg">Large</button>
+</div>
+<p>Don't mix sizes inside one group. If a row of buttons needs different weights, change the variant, not the height.</p><h3>Spacing</h3><table>
+<thead><tr><th>Size</th><th>Height</th><th>Padding</th><th>Type</th></tr></thead>
+<tbody>
+<tr><td>Small</td><td>30px</td><td>6px / 14px</td><td><code>--font-size-200</code></td></tr>
+<tr><td>Medium</td><td>40px</td><td>10px / 20px</td><td><code>--font-size-300</code></td></tr>
+<tr><td>Large</td><td>50px</td><td>14px / 28px</td><td><code>--font-size-400</code></td></tr>
+</tbody>
+</table>
+<p>The gap between a label and its icon is <code>--space-3</code>. Buttons sitting side by side are separated by <code>--space-3</code> in a tight group and <code>--space-5</code> when they belong to different tasks.</p><h3>Alignment</h3><table>
+<thead><tr><th>Alignment</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td>Left</td><td>Full-page forms and in-page calls to action, where reading order carries down the left edge.</td></tr>
+<tr><td>Right</td><td>Dialogs, drawers, and stepped flows — the primary action sits furthest right, at the end of the flow.</td></tr>
+<tr><td>Full width</td><td>Drawers and narrow cards under about 400px, where a content-width button would look stranded.</td></tr>
+</tbody>
+</table>
+<h3>Hierarchy in a group</h3>
+<p>The label order does not have to match the emphasis order. A screen with several actions is usually clearer with one primary and several ghost buttons than with a primary, a secondary and a tertiary all competing. Establish the hierarchy first, then pick variants to express it.</p>
+</section>
+
+<section id="labels">
+<h2>Labels</h2>
+<p>Two rules hold in any language: <strong>name the action</strong>, and <strong>keep it short</strong>. "Sepete əlavə et" and "Add to cart" are the same instruction; "OK" and "Bəli" are the same failure, because both make someone re-read the surrounding text to work out what they are agreeing to.</p>
+<p>Three words is the working limit in English. Agglutinative languages run longer for the same meaning, so judge by rendered width rather than word count — if the label wraps to a second line, it is doing the job of the surrounding copy.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <button type="button" class="btn btn--danger">Delete listing</button>
+  </div><div class="dodont__note">Name the object so the action stands on its own.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <button type="button" class="btn btn--danger">OK</button>
+  </div><div class="dodont__note">A bare confirmation says nothing about the consequence.</div></div>
+</div>
+<div class="callout"><div><b>Casing and word order are language decisions, not system decisions.</b> The English rules here — sentence case, verb before object — do not transfer. Turkish and Azerbaijani put the verb last, and capitalisation conventions differ. Set those rules once per locale in your content guidelines; the system only asks that labels are specific and short.</div></div>
+<p>Long labels wrap rather than truncate. A clipped label is unreadable; a wrapped one is merely tall.</p>
+</section>
+
+<div class="part" id="part-behaviour"><h2 class="part__title">Behaviour</h2></div><section id="states" data-part="Behaviour">
+<h2>States</h2>
+<p>Five states, all reachable in the demo above. Hover darkens by one step; press darkens again with no scaling; focus draws a 2px ring at 2px offset; disabled drops to a neutral ground with a <code>not-allowed</code> cursor.</p>
+<div class="demo">
+  <button type="button" class="btn btn--primary">Rest</button>
+  <button type="button" class="btn btn--primary" style="background:var(--color-primary-hover)">Hover</button>
+  <button type="button" class="btn btn--primary" style="background:var(--color-primary-active)">Pressed</button>
+  <button type="button" class="btn btn--primary" style="box-shadow:var(--focus-ring)">Focused</button>
+  <button type="button" class="btn btn--primary" disabled>Disabled</button>
+</div>
+<p class="caption">The middle three are painted swatches showing the target colours — the live buttons either side of them react for real.</p><h3>Interaction</h3><p>A press anywhere inside the container triggers the button. From the keyboard, <code>Enter</code> and <code>Space</code> both activate it, and the focus ring appears only for keyboard users because the system uses <code>:focus-visible</code>.</p>
+</section>
+
+<section id="disabled">
+<h2>Disabled</h2>
+<p>Disabled is a <strong>state</strong>, not a variant — and each variant keeps both its construction and a faint trace of its own colour. Primary fades to <code>--green-05</code>, danger to <code>--red-05</code>, secondary keeps a pale green border, tertiary a neutral one, and ghost stays bare. Five variants stay five looks, so someone looking at a form they cannot submit can still tell which control was the primary action and which were the alternatives.</p>
+<div class="demo demo--stack">
+  <div class="cap" style="margin-top:0">Enabled</div>
+  <div style="display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:center">
+    <button type="button" class="btn btn--primary">Primary</button>
+    <button type="button" class="btn btn--secondary">Secondary</button>
+    <button type="button" class="btn btn--tertiary">Tertiary</button>
+    <button type="button" class="btn btn--ghost">Ghost</button>
+    <button type="button" class="btn btn--danger">Danger</button>
+  </div>
+  <div class="cap">Disabled</div>
+  <div style="display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:center">
+    <button type="button" class="btn btn--primary" disabled>Primary</button>
+    <button type="button" class="btn btn--secondary" disabled>Secondary</button>
+    <button type="button" class="btn btn--tertiary" disabled>Tertiary</button>
+    <button type="button" class="btn btn--ghost" disabled>Ghost</button>
+    <button type="button" class="btn btn--danger" disabled>Danger</button>
+    <button type="button" class="iconbtn iconbtn--outline" aria-label="Add" disabled>+</button>
+  </div>
+</div>
+<p class="caption">Compare with the enabled row in Variants — the shapes line up, the colour drains.</p>
+<p>Labels stay at or above 4.17:1. WCAG exempts inactive controls from the contrast thresholds, so most systems let disabled buttons fall to around 2:1 — legible only if you already know what they say. Ours stays readable on purpose: someone has to be able to read the thing they cannot press in order to work out why. The faded borders <em>do</em> sit below 3:1, and that is deliberate — the container should read as off.</p>
+<h3>disabled or aria-disabled</h3>
+<p>The <code>disabled</code> attribute removes the button from the tab order entirely, which is right when the control is irrelevant. When the control is relevant but not yet available — a submit button waiting on a required field — prefer <code>aria-disabled="true"</code>: it keeps the button focusable and announced, so someone navigating by keyboard can find it and read why it is blocked. Both render identically here.</p>
+<div class="callout"><div><b>A disabled button with no reason next to it is a dead end.</b> If someone can't press it, say what would make it pressable — "Add at least one photo to publish" — in helper text nearby. Otherwise leave it enabled and explain the problem after the press, which is usually the better pattern.</div></div>
+</section>
+
+<section id="loading">
+<h2>Loading</h2>
+<p>A loading button is <strong>busy</strong>, not unavailable — so it keeps its variant colour and its label, and adds a spinner. Greying it out would say "you can't do this", when the truth is "it's already happening", and it discards the hierarchy at the exact moment someone is watching for a result.</p>
+<div class="demo">
+  <button type="button" class="btn btn--primary" data-loading="true" aria-busy="true"><span class="spinner" aria-hidden="true"></span>Placing order</button>
+  <button type="button" class="btn btn--secondary" data-loading="true" aria-busy="true"><span class="spinner" aria-hidden="true"></span>Saving</button>
+  <button type="button" class="btn btn--tertiary" data-loading="true" aria-busy="true"><span class="spinner" aria-hidden="true"></span>Exporting</button>
+  <button type="button" class="btn btn--danger" data-loading="true" aria-busy="true"><span class="spinner" aria-hidden="true"></span>Deleting</button>
+  <button type="button" class="iconbtn iconbtn--outline" data-loading="true" aria-busy="true" aria-label="Refreshing"><span class="spinner" aria-hidden="true"></span></button>
+</div>
+<p class="caption">Each button keeps its own colour while busy. Add a <code>&lt;span class="spinner"&gt;</code> before the label and set <code>data-loading="true"</code> with <code>aria-busy="true"</code>. The spinner inherits <code>currentColor</code>, so it needs no per-variant rule.</p>
+<table>
+<thead><tr><th></th><th>Loading</th><th>Disabled</th></tr></thead>
+<tbody>
+<tr><td>Means</td><td class="use">The action is running</td><td class="use">The action is unavailable</td></tr>
+<tr><td>Colour</td><td class="use">Keeps the variant</td><td class="use">Drains to neutral</td></tr>
+<tr><td>Focus</td><td class="use">Stays focusable</td><td class="use">Skipped, unless <code>aria-disabled</code></td></tr>
+<tr><td>Announced as</td><td class="use"><code>aria-busy="true"</code></td><td class="use"><code>disabled</code></td></tr>
+<tr><td>Resolves</td><td class="use">On its own</td><td class="use">Only when a condition changes</td></tr>
+</tbody>
+</table>
+<p>Trigger it past about 400ms — below that the spinner flashes and reads as a glitch. Keep the width fixed while loading so the row does not reflow, and change the label to the running form of the action: "Place order" becomes "Placing order". When it finishes, announce the result somewhere with <code>role="status"</code>; the button reports that it was pressed, not what happened next.</p>
+</section>
+
+<section id="motion">
+<h2>Motion</h2>
+<p>Buttons use <code>--transition-interactive</code>, which is 140ms on <code>--ease-standard</code>, applied to background, border and colour. Nothing else animates — no scaling on press, no shadow bloom on hover.</p>
+<p>Under <code>prefers-reduced-motion</code>, transitions drop to 1ms rather than being removed, so the state change still registers as a change.</p>
+</section>
+
+<section id="accessibility">
+<h2>Accessibility</h2>
+<p>The criteria below are the ones a button can actually fail. Items marked <span class="risk">high risk</span> are the ones that come up most often in review.</p>
+
+<div class="wcag">
+<div class="wcag__group"><h3>Every button</h3>
+<p>Most of this comes free from a native <code>&lt;button&gt;</code> and has to be rebuilt by hand on anything else.</p>
+<ul class="wcag__list"><li><span class="sc">2.1.1</span><span>Operable with Enter and Space, and reachable by Tab.</span></li><li><span class="sc" data-risk="high">2.5.3</span><span>The accessible name contains the visible label word for word. An <code>aria-label</code> that paraphrases breaks voice control. <span class="risk">high risk</span></span></li><li><span class="sc" data-risk="high">1.4.11</span><span>The container reaches 3:1 against the page. Secondary sits at 6.85:1, tertiary at 3.12:1. <span class="risk">high risk</span></span></li><li><span class="sc">2.4.7</span><span>A visible focus indicator, 2px at 2px offset, on every variant.</span></li><li><span class="sc">2.5.8</span><span>At least 24 × 24px. Ours are 30, 40 and 50px tall.</span></li><li><span class="sc">2.5.2</span><span>Activation fires on pointer-up, so dragging off before release cancels it.</span></li><li><span class="sc" data-risk="high">1.4.1</span><span>Loading and destructive states are not signalled by colour alone. This also drives the ghost rule below. <span class="risk">high risk</span></span></li><li><span class="sc">1.4.3</span><span>Labels reach 4.5:1 in every variant, including on hover and active fills.</span></li><li><span class="sc">4.1.2</span><span>Name, role and value are programmatically determined, and changes are announced.</span></li></ul></div>
+
+<div class="wcag__group"><h3>Icon-only</h3>
+<p>The classic silent failure: visually obvious, invisible to a screen reader.</p>
+<ul class="wcag__list"><li><span class="sc" data-risk="high">1.1.1</span><span>A required <code>aria-label</code>. The icon supplies no name of its own. <span class="risk">high risk</span></span></li><li><span class="sc" data-risk="high">2.5.8</span><span>Hit area padded to 24px even when the glyph is 16px. <span class="risk">high risk</span></span></li><li><span class="sc">2.5.3</span><span>If a tooltip shows a label, that same text is the accessible name.</span></li><li><span class="sc">4.1.2</span><span>Toggle icon buttons expose <code>aria-pressed</code>, not just a colour change.</span></li></ul></div>
+<div class="wcag__group"><h3>Zoom, reflow and text spacing</h3>
+<p>The criteria a button passes at design time and fails the moment someone changes their own settings.</p>
+<ul class="wcag__list"><li><span class="sc">1.4.4</span><span>Text resizes to 200% without the label being clipped or the button losing its action.</span></li><li><span class="sc">1.4.10</span><span>No horizontal scrolling at 320px. Button groups wrap rather than overflow.</span></li><li><span class="sc" data-risk="high">1.4.12</span><span>No fixed height. The button grows when the reader increases line height, letter spacing or word spacing. <span class="risk">high risk</span></span></li><li><span class="sc">1.4.11</span><span>Focus rings survive at 200% zoom without being clipped by an ancestor with <code>overflow: hidden</code>.</span></li></ul></div>
+
+<div class="wcag__group"><h3>Links styled as buttons</h3>
+<p>An anchor that looks like a button is still an anchor, and inherits an anchor's rules.</p>
+<ul class="wcag__list"><li><span class="sc" data-risk="high">2.1.1</span><span>No <code>role="button"</code> on an anchor — it promises Space activation that anchors do not deliver. <span class="risk">high risk</span></span></li><li><span class="sc">2.4.4</span><span>The link text describes the destination on its own.</span></li><li><span class="sc">4.1.2</span><span>A link opening a new tab announces it in its accessible name.</span></li><li><span class="sc" data-risk="high">1.4.3</span><span>A link cannot take the <code>disabled</code> attribute, so it never gets the inactive-control exemption. A "disabled" link must still reach 4.5:1 — remove it or make it plain text instead. <span class="risk">high risk</span></span></li></ul></div></div>
+
+<h3>Ghost buttons need a second cue</h3>
+<p>A ghost button has no container at rest, so the only thing marking it as interactive is the colour of its text. WCAG <strong>1.4.1</strong> says colour cannot be the sole means of conveying that something is actionable — which makes a bare ghost button a real, if widely ignored, failure.</p>
+<p>Give every ghost button a leading icon, or place it in a group where its neighbours establish the row as a set of controls. Both give the eye something other than hue to work with.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <button type="button" class="btn btn--ghost"><span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>Add photo</button>
+  </div><div class="dodont__note">An icon marks it as a control without adding a container.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <button type="button" class="btn btn--ghost">Add photo</button>
+  </div><div class="dodont__note">Alone on a page, this is indistinguishable from a heading.</div></div>
+</div>
+<p class="caption">The exception is a ghost button sitting beside other buttons — "Cancel" next to "Save" reads as a control because of the company it keeps.</p>
+<h3>Keyboard</h3>
+<table>
+<thead><tr><th>Key</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>Tab</code></td><td>Moves focus to the button. Disabled buttons are skipped.</td></tr>
+<tr><td><code>Enter</code></td><td>Activates it.</td></tr>
+<tr><td><code>Space</code></td><td>Activates it. Both work because the element is a native <code>&lt;button&gt;</code>.</td></tr>
+</tbody>
+</table>
+
+<h3>Contrast</h3>
+<table>
+<thead><tr><th>Pair</th><th>Ratio</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Primary label on primary</td><td>6.9:1</td><td>Passes AA</td></tr>
+<tr><td>Secondary label on card</td><td>6.85:1</td><td>Passes AA</td></tr>
+<tr><td>Secondary border on card</td><td>6.85:1</td><td>Passes 1.4.11 with room</td></tr>
+<tr><td>Tertiary label on card</td><td>17.7:1</td><td>Passes AAA</td></tr>
+<tr><td>Tertiary border on card</td><td>3.12:1</td><td>Passes 1.4.11</td></tr>
+<tr><td>Danger label on danger</td><td>5.1:1</td><td>Passes AA</td></tr>
+<tr><td>Disabled label on disabled</td><td>4.17:1</td><td>Exempt, but kept readable</td></tr>
+</tbody>
+</table>
+
+<h3>Naming</h3>
+<p>A visible label is the accessible name, so most buttons need nothing extra. Two cases do: icon-only buttons need <code>aria-label</code>, and repeated labels need disambiguating — five "Edit" buttons in a table should each name their row, as <code>aria-label="Edit iPhone 14 Pro"</code>.</p>
+
+<h3>What you still have to do</h3>
+<ul>
+<li>Give icon-only buttons a name.</li>
+<li>Disambiguate repeated labels in lists and tables.</li>
+<li>Announce the result of an action with <code>role="status"</code>, or move focus to what changed. The button reports that it was pressed, not what happened next.</li>
+<li>Explain any disabled state in adjacent text.</li>
+</ul>
+</section>
+<section id="related"><h2>Related</h2><div class="related"><a href="../../components/input/index.html">Text input</a><a href="../../components/accordion/index.html">Accordion</a></div></section>
+</div>
+<nav class="pagernav">
+<a href="../../foundations/interaction-states/index.html"><span>Previous</span>Interaction states</a>
+<a href="../../components/icon-button/index.html" style="text-align:right"><span>Next</span>IconButton</a>
+</nav>
+</main>
+<aside class="toc" aria-label="On this page">
+<div class="toc__title">On this page</div>
+<a href="#overview">Overview</a>
+<div class="toc__part">Guidelines</div>
+<a href="#principles">Principles</a>
+<a href="#when-not-to-use-a-button">When not to use a button</a>
+<div class="toc__part">Variants and style</div>
+<a href="#anatomy">Anatomy</a>
+<a href="#variants">Variants</a>
+<a href="#size-and-spacing">Size and spacing</a>
+<a href="#labels">Labels</a>
+<div class="toc__part">Behaviour</div>
+<a href="#states">States</a>
+<a href="#disabled">Disabled</a>
+<a href="#loading">Loading</a>
+<a href="#motion">Motion</a>
+<a href="#accessibility">Accessibility</a>
+<a href="#related">Related</a>
+</aside>
+</div>
+
+<script src="../../interactive.js"></script>
+<script src="../../site.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<section>
+<h2>Interaction states</h2>
+<p class="doc-lead">Five rules cover the whole system; a component that needs a sixth is doing too much. Every component section below carries its own state matrix, rendered side by side so states can be compared without hovering.</p>
+<table>
+<thead><tr><th style="width:110px">State</th><th style="width:300px">Rule</th><th>Tokens</th></tr></thead>
+<tbody>
+<tr><td class="tok">hover</td><td class="use">One step darker, or a neutral fill on transparent controls. Never an opacity change.</td><td class="toks">--color-primary-hover · --surface-hover</td></tr>
+<tr><td class="tok">active</td><td class="use">One step darker again. No scale, no translate — pressing must not move the target.</td><td class="toks">--color-primary-active · --surface-active</td></tr>
+<tr><td class="tok">focus</td><td class="use">2px green ring at 2px offset, identical on every focusable element including destructive ones. Fields use a 3px tinted halo instead, because a ring around a 38px box reads as an error.</td><td class="toks">--focus-ring · --border-focus</td></tr>
+<tr><td class="tok">selected</td><td class="use">Filled with primary green where the control <em>is</em> the choice (Tag, Pagination); tinted green where the row merely holds it (table row, option).</td><td class="toks">--color-primary · --surface-brand-subtle</td></tr>
+<tr><td class="tok">disabled</td><td class="use">Neutral fill, <code>--text-disabled</code>, <code>cursor: not-allowed</code>. Colour is dropped entirely — a faded green still reads as available.</td><td class="toks">--surface-disabled · --text-disabled</td></tr>
+</tbody>
+</table>
+<p class="doc-lead" style="margin-top:var(--space-6)">Timing is <code>--duration-fast</code> on <code>--ease-standard</code> for all five. Focus is the exception: it appears instantly, because a delayed focus ring feels broken to keyboard users.</p>
+<div class="mx" style="grid-template-columns:150px repeat(5,1fr)">
+<span></span><span class="ch">Default</span><span class="ch">Hover</span><span class="ch">Active</span><span class="ch">Focus</span><span class="ch">Disabled</span>
+<span class="rh">Link</span><span class="cell">Seller profile</span><span class="cell">Seller profile</span><span class="cell">Seller profile</span><span class="cell">Seller profile</span><span class="cell"><span style="color:var(--text-disabled)">Seller profile</span></span>
+</div><p class="doc-lead" style="margin:var(--space-5) 0 0">Links underline on hover, not at rest — inline links in body copy stay readable, and the underline confirms the target when the pointer arrives. Text selection is tinted <code>--green-10</code> via <code>::selection</code>, so selecting a price never turns it blue.</p>
+</section>

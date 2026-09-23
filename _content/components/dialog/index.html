@@ -1,0 +1,214 @@
+<section><h2>Examples</h2>
+<p>Focus trapping, Escape to close, click-the-scrim to dismiss, and focus returning to the trigger — all of it works. Open one and keep pressing Tab.</p>
+<div class="demo">
+<button class="btn btn--danger" data-open="dlg1" type="button">Delete listing</button>
+<button class="btn btn--secondary" data-open="dlg2" type="button">Edit price</button>
+</div>
+</section>
+<section><h2>Guidance</h2><p>The following comes from the shared <strong>modal</strong> guide, which covers this component alongside its siblings.</p></section>
+<section>
+<h2>Choosing an overlay</h2>
+<p class="doc-lead">Four overlays, ordered by how much they interrupt. Always take the least interrupting one that does the job.</p>
+<table>
+<thead><tr><th style="width:150px">Overlay</th><th style="width:140px">Blocks page</th><th>Use when</th></tr></thead>
+<tbody>
+<tr><td class="tok">Toast</td><td class="use">No</td><td class="use">Confirming something that already happened. Never asks anything.</td></tr>
+<tr><td class="tok">Popover</td><td class="use">No</td><td class="use">Extra detail anchored to a trigger. The user keeps working around it.</td></tr>
+<tr><td class="tok">Drawer</td><td class="use">Partly</td><td class="use">A side task that benefits from page context: filters, mini cart, preview.</td></tr>
+<tr><td class="tok">Dialog</td><td class="use">Yes</td><td class="use">A decision that must be answered, or a short task that must complete or be abandoned.</td></tr>
+<tr><td class="tok">Page</td><td class="use">n/a</td><td class="use">More than about six fields, or anything worth a URL and a back button.</td></tr>
+</tbody>
+</table>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;display:flex;gap:var(--space-4);align-items:flex-start;background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300)"><div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Listing saved</div><div style="font-size:var(--font-size-300);color:var(--text-secondary)">Draft saved to your account</div></div><button class="btn btn--ghost" type="button">Undo</button></div></div><p class="ddt">A toast confirms and offers undo without stopping anyone.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:flex;justify-content:center"><div style="max-width:300px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-8)">
+<div style="font-size:var(--type-heading-size);font-weight:600">Listing saved</div>
+<div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3);line-height:1.5">Your draft has been saved to your account.</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;margin-top:var(--space-8)"><button class="btn btn--primary" type="button">OK</button></div>
+</div></div></div><p class="ddt">A modal to announce success. It blocks the page and demands a click to dismiss information the user did not ask for.</p></div>
+</div>
+</section>
+<section>
+<h2>Anatomy</h2>
+<div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-7);align-items:start">
+<div style="background:var(--neutral-10);border-radius:var(--radius-md);padding:var(--space-7);display:flex;justify-content:center">
+<div style="max-width:440px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-8)">
+<div style="font-size:var(--type-heading-size);font-weight:600">Cancel this order?</div>
+<div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3);line-height:1.5">Your refund arrives in 3–5 business days. This can't be undone.</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;margin-top:var(--space-8)"><button class="btn btn--ghost" type="button">Keep order</button><button class="btn btn--danger" type="button">Cancel order</button></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Scrim</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px"><code>--surface-overlay</code>, 56% black. Dark enough to defocus the page, light enough that context stays visible.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Container</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">480px default, <code>--radius-lg</code>, <code>--shadow-400</code>. Centred both axes.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Title</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">19px / 600. A question or a noun phrase, never a warning word like "Attention".</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Body</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">14px / 1.5, one or two sentences. States the consequence in the user's terms.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Actions</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Bottom right, primary furthest right, 8px gap. Never centred, never full width on desktop.</div></div></div>
+</div>
+</div>
+<div class="rule" style="margin-top:var(--space-6)"><b>No close icon here</b><span>A confirmation dialog has an explicit dismissal action ("Keep order"), so an × would be a third, ambiguous way out. Form dialogs do get an ×.</span></div>
+</section>
+<section>
+<h2>Confirmation</h2>
+<p class="doc-lead">The most common and most over-used dialog. Before writing one, ask whether the action can simply be undone instead — an undo toast is cheaper for everyone and does not punish correct clicks to protect against rare wrong ones.</p>
+<div style="background:var(--neutral-10);border-radius:var(--radius-md);padding:var(--space-8);display:flex;justify-content:center">
+<div style="max-width:440px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-8)">
+<div style="font-size:var(--type-heading-size);font-weight:600">Publish this listing?</div>
+<div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3);line-height:1.5">It becomes visible to buyers immediately and you'll be charged the 12 ₼ listing fee.</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;margin-top:var(--space-8)"><button class="btn btn--ghost" type="button">Not yet</button><button class="btn btn--primary" type="button">Publish</button></div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Title</b><span>Ask the question the buttons answer. "Publish this listing?" pairs with "Publish".</span></div>
+<div class="rule"><b>Body</b><span>State what will actually happen, including cost and visibility. Never repeat the title as a sentence.</span></div>
+<div class="rule"><b>Buttons</b><span>Name the outcomes — "Publish" and "Not yet". "Yes" and "No" force the user back to the title to work out which is which.</span></div>
+<div class="rule"><b>Skip it</b><span>If the action is reversible, do it and offer undo. Reserve confirmations for the genuinely irreversible.</span></div>
+</div>
+</section>
+<section>
+<h2>Destructive</h2>
+<div style="background:var(--neutral-10);border-radius:var(--radius-md);padding:var(--space-8);display:flex;justify-content:center">
+<div style="max-width:440px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-8)">
+<div style="font-size:var(--type-heading-size);font-weight:600">Delete 2 listings?</div>
+<div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3);line-height:1.5">24 watchers will be notified. Deleted listings can't be restored.</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;margin-top:var(--space-8)"><button class="btn btn--ghost" type="button">Keep listings</button><button class="btn btn--danger" type="button">Delete 2 listings</button></div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Count</b><span>Repeat the scope in both title and button. A bulk delete that says only "Delete" is how people destroy 200 rows meaning to destroy two.</span></div>
+<div class="rule"><b>Focus</b><span>Lands on the safe action. Enter should never fire the destructive button.</span></div>
+<div class="rule"><b>Consequence</b><span>Name the side effects the user cannot see — notifications sent, refunds triggered, links broken.</span></div>
+<div class="rule"><b>Typed confirmation</b><span>Only for the truly catastrophic — deleting an account. Requiring someone to type "DELETE" for one listing trains them to type it without reading.</span></div>
+</div>
+</section>
+<section>
+<h2>Form dialog</h2>
+<p class="doc-lead">A short task inside the modal. Legitimate up to about six fields; past that it belongs on a page with a URL, a back button and room to breathe.</p>
+<div style="background:var(--neutral-10);border-radius:var(--radius-md);padding:var(--space-8);display:flex;justify-content:center">
+<div style="max-width:480px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400)">
+<div style="display:flex;align-items:flex-start;gap:var(--space-5);padding:var(--space-7) var(--space-8) 0">
+<div style="flex:1"><div style="font-size:var(--type-heading-size);font-weight:600">Edit price</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Wireless headphones · ANC</div></div>
+<span style="width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:18px">×</span>
+</div>
+<div style="padding:var(--space-6) var(--space-8);display:flex;flex-direction:column;gap:var(--space-4)">
+<div><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">New price</div><div style="border:1px solid var(--border-control);border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;gap:var(--space-3);font-size:var(--font-size-300)"><span style="color:var(--text-tertiary)">₼</span>2 200</div></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary)">24 watchers will be notified of the price drop</div>
+</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;padding:var(--space-6) var(--space-8);border-top:1px solid var(--border-subtle)"><button class="btn btn--ghost" type="button">Cancel</button><button class="btn btn--primary" type="button">Save price</button></div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Close icon</b><span>Present here, because a form has a header and the user may abandon it without answering a question.</span></div>
+<div class="rule"><b>Context</b><span>Name the object being edited in the subtitle. A dialog floating free of its row leaves the user unsure what they are changing.</span></div>
+<div class="rule"><b>Dirty state</b><span>If fields have changed, closing asks for confirmation. If nothing changed, close silently — a "discard changes?" prompt for an untouched form is noise.</span></div>
+</div>
+</section>
+<section>
+<h2>Sizes</h2>
+<table>
+<thead><tr><th style="width:130px">Width</th><th style="width:150px">Use</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td class="tok">400px</td><td class="use">Confirmation</td><td class="use">One question, two buttons, no fields.</td></tr>
+<tr><td class="tok">480px</td><td class="use">Default</td><td class="use">Confirmations with detail, and forms up to about four fields.</td></tr>
+<tr><td class="tok">640px</td><td class="use">Form</td><td class="use">Two-column field pairs, or a form with a preview.</td></tr>
+<tr><td class="tok">Full screen</td><td class="use">Mobile</td><td class="use">Below 600px viewport width. Header sticks, actions pin to the bottom.</td></tr>
+</tbody>
+</table>
+<div class="rule" style="margin-top:var(--space-5)"><b>Height</b><span>Never taller than 80% of the viewport. Beyond that the dialog stops feeling like an overlay and should be a page.</span></div>
+</section>
+<section>
+<h2>Opening &amp; closing</h2>
+<table>
+<thead><tr><th style="width:200px">Trigger</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td class="tok">Esc</td><td class="use">Closes. Always, with no exception — including destructive dialogs, where closing is the safe outcome.</td></tr>
+<tr><td class="tok">Click scrim</td><td class="use">Closes a confirmation. Does <em>not</em> close a form with unsaved changes — it asks first.</td></tr>
+<tr><td class="tok">Cancel button</td><td class="use">Closes and discards. Always present; a dialog with only one way out is a trap.</td></tr>
+<tr><td class="tok">Primary action</td><td class="use">Closes on success. Stays open on failure, with the error inside the dialog.</td></tr>
+<tr><td class="tok">Browser back</td><td class="use">Closes the dialog rather than leaving the page. On mobile this is the gesture users reach for first.</td></tr>
+</tbody>
+</table>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Motion</b><span>Scrim fades and the container rises 8px over <code>--duration-slow</code> (360ms). Exit is faster — 220ms — because leaving should not feel laboured.</span></div>
+<div class="rule"><b>Never auto-open</b><span>A modal that appears without a user action — on page load, on a timer — is an interruption nobody asked for.</span></div>
+</div>
+</section>
+<section>
+<h2>Focus &amp; keyboard</h2>
+<div class="rule"><b>On open</b><span>Focus moves into the dialog: the first field in a form, the safe action in a confirmation. Never the destructive button.</span></div>
+<div class="rule"><b>Trap</b><span>Tab cycles inside the dialog only. This is the one place in the system where a focus trap is correct — the page behind is genuinely inert.</span></div>
+<div class="rule"><b>On close</b><span>Focus returns to the element that opened the dialog. Losing focus to the top of the page is the single most common modal bug.</span></div>
+<div class="rule"><b>Enter</b><span>Submits the form dialog. In a confirmation it fires the safe action, matching where focus landed.</span></div>
+<div class="rule"><b>Background</b><span>The page behind gets <code>inert</code> or <code>aria-hidden</code>, so screen readers cannot wander out of the dialog.</span></div>
+</section>
+<section>
+<h2>Submitting &amp; errors</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo"><div class="cap">Submitting</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end"><span class="btn" style="color:var(--text-primary);color:var(--text-disabled)">Cancel</span><button class="btn btn--primary" type="button"><span style="display:inline-block;width:14px;height:14px;border:2px solid var(--alpha-white-16);border-top-color:var(--color-on-primary);border-radius:50%"></span> Saving…</button></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-5) 0 0">The dialog stays open and keeps its size. Cancel dims but Esc still works — the user can always leave.</p>
+</div>
+<div class="demo"><div class="cap">Failed</div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start;background:var(--surface-danger-subtle);border:1px solid var(--red-30);border-radius:var(--radius-sm);padding:var(--space-4)">
+<span style="color:var(--status-danger);font-weight:700">×</span>
+<div><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-danger)">Couldn't save the price</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Check your connection and try again</div></div>
+</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-5) 0 0">The error appears inside the dialog, above the actions, with the user's input intact. Never close and toast — the work would be lost.</p>
+</div>
+</div>
+</section>
+<section>
+<h2>Scrolling &amp; mobile</h2>
+<div class="rule"><b>Body scrolls</b><span>Only the dialog body scrolls. Header and action row stay pinned, so the commit action is never below the fold.</span></div>
+<div class="rule"><b>Page locked</b><span>The page behind does not scroll, and does not jump when the scrollbar is removed.</span></div>
+<div class="rule"><b>Mobile</b><span>Full screen below 600px. Actions pin to the bottom, stacked full width with primary on top.</span></div>
+<div class="rule"><b>Keyboard</b><span>When the on-screen keyboard opens, the focused field stays visible and the action row rides above the keyboard rather than under it.</span></div>
+</section>
+<section>
+<h2>Stacking</h2>
+<p class="doc-lead">One modal at a time. A dialog opening from a dialog means the first task was not short enough to be a dialog.</p>
+<div class="rule"><b>Exception</b><span>A destructive confirmation over a form dialog, when closing the form would lose work. It is the only legitimate second layer, and it never gets a third.</span></div>
+<div class="rule"><b>Toasts</b><span>Appear above the scrim, so a background success does not vanish unseen.</span></div>
+<div class="rule"><b>Menus</b><span>Menus and popovers inside a dialog render above it but stay within its focus trap.</span></div>
+</section>
+<section>
+<h2>Best practices</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;display:flex;justify-content:center"><div style="max-width:340px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-8)">
+<div style="font-size:var(--type-heading-size);font-weight:600">Cancel this order?</div>
+<div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3);line-height:1.5">Your refund arrives in 3–5 business days.</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;margin-top:var(--space-8)"><button class="btn btn--ghost" type="button">Keep order</button><button class="btn btn--danger" type="button">Cancel order</button></div>
+</div></div></div><p class="ddt">Title names the action, buttons name the outcomes. Readable without the body text.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:flex;justify-content:center"><div style="max-width:340px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-8)">
+<div style="font-size:var(--type-heading-size);font-weight:600">Are you sure?</div>
+<div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3);line-height:1.5">This action cannot be undone.</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;margin-top:var(--space-8)"><button class="btn btn--ghost" type="button">No</button><button class="btn btn--danger" type="button">Yes</button></div>
+</div></div></div><p class="ddt">"Are you sure?" and "Yes/No" describe nothing. The user must reconstruct what they clicked a moment ago.</p></div>
+</div>
+<div style="margin-top:var(--space-7)">
+<div class="rule"><b>One decision</b><span>A dialog asks one question. Two questions in one modal means neither gets read.</span></div>
+<div class="rule"><b>No nesting</b><span>No tabs, no accordions, no wizards inside a modal. Those are all signals it should be a page.</span></div>
+<div class="rule"><b>Preserve input</b><span>Never clear fields on error, and never lose them on accidental dismissal.</span></div>
+<div class="rule"><b>Frequency</b><span>If users see the same dialog many times a day, remove it. A confirmation people click reflexively protects nobody.</span></div>
+</div>
+</section>
+<section>
+<h2>Content</h2>
+<table>
+<thead><tr><th style="width:150px">Part</th><th style="width:250px">Rule</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td class="tok">Title</td><td class="use">The question the buttons answer, or the task name.</td><td class="use">Cancel this order?</td></tr>
+<tr><td class="tok">Body</td><td class="use">One or two sentences of real consequence.</td><td class="use">Your refund arrives in 3–5 business days.</td></tr>
+<tr><td class="tok">Primary</td><td class="use">The verb from the title.</td><td class="use">Cancel order</td></tr>
+<tr><td class="tok">Dismiss</td><td class="use">Names the alternative, not "No".</td><td class="use">Keep order</td></tr>
+<tr><td class="tok">Scope</td><td class="use">Counts repeated in title and button.</td><td class="use">Delete 2 listings</td></tr>
+<tr><td class="tok">Avoid</td><td class="use">Alarm words and empty verbs.</td><td class="use">Warning! · Are you sure? · Yes/No</td></tr>
+</tbody>
+</table>
+</section>
+<section style="padding-bottom:var(--space-13)">
+<h2>Accessibility</h2>
+<div class="rule"><b>Role</b><span><code>role="dialog"</code> with <code>aria-modal="true"</code>, plus <code>aria-labelledby</code> pointing at the title and <code>aria-describedby</code> at the body.</span></div>
+<div class="rule"><b>Focus trap</b><span>Required. Tab and Shift+Tab cycle within the dialog; nothing behind the scrim is reachable.</span></div>
+<div class="rule"><b>Return focus</b><span>On close, focus goes back to the trigger. Without this, keyboard users restart from the top of the page every time.</span></div>
+<div class="rule"><b>Esc</b><span>Always closes, on every dialog. WCAG 2.1.2 — no keyboard trap without an escape.</span></div>
+<div class="rule"><b>Inert background</b><span><code>inert</code> on the page root, so assistive tech cannot read content the sighted user cannot reach.</span></div>
+<div class="rule"><b>Announce</b><span>Errors appearing inside the dialog go in a live region, or they are silent to screen-reader users.</span></div>
+<div class="rule"><b>Scrim</b><span>Decorative and <code>aria-hidden</code>. It must never be the only way to close — Esc and a Cancel button always exist.</span></div>
+</section>

@@ -1,0 +1,20 @@
+<!-- @dsCard group="Components" viewport="700x140" name="Navigation" subtitle="Tabs — the active tab gets a green underline" -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><title>Navigation</title>
+<link href="../../styles.css" rel="stylesheet"/>
+<style>
+  body{background:var(--surface-card);padding:var(--space-6);margin:0}
+  .row{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap}
+  .stack{display:flex;flex-direction:column;gap:var(--space-5)}
+  .lbl{font:var(--font-weight-semibold) var(--font-size-100)/1.4 var(--font-mono);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-3);font-family:var(--font-sans);font-weight:var(--font-weight-semibold);line-height:1;border-radius:var(--radius-control);border:1px solid transparent;cursor:pointer;padding:10px 20px;font-size:var(--font-size-300)}
+</style>
+</head><body>
+<div style="display:flex;gap:var(--space-7);border-bottom:1px solid var(--border-subtle);font-family:var(--font-sans)">
+<span style="padding:var(--space-4) 0;font-size:var(--font-size-300);font-weight:600;color:var(--text-primary);box-shadow:inset 0 -2px 0 var(--color-primary);display:inline-flex;gap:var(--space-3)">All <span style="color:var(--text-tertiary);font-size:var(--font-size-200)">24</span></span>
+<span style="padding:var(--space-4) 0;font-size:var(--font-size-300);font-weight:500;color:var(--text-secondary)">Aktif ilanlar</span>
+<span style="padding:var(--space-4) 0;font-size:var(--font-size-300);font-weight:500;color:var(--text-secondary);display:inline-flex;gap:var(--space-3)">Sold <span style="color:var(--text-tertiary);font-size:var(--font-size-200)">8</span></span>
+<span style="padding:var(--space-4) 0;font-size:var(--font-size-300);font-weight:500;color:var(--text-secondary)">Taslaklar</span>
+</div>
+</body></html>

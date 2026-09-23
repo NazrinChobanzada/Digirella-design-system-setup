@@ -1,0 +1,13 @@
+<section><h2>Examples</h2>
+<p>Determinate progress. Press a button and watch the fill animate.</p>
+<div class="demo demo--stack">
+<div class="prog" style="max-width:420px">
+<div class="prog__head"><span>Profile completion</span><span id="pv">40%</span></div>
+<div class="prog__track"><div class="prog__fill" data-output="pv" data-value="40" id="pbar" style="width:40%"></div></div>
+</div>
+<div style="margin-top:var(--space-5);display:flex;gap:var(--space-3)">
+<button class="btn btn--secondary btn--sm" data-by="-20" data-progress="pbar" type="button">−20%</button>
+<button class="btn btn--primary btn--sm" data-by="20" data-progress="pbar" type="button">+20%</button>
+</div>
+</div>
+</section>

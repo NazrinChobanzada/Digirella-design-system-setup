@@ -1,0 +1,271 @@
+<section><h2>Examples</h2>
+<p>A panel anchored to the edge. For side tasks like filters and cart that shouldn't take you off the page.</p>
+<div class="demo">
+<button class="btn btn--secondary" data-open="drw1" type="button">Open filters</button>
+</div>
+</section>
+<section><h2>Guidance</h2><p>The following comes from the shared <strong>overlays</strong> guide, which covers this component alongside its siblings.</p></section>
+<section>
+<h2>Choosing an overlay</h2>
+<table>
+<thead><tr><th style="width:130px">Overlay</th><th style="width:120px">Blocks page</th><th style="width:120px">Dismissal</th><th>Use when</th></tr></thead>
+<tbody>
+<tr><td class="tok">Tooltip</td><td class="use">No</td><td class="use">On unhover</td><td class="use">One line naming a control. Never holds anything required.</td></tr>
+<tr><td class="tok">Toast</td><td class="use">No</td><td class="use">Auto, 4–6s</td><td class="use">Confirming something that already happened. Asks nothing.</td></tr>
+<tr><td class="tok">Alert</td><td class="use">No</td><td class="use">Condition ends</td><td class="use">A page-level condition that persists: stock low, account unverified.</td></tr>
+<tr><td class="tok">Popover</td><td class="use">No</td><td class="use">Click outside</td><td class="use">Rich detail anchored to a trigger; the user keeps working around it.</td></tr>
+<tr><td class="tok">Menu</td><td class="use">No</td><td class="use">Select or outside</td><td class="use">Three or more actions attached to one trigger.</td></tr>
+<tr><td class="tok">Drawer</td><td class="use">Partly</td><td class="use">Esc, outside</td><td class="use">A side task that needs page context: filters, mini cart, preview.</td></tr>
+<tr><td class="tok"><a href="../../components/dialog/index.html">Dialog</a></td><td class="use">Yes</td><td class="use">Esc, explicit</td><td class="use">A decision that must be answered now. <a href="../../components/dialog/index.html">Full guidance →</a></td></tr>
+</tbody>
+</table>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%"><div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Added to cart</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">2 items</div></div>
+<button class="btn btn--ghost" type="button">View cart</button><span style="color:var(--text-tertiary)">×</span>
+</div></div></div><p class="ddt">A toast confirms and offers the next step without stopping the user browsing.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:flex;justify-content:center"><div style="max-width:320px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-7)"><div style="font-size:var(--type-heading-size);font-weight:600">Added to cart</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3)">2 items are now in your cart.</div><div style="display:flex;justify-content:flex-end;margin-top:var(--space-6)"><button class="btn btn--primary" type="button">OK</button></div></div></div></div><p class="ddt">A modal to announce success: it blocks the page and demands a click to dismiss news the user already knew.</p></div>
+</div>
+</section>
+<section>
+<h2>Layer order</h2>
+<p class="doc-lead">One z-index scale, applied consistently, so an overlay never renders under the thing that opened it.</p>
+<table>
+<thead><tr><th style="width:110px">Layer</th><th style="width:180px">Overlay</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td class="tok">40</td><td class="use">Select · Combobox list</td><td class="use">Anchored to a field inside the page or a drawer.</td></tr>
+<tr><td class="tok">50</td><td class="use">Tooltip</td><td class="use">Above content, below anything interactive it might describe.</td></tr>
+<tr><td class="tok">60</td><td class="use">Popover · Menu</td><td class="use">Above page content; renders above a dialog when opened from inside one.</td></tr>
+<tr><td class="tok">90</td><td class="use">Drawer</td><td class="use">Above the page, below a dialog.</td></tr>
+<tr><td class="tok">100</td><td class="use">Dialog</td><td class="use">Above everything except toasts.</td></tr>
+<tr><td class="tok">110</td><td class="use">Toast</td><td class="use">Highest. A confirmation must be visible even over a modal, or it is lost.</td></tr>
+</tbody>
+</table>
+</section>
+<section>
+<h2>Drawer</h2>
+<p class="doc-lead">An edge-anchored panel for work that benefits from keeping the page behind visible — the result count updating as filters change, the cart alongside the product. Use a Dialog instead when the task must be finished or abandoned.</p>
+<div style="display:grid;grid-template-columns:1fr 280px;gap:var(--space-7);align-items:start">
+<div style="background:var(--neutral-10);border-radius:var(--radius-md);padding:var(--space-5);display:flex;justify-content:flex-end;min-height:300px">
+<div style="width:340px;background:var(--surface-card);border-radius:var(--radius-lg) 0 0 var(--radius-lg);box-shadow:var(--shadow-400);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;padding:var(--space-6);border-bottom:1px solid var(--border-subtle)">
+<div><div style="font-size:var(--type-heading-size);font-weight:600">Filters</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">486 results</div></div>
+<span style="width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:18px">×</span>
+</div>
+<div style="flex:1;padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4);font-size:var(--font-size-300);color:var(--text-secondary)">
+<span style="color:var(--text-primary);font-weight:600">Condition</span><span>New · Refurbished · Used</span>
+<span style="color:var(--text-primary);font-weight:600;margin-top:var(--space-3)">Price range</span><span>0 – 10 000 ₼</span>
+</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;padding:var(--space-6);border-top:1px solid var(--border-subtle)"><button class="btn btn--ghost" type="button">Clear all</button><button class="btn btn--primary" type="button">Show 128</button></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Side</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Right by default. Left for navigation, bottom for mobile.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Header</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Title plus a live count, and a close button — a drawer always has an explicit ×.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Body</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">The only scrolling region. A long filter list never buries the commit action.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Footer</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Sticky, right-aligned. Holds the action that closes the drawer.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Width</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">420px default. Never more than 480px — past that use a page.</div></div></div>
+</div>
+</div>
+<div style="margin-top:var(--space-6)">
+<div class="rule"><b>Apply</b><span>Two valid models: apply as the user changes (footer shows a live count) or apply on commit. Never mix them in one drawer.</span></div>
+<div class="rule"><b>Scrim</b><span>Present, so the drawer reads as a layer, but the page stays legible behind it — that visible context is the reason to choose a drawer over a dialog.</span></div>
+<div class="rule"><b>Mobile</b><span><code>side="bottom"</code>, capped at 80vh, with a drag handle. A right drawer on a 375px screen is a full-screen dialog wearing the wrong animation.</span></div>
+</div>
+<div class="api">Drawer · open, side: left | right | bottom, width, title, description, footer, onClose</div>
+</section>
+<section>
+<h2>Popover</h2>
+<p class="doc-lead">Anchored, dismissible content that is richer than a tooltip and lighter than a dialog. If it contains only a sentence, it is a tooltip; if it contains a form, it is a dialog.</p>
+<div class="demo" style="display:flex;gap:var(--space-7);align-items:flex-start;flex-wrap:wrap">
+<div style="width:280px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);box-shadow:var(--shadow-300);padding:var(--space-6)">
+<div style="font-size:var(--font-size-300);font-weight:600;margin-bottom:var(--space-4)">Shipping breakdown</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-3);font-size:var(--font-size-200)">
+<div style="display:flex;justify-content:space-between"><span style="color:var(--text-secondary)">Standard · 2–4 days</span><span style="color:var(--text-success);font-weight:600">Free</span></div>
+<div style="display:flex;justify-content:space-between"><span style="color:var(--text-secondary)">Express · next day</span><span>49 ₼</span></div>
+<div style="display:flex;justify-content:space-between"><span style="color:var(--text-secondary)">Locker pickup</span><span>19 ₼</span></div>
+</div>
+</div>
+<div style="max-width:300px">
+<div class="rule"><b>Trigger</b><span>Click, never hover. A hover popover cannot be reached on touch and closes while the user moves toward it.</span></div>
+<div class="rule"><b>Content</b><span>Read-only or one small action. Multiple fields belong in a dialog.</span></div>
+<div class="rule"><b>Width</b><span>260px default, 360px maximum. Wider reads as a misplaced panel.</span></div>
+</div>
+</div>
+<div class="api">Popover · open, trigger, placement: bottom-start | bottom-end | top-start | top-end, width, onClose</div>
+</section>
+<section>
+<h2>Menu</h2>
+<p class="doc-lead">A list of actions from one trigger. Every entry does something — a menu is never used to display information or to select a value, which is a Select.</p>
+<div class="demo" style="display:flex;gap:var(--space-7);align-items:flex-start;flex-wrap:wrap">
+<div style="width:220px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Edit listing<span style="font-family:var(--font-mono);font-size:var(--font-size-100);color:var(--text-tertiary)">E</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Duplicate<span style="font-family:var(--font-mono);font-size:var(--font-size-100);color:var(--text-tertiary)">D</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Share</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);color:var(--text-disabled)">End listing early</div>
+<div style="height:1px;background:var(--border-subtle);margin:var(--space-2) 0"></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);color:var(--text-danger)">Delete</div>
+</div>
+<div style="max-width:320px">
+<div class="rule"><b>Order</b><span>Most used first, destructive last, below a divider. Never alphabetical.</span></div>
+<div class="rule"><b>Length</b><span>Three to eight items. Two items are two buttons; more than eight needs grouping or a different pattern.</span></div>
+<div class="rule"><b>Disabled</b><span>Only with a visible reason — a tooltip on the item. Otherwise omit the entry.</span></div>
+<div class="rule"><b>Destructive</b><span><code>tone: 'danger'</code> and still followed by a confirmation dialog. The menu itself never destroys.</span></div>
+</div>
+</div>
+<div class="api">Menu · open, trigger, items: { value, label, icon?, shortcut?, tone?, disabled?, divider? }[], align, onSelect</div>
+</section>
+<section>
+<h2>Toast</h2>
+<p class="doc-lead">Confirms what already happened. It never asks a question, never blocks anything, and never carries the only copy of information the user needs.</p>
+<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Listing published</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">Live in search within a minute</div></div>
+<button class="btn btn--ghost" type="button">View</button><span style="color:var(--text-tertiary)">×</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Listing deleted</div></div>
+<button class="btn btn--ghost" type="button">Undo</button><span style="color:var(--text-tertiary)">×</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-danger-subtle);border-left:3px solid var(--status-danger);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-danger)">Couldn't save the price</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">Check your connection</div></div>
+<span style="color:var(--text-tertiary)">×</span>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Duration</b><span>4 seconds without an action, 6 with one. A toast carrying Undo waits long enough to be used.</span></div>
+<div class="rule"><b>Position</b><span>Bottom right on desktop, top on mobile where the thumb and keyboard own the bottom.</span></div>
+<div class="rule"><b>Stacking</b><span>Three maximum, newest at the bottom. A fourth replaces the oldest — a queue of toasts is a log nobody reads.</span></div>
+<div class="rule"><b>Undo</b><span>The best reason to use a toast. Prefer act-then-undo over a confirmation dialog for anything genuinely reversible.</span></div>
+<div class="rule"><b>Not for</b><span>Errors that block a task, or anything the user must act on. Those persist as an Alert or a field error.</span></div>
+</div>
+<div class="api">Toast · tone: success | info | warning | danger, title, message, action, onDismiss</div>
+</section>
+<section>
+<h2>Alert</h2>
+<p class="doc-lead">A page-level condition that persists until it changes. Unlike a toast it is part of the layout, so it can be re-read, and it can carry an action the user comes back to.</p>
+<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-4);max-width:620px">
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-warning-subtle);border:1px solid var(--amber-30);border-radius:var(--radius-sm);padding:var(--space-5)">
+<span style="color:var(--text-warning);font-weight:700;line-height:1.4">!</span>
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-warning)">Verify your payout account</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Payouts are held until the account is confirmed.</div><div style="margin-top:var(--space-4)"><button class="btn btn--secondary" type="button">Verify account</button></div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-info-subtle);border:1px solid var(--blue-30);border-radius:var(--radius-sm);padding:var(--space-5)">
+<span style="color:var(--blue-70);font-weight:700;line-height:1.4">i</span>
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--blue-70)">Dispatch is slower this week</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Orders placed today ship within three business days.</div></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border:1px solid var(--color-primary-border);border-radius:var(--radius-sm);padding:var(--space-5)">
+<span style="color:var(--text-success);font-weight:700;line-height:1.4">✓</span>
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Buyer protection</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Get your money back if the item doesn't match the description.</div></div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Placement</b><span>Directly above the content it concerns. A page-wide alert sits under the header; a section alert sits inside that section.</span></div>
+<div class="rule"><b>Dismissible</b><span>Only if the condition is informational. An alert about a blocked payout must not be dismissible — the problem does not go away.</span></div>
+<div class="rule"><b>Count</b><span>One per view. Three stacked alerts train users to skip the region entirely.</span></div>
+<div class="rule"><b>Not for</b><span>Field-level validation, which belongs under the field. An alert is for conditions, not for form errors — except as a submit-time summary.</span></div>
+</div>
+<div class="api">Alert · tone: success | info | warning | danger, title, action, onDismiss</div>
+</section>
+<section>
+<h2>Tooltip</h2>
+<p class="doc-lead">One line, on hover and focus, naming a control. Because it does not exist on touch and disappears on any movement, it can never hold anything the user needs.</p>
+<div class="demo" style="display:flex;justify-content:center;padding:var(--space-8)">
+<span style="background:var(--surface-inverse);color:var(--text-inverse);font-size:var(--font-size-200);padding:6px 10px;border-radius:var(--radius-xs);box-shadow:var(--shadow-300)">Free returns within 14 days</span>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Test</b><span>If an icon needs a tooltip to be understood, it needs a visible label instead.</span></div>
+<div class="rule"><b>Delay</b><span>400ms in, instant out. No delay makes tooltips fire while the pointer crosses the screen.</span></div>
+<div class="rule"><b>Never</b><span>Interactive content, links, or more than one line. All three are a Popover.</span></div>
+</div>
+</section>
+<section>
+<h2>Dismissal</h2>
+<table>
+<thead><tr><th style="width:130px">Overlay</th><th style="width:110px">Esc</th><th style="width:130px">Click outside</th><th>Auto</th></tr></thead>
+<tbody>
+<tr><td class="tok">Tooltip</td><td class="use">Yes</td><td class="use">n/a</td><td class="use">On unhover or blur</td></tr>
+<tr><td class="tok">Toast</td><td class="use">Yes</td><td class="use">No</td><td class="use">4–6s, paused on hover</td></tr>
+<tr><td class="tok">Alert</td><td class="use">No</td><td class="use">No</td><td class="use">Never — the condition ends it</td></tr>
+<tr><td class="tok">Popover</td><td class="use">Yes</td><td class="use">Yes</td><td class="use">No</td></tr>
+<tr><td class="tok">Menu</td><td class="use">Yes</td><td class="use">Yes</td><td class="use">On select</td></tr>
+<tr><td class="tok">Drawer</td><td class="use">Yes</td><td class="use">Yes, unless dirty</td><td class="use">No</td></tr>
+<tr><td class="tok">Dialog</td><td class="use">Yes</td><td class="use">Yes, unless dirty</td><td class="use">No</td></tr>
+</tbody>
+</table>
+<div class="rule" style="margin-top:var(--space-5)"><b>Esc always</b><span>Every dismissible overlay closes on Escape, and closes only the topmost one. This is the one keyboard behaviour that must never have an exception.</span></div>
+<div class="rule"><b>Pause on hover</b><span>A toast the user is reading does not disappear mid-sentence. The timer resumes when the pointer leaves.</span></div>
+</section>
+<section>
+<h2>Positioning</h2>
+<div class="rule"><b>Anchored</b><span>Popover, Menu and Tooltip attach to their trigger and follow it on scroll. They never detach or reposition mid-scroll.</span></div>
+<div class="rule"><b>Flip</b><span>Preferred side first; flip to the opposite side only when there is not enough room. Never cover the trigger — the user must see what they opened.</span></div>
+<div class="rule"><b>Shift</b><span>Slide along the cross axis to stay in the viewport, with 8px minimum clearance from the edge.</span></div>
+<div class="rule"><b>Fixed</b><span>Drawer pins to an edge, Dialog centres, Toast pins to a corner. None of them are anchored to a trigger.</span></div>
+</section>
+<section>
+<h2>Focus &amp; keyboard</h2>
+<table>
+<thead><tr><th style="width:150px">Overlay</th><th style="width:130px">Traps focus</th><th>Keyboard</th></tr></thead>
+<tbody>
+<tr><td class="tok">Dialog · Drawer</td><td class="use">Yes</td><td class="use">Focus moves in on open, cycles inside, returns to the trigger on close.</td></tr>
+<tr><td class="tok">Menu</td><td class="use">No</td><td class="use">↑ ↓ move, Enter selects, Esc closes and returns focus to the trigger.</td></tr>
+<tr><td class="tok">Popover</td><td class="use">No</td><td class="use">Focus moves in if it holds a control; Tab may leave, which closes it.</td></tr>
+<tr><td class="tok">Toast</td><td class="use">No</td><td class="use">Never steals focus. Its action is reachable by Tab while visible.</td></tr>
+<tr><td class="tok">Alert</td><td class="use">No</td><td class="use">In normal document order — it is part of the page, not a layer.</td></tr>
+</tbody>
+</table>
+<div class="rule" style="margin-top:var(--space-5)"><b>Never steal focus</b><span>Only Dialog and Drawer move focus, and only because the user asked for them. A toast that grabs focus interrupts typing.</span></div>
+</section>
+<section>
+<h2>Mobile</h2>
+<table>
+<thead><tr><th style="width:150px">Overlay</th><th>Below 600px</th></tr></thead>
+<tbody>
+<tr><td class="tok">Dialog</td><td class="use">Full screen, actions pinned to the bottom and stacked full width.</td></tr>
+<tr><td class="tok">Drawer</td><td class="use"><code>side="bottom"</code>, max 80vh, drag handle, sticky footer.</td></tr>
+<tr><td class="tok">Menu</td><td class="use">Bottom sheet. A 220px dropdown has targets too small for a thumb.</td></tr>
+<tr><td class="tok">Popover</td><td class="use">Bottom sheet, or inline expansion.</td></tr>
+<tr><td class="tok">Toast</td><td class="use">Top, full width minus gutters — the bottom belongs to the thumb and the keyboard.</td></tr>
+<tr><td class="tok">Tooltip</td><td class="use">Does not exist. Any content only in a tooltip is invisible on touch.</td></tr>
+</tbody>
+</table>
+</section>
+<section>
+<h2>Best practices</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%"><div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-warning-subtle);border:1px solid var(--amber-30);border-radius:var(--radius-sm);padding:var(--space-5)">
+<span style="color:var(--text-warning);font-weight:700;line-height:1.4">!</span>
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-warning)">Only 3 left in stock</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Other buyers are viewing this item right now.</div></div>
+</div></div></div><p class="ddt">A persisting condition lives in the page, where it can be re-read while the user decides.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%"><div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-warning-subtle);border-left:3px solid var(--status-warning);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-warning)">Only 3 left in stock</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">Other buyers are viewing this item right now.</div></div>
+<span style="color:var(--text-tertiary)">×</span>
+</div></div></div><p class="ddt">A toast for a standing condition: it vanishes after four seconds and the information is gone for good.</p></div>
+</div>
+<div style="margin-top:var(--space-7)">
+<div class="rule"><b>One at a time</b><span>Never two overlays of the same kind. The only legitimate stack is a destructive confirmation over a form dialog.</span></div>
+<div class="rule"><b>No auto-open</b><span>An overlay that appears without a user action — on load, on a timer, on scroll — is an interruption nobody requested.</span></div>
+<div class="rule"><b>Escalate late</b><span>Start with the lightest overlay. Move up only when the lighter one demonstrably fails.</span></div>
+<div class="rule"><b>Preserve work</b><span>Any overlay holding input asks before discarding it, and never clears fields on error.</span></div>
+</div>
+</section>
+<section>
+<h2>Content</h2>
+<table>
+<thead><tr><th style="width:130px">Overlay</th><th style="width:250px">Rule</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td class="tok">Toast</td><td class="use">Past tense, states what happened.</td><td class="use">Listing published</td></tr>
+<tr><td class="tok">Alert</td><td class="use">Present tense condition plus consequence.</td><td class="use">Payouts are held until verified</td></tr>
+<tr><td class="tok">Drawer</td><td class="use">Noun title, live count in the subtitle.</td><td class="use">Filters · 486 results</td></tr>
+<tr><td class="tok">Menu item</td><td class="use">Verb first, one to three words.</td><td class="use">Duplicate listing</td></tr>
+<tr><td class="tok">Popover</td><td class="use">A heading plus facts, no marketing.</td><td class="use">Shipping breakdown</td></tr>
+<tr><td class="tok">Tooltip</td><td class="use">A fragment, no full stop, one line.</td><td class="use">Free returns within 14 days</td></tr>
+</tbody>
+</table>
+</section>
+<section style="padding-bottom:var(--space-13)">
+<h2>Accessibility</h2>
+<div class="rule"><b>Roles</b><span><code>role="dialog"</code> with <code>aria-modal</code> for Dialog and Drawer; <code>role="menu"</code> and <code>role="menuitem"</code> for Menu; <code>role="status"</code> for Toast; <code>role="alert"</code> for a danger Alert and <code>role="status"</code> for the rest.</span></div>
+<div class="rule"><b>Live regions</b><span>Toasts are polite, so they never interrupt what a screen reader is already reading. A blocking error is assertive — but that is an Alert, not a toast.</span></div>
+<div class="rule"><b>Trigger state</b><span><code>aria-expanded</code> and <code>aria-controls</code> on any button that opens an anchored overlay, so the state is announced before the overlay is reached.</span></div>
+<div class="rule"><b>Return focus</b><span>Every overlay that moved focus returns it to the trigger. Losing focus to the top of the page is the most common overlay bug in any system.</span></div>
+<div class="rule"><b>Inert background</b><span>Dialog and Drawer mark the page behind as <code>inert</code>, so assistive tech cannot wander into content the sighted user cannot reach.</span></div>
+<div class="rule"><b>Not colour alone</b><span>Every tone carries a glyph and a word as well as a colour — ✓ success, i info, ! warning, × danger.</span></div>
+<div class="rule"><b>Timing</b><span>Auto-dismissal pauses on hover and focus, satisfying WCAG 2.2.1. Anything the user must act on never auto-dismisses at all.</span></div>
+</section>

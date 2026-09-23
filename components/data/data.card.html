@@ -1,0 +1,62 @@
+<!-- @dsCard group="Components" viewport="700x380" name="Data display" subtitle="Table, Avatar, Rating, Progress, Skeleton, Accordion" -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><title>Data display</title>
+<link href="../../styles.css" rel="stylesheet"/>
+<style>
+  body{background:var(--surface-card);padding:var(--space-6);margin:0;font-family:var(--font-sans)}
+  .lbl{font:var(--font-weight-semibold) var(--font-size-100)/1.4 var(--font-mono);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em;margin-bottom:var(--space-3)}
+  .field{border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:8px var(--space-4);font-size:var(--font-size-300);background:var(--surface-card);min-height:38px;display:flex;align-items:center;justify-content:space-between}
+  .stack{display:flex;flex-direction:column;gap:var(--space-5)}
+</style>
+</head><body>
+<div class="stack">
+<div style="display:flex;gap:var(--space-8);align-items:center;flex-wrap:wrap">
+<div>
+<div class="lbl">Avatar</div>
+<div style="display:flex;gap:var(--space-3);align-items:center">
+<span style="width:28px;height:28px;border-radius:50%;background:var(--surface-brand-subtle);border:1px solid var(--color-primary-border);color:var(--text-brand);font-weight:600;font-size:11px;display:inline-flex;align-items:center;justify-content:center">DA</span>
+<span style="width:36px;height:36px;border-radius:50%;background:var(--surface-brand-subtle);border:1px solid var(--color-primary-border);color:var(--text-brand);font-weight:600;font-size:14px;display:inline-flex;align-items:center;justify-content:center">SE</span>
+<span style="width:44px;height:44px;border-radius:var(--radius-sm);background:var(--surface-brand-subtle);border:1px solid var(--color-primary-border);color:var(--text-brand);font-weight:600;font-size:17px;display:inline-flex;align-items:center;justify-content:center">MK</span>
+</div>
+</div>
+<div>
+<div class="lbl">Rating</div>
+<div style="display:flex;align-items:center;gap:var(--space-2)">
+<span style="color:var(--color-primary);font-size:16px;letter-spacing:1px">★★★★</span><span style="color:var(--neutral-30);font-size:16px">★</span>
+<span style="font-size:var(--font-size-200);font-weight:600">4.7</span>
+<span style="font-size:var(--font-size-200);color:var(--text-tertiary)">(128)</span>
+</div>
+</div>
+<div style="flex:1;min-width:180px">
+<div class="lbl">Progress</div>
+<div style="height:6px;border-radius:var(--radius-pill);background:var(--neutral-10);overflow:hidden"><div style="width:70%;height:100%;background:var(--color-primary)"></div></div>
+</div>
+</div>
+<div>
+<div class="lbl">Table</div>
+<div style="border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-3) var(--space-5);background:var(--surface-sunken);font-size:var(--font-size-100);font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-tertiary)"><span>Listing</span><span>Status</span><span style="text-align:right">Price</span></div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-5);border-top:1px solid var(--border-subtle);font-size:var(--font-size-300)"><span>Wireless headphones</span><span><span style="background:var(--surface-brand-subtle);color:var(--text-success);font-size:var(--font-size-200);font-weight:600;padding:5px 10px;border-radius:var(--radius-xs)">Active</span></span><span style="text-align:right;font-weight:600">2 480 ₺</span></div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-4) var(--space-5);border-top:1px solid var(--border-subtle);font-size:var(--font-size-300);background:var(--surface-hover)"><span>Film camera</span><span><span style="background:var(--surface-sunken);color:var(--text-secondary);font-size:var(--font-size-200);font-weight:600;padding:5px 10px;border-radius:var(--radius-xs)">Sold</span></span><span style="text-align:right;font-weight:600">4 200 ₺</span></div>
+</div>
+</div>
+<div style="display:flex;gap:var(--space-6)">
+<div style="flex:1">
+<div class="lbl">Skeleton</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-3)">
+<div style="height:48px;border-radius:var(--radius-sm);background:var(--neutral-10)"></div>
+<div style="height:12px;width:80%;border-radius:var(--radius-xs);background:var(--neutral-10)"></div>
+<div style="height:12px;width:55%;border-radius:var(--radius-xs);background:var(--neutral-10)"></div>
+</div>
+</div>
+<div style="flex:1">
+<div class="lbl">Accordion</div>
+<div style="border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+<div style="display:flex;justify-content:space-between;padding:var(--space-4) var(--space-5);font-size:var(--font-size-300);font-weight:600">Shipping &amp; returns <span style="color:var(--text-secondary)">▾</span></div>
+<div style="display:flex;justify-content:space-between;padding:var(--space-4) var(--space-5);font-size:var(--font-size-300);font-weight:600;border-top:1px solid var(--border-subtle)">Specifications <span style="color:var(--text-secondary)">▾</span></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

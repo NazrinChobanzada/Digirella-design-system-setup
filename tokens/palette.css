@@ -1,0 +1,58 @@
+/* Primitive palette — raw values. Never use directly in product code; use semantic tokens. */
+:root {
+  /* Primary green — anchored on --green-60 (#006A09) */
+  --green-00: #F2F9F3;
+  --green-05: #E4F2E6;
+  --green-10: #C7E5CB;
+  --green-20: #9BD1A2;
+  --green-30: #6BBA76;
+  --green-40: #3C9F4A;
+  --green-50: #1A8329;
+  --green-60: #006A09;
+  --green-70: #005507;
+  --green-80: #004106;
+  --green-90: #002C04;
+
+  /* Neutrals — very slightly green-cast so they sit with the primary */
+  --neutral-00: #FFFFFF;
+  --neutral-02: #FAFBFA;
+  --neutral-05: #F4F6F4;
+  --neutral-10: #EAECEA;
+  --neutral-20: #DCDFDC;
+  --neutral-30: #C2C7C2;
+  --neutral-35: #8F938F;
+  --neutral-40: #9BA29B;
+  --neutral-50: #6B726B;
+  --neutral-60: #5A605A;
+  --neutral-70: #3E433E;
+  --neutral-80: #262A26;
+  --neutral-90: #161916;
+  --neutral-100: #0A0C0A;
+
+  /* Blue — informational / links only */
+  --blue-05: #E8F1FC;
+  --blue-30: #6BA6E8;
+  --blue-50: #1F6FCC;
+  --blue-60: #0B57A8;
+  --blue-70: #08427F;
+
+  /* Amber — warning */
+  --amber-05: #FDF3E3;
+  --amber-30: #E8B45C;
+  --amber-50: #B27400;
+  --amber-60: #8C5B00;
+
+  /* Red — error / destructive */
+  --red-05: #FCEDED;
+  --red-30: #E88C8C;
+  --red-50: #C4141C;
+  --red-60: #9C0F16;
+  --red-70: #740B10;
+
+  /* Alpha overlays */
+  --alpha-black-04: rgba(10, 12, 10, 0.04);
+  --alpha-black-08: rgba(10, 12, 10, 0.08);
+  --alpha-black-16: rgba(10, 12, 10, 0.16);
+  --alpha-black-56: rgba(10, 12, 10, 0.56);
+  --alpha-white-16: rgba(255, 255, 255, 0.16);
+}

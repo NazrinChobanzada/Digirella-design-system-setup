@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accordion — Digirella</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../interactive.css">
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body class="ix">
+<header class="masthead">
+  <div class="masthead__inner">
+    <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
+    <a class="masthead__brand" href="../../index.html">digirella</a>
+    <span class="masthead__tag">Design system</span>
+    <span class="masthead__spacer"></span>
+    <span class="masthead__meta">v1.0 · primary #006A09</span>
+  </div>
+</header>
+
+<div class="frame">
+<nav class="sidenav" id="sidenav" aria-label="Sections">
+<div class="sidenav__section">
+<div class="sidenav__title">Foundations</div>
+<a href="../../foundations/architecture/index.html" data-status="migrated"><span>Architecture</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/palette/index.html" data-status="migrated"><span>Palette</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/semantic-colour/index.html" data-status="migrated"><span>Semantic colour</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/typography/index.html" data-status="ready"><span>Typography</span><span class="flag">New</span></a>
+<a href="../../foundations/spacing/index.html" data-status="migrated"><span>Spacing</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/shape/index.html" data-status="migrated"><span>Shape &amp; border</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/elevation/index.html" data-status="migrated"><span>Elevation</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/motion/index.html" data-status="migrated"><span>Motion</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/colour-accessibility/index.html" data-status="migrated"><span>Colour accessibility</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/interaction-states/index.html" data-status="migrated"><span>Interaction states</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Components</div>
+<div class="sidenav__group">Core</div>
+<a href="../../components/button/index.html" data-status="ready"><span>Button</span><span class="flag">New</span></a>
+<a href="../../components/icon-button/index.html" data-status="migrated"><span>IconButton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/card/index.html" data-status="migrated"><span>Card</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/badge/index.html" data-status="migrated"><span>Badge</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tag/index.html" data-status="migrated"><span>Tag</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Forms</div>
+<a href="../../components/input/index.html" data-status="ready"><span>Text input <span style="color:var(--text-tertiary);font-weight:400">· Textarea</span></span><span class="flag">New</span></a>
+<a href="../../components/formatted-input/index.html" data-status="ready"><span>Formatted input</span><span class="flag">New</span></a>
+<a href="../../components/number-input/index.html" data-status="ready"><span>Number input <span style="color:var(--text-tertiary);font-weight:400">· QuantityStepper · Slider</span></span><span class="flag">New</span></a>
+<a href="../../components/date-picker/index.html" data-status="planned"><span>DatePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/time-picker/index.html" data-status="planned"><span>TimePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/select/index.html" data-status="migrated"><span>Select</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/combobox/index.html" data-status="migrated"><span>Combobox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/multiselect/index.html" data-status="migrated"><span>MultiSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/treeselect/index.html" data-status="migrated"><span>TreeSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/checkbox/index.html" data-status="migrated"><span>Checkbox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/radio/index.html" data-status="migrated"><span>Radio</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/switch/index.html" data-status="migrated"><span>Switch</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/search/index.html" data-status="planned"><span>Search</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/file-upload/index.html" data-status="planned"><span>FileUpload</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Navigation</div>
+<a href="../../components/tabs/index.html" data-status="migrated"><span>Tabs</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/segmented-control/index.html" data-status="migrated"><span>SegmentedControl</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/pagination/index.html" data-status="migrated"><span>Pagination</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/breadcrumb/index.html" data-status="migrated"><span>Breadcrumb</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/steps/index.html" data-status="migrated"><span>Steps</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/side-nav/index.html" data-status="planned"><span>SideNav</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Data</div>
+<a href="../../components/table/index.html" data-status="migrated"><span>Table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/accordion/index.html" aria-current="page" data-status="ready"><span>Accordion</span><span class="flag">New</span></a>
+<a href="../../components/avatar/index.html" data-status="migrated"><span>Avatar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/rating/index.html" data-status="migrated"><span>Rating</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/progress-bar/index.html" data-status="migrated"><span>ProgressBar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/skeleton/index.html" data-status="migrated"><span>Skeleton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/divider/index.html" data-status="planned"><span>Divider</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Feedback</div>
+<a href="../../components/dialog/index.html" data-status="migrated"><span>Dialog <span style="color:var(--text-tertiary);font-weight:400">· Modal</span></span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/alert/index.html" data-status="migrated"><span>Alert</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/toast/index.html" data-status="migrated"><span>Toast</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tooltip/index.html" data-status="migrated"><span>Tooltip</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Overlays</div>
+<a href="../../components/drawer/index.html" data-status="migrated"><span>Drawer</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/popover/index.html" data-status="migrated"><span>Popover</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/menu/index.html" data-status="migrated"><span>Menu</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Patterns</div>
+<a href="../../patterns/page-header/index.html" data-status="migrated"><span>Page header</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/product-grid/index.html" data-status="migrated"><span>Product card grid</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/filter-bar/index.html" data-status="migrated"><span>Filter bar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/form-layout/index.html" data-status="migrated"><span>Form layout</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/order-summary/index.html" data-status="migrated"><span>Order summary</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/data-table/index.html" data-status="migrated"><span>Data table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/empty-state/index.html" data-status="migrated"><span>Empty state</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/status-messaging/index.html" data-status="migrated"><span>Status messaging</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/loading-states/index.html" data-status="planned"><span>Loading states</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/page-layout/index.html" data-status="planned"><span>Page layout</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/destructive-actions/index.html" data-status="planned"><span>Destructive actions</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+</div>
+</nav>
+<main>
+<div class="page__eyebrow">Components</div><h1 class="page__title">Accordion <span class="flag flag--lg">New</span></h1><p class="page__lede">A vertical stack of headers that reveal their content on press. Useful for shortening a long page — and risky, because hidden content is often unread content.</p>
+<div class="doc">
+
+
+<section id="examples">
+<h2>Examples</h2>
+<p>Both accordions below work. The first closes the open panel when another opens; the second lets them stack.</p>
+
+<h3>Single</h3>
+<div class="demo demo--stack">
+  <div class="acc" data-acc="single">
+    <div class="acc__item">
+      <button type="button" class="acc__trigger" aria-expanded="true">When does an order ship?<span class="acc__chev">▼</span></button>
+      <div class="acc__panel" data-expanded="true"><div class="acc__inner"><div>Orders placed before 3pm ship the same day. Anything later goes out the next business day.</div></div></div>
+    </div>
+    <div class="acc__item">
+      <button type="button" class="acc__trigger" aria-expanded="false">What are the return terms?<span class="acc__chev">▼</span></button>
+      <div class="acc__panel" data-expanded="false"><div class="acc__inner"><div>You can return anything unused and in undamaged packaging within 14 days of delivery, no reason needed.</div></div></div>
+    </div>
+    <div class="acc__item">
+      <button type="button" class="acc__trigger" aria-expanded="false">How do I get an invoice?<span class="acc__chev">▼</span></button>
+      <div class="acc__panel" data-expanded="false"><div class="acc__inner"><div>The invoice is emailed to your account address as soon as the order ships. You can also download it from the Orders page.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<h3>Multiple</h3>
+<div class="demo demo--stack">
+  <div class="acc" data-acc="multi">
+    <div class="acc__item">
+      <button type="button" class="acc__trigger" aria-expanded="false">Dimensions<span class="acc__chev">▼</span></button>
+      <div class="acc__panel" data-expanded="false"><div class="acc__inner"><div>147.5 × 71.5 × 7.85 mm, 206 g.</div></div></div>
+    </div>
+    <div class="acc__item">
+      <button type="button" class="acc__trigger" aria-expanded="false">Battery<span class="acc__chev">▼</span></button>
+      <div class="acc__panel" data-expanded="false"><div class="acc__inner"><div>3200 mAh, 98% health, charges to 50% in about 30 minutes.</div></div></div>
+    </div>
+    <div class="acc__item">
+      <button type="button" class="acc__trigger" aria-expanded="false">In the box<span class="acc__chev">▼</span></button>
+      <div class="acc__panel" data-expanded="false"><div class="acc__inner"><div>Handset, USB-C cable, original packaging and documentation.</div></div></div>
+    </div>
+  </div>
+</div>
+<p class="caption">The height animates with <code>grid-template-rows</code>, so panels of any length open smoothly without measuring anything in JavaScript.</p>
+</section>
+
+<section id="overview">
+<h2>Overview</h2>
+<p>An accordion trades scanning for scrolling. That's a good trade when someone needs one of many answers, and a bad one when they need all of them.</p>
+
+<h3>When to use</h3>
+<ul>
+<li><strong>FAQs</strong> — people arrive with one question and want to find it, not read the rest.</li>
+<li><strong>Secondary product detail</strong> — specifications, shipping terms, return policy under a product description.</li>
+<li><strong>Advanced settings</strong> — options most people never change.</li>
+</ul>
+
+<h3>When not to use</h3>
+<p>Don't hide content people need in order to decide. If a shopper has to open three panels to compare shipping cost, delivery time, and return window, the accordion has made the page shorter and the task longer.</p>
+<div class="callout"><div><b>Hidden content is skipped content.</b> It doesn't get found by <code>Ctrl+F</code> in a closed panel, it's easy to miss when printing, and it's invisible to someone skim-reading. Before hiding something, ask whether the page is genuinely too long or just feels untidy.</div></div>
+<table>
+<thead><tr><th>Instead of an accordion</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>Switching between peer views</td><td>Tabs</td></tr>
+<tr><td>One short block of extra detail</td><td>An inline disclosure</td></tr>
+<tr><td>Content people need side by side</td><td>Just show it</td></tr>
+<tr><td>Long, distinct topics</td><td>Separate pages</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="single-versus-multiple">
+<h2>Single versus multiple</h2>
+<p>Single mode closes the open panel when another opens. It keeps the page short and predictable, and it's the default.</p>
+<p>Multiple mode lets panels stack open. Use it when someone might reasonably want to compare two sections — but expect the page to grow past a screen height quickly.</p>
+<table>
+<thead><tr><th>Mode</th><th>Use when</th></tr></thead>
+<tbody>
+<tr><td>Single</td><td>Panels are alternatives. FAQs, help topics, a settings group.</td></tr>
+<tr><td>Multiple</td><td>Panels are complementary and might be read together. Specifications, filter groups.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="anatomy">
+<h2>Anatomy</h2>
+<div class="demo demo--stack">
+  <div class="anatomy">
+    <div class="acc" style="min-width:280px;flex:1">
+      <div class="acc__item">
+        <button type="button" class="acc__trigger" aria-expanded="true">Shipping<span class="acc__chev">▼</span></button>
+        <div class="acc__panel" data-expanded="true"><div class="acc__inner"><div>Free over ₼500, otherwise ₼49.</div></div></div>
+      </div>
+    </div>
+    <ul class="anatomy__key">
+      <li><b>1</b> Trigger — the whole row, not just the text.</li>
+      <li><b>2</b> Label — a question or a noun phrase.</li>
+      <li><b>3</b> Chevron — rotates 180° when open.</li>
+      <li><b>4</b> Panel — content, indented to align with the label.</li>
+    </ul>
+  </div>
+</div>
+<p>The entire header row is the trigger. A chevron-only target is small, easy to miss, and fails the reasonable-target-size expectation on touch.</p>
+</section>
+
+<section id="content">
+<h2>Content</h2>
+<p>Headers should say what's inside without being opened. "Shipping and returns" works; "More information" doesn't, because it makes people open panels to find out whether they wanted them.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage" style="display:block;width:100%">
+    <div class="acc"><div class="acc__item"><button type="button" class="acc__trigger" aria-expanded="false">Return terms<span class="acc__chev">▼</span></button></div>
+    <div class="acc__item"><button type="button" class="acc__trigger" aria-expanded="false">Shipping cost<span class="acc__chev">▼</span></button></div></div>
+  </div><div class="dodont__note"><b>Do</b> name the content so it can be found without opening.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage" style="display:block;width:100%">
+    <div class="acc"><div class="acc__item"><button type="button" class="acc__trigger" aria-expanded="false">More info<span class="acc__chev">▼</span></button></div>
+    <div class="acc__item"><button type="button" class="acc__trigger" aria-expanded="false">Details<span class="acc__chev">▼</span></button></div></div>
+  </div><div class="dodont__note"><b>Don't</b> use vague headers that force a hunt.</div></div>
+</div>
+<p>Adding a count or a summary to the header helps when it saves an open — "Shipping · from ₼49" answers the common case in place.</p>
+</section>
+
+<section id="behaviour">
+<h2>Behaviour</h2>
+<h3>Keeping state</h3>
+<p>If someone opens a panel, follows a link, and comes back, the panel should still be open. Losing that state on every navigation makes an accordion feel hostile on a long support page.</p>
+<h3>Deep linking</h3>
+<p>Give each panel an id and open the matching one when the URL carries its fragment. Without it, a link to a specific answer drops people at a page of closed headers.</p>
+<h3>Nesting</h3>
+<p>Don't nest accordions. Two levels of hiding means someone has to guess twice, and the indentation stops reading as hierarchy. If the content needs that much structure, it needs its own page.</p>
+<h3>How many</h3>
+<p>Three to eight panels. Fewer than three and the machinery costs more than it saves — just show the content. More than eight and the closed headers become their own wall to scan.</p>
+</section>
+
+<section id="style"><h2>Style</h2><p>A bordered container with hairline dividers between items. The only moving parts are the chevron and the panel height.</p>
+
+
+<h3>Colour</h3>
+<table>
+<thead><tr><th>Element</th><th>Token</th></tr></thead>
+<tbody>
+<tr><td>Container background</td><td><code>--surface-card</code></td></tr>
+<tr><td>Container border</td><td><code>--border-subtle</code></td></tr>
+<tr><td>Item divider</td><td><code>--border-subtle</code></td></tr>
+<tr><td>Header label</td><td><code>--text-primary</code></td></tr>
+<tr><td>Header hover</td><td><code>--surface-hover</code></td></tr>
+<tr><td>Chevron</td><td><code>--text-tertiary</code></td></tr>
+<tr><td>Panel text</td><td><code>--text-secondary</code></td></tr>
+</tbody>
+</table>
+<p>An open header gets no fill. Rotating the chevron and revealing the panel is enough of a signal, and a tinted header competes with the content it just exposed.</p>
+
+
+
+<h3>Size and spacing</h3>
+<table>
+<thead><tr><th>Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Header padding</td><td><code>--space-5</code> / <code>--space-6</code></td></tr>
+<tr><td>Header height</td><td>52px minimum</td></tr>
+<tr><td>Panel padding</td><td>0 / <code>--space-6</code> / <code>--space-5</code></td></tr>
+<tr><td>Container radius</td><td><code>--radius-md</code>, 10px</td></tr>
+<tr><td>Divider</td><td>1px</td></tr>
+</tbody>
+</table>
+<p>The panel has no top padding — the header's bottom padding already provides the gap, and doubling it makes an open panel look detached from its header.</p>
+
+
+
+<h3>Type</h3>
+<p>Headers are <code>--font-size-300</code> at 600, left-aligned. Panel text is <code>--font-size-300</code> at 400 with a 1.6 line height. Headers deliberately match body size rather than stepping up — an accordion is a list of peers, not a page outline.</p>
+
+
+
+<h3>Motion</h3>
+<p>The panel animates <code>grid-template-rows</code> from <code>0fr</code> to <code>1fr</code> over <code>--duration-normal</code>. This is what lets a panel of any length animate correctly without measuring its height in JavaScript first.</p>
+<div class="code"><pre>.acc__panel { display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-normal) var(--ease-standard); }
+.acc__panel[data-expanded="true"] { grid-template-rows: 1fr; }
+.acc__inner { overflow: hidden; }</pre></div>
+<p>The chevron rotates 180° over the same duration. Under <code>prefers-reduced-motion</code> both drop to 1ms — the panel still opens, it just stops travelling.</p>
+
+
+
+<h3>Elevation</h3>
+<p>None. The accordion sits flat on the page like a card, and gains no shadow when open. Elevation in this system means layering — a popover above content — and an accordion never leaves the flow.</p>
+
+</section>
+
+<section id="code"><h2>Code</h2><p>Three nested elements per panel. The extra wrapper is what makes the height animation work.</p>
+
+
+<h3>React</h3>
+<div class="code"><pre>import { Accordion } from '@/components/data/Accordion';
+
+&lt;Accordion
+  mode="single"
+  items={[
+    { id: 'ship',   title: 'When does an order ship?', content: '…' },
+    { id: 'return', title: 'What are the return terms?', content: '…' },
+  ]}
+/&gt;</pre></div>
+
+
+
+<h3>Props</h3>
+<table>
+<thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>items</code></td><td><code>{ id, title, content }[]</code></td><td>—</td><td>Three to eight is the readable range.</td></tr>
+<tr><td><code>mode</code></td><td><code>single | multiple</code></td><td><code>single</code></td><td>Single closes the previous panel.</td></tr>
+<tr><td><code>defaultOpen</code></td><td><code>string[]</code></td><td><code>[]</code></td><td>Panel ids open on first render.</td></tr>
+<tr><td><code>onToggle</code></td><td><code>(id, open) =&gt; void</code></td><td>—</td><td>Use it to persist state across navigation.</td></tr>
+</tbody>
+</table>
+
+
+
+<h3>Plain HTML</h3>
+<p>Outside React, <code>interactive.js</code> drives it. Put <code>data-acc</code> on the container and the runtime handles the rest — no initialisation call.</p>
+<div class="code"><pre>&lt;div class="acc" data-acc="single"&gt;
+  &lt;div class="acc__item"&gt;
+    &lt;button type="button" class="acc__trigger" aria-expanded="false"&gt;
+      When does an order ship?&lt;span class="acc__chev"&gt;▼&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="acc__panel" data-expanded="false"&gt;
+      &lt;div class="acc__inner"&gt;
+        &lt;div&gt;Orders placed before 3pm ship the same day.&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre></div>
+<table>
+<thead><tr><th>Attribute</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td><code>data-acc="single"</code></td><td>On the container. Use <code>"multi"</code> to allow several open.</td></tr>
+<tr><td><code>aria-expanded</code></td><td>On the trigger. The runtime keeps it in sync; set the initial value yourself.</td></tr>
+<tr><td><code>data-expanded</code></td><td>On the panel. Must match the trigger's initial <code>aria-expanded</code>.</td></tr>
+</tbody>
+</table>
+<div class="callout callout--warning"><div><b>The three-element nesting isn't decorative.</b> The animation runs on the outer <code>.acc__panel</code> grid, and <code>.acc__inner</code> supplies the <code>overflow: hidden</code> that clips the content mid-transition. Flatten it and panels will jump open instead of sliding.</div></div>
+
+
+
+<h3>Persisting state</h3>
+<p>Neither the component nor the runtime stores which panels are open. Keep it in the URL when a panel is worth linking to, and in your own state layer otherwise.</p>
+<div class="code"><pre>document.addEventListener('click', (e) =&gt; {
+  const t = e.target.closest('.acc__trigger');
+  if (!t) return;
+  const open = t.getAttribute('aria-expanded') === 'true';
+  history.replaceState(null, '', open ? `#${t.dataset.id}` : ' ');
+});</pre></div>
+
+</section>
+
+<section id="accessibility"><h2>Accessibility</h2><p>The pattern rests on one attribute: <code>aria-expanded</code> on a real button. Everything else follows from that.</p>
+
+
+<h3>Keyboard</h3>
+<table>
+<thead><tr><th>Key</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>Tab</code></td><td>Moves to the next trigger, or into an open panel's content if it has focusable elements.</td></tr>
+<tr><td><code>Enter</code> or <code>Space</code></td><td>Toggles the panel.</td></tr>
+</tbody>
+</table>
+<p>Arrow keys are deliberately not bound. Unlike tabs, accordion headers aren't a single composite widget — they're a list of independent buttons, and <code>Tab</code> is the expected way through them. Adding arrow navigation here would break the mental model people bring from every other accordion.</p>
+
+
+
+<h3>Markup requirements</h3>
+<ul>
+<li>The trigger is a <code>&lt;button&gt;</code>. A <code>&lt;div&gt;</code> with a click handler isn't focusable, isn't announced as a control, and doesn't respond to <code>Space</code>.</li>
+<li><code>aria-expanded</code> reflects the panel state and updates on every toggle. This is what a screen reader announces as "collapsed" or "expanded".</li>
+<li>If headers are section headings in the page outline, wrap each button in an <code>&lt;h3&gt;</code> so heading navigation still works. Wrap the button — don't put the button inside the heading's text.</li>
+</ul>
+<div class="code"><pre>&lt;h3 style="margin:0"&gt;
+  &lt;button type="button" class="acc__trigger" aria-expanded="false"&gt;
+    Return terms&lt;span class="acc__chev" aria-hidden="true"&gt;▼&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/h3&gt;</pre></div>
+<p>The chevron takes <code>aria-hidden="true"</code>. It duplicates what <code>aria-expanded</code> already says, and without it screen readers announce a stray character after every header.</p>
+
+
+
+<h3>Hidden content and assistive technology</h3>
+<p>A closed panel must be genuinely hidden, not just visually collapsed. The <code>grid-template-rows: 0fr</code> plus <code>overflow: hidden</code> combination removes it from the accessibility tree in current browsers, so a screen reader skips it and <code>Tab</code> can't land on anything inside.</p>
+<div class="callout"><div><b>Verify this if you restyle the panel.</b> Collapsing with <code>height: 0</code> and no <code>overflow: hidden</code> leaves focusable content reachable but invisible — someone tabbing through lands on a link they can't see, which is worse than no accordion at all.</div></div>
+
+
+
+<h3>Find on page</h3>
+<p>Content in a closed panel isn't found by the browser's find. Chromium's <code>hidden="until-found"</code> fixes this by auto-opening the panel on a match, and degrades harmlessly elsewhere. Worth adding on support and FAQ pages, where searching is exactly how people navigate.</p>
+
+
+
+<h3>Contrast</h3>
+<table>
+<thead><tr><th>Pair</th><th>Ratio</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Header label on card</td><td>16.4:1</td><td>Passes AAA</td></tr>
+<tr><td>Panel text on card</td><td>10.2:1</td><td>Passes AAA</td></tr>
+<tr><td>Chevron on card</td><td>4.95:1</td><td>Passes AA and 1.4.11</td></tr>
+<tr><td>Divider on card</td><td>1.6:1</td><td>Exempt — decorative</td></tr>
+</tbody>
+</table>
+<p>The divider is exempt because it separates rather than defines: removing it entirely would leave the accordion fully usable, so WCAG treats it as decoration.</p>
+
+
+
+<h3>Target size</h3>
+<p>The trigger spans the full width of the container and is 52px tall, well past the 24px minimum in WCAG 2.2 <strong>2.5.8</strong>. This is the main reason the whole row is the target rather than just the chevron.</p>
+
+
+
+<h3>What you still have to do</h3>
+<ul>
+<li>Keep <code>aria-expanded</code> accurate if you drive the accordion yourself.</li>
+<li>Mark the chevron <code>aria-hidden</code>.</li>
+<li>Wrap triggers in headings when they're part of the page outline.</li>
+<li>Don't hide anything required to complete a task.</li>
+</ul>
+
+</section>
+<section id="related"><h2>Related</h2><div class="related"><a href="../../components/button/index.html">Button</a><a href="../../components/input/index.html">Text input</a></div></section>
+</div>
+<nav class="pagernav">
+<a href="../../components/table/index.html"><span>Previous</span>Table</a>
+<a href="../../components/avatar/index.html" style="text-align:right"><span>Next</span>Avatar</a>
+</nav>
+</main>
+<aside class="toc" aria-label="On this page">
+<div class="toc__title">On this page</div>
+<a href="#examples">Examples</a>
+<a href="#overview">Overview</a>
+<a href="#single-versus-multiple">Single versus multiple</a>
+<a href="#anatomy">Anatomy</a>
+<a href="#content">Content</a>
+<a href="#behaviour">Behaviour</a>
+<a href="#style">Style</a>
+<a href="#code">Code</a>
+<a href="#accessibility">Accessibility</a>
+<a href="#related">Related</a>
+</aside>
+</div>
+
+<script src="../../interactive.js"></script>
+<script src="../../site.js"></script>
+</body>
+</html>

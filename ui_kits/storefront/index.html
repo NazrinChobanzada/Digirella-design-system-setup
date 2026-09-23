@@ -1,0 +1,329 @@
+<!-- @dsCard group="Storefront" viewport="1280x820" name="Storefront" subtitle="Home, product, and checkout flow" -->
+<!-- @startingPoint section="Storefront" subtitle="Marketplace storefront — search, product, checkout" viewport="1280x820" -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Digirella · Storefront UI Kit</title>
+<link href="../../styles.css" rel="stylesheet"/>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  body { background: var(--surface-page); }
+  .ph { background-image:repeating-linear-gradient(135deg,var(--neutral-05) 0 8px,var(--neutral-10) 8px 16px); display:flex; align-items:center; justify-content:center; color:var(--text-tertiary); font-family:var(--font-mono); font-size:var(--font-size-100); text-align:center; }
+  button { font-family: var(--font-sans); }
+  [data-lucide] { width: 18px; height: 18px; stroke-width: 1.75; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+function Icon({ name, size = 18, color }) {
+  return <i data-lucide={name} style={{ width: size, height: size, color }}></i>;
+}
+
+function Btn({ variant = 'primary', size = 'medium', children, ...rest }) {
+  const V = {
+    primary: { background: 'var(--color-primary)', color: 'var(--color-on-primary)', border: '1px solid transparent' },
+    secondary: { background: 'var(--surface-card)', color: 'var(--text-primary)', border: '1px solid var(--border-strong)' },
+    subtle: { background: 'var(--surface-brand-subtle)', color: 'var(--text-brand)', border: '1px solid transparent' },
+    ghost: { background: 'transparent', color: 'var(--text-primary)', border: '1px solid transparent' },
+  }[variant];
+  const S = { small: { padding: '6px 14px', fontSize: 'var(--font-size-200)' }, medium: { padding: '10px 20px', fontSize: 'var(--font-size-300)' }, large: { padding: '14px 28px', fontSize: 'var(--font-size-400)' } }[size];
+  return <button {...rest} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--space-3)', fontWeight: 600, lineHeight: 1, borderRadius: 'var(--radius-pill)', cursor: 'pointer', transition: 'var(--transition-interactive)', ...V, ...S, ...rest.style }}>{children}</button>;
+}
+
+function Badge({ tone = 'neutral', children }) {
+  const T = { neutral: ['var(--surface-sunken)','var(--text-secondary)'], success: ['var(--surface-brand-subtle)','var(--text-success)'], warning: ['var(--surface-warning-subtle)','var(--text-warning)'], brand: ['var(--color-primary)','var(--color-on-primary)'] }[tone];
+  return <span style={{ background: T[0], color: T[1], fontSize: 'var(--font-size-200)', fontWeight: 600, lineHeight: 1, padding: '5px 10px', borderRadius: 'var(--radius-xs)' }}>{children}</span>;
+}
+
+const PRODUCTS = [
+  { id: 1, title: 'Wireless headphones · ANC', price: '2.480', old: '3.100', cond: 'Brand new', ship: 'Free shipping', seller: 'sesatolyesi', rating: '99,2%' },
+  { id: 2, title: 'Mekanik klavye 75% · brown switch', price: '1.850', cond: 'Used', ship: 'Free shipping', seller: 'tusdukkani', rating: '98,4%' },
+  { id: 3, title: 'Film camera · 35mm', price: '4,200', old: '4,900', cond: 'Refurbished', ship: '₺49 shipping', seller: 'analogshop', rating: '100%' },
+  { id: 4, title: 'Leather backpack · 18L', price: '1.190', cond: 'Brand new', ship: 'Free shipping', seller: 'kemeratolye', rating: '97,8%' },
+  { id: 5, title: 'Vintage desk lamp', price: '780', cond: 'Used', ship: '₺39 shipping', seller: 'evvelzaman', rating: '99.6%' },
+  { id: 6, title: 'Running shoes · 42', price: '1.640', old: '2.050', cond: 'Brand new', ship: 'Free shipping', seller: 'adimspor', rating: '96,9%' },
+];
+
+function Header({ cart, onNav, screen }) {
+  return (
+    <header style={{ background: 'var(--surface-card)', borderBottom: '1px solid var(--border-subtle)', position: 'sticky', top: 0, zIndex: 20 }}>
+      <div style={{ maxWidth: 'var(--layout-max-width)', margin: '0 auto', padding: 'var(--space-4) var(--space-7)', display: 'flex', alignItems: 'center', gap: 'var(--space-6)' }}>
+        <div onClick={() => onNav('home')} style={{ fontSize: 'var(--font-size-600)', fontWeight: 800, letterSpacing: 'var(--letter-spacing-tight)', color: 'var(--color-primary)', cursor: 'pointer' }}>digirella</div>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 'var(--space-3)', border: '1px solid var(--border-default)', borderRadius: 'var(--radius-pill)', padding: '0 var(--space-5)', minHeight: 44, background: 'var(--surface-card)' }}>
+          <Icon name="search" />
+          <input placeholder="Search products, brands, or categories" style={{ flex: 1, border: 0, outline: 'none', background: 'transparent', fontFamily: 'var(--font-sans)', fontSize: 'var(--font-size-300)', color: 'var(--text-primary)' }} />
+          <Btn size="small">Ara</Btn>
+        </div>
+        <nav style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-5)', fontSize: 'var(--font-size-300)', color: 'var(--text-secondary)' }}>
+          <span style={{ cursor: 'pointer' }}>Kaydedilenler</span>
+          <span onClick={() => onNav('seller')} style={{ cursor: 'pointer', color: screen === 'seller' ? 'var(--text-brand)' : undefined, fontWeight: screen === 'seller' ? 600 : 400 }}>Seller dashboard</span>
+          <span onClick={() => onNav('cart')} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+            <Icon name="shopping-bag" />
+            {cart > 0 ? <span style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)', fontSize: 'var(--font-size-100)', fontWeight: 700, borderRadius: 'var(--radius-pill)', padding: '2px 7px' }}>{cart}</span> : null}
+          </span>
+        </nav>
+      </div>
+      <div style={{ borderTop: '1px solid var(--border-subtle)' }}>
+        <div style={{ maxWidth: 'var(--layout-max-width)', margin: '0 auto', padding: '0 var(--space-7)', display: 'flex', gap: 'var(--space-7)', fontSize: 'var(--font-size-300)', color: 'var(--text-secondary)' }}>
+          {['Elektronik','Moda','Home & Living','Koleksiyon','Otomotiv','Deals'].map((c, i) => (
+            <span key={c} style={{ padding: 'var(--space-4) 0', cursor: 'pointer', fontWeight: i === 0 ? 600 : 400, color: i === 0 ? 'var(--text-primary)' : undefined, boxShadow: i === 0 ? 'inset 0 -2px 0 var(--color-primary)' : 'none' }}>{c}</span>
+          ))}
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function ProductCard({ p, onOpen }) {
+  const [h, setH] = useState(false);
+  return (
+    <div onClick={() => onOpen(p)} onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+      style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', overflow: 'hidden', cursor: 'pointer', boxShadow: h ? 'var(--shadow-300)' : 'var(--shadow-none)', transition: 'box-shadow var(--duration-normal) var(--ease-standard)' }}>
+      <div className="ph" style={{ height: 180 }}>product image</div>
+      <div style={{ padding: 'var(--space-5)', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+        <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+          <Badge tone={p.cond === 'Brand new' ? 'success' : 'neutral'}>{p.cond}</Badge>
+          {p.old ? <Badge tone="warning">Sale</Badge> : null}
+        </div>
+        <div style={{ fontSize: 'var(--font-size-300)', lineHeight: 1.4, color: 'var(--text-primary)' }}>{p.title}</div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-3)' }}>
+          <span style={{ fontSize: 'var(--font-size-500)', fontWeight: 700 }}>{p.price} ₺</span>
+          {p.old ? <span style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-tertiary)', textDecoration: 'line-through' }}>{p.old} ₺</span> : null}
+        </div>
+        <div style={{ fontSize: 'var(--font-size-200)', color: p.ship.startsWith('Free') ? 'var(--text-success)' : 'var(--text-tertiary)' }}>{p.ship}</div>
+      </div>
+    </div>
+  );
+}
+
+function Home({ onOpen }) {
+  const [filter, setFilter] = useState('All');
+  return (
+    <main style={{ maxWidth: 'var(--layout-max-width)', margin: '0 auto', padding: 'var(--space-8) var(--space-7) var(--space-12)' }}>
+      <section style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'var(--space-7)', alignItems: 'stretch', marginBottom: 'var(--space-10)' }}>
+        <div style={{ background: 'var(--surface-brand)', color: 'var(--text-inverse)', borderRadius: 'var(--radius-lg)', padding: 'var(--space-10)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 'var(--space-5)' }}>
+          <span style={{ fontSize: 'var(--type-overline-size)', fontWeight: 600, letterSpacing: 'var(--letter-spacing-wide)', textTransform: 'uppercase', color: 'var(--green-20)' }}>Deal of the week</span>
+          <h1 style={{ margin: 0, fontSize: 'var(--font-size-900)', fontWeight: 700, lineHeight: 'var(--line-height-tight)', letterSpacing: 'var(--letter-spacing-tight)' }}>Everything you're looking for, for less</h1>
+          <p style={{ margin: 0, fontSize: 'var(--font-size-400)', lineHeight: 1.5, color: 'var(--green-10)', maxWidth: 420 }}>Millions of new, refurbished, and used products. Buyer protection on every order.</p>
+          <div style={{ display: 'flex', gap: 'var(--space-3)', marginTop: 'var(--space-3)' }}>
+            <Btn variant="secondary" size="large">See the deals</Btn>
+            <Btn variant="ghost" size="large" style={{ color: 'var(--text-inverse)', border: '1px solid var(--alpha-white-16)' }}>Start selling</Btn>
+          </div>
+        </div>
+        <div className="ph" style={{ borderRadius: 'var(--radius-lg)', minHeight: 300 }}>campaign image · 960×720</div>
+      </section>
+
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-5)' }}>
+        <h2 style={{ margin: 0, fontSize: 'var(--type-title-size)', fontWeight: 600 }}>Picked for you</h2>
+        <div style={{ display: 'flex', gap: 'var(--space-3)' }}>
+          {['All','Brand new','Used','Free shipping'].map(t => (
+            <span key={t} onClick={() => setFilter(t)} style={{ fontSize: 'var(--font-size-300)', fontWeight: 500, padding: '8px 14px', borderRadius: 'var(--radius-pill)', cursor: 'pointer', transition: 'var(--transition-interactive)', background: filter === t ? 'var(--color-primary)' : 'var(--surface-card)', color: filter === t ? 'var(--color-on-primary)' : 'var(--text-primary)', border: '1px solid ' + (filter === t ? 'var(--color-primary)' : 'var(--border-default)') }}>{t}</span>
+          ))}
+        </div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-6)' }}>
+        {PRODUCTS.filter(p => filter === 'All' || p.cond === filter || (filter === 'Free shipping' && p.ship.startsWith('Free'))).map(p => <ProductCard key={p.id} p={p} onOpen={onOpen} />)}
+      </div>
+    </main>
+  );
+}
+
+function Product({ p, onAdd, onBack, added }) {
+  const [tab, setTab] = useState('desc');
+  return (
+    <main style={{ maxWidth: 'var(--layout-max-width)', margin: '0 auto', padding: 'var(--space-7) var(--space-7) var(--space-12)' }}>
+      <div onClick={onBack} style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', fontSize: 'var(--font-size-300)', color: 'var(--text-secondary)', cursor: 'pointer', marginBottom: 'var(--space-6)' }}>
+        <Icon name="chevron-left" size={16} /> Back to results
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 'var(--space-9)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+          <div className="ph" style={{ borderRadius: 'var(--radius-md)', height: 400 }}>product image · 1200×1200</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 'var(--space-4)' }}>
+            {[1,2,3,4].map(i => <div key={i} className="ph" style={{ height: 78, borderRadius: 'var(--radius-sm)', border: i === 1 ? '2px solid var(--color-primary)' : '1px solid var(--border-subtle)' }}>{i}</div>)}
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
+          <div style={{ display: 'flex', gap: 'var(--space-2)' }}><Badge tone="success">{p.cond}</Badge><Badge tone="neutral">Fast dispatch</Badge></div>
+          <h1 style={{ margin: 0, fontSize: 'var(--type-title-size)', fontWeight: 600, lineHeight: 1.25 }}>{p.title}</h1>
+          <div style={{ fontSize: 'var(--font-size-300)', color: 'var(--text-secondary)' }}>
+            Seller <a href="#" style={{ fontWeight: 600 }}>{p.seller}</a> · {p.rating} olumlu geri bildirim
+          </div>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-4)' }}>
+            <span style={{ fontSize: 'var(--font-size-800)', fontWeight: 700, letterSpacing: 'var(--letter-spacing-tight)' }}>{p.price} ₺</span>
+            {p.old ? <span style={{ fontSize: 'var(--font-size-400)', color: 'var(--text-tertiary)', textDecoration: 'line-through' }}>{p.old} ₺</span> : null}
+          </div>
+          <div style={{ fontSize: 'var(--font-size-300)', color: 'var(--text-success)', display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+            <Icon name="truck" size={16} /> {p.ship} · delivered in 2–4 business days
+          </div>
+          <div style={{ display: 'flex', gap: 'var(--space-3)', marginTop: 'var(--space-2)' }}>
+            <Btn size="large" style={{ flex: 1 }} onClick={onAdd}>Hemen al</Btn>
+            <Btn variant="secondary" size="large" style={{ flex: 1 }} onClick={onAdd}>{added ? 'Sepette' : 'Sepete ekle'}</Btn>
+            <button aria-label="Kaydet" style={{ width: 50, height: 50, borderRadius: '50%', border: '1px solid var(--border-default)', background: 'var(--surface-card)', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}><Icon name="heart" /></button>
+          </div>
+          <div style={{ background: 'var(--surface-brand-subtle)', border: '1px solid var(--color-primary-border)', borderRadius: 'var(--radius-sm)', padding: 'var(--space-5)', display: 'flex', gap: 'var(--space-4)', alignItems: 'flex-start' }}>
+            <Icon name="shield-check" color="var(--color-primary)" />
+            <div>
+              <div style={{ fontSize: 'var(--font-size-300)', fontWeight: 600, color: 'var(--text-success)' }}>Buyer protection</div>
+              <div style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-secondary)', marginTop: 2 }}>If it doesn't match the description, you get your money back.</div>
+            </div>
+          </div>
+          <div style={{ marginTop: 'var(--space-4)' }}>
+            <div style={{ display: 'flex', gap: 'var(--space-7)', borderBottom: '1px solid var(--border-subtle)' }}>
+              {[['desc','Description'],['ship','Shipping & returns'],['seller','Seller']].map(([v,l]) => (
+                <button key={v} onClick={() => setTab(v)} style={{ border: 0, background: 'transparent', cursor: 'pointer', padding: 'var(--space-4) 0', fontSize: 'var(--font-size-300)', fontWeight: tab === v ? 600 : 500, color: tab === v ? 'var(--text-primary)' : 'var(--text-secondary)', boxShadow: tab === v ? 'inset 0 -2px 0 var(--color-primary)' : 'none' }}>{l}</button>
+              ))}
+            </div>
+            <p style={{ fontSize: 'var(--font-size-300)', lineHeight: 1.6, color: 'var(--text-secondary)', textWrap: 'pretty' }}>
+              {tab === 'desc' && 'Sent in its box with all accessories. No cosmetic flaws; battery health 98%.'}
+              {tab === 'ship' && 'Ships the same day. You have 14 days to return it free of charge.'}
+              {tab === 'seller' && 'Selling since 2019 · 4,812 reviews · average reply time 2 hours.'}
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function Cart({ items, onBack, onPay, paid }) {
+  const total = items.reduce((s, p) => s + Number(p.price.replace('.', '')), 0);
+  const fmt = (n) => n.toLocaleString('tr-TR');
+  if (paid) {
+    return (
+      <main style={{ maxWidth: 640, margin: '0 auto', padding: 'var(--space-13) var(--space-7)', textAlign: 'center' }}>
+        <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--surface-brand-subtle)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 'var(--space-6)' }}>
+          <Icon name="check" size={28} color="var(--color-primary)" />
+        </div>
+        <h1 style={{ margin: 0, fontSize: 'var(--type-title-size)', fontWeight: 600 }}>Order received</h1>
+        <p style={{ fontSize: 'var(--font-size-400)', color: 'var(--text-secondary)', lineHeight: 1.5 }}>Your order number <span style={{ fontFamily: 'var(--font-mono)' }}>ORD-2026-0084112</span>. Shipping details will arrive by email.</p>
+        <Btn size="large" onClick={onBack}>Keep shopping</Btn>
+      </main>
+    );
+  }
+  return (
+    <main style={{ maxWidth: 'var(--layout-max-width)', margin: '0 auto', padding: 'var(--space-8) var(--space-7) var(--space-12)' }}>
+      <h1 style={{ margin: '0 0 var(--space-7)', fontSize: 'var(--type-title-size)', fontWeight: 600 }}>Sepet</h1>
+      <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 'var(--space-8)', alignItems: 'start' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+          {items.length === 0 ? <div style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: 'var(--space-10)', textAlign: 'center', color: 'var(--text-tertiary)' }}>Your cart is empty.</div> : null}
+          {items.map((p, i) => (
+            <div key={i} style={{ display: 'flex', gap: 'var(--space-5)', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: 'var(--space-5)' }}>
+              <div className="ph" style={{ width: 92, height: 92, borderRadius: 'var(--radius-sm)', flex: '0 0 92px' }}>image</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 'var(--font-size-400)', fontWeight: 500 }}>{p.title}</div>
+                <div style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-tertiary)', marginTop: 2 }}>{p.seller} · {p.cond}</div>
+                <div style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-success)', marginTop: 'var(--space-3)' }}>{p.ship}</div>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: 'var(--font-size-500)', fontWeight: 700 }}>{p.price} ₺</div>
+                <button style={{ border: 0, background: 'transparent', color: 'var(--text-tertiary)', fontSize: 'var(--font-size-200)', cursor: 'pointer', padding: 0, marginTop: 'var(--space-3)' }}>Remove</button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: 'var(--space-6)', boxShadow: 'var(--shadow-200)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+          <div style={{ fontSize: 'var(--type-heading-size)', fontWeight: 600 }}>Summary</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-300)', color: 'var(--text-secondary)' }}><span>Ara toplam</span><span>{fmt(total)} ₺</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-300)', color: 'var(--text-secondary)' }}><span>Shipping</span><span style={{ color: 'var(--text-success)' }}>Free</span></div>
+          <div style={{ height: 1, background: 'var(--border-subtle)' }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-500)', fontWeight: 700 }}><span>Toplam</span><span>{fmt(total)} ₺</span></div>
+          <Btn size="large" onClick={onPay} style={{ marginTop: 'var(--space-3)' }}>Go to checkout</Btn>
+          <div style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-tertiary)', textAlign: 'center' }}>Buyer protection included</div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function Seller() {
+  const [tab, setTab] = useState('all');
+  const rows = [
+    ['Wireless headphones · ANC', 'Aktif', '2.480 ₺', '128 views'],
+    ['Mekanik klavye 75%', 'Aktif', '1.850 ₺', '64 views'],
+    ['Film camera · 35mm', 'Sold', '4.200 ₺', '—'],
+    ['Leather backpack · 18L', 'Taslak', '1.190 ₺', '—'],
+  ];
+  return (
+    <main style={{ maxWidth: 'var(--layout-max-width)', margin: '0 auto', padding: 'var(--space-8) var(--space-7) var(--space-12)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-7)' }}>
+        <h1 style={{ margin: 0, fontSize: 'var(--type-title-size)', fontWeight: 600 }}>Seller dashboard</h1>
+        <Btn iconStart><Icon name="plus" size={16} />Create listing</Btn>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 'var(--space-5)', marginBottom: 'var(--space-8)' }}>
+        {[['Revenue this month','₺48,920','+12%'],['Active listings','24',''],['Pending orders','3',''],['Feedback','99.2%','+0.4']].map(([l,v,d]) => (
+          <div key={l} style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', padding: 'var(--space-6)' }}>
+            <div style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-tertiary)' }}>{l}</div>
+            <div style={{ fontSize: 'var(--font-size-700)', fontWeight: 700, letterSpacing: 'var(--letter-spacing-tight)', marginTop: 'var(--space-2)' }}>{v}</div>
+            {d ? <div style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-success)', marginTop: 'var(--space-2)' }}>{d} geçen aya göre</div> : null}
+          </div>
+        ))}
+      </div>
+      <div style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', gap: 'var(--space-7)', borderBottom: '1px solid var(--border-subtle)', padding: '0 var(--space-6)' }}>
+          {[['all','All',24],['active','Aktif',18],['sold','Sold',8],['draft','Taslaklar',null]].map(([v,l,c]) => (
+            <button key={v} onClick={() => setTab(v)} style={{ border: 0, background: 'transparent', cursor: 'pointer', padding: 'var(--space-4) 0', fontSize: 'var(--font-size-300)', fontWeight: tab === v ? 600 : 500, color: tab === v ? 'var(--text-primary)' : 'var(--text-secondary)', boxShadow: tab === v ? 'inset 0 -2px 0 var(--color-primary)' : 'none', display: 'inline-flex', gap: 'var(--space-3)', alignItems: 'center' }}>
+              {l}{c ? <span style={{ color: 'var(--text-tertiary)', fontSize: 'var(--font-size-200)' }}>{c}</span> : null}
+            </button>
+          ))}
+        </div>
+        {rows.map((r, i) => (
+          <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', alignItems: 'center', gap: 'var(--space-5)', padding: 'var(--space-5) var(--space-6)', borderTop: i ? '1px solid var(--border-subtle)' : 'none' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
+              <div className="ph" style={{ width: 44, height: 44, borderRadius: 'var(--radius-sm)', flex: '0 0 44px' }}></div>
+              <span style={{ fontSize: 'var(--font-size-300)' }}>{r[0]}</span>
+            </div>
+            <div><Badge tone={r[1] === 'Aktif' ? 'success' : r[1] === 'Sold' ? 'neutral' : 'warning'}>{r[1]}</Badge></div>
+            <div style={{ fontSize: 'var(--font-size-300)', fontWeight: 600 }}>{r[2]}</div>
+            <div style={{ fontSize: 'var(--font-size-200)', color: 'var(--text-tertiary)' }}>{r[3]}</div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+}
+
+function App() {
+  const [screen, setScreen] = useState('home');
+  const [product, setProduct] = useState(PRODUCTS[0]);
+  const [cart, setCart] = useState([]);
+  const [paid, setPaid] = useState(false);
+  const [toast, setToast] = useState(false);
+
+  useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
+  useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(false), 2600); return () => clearTimeout(t); }, [toast]);
+
+  const open = (p) => { setProduct(p); setScreen('product'); };
+  const add = () => { if (!cart.find(c => c.id === product.id)) setCart([...cart, product]); setToast(true); };
+
+  return (
+    <div>
+      <Header cart={cart.length} screen={screen} onNav={(s) => { setPaid(false); setScreen(s); }} />
+      {screen === 'home' && <Home onOpen={open} />}
+      {screen === 'product' && <Product p={product} onAdd={add} added={!!cart.find(c => c.id === product.id)} onBack={() => setScreen('home')} />}
+      {screen === 'cart' && <Cart items={cart} paid={paid} onPay={() => setPaid(true)} onBack={() => { setPaid(false); setScreen('home'); }} />}
+      {screen === 'seller' && <Seller />}
+      {toast ? (
+        <div style={{ position: 'fixed', right: 'var(--space-7)', bottom: 'var(--space-7)', display: 'flex', gap: 'var(--space-4)', alignItems: 'center', background: 'var(--surface-brand-subtle)', borderLeft: '3px solid var(--color-primary)', borderRadius: 'var(--radius-sm)', padding: 'var(--space-5)', boxShadow: 'var(--shadow-300)', zIndex: 50 }}>
+          <div>
+            <div style={{ fontSize: 'var(--font-size-300)', fontWeight: 600, color: 'var(--text-success)' }}>Sepete eklendi</div>
+            <div style={{ fontSize: 'var(--font-size-300)', color: 'var(--text-secondary)' }}>{cart.length} items</div>
+          </div>
+          <Btn variant="subtle" size="small" onClick={() => setScreen('cart')}>Sepete git</Btn>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

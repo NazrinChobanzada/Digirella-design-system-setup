@@ -1,0 +1,22 @@
+<section>
+
+<h2>Architecture</h2>
+<p class="doc-lead">Each layer references the one above it. A palette step never appears in a component; a semantic token never hard-codes a hex.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
+<div class="box" style="padding:var(--space-6)">
+<div style="font-family:var(--font-mono);font-size:var(--font-size-100);color:var(--text-tertiary)">01 · PRIMITIVE</div>
+<div style="font-size:var(--font-size-400);font-weight:600;margin:var(--space-3) 0">Palette</div>
+<div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.5">Raw values. <code>--green-60: #006A09</code>. Never used directly in product code.</div>
+</div>
+<div class="box" style="padding:var(--space-6)">
+<div style="font-family:var(--font-mono);font-size:var(--font-size-100);color:var(--text-tertiary)">02 · SEMANTIC</div>
+<div style="font-size:var(--font-size-400);font-weight:600;margin:var(--space-3) 0">Intent</div>
+<div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.5">Describes purpose. <code>--color-primary</code>, <code>--text-secondary</code>, <code>--surface-card</code>.</div>
+</div>
+<div class="box" style="padding:var(--space-6)">
+<div style="font-family:var(--font-mono);font-size:var(--font-size-100);color:var(--text-tertiary)">03 · COMPONENT</div>
+<div style="font-size:var(--font-size-400);font-weight:600;margin:var(--space-3) 0">Usage</div>
+<div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.5">Button, Input, Card read semantic tokens only. No literal colours.</div>
+</div>
+</div>
+</section>

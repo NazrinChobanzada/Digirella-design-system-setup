@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Number input — Digirella</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../interactive.css">
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body class="ix">
+<header class="masthead">
+  <div class="masthead__inner">
+    <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
+    <a class="masthead__brand" href="../../index.html">digirella</a>
+    <span class="masthead__tag">Design system</span>
+    <span class="masthead__spacer"></span>
+    <span class="masthead__meta">v1.0 · primary #006A09</span>
+  </div>
+</header>
+
+<div class="frame">
+<nav class="sidenav" id="sidenav" aria-label="Sections">
+<div class="sidenav__section">
+<div class="sidenav__title">Foundations</div>
+<a href="../../foundations/architecture/index.html" data-status="migrated"><span>Architecture</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/palette/index.html" data-status="migrated"><span>Palette</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/semantic-colour/index.html" data-status="migrated"><span>Semantic colour</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/typography/index.html" data-status="ready"><span>Typography</span><span class="flag">New</span></a>
+<a href="../../foundations/spacing/index.html" data-status="migrated"><span>Spacing</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/shape/index.html" data-status="migrated"><span>Shape &amp; border</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/elevation/index.html" data-status="migrated"><span>Elevation</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/motion/index.html" data-status="migrated"><span>Motion</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/colour-accessibility/index.html" data-status="migrated"><span>Colour accessibility</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../foundations/interaction-states/index.html" data-status="migrated"><span>Interaction states</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Components</div>
+<div class="sidenav__group">Core</div>
+<a href="../../components/button/index.html" data-status="ready"><span>Button</span><span class="flag">New</span></a>
+<a href="../../components/icon-button/index.html" data-status="migrated"><span>IconButton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/card/index.html" data-status="migrated"><span>Card</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/badge/index.html" data-status="migrated"><span>Badge</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tag/index.html" data-status="migrated"><span>Tag</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Forms</div>
+<a href="../../components/input/index.html" data-status="ready"><span>Text input <span style="color:var(--text-tertiary);font-weight:400">· Textarea</span></span><span class="flag">New</span></a>
+<a href="../../components/formatted-input/index.html" data-status="ready"><span>Formatted input</span><span class="flag">New</span></a>
+<a href="../../components/number-input/index.html" aria-current="page" data-status="ready"><span>Number input <span style="color:var(--text-tertiary);font-weight:400">· QuantityStepper · Slider</span></span><span class="flag">New</span></a>
+<a href="../../components/date-picker/index.html" data-status="planned"><span>DatePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/time-picker/index.html" data-status="planned"><span>TimePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/select/index.html" data-status="migrated"><span>Select</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/combobox/index.html" data-status="migrated"><span>Combobox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/multiselect/index.html" data-status="migrated"><span>MultiSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/treeselect/index.html" data-status="migrated"><span>TreeSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/checkbox/index.html" data-status="migrated"><span>Checkbox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/radio/index.html" data-status="migrated"><span>Radio</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/switch/index.html" data-status="migrated"><span>Switch</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/search/index.html" data-status="planned"><span>Search</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../components/file-upload/index.html" data-status="planned"><span>FileUpload</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Navigation</div>
+<a href="../../components/tabs/index.html" data-status="migrated"><span>Tabs</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/segmented-control/index.html" data-status="migrated"><span>SegmentedControl</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/pagination/index.html" data-status="migrated"><span>Pagination</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/breadcrumb/index.html" data-status="migrated"><span>Breadcrumb</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/steps/index.html" data-status="migrated"><span>Steps</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/side-nav/index.html" data-status="planned"><span>SideNav</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Data</div>
+<a href="../../components/table/index.html" data-status="migrated"><span>Table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/accordion/index.html" data-status="ready"><span>Accordion</span><span class="flag">New</span></a>
+<a href="../../components/avatar/index.html" data-status="migrated"><span>Avatar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/rating/index.html" data-status="migrated"><span>Rating</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/progress-bar/index.html" data-status="migrated"><span>ProgressBar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/skeleton/index.html" data-status="migrated"><span>Skeleton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/divider/index.html" data-status="planned"><span>Divider</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<div class="sidenav__group">Feedback</div>
+<a href="../../components/dialog/index.html" data-status="migrated"><span>Dialog <span style="color:var(--text-tertiary);font-weight:400">· Modal</span></span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/alert/index.html" data-status="migrated"><span>Alert</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/toast/index.html" data-status="migrated"><span>Toast</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/tooltip/index.html" data-status="migrated"><span>Tooltip</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<div class="sidenav__group">Overlays</div>
+<a href="../../components/drawer/index.html" data-status="migrated"><span>Drawer</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/popover/index.html" data-status="migrated"><span>Popover</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/menu/index.html" data-status="migrated"><span>Menu</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+</div>
+<div class="sidenav__section">
+<div class="sidenav__title">Patterns</div>
+<a href="../../patterns/page-header/index.html" data-status="migrated"><span>Page header</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/product-grid/index.html" data-status="migrated"><span>Product card grid</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/filter-bar/index.html" data-status="migrated"><span>Filter bar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/form-layout/index.html" data-status="migrated"><span>Form layout</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/order-summary/index.html" data-status="migrated"><span>Order summary</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/data-table/index.html" data-status="migrated"><span>Data table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/empty-state/index.html" data-status="migrated"><span>Empty state</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/status-messaging/index.html" data-status="migrated"><span>Status messaging</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../patterns/loading-states/index.html" data-status="planned"><span>Loading states</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/page-layout/index.html" data-status="planned"><span>Page layout</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+<a href="../../patterns/destructive-actions/index.html" data-status="planned"><span>Destructive actions</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
+</div>
+</nav>
+<main>
+<div class="page__eyebrow">Components</div><h1 class="page__title">Number input <span class="flag flag--lg">New</span></h1><p class="page__lede">A field for values you will do arithmetic on. The field is always typeable; the controls on its right are an accelerator, not the only way in.</p>
+<div class="doc">
+
+
+<section id="overview">
+<h2>Overview</h2>
+<p>A number input holds a quantity — something you will add up, multiply or compare. That is narrower than it sounds: a postcode, a card number and a phone number look numeric but are digit strings. They keep leading zeros, never need incrementing, and belong in <strong>Formatted input</strong>.</p>
+<p>The test is whether adding one to the value would mean anything. If it would not, this is not the control.</p>
+<div class="demo">
+  <div class="field" style="width:190px">
+    <label class="field__label" for="ov1">Quantity</label>
+    <div class="numinput" data-stepper data-min="1" data-max="10">
+      <input class="control" id="ov1" type="text" inputmode="numeric" role="spinbutton"
+             aria-valuenow="1" aria-valuemin="1" aria-valuemax="10" value="1">
+      <div class="numinput__controls">
+        <button type="button" data-step="-1" aria-label="Decrease quantity">−</button>
+        <button type="button" data-step="1" aria-label="Increase quantity">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="field" style="width:200px">
+    <label class="field__label" for="ov2">Sale price</label>
+    <div class="numinput">
+      <input class="control" id="ov2" inputmode="decimal" value="32,400.00">
+      <span class="numinput__unit" aria-hidden="true">₼</span>
+    </div>
+  </div>
+</div>
+<p class="caption">Both are live. Type into either, or use the controls and the arrow keys on the first.</p>
+</section>
+
+<div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div><section id="principles" data-part="Guidelines">
+<h2>Principles</h2>
+<p>Three ideas decide almost every number field.</p>
+
+<h3>Whole or fractional decides the control</h3>
+<p>The split is not big numbers against small ones. It is whether the value can be counted or has to be measured.</p>
+<p>A quantity of 14 and a quantity of 1,400 are both whole — stepping them by one is meaningful even when nobody would press the button that many times, and the field accepts a typed value either way. A price of 32,400.50 is fractional: stepping it by one is arbitrary, because the unit that matters is the qəpik, not the manat. Fractional values are typed, so they get no controls.</p>
+<table>
+<thead><tr><th style="width:150px">Value</th><th>Control</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Whole</td><td class="use">Field with subtract and add</td><td class="use">One is a real unit — one more item, one more guest, one more seat.</td></tr>
+<tr><td>Fractional</td><td class="use">Field only, with a unit suffix</td><td class="use">There is no obvious step. Incrementing a price by 1 skips 99 meaningful values.</td></tr>
+</tbody>
+</table>
+
+<h3>Typing is never secondary</h3>
+<p>Even with controls attached, the field is a field. Someone ordering fourteen types fourteen; nobody presses plus thirteen times. The controls exist to make small adjustments cheap, and a control that removes the keyboard has taken more than it gave.</p>
+<p>That also means the value is clamped on blur, not on every keystroke. Correcting someone mid-number — snapping 1 to the minimum of 10 while they are still typing 15 — makes the field unusable.</p>
+
+<h3>The unit follows the number</h3>
+<p>Prices, weights and percentages read with the symbol after the digits here: <strong>32.400 ₼</strong>, not ₼32.400. The suffix sits inside the field boundary so the pair reads as one value, and it is not focusable — it repeats what the label already established.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div class="field" style="width:190px"><label class="field__label" for="sf1">Price</label>
+    <div class="numinput"><input class="control" id="sf1" inputmode="decimal" value="1,250.00"><span class="numinput__unit" aria-hidden="true">₼</span></div></div>
+  </div><div class="dodont__note">The unit sits where the reader expects to find it.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div class="field" style="width:190px"><label class="field__label" for="sf2">Price</label>
+    <div class="affix"><span class="affix__lead">₼</span><input class="control" id="sf2" inputmode="decimal" value="1,250.00"></div></div>
+  </div><div class="dodont__note">A leading symbol forces a reading order nobody uses locally.</div></div>
+</div>
+<p>A prefix is for the rare case where the symbol is part of the value rather than a unit describing it — the <code>+</code> in an international dialling code, or the <code>#</code> in a reference. Those characters travel with the data. A currency symbol does not: it describes the number, and here it describes it from the right.</p>
+</section>
+
+<section id="when-not-to-use-a-number-input">
+<h2>When not to use a number input</h2>
+<table>
+<thead><tr><th>Instead of a number input</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>Postcodes, card numbers, phone numbers</td><td>Formatted input — digit strings keep leading zeros</td></tr>
+<tr><td>A value in a known range where the feel matters more than the figure</td><td>Slider</td></tr>
+<tr><td>A small set of fixed amounts</td><td>Radio or SegmentedControl</td></tr>
+<tr><td>A year, month or day</td><td>Select, or a date field</td></tr>
+</tbody>
+</table>
+<div class="callout callout--warning"><div><b><code>type="number"</code> is narrower than it looks.</b> It strips leading zeros, accepts <code>e</code> and <code>+</code> as valid characters, and rounds in ways that surprise people entering money. Use <code>inputmode="numeric"</code> or <code>decimal"</code> on a text field and parse the value yourself — you keep the right mobile keypad without the surprises.</div></div>
+</section>
+
+<div class="part" id="part-variants-and-style"><h2 class="part__title">Variants and style</h2></div><section id="variants" data-part="Variants and style">
+<h2>Variants</h2>
+<table>
+<thead><tr><th style="width:96px">Variant</th><th style="width:210px">Example</th><th>Use for</th><th>Don't use for</th></tr></thead>
+<tbody>
+<tr><td>Whole</td>
+<td><div class="numinput" data-stepper data-min="1" data-max="99" style="width:170px">
+  <input class="control" type="text" inputmode="numeric" role="spinbutton" aria-label="Whole example" aria-valuenow="2" aria-valuemin="1" aria-valuemax="99" value="2">
+  <div class="numinput__controls">
+    <button type="button" data-step="-1" aria-label="Decrease">−</button>
+    <button type="button" data-step="1" aria-label="Increase">+</button>
+  </div></div></td>
+<td class="use">Counts of things: items, guests, seats, stock. Any magnitude — the field is still typeable.</td>
+<td class="use">Anything with a decimal part, where a step of one is arbitrary.</td></tr>
+
+<tr><td>Fractional</td>
+<td><div class="numinput" style="width:170px"><input class="control" inputmode="decimal" aria-label="Fractional example" value="1,250.00"><span class="numinput__unit" aria-hidden="true">₼</span></div></td>
+<td class="use">Prices, weights, measurements, percentages — values that are measured rather than counted.</td>
+<td class="use">Counts, where two taps would beat the keyboard.</td></tr>
+
+<tr><td>Compact</td>
+<td><div class="numinput numinput--compact" data-stepper data-min="1" data-max="9">
+  <input class="control" type="text" inputmode="numeric" role="spinbutton" aria-label="Compact example" aria-valuenow="1" aria-valuemin="1" aria-valuemax="9" value="1">
+  <div class="numinput__controls">
+    <button type="button" data-step="-1" aria-label="Decrease">−</button>
+    <button type="button" data-step="1" aria-label="Increase">+</button>
+  </div></div></td>
+<td class="use">A cart row or table cell, where the field sits among other content and has no visible label of its own.</td>
+<td class="use">Forms. A labelled field should use the full width its answer deserves.</td></tr>
+</tbody>
+</table>
+<p>The compact form still needs an accessible name. Where there is no visible label, put the product name in the <code>aria-label</code> — "Quantity, iPhone 14 Pro" — so a list of five quantity fields is not five identical announcements.</p>
+
+<h3>Ranges</h3>
+<p>A range is two number inputs that know about each other: a minimum and a maximum, where neither may cross the other. The pair is the control, not each field alone.</p>
+<div class="demo">
+  <div class="field" style="width:360px">
+    <span class="field__label" id="rg-l">Price range</span>
+    <div style="display:flex;align-items:center;gap:var(--space-3)" role="group" aria-labelledby="rg-l">
+      <div class="numinput" style="flex:1"><input class="control" inputmode="numeric" value="500" aria-label="Minimum price"><span class="numinput__unit" aria-hidden="true">₼</span></div>
+      <span style="color:var(--text-tertiary)">–</span>
+      <div class="numinput" style="flex:1"><input class="control" inputmode="numeric" value="7,500" aria-label="Maximum price"><span class="numinput__unit" aria-hidden="true">₼</span></div>
+    </div>
+    <span class="field__hint">Leave either side empty for no limit.</span>
+  </div>
+</div>
+<p>Three rules keep a range usable. Wrap the pair in a <code>role="group"</code> with one label, so it is announced as a single control. Allow either side to be empty rather than forcing both. And when someone enters a minimum above the maximum, swap the two values instead of erroring — that is almost always what they meant.</p>
+<p>Where the person needs to explore the band before landing on it, pair the two fields with a two-handle slider — see <strong>Slider</strong> below.</p>
+
+<h3>Slider</h3>
+<p>A slider is a number input with a second way in — the same value, the same bounds, driven either by dragging or by typing. It comes in two forms, and the choice is whether the answer is one figure or two.</p>
+
+<h4>Single value</h4>
+<p>One handle, for a ceiling or a level: a maximum price, a discount, a volume.</p>
+<div class="demo demo--stack">
+  <div class="field" style="max-width:440px">
+    <label class="field__label" for="sl-num">Maximum price</label>
+    <div style="display:flex;align-items:center;gap:var(--space-5);margin-top:var(--space-2)">
+      <input type="range" class="slider" id="sl-range" min="0" max="10000" step="100" value="2500"
+             data-bind="sl-num" aria-label="Maximum price" style="flex:1">
+      <div class="numinput" style="width:150px">
+        <input class="control" id="sl-num" inputmode="numeric" value="2500" min="0" max="10000"
+               data-bind="sl-range" aria-label="Maximum price">
+        <span class="numinput__unit" aria-hidden="true">₼</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4>Range</h4>
+<p>Two handles, for a band with a floor and a ceiling. This is the form a price filter needs — "under 7,500" and "between 500 and 7,500" are different questions, and only the second is a range.</p>
+<div class="demo demo--stack">
+  <div class="field" style="max-width:440px">
+    <span class="field__label" id="rs-label">Price range</span>
+    <div role="group" aria-labelledby="rs-label" style="margin-top:var(--space-3)">
+      <div class="rangeslider" id="rs1" data-field-min="rs1-lo" data-field-max="rs1-hi">
+        <div class="rangeslider__track"><div class="rangeslider__fill"></div></div>
+        <input type="range" class="rangeslider__input" data-role="min" min="0" max="10000" step="100" value="500" aria-label="Minimum price">
+        <input type="range" class="rangeslider__input" data-role="max" min="0" max="10000" step="100" value="7500" aria-label="Maximum price">
+      </div>
+      <div class="rangeslider__scale"><span>0 ₼</span><span>10,000 ₼</span></div>
+      <div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-5)">
+        <div class="numinput" style="flex:1">
+          <input class="control" id="rs1-lo" inputmode="numeric" value="500" data-range-field="rs1" data-role="min" aria-label="Minimum price">
+          <span class="numinput__unit" aria-hidden="true">₼</span>
+        </div>
+        <span style="color:var(--text-tertiary)">–</span>
+        <div class="numinput" style="flex:1">
+          <input class="control" id="rs1-hi" inputmode="numeric" value="7,500" data-range-field="rs1" data-role="max" aria-label="Maximum price">
+          <span class="numinput__unit" aria-hidden="true">₼</span>
+        </div>
+      </div>
+    </div>
+    <span class="field__hint">Drag either handle, or type into either field.</span>
+  </div>
+</div>
+<p class="caption">Both handles are real range inputs, so <code>Tab</code> reaches each one and the arrow keys move it. Try tabbing to a handle and holding the left arrow.</p>
+
+<p>Four rules keep a range honest.</p>
+<ul>
+<li><strong>The handles may meet but never cross.</strong> Each one's limit is the other's current position, so the pair can close to zero width but cannot invert.</li>
+<li><strong>Typing a minimum above the maximum swaps them.</strong> That is almost always what the person meant, and an error message here teaches nothing.</li>
+<li><strong>The pair shares one label.</strong> A <code>role="group"</code> with a single <code>aria-labelledby</code>, so it is announced as one control; each handle keeps its own name inside it.</li>
+<li><strong>Show the bounds.</strong> The scale under the track says what the extremes are — without it, a handle at the far left could mean zero or could mean the lowest available price.</li>
+</ul>
+<p>Use a slider alone, with no fields, only when the exact number genuinely does not matter — brightness, zoom. In a form, a slider without fields forces someone to hunt for a value they already know.</p>
+
+<h3>Tokens</h3>
+<p>The control inherits the field's own colours, so nothing here is specific to numbers.</p>
+<table>
+<thead><tr><th>Element</th><th>Token</th></tr></thead>
+<tbody>
+<tr><td>Container border</td><td><code>--border-control</code></td></tr>
+<tr><td>Control divider</td><td><code>--border-subtle</code></td></tr>
+<tr><td>Control hover</td><td><code>--surface-hover</code></td></tr>
+<tr><td>Control active</td><td><code>--surface-active</code></td></tr>
+<tr><td>Unit suffix</td><td><code>--text-tertiary</code></td></tr>
+<tr><td>Value</td><td>Tabular figures</td></tr>
+</tbody>
+</table>
+<p>The value uses tabular figures so the field does not shift width as digits change — the same reason tables of numbers do.</p>
+
+<h3>Sizes</h3>
+<div class="demo">
+  <div class="numinput numinput--sm" data-stepper data-min="0" data-max="99" style="width:150px">
+    <input class="control" type="text" inputmode="numeric" aria-label="Small" value="1">
+    <div class="numinput__controls"><button type="button" data-step="-1" aria-label="Decrease">−</button><button type="button" data-step="1" aria-label="Increase">+</button></div></div>
+  <div class="numinput" data-stepper data-min="0" data-max="99" style="width:160px">
+    <input class="control" type="text" inputmode="numeric" aria-label="Medium" value="1">
+    <div class="numinput__controls"><button type="button" data-step="-1" aria-label="Decrease">−</button><button type="button" data-step="1" aria-label="Increase">+</button></div></div>
+  <div class="numinput numinput--lg" data-stepper data-min="0" data-max="99" style="width:180px">
+    <input class="control" type="text" inputmode="numeric" aria-label="Large" value="1">
+    <div class="numinput__controls"><button type="button" data-step="-1" aria-label="Decrease">−</button><button type="button" data-step="1" aria-label="Increase">+</button></div></div>
+</div>
+<p class="caption">The controls scale with the field so the tap target never drops below 24px, even at the small size.</p>
+</section>
+
+<div class="part" id="part-behaviour"><h2 class="part__title">Behaviour</h2></div><section id="states" data-part="Behaviour">
+<h2>States</h2>
+<p>The control that would take the value out of range disables itself rather than accepting the press and snapping back. Press minus at the minimum below and nothing happens, because nothing can.</p>
+<div class="demo">
+  <div class="field" style="width:190px">
+    <label class="field__label" for="st1">Quantity</label>
+    <div class="numinput" data-stepper data-min="1" data-max="3">
+      <input class="control" id="st1" type="text" inputmode="numeric" role="spinbutton" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" value="1" aria-describedby="st1h">
+      <div class="numinput__controls">
+        <button type="button" data-step="-1" aria-label="Decrease quantity">−</button>
+        <button type="button" data-step="1" aria-label="Increase quantity">+</button>
+      </div>
+    </div>
+    <span class="field__hint" id="st1h">Maximum 3 per order</span>
+  </div>
+  <div class="field" style="width:190px">
+    <label class="field__label" for="st2">Quantity</label>
+    <div class="numinput" data-invalid="true">
+      <input class="control" id="st2" value="0" aria-invalid="true" aria-describedby="st2e">
+      <div class="numinput__controls">
+        <button type="button" data-step="-1" aria-label="Decrease" disabled>−</button>
+        <button type="button" data-step="1" aria-label="Increase">+</button>
+      </div>
+    </div>
+    <span class="field__error" id="st2e">Enter at least 1.</span>
+  </div>
+  <div class="field" style="width:190px">
+    <label class="field__label" for="st3">Quantity</label>
+    <div class="numinput">
+      <input class="control" id="st3" value="1" disabled>
+      <div class="numinput__controls">
+        <button type="button" data-step="-1" aria-label="Decrease" disabled>−</button>
+        <button type="button" data-step="1" aria-label="Increase" disabled>+</button>
+      </div>
+    </div>
+    <span class="field__hint">Out of stock</span>
+  </div>
+</div>
+<p>When a limit exists because of stock or policy, say so beside the control. A plus button that stops working with no explanation reads as a bug rather than a rule.</p>
+
+<h3>Defaults</h3>
+<p><strong>Default to 0, not 1.</strong> A pre-filled 1 looks like a helpful shortcut and behaves like a trap: it is easy to scroll past, and because the field is not empty it satisfies a required check. The form submits, no error appears, and a quantity nobody chose is now in your data.</p>
+<p>0 fails the same required check honestly. The person is stopped, sees the field, and makes the decision — which is the whole point of asking.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div class="field" style="width:180px"><label class="field__label" for="df1">Quantity <span class="req-star" aria-hidden="true">*</span></label>
+      <div class="numinput" data-stepper data-min="0" data-max="10">
+        <input class="control" id="df1" type="text" inputmode="numeric" value="0" aria-required="true">
+        <div class="numinput__controls"><button type="button" data-step="-1" aria-label="Decrease" disabled>−</button><button type="button" data-step="1" aria-label="Increase">+</button></div>
+      </div></div>
+  </div><div class="dodont__note">0 is visibly unanswered, so it cannot pass unnoticed.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div class="field" style="width:180px"><label class="field__label" for="df2">Quantity <span class="req-star" aria-hidden="true">*</span></label>
+      <div class="numinput" data-stepper data-min="1" data-max="10">
+        <input class="control" id="df2" type="text" inputmode="numeric" value="1" aria-required="true">
+        <div class="numinput__controls"><button type="button" data-step="-1" aria-label="Decrease" disabled>−</button><button type="button" data-step="1" aria-label="Increase">+</button></div>
+      </div></div>
+  </div><div class="dodont__note">1 submits silently even when nobody looked at it.</div></div>
+</div>
+<p>The exception is a control where the item's presence already answers the question. A cart row starts at 1 because the item is in the cart — the quantity is confirming something, not deciding it. Everywhere the quantity is a decision, start at 0.</p>
+
+<h3>Empty and zero</h3>
+<p>Empty and zero are different answers and the field should keep them apart. Empty means "not decided"; zero means "none". Do not fill an empty field with 0 on blur — that turns a blank into a decision the person never made.</p>
+
+<h3>Rounding and precision</h3>
+<p>Decide what happens to extra decimals before someone finds out by accident. Round on blur, not on input — truncating the third decimal while the second is still being typed is disorienting. State the precision in the hint when it is not obvious from the unit.</p>
+</section>
+
+<section id="accessibility">
+<h2>Accessibility</h2>
+<p>The controls are the part that fails, because they look like two buttons and have to behave as part of one field.</p>
+
+<div class="wcag">
+<div class="wcag__group"><h3>Field and controls</h3>
+<p>A single widget wearing three elements.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">4.1.2</span><span>The field carries <code>role="spinbutton"</code> with <code>aria-valuenow</code>, <code>aria-valuemin</code> and <code>aria-valuemax</code>, updated on every change however it was made. <span class="risk">high risk</span></span></li>
+<li><span class="sc" data-risk="high">2.1.1</span><span>Up and down arrows change the value while the field has focus. Without this the controls are mouse-only. <span class="risk">high risk</span></span></li>
+<li><span class="sc">2.5.8</span><span>Each control is at least 24 × 24px in its own right, including at the small size.</span></li>
+<li><span class="sc">1.1.1</span><span>Each control has a name that says what it does — "Decrease quantity", not "minus".</span></li>
+<li><span class="sc">1.4.11</span><span>The divider between field and controls reaches 3:1, so the two segments are distinguishable.</span></li>
+<li><span class="sc">1.4.1</span><span>A control at its limit is not signalled by colour alone; it is also removed from the tab order.</span></li>
+<li><span class="sc">4.1.3</span><span>A value changed by button press is announced, not only redrawn.</span></li>
+</ul></div>
+
+<div class="wcag__group"><h3>Values, units and ranges</h3>
+<p>Where a number needs context to mean anything.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">1.3.1</span><span>A range pair is wrapped in <code>role="group"</code> with a single label; each field and each handle keeps its own name. <span class="risk">high risk</span></span></li>
+<li><span class="sc" data-risk="high">2.1.1</span><span>Each slider handle is reachable by <code>Tab</code> and moved by the arrow keys. Building a range from <code>div</code>s and drag handlers loses this. <span class="risk">high risk</span></span></li>
+<li><span class="sc">4.1.2</span><span>Each handle reports <code>aria-valuenow</code> plus its <em>effective</em> bounds — the minimum handle's maximum is the other handle's current position, not the global maximum.</span></li>
+<li><span class="sc">2.5.8</span><span>Handles are 18px drawn but sit in a 22px row; keep clear space around the track so neighbouring targets do not overlap.</span></li>
+<li><span class="sc">1.1.1</span><span>The unit suffix is decorative and hidden from assistive technology — the unit belongs in the label, where it is announced once.</span></li>
+<li><span class="sc">3.3.1</span><span>A limit that blocks entry is stated in text beside the field, not implied by a dead control.</span></li>
+<li><span class="sc">3.3.3</span><span>An out-of-range value gets a message naming the limit — "Maximum 3 per order".</span></li>
+<li><span class="sc">1.3.5</span><span><code>inputmode</code> set to <code>numeric</code> or <code>decimal</code> so a phone brings up the right keypad.</span></li>
+<li><span class="sc">3.2.2</span><span>No context change on input. The field must not submit or move focus when it reaches its maximum.</span></li>
+</ul></div>
+</div>
+
+<h3>Keyboard</h3>
+<table>
+<thead><tr><th>Key</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>Tab</code></td><td>Moves into the field, then to each control. Disabled controls are skipped.</td></tr>
+<tr><td><code>↑</code> <code>↓</code></td><td>Increases and decreases by one step while the field has focus.</td></tr>
+<tr><td><code>Home</code> <code>End</code></td><td>Jumps to the minimum and maximum, where both are defined.</td></tr>
+<tr><td>Digits</td><td>Type the value directly. This keeps working with the controls attached.</td></tr>
+</tbody>
+</table>
+
+<h3>What you still have to do</h3>
+<ul>
+<li>Give each control a name that includes what is being counted.</li>
+<li>Keep <code>aria-valuenow</code> in sync on every change, typed or pressed.</li>
+<li>Put the unit in the label, not only in the suffix — the suffix is hidden from screen readers.</li>
+<li>Explain any limit in text beside the field.</li>
+<li>Group the two halves of a range and label the pair once.</li>
+</ul>
+</section>
+
+<section id="related"><h2>Related</h2><div class="related"><a href="../../components/input/index.html">Text input</a><a href="../../components/formatted-input/index.html">Formatted input</a></div></section>
+</div>
+<nav class="pagernav">
+<a href="../../components/formatted-input/index.html"><span>Previous</span>Formatted input</a>
+<a href="../../components/date-picker/index.html" style="text-align:right"><span>Next</span>DatePicker</a>
+</nav>
+</main>
+<aside class="toc" aria-label="On this page">
+<div class="toc__title">On this page</div>
+<a href="#overview">Overview</a>
+<div class="toc__part">Guidelines</div>
+<a href="#principles">Principles</a>
+<a href="#when-not-to-use-a-number-input">When not to use a number input</a>
+<div class="toc__part">Variants and style</div>
+<a href="#variants">Variants</a>
+<div class="toc__part">Behaviour</div>
+<a href="#states">States</a>
+<a href="#accessibility">Accessibility</a>
+<a href="#related">Related</a>
+</aside>
+</div>
+
+<script src="../../interactive.js"></script>
+<script src="../../site.js"></script>
+</body>
+</html>

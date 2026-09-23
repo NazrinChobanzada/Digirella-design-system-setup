@@ -1,0 +1,203 @@
+<section><h2>Examples</h2>
+<p>Exactly one of many. Grouped under a sharednameattribute.</p>
+<div class="demo demo--stack">
+<label class="choice"><input checked="" name="cond" type="radio"/><span class="choice__text"><span class="choice__label">Brand new</span><span class="choice__desc">Unopened box, never used.</span></span></label>
+<label class="choice"><input name="cond" type="radio"/><span class="choice__text"><span class="choice__label">Like new</span><span class="choice__desc">Used a few times, no marks.</span></span></label>
+<label class="choice"><input name="cond" type="radio"/><span class="choice__text"><span class="choice__label">Used</span><span class="choice__desc">Shows wear, in working order.</span></span></label>
+</div>
+</section>
+<section><h2>Guidance</h2><p>The following comes from the shared <strong>choice controls</strong> guide, which covers this component alongside its siblings.</p></section>
+<section>
+<h2>Choosing a control</h2>
+<table>
+<thead><tr><th style="width:150px">Control</th><th style="width:130px">Choices</th><th style="width:130px">Applies</th><th>Use for</th></tr></thead>
+<tbody>
+<tr><td class="tok">Checkbox</td><td class="use">Zero to many</td><td class="use">On save</td><td class="use">Independent options in a form with a submit button. Notification types, filters, consent.</td></tr>
+<tr><td class="tok">Radio</td><td class="use">Exactly one</td><td class="use">On save</td><td class="use">2–5 mutually exclusive options that should all stay visible.</td></tr>
+<tr><td class="tok">Switch</td><td class="use">On or off</td><td class="use">Immediately</td><td class="use">A setting that takes effect the moment it moves. No save button anywhere near it.</td></tr>
+<tr><td class="tok">Select</td><td class="use">One</td><td class="use">On save</td><td class="use">More than five options — see <a href="../../components/select/index.html">Selection inputs</a>.</td></tr>
+<tr><td class="tok">Tag</td><td class="use">Zero to many</td><td class="use">Immediately</td><td class="use">Filters that re-query as you tick them. A checkbox that applies instantly is really a chip.</td></tr>
+</tbody>
+</table>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;display:flex;flex-direction:column;gap:var(--space-4)"><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-end;background:var(--color-primary);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span><span style="display:flex;flex-direction:column;gap:2px"><span>Vacation mode</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">Buyers see your shop as paused</span></span></label></div></div><p class="ddt">A setting that applies instantly is a Switch. The user flips it and the shop is paused.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:flex;flex-direction:column;gap:var(--space-4)"><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Vacation mode</span></span></label><button class="btn btn--primary" type="button">Save</button></div></div><p class="ddt">A checkbox plus Save for a single instant setting. Two interactions for a change that needed one.</p></div>
+</div>
+</section>
+<section>
+<h2>Anatomy</h2>
+<div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-7);align-items:start">
+<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-5)">
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Free shipping</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">Only listings with no delivery charge</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:6px solid var(--color-primary);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Express delivery</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">Arrives tomorrow</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-end;background:var(--color-primary);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span><span style="display:flex;flex-direction:column;gap:2px"><span>Vacation mode</span></span></label>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">20px for checkbox and radio, 44×26px for the switch. Fixed size at every text size.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Label</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">14px, part of the click target. A label the user cannot click is a 20px target instead of a 200px one.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Description</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Optional 12px line in <code>--text-tertiary</code>. Explains consequence, never restates the label.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Gap</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">12px between control and label; 16px between rows in a group.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Alignment</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Control aligns to the first line of the label, not to the block centre — otherwise a two-line label floats the box.</div></div></div>
+</div>
+</div>
+</section>
+<section>
+<h2>Checkbox</h2>
+<p class="doc-lead">Independent choices. Ticking one must never change another — if it does, these are radios or a select.</p>
+<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-4);max-width:420px">
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Email</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">Order updates and delivery notices</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>SMS</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">Dispatch alerts only</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Push notifications</span></span></label>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Single</b><span>A lone checkbox is legitimate for consent — "I agree to the terms". Never for a setting that applies immediately.</span></div>
+<div class="rule"><b>Default</b><span>Pre-tick only what the user would choose anyway. Pre-ticked marketing consent is a dark pattern and unlawful in most of Europe.</span></div>
+<div class="rule"><b>Never invert</b><span>"Don't send me email" makes ticking mean off. Phrase the label positively so checked always means yes.</span></div>
+</div>
+<div class="api">Checkbox · label, description, checked, disabled, onChange</div>
+</section>
+<section>
+<h2>Indeterminate</h2>
+<p class="doc-lead">A parent whose children are partly selected. It is a display state only — the user can never set it, they can only clear or complete the group.</p>
+<div class="demo" style="max-width:420px">
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);background:var(--color-primary);border:1px solid var(--color-primary);display:inline-flex;align-items:center;justify-content:center"><span style="width:10px;height:2px;background:#fff;border-radius:1px"></span></span><span style="display:flex;flex-direction:column;gap:2px"><span>All categories</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">2 of 5 selected</span></span></label>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-4);padding-left:var(--space-8)">
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Electronics</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Audio</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Home &amp; living</span></span></label>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Clicking</b><span>An indeterminate parent selects all on first click, then clears all on the second. It never returns to indeterminate by itself.</span></div>
+<div class="rule"><b>Scope</b><span>In a table header it selects the current page only, and says so. "Select all 486" is a separate explicit action.</span></div>
+</div>
+</section>
+<section>
+<h2>Radio</h2>
+<p class="doc-lead">One of a few, all visible. The moment a set grows past five, the visibility that justifies radios stops paying for the vertical space.</p>
+<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-4);max-width:420px">
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:6px solid var(--color-primary);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Standard</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">2–4 business days · free</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Express</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">Next business day · 49 ₼</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Locker pickup</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">2–3 days · 19 ₼</span></span></label>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Always default</b><span>One option is preselected — the safest or most common. An empty radio group makes the user choose before they understand the choice.</span></div>
+<div class="rule"><b>No deselect</b><span>Radios cannot be unset by clicking. If "none" is valid, it needs its own option.</span></div>
+<div class="rule"><b>Descriptions</b><span>Radios carry the most consequential choices in a form. Use the description line — price, duration, effect — so the choice is informed.</span></div>
+</div>
+<div class="api">Radio · name, value, label, description, checked, onChange</div>
+</section>
+<section>
+<h2>Switch</h2>
+<p class="doc-lead">Applies immediately. No save button, no confirmation, no "apply changes" — if any of those exist on the screen, this should have been a checkbox.</p>
+<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-5);max-width:420px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5)">
+<span><span style="font-size:var(--font-size-300)">Vacation mode</span><span style="display:block;font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:2px">Buyers see your shop as paused</span></span>
+<span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-end;background:var(--color-primary);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5)">
+<span><span style="font-size:var(--font-size-300)">Auto-relist</span><span style="display:block;font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:2px">Unsold listings renew every 30 days</span></span>
+<span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-start;background:var(--neutral-30);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Position</b><span>In a settings list the switch sits right-aligned, opposite its label. In a form row it sits left, like a checkbox. Pick one per surface.</span></div>
+<div class="rule"><b>Label</b><span>Names the feature, not the state: "Vacation mode", never "Vacation mode: on". The switch already shows the state.</span></div>
+<div class="rule"><b>No group</b><span>Switches are independent. Three switches where only one may be on is a radio group.</span></div>
+</div>
+<div class="api">Switch · label, checked, disabled, onChange</div>
+</section>
+<section>
+<h2>States</h2>
+<div class="mx" style="grid-template-columns:110px repeat(5,1fr)">
+<span></span><span class="ch">Unchecked</span><span class="ch">Hover</span><span class="ch">Checked</span><span class="ch">Focus</span><span class="ch">Disabled</span>
+<span class="rh">Checkbox</span>
+<span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);border-color:var(--text-secondary);background:var(--surface-hover)"></span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);box-shadow:var(--focus-ring)">✓</span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);border-color:var(--border-default);background:var(--surface-disabled)"></span></span>
+<span class="rh">Radio</span>
+<span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:1px solid var(--border-strong);background:var(--surface-card);"></span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:1px solid var(--border-strong);background:var(--surface-card);border-color:var(--text-secondary);background:var(--surface-hover)"></span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:6px solid var(--color-primary);background:var(--surface-card);"></span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:6px solid var(--color-primary);background:var(--surface-card);box-shadow:var(--focus-ring)"></span></span><span><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:1px solid var(--border-strong);background:var(--surface-card);border-color:var(--border-default);background:var(--surface-disabled)"></span></span>
+<span class="rh">Switch</span>
+<span><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-start;background:var(--neutral-30);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span></span><span><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-start;background:var(--neutral-30);background:var(--neutral-40)"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span></span><span><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-end;background:var(--color-primary);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span></span><span><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-end;background:var(--color-primary);box-shadow:var(--focus-ring)"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span></span><span><span style="opacity:.5"><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-start;background:var(--neutral-30);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span></span></span>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Hover</b><span>Darkens the <em>border</em>, not the fill. A 20px box is too small for a fill change to read as anything but an error.</span></div>
+<div class="rule"><b>Disabled</b><span>Almost always needs a reason next to it. A dead checkbox with no explanation is a dead end.</span></div>
+</div>
+</section>
+<section>
+<h2>Groups &amp; layout</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;display:flex;flex-direction:column;gap:var(--space-4)"><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Electronics</span></span></label><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Home &amp; living</span></span></label><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Fashion</span></span></label></div></div><p class="ddt">One column. The eye scans a single edge and the group reads as a set.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:flex;gap:var(--space-6);flex-wrap:wrap"><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Electronics</span></span></label><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Home &amp; living</span></span></label><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;border:1px solid var(--border-strong);background:var(--surface-card);"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Fashion</span></span></label></div></div><p class="ddt">Horizontal rows: labels of different widths break the rhythm, and it is unclear which label belongs to which box.</p></div>
+</div>
+<div style="margin-top:var(--space-6)">
+<div class="rule"><b>Group label</b><span>Every group needs a heading, marked up as a legend. "Notify me about" turns three orphan checkboxes into one question.</span></div>
+<div class="rule"><b>Spacing</b><span>16px between rows, 32px between groups. Rows closer than 16px make the 44px targets overlap visually.</span></div>
+<div class="rule"><b>Order</b><span>Most common first, or a natural order — cheapest to fastest. Never alphabetical for options with an inherent sequence.</span></div>
+<div class="rule"><b>Long lists</b><span>Past about eight checkboxes, add a search field or move to a MultiSelect.</span></div>
+</div>
+</section>
+<section>
+<h2>Validation</h2>
+<div class="demo" style="max-width:480px">
+<div style="font-size:var(--font-size-300);font-weight:600;margin-bottom:var(--space-4)">Delivery method</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:1px solid var(--border-strong);background:var(--surface-card);border-color:var(--border-danger)"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Standard</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">2–4 business days</span></span></label>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:inline-block;border:1px solid var(--border-strong);background:var(--surface-card);border-color:var(--border-danger)"></span><span style="display:flex;flex-direction:column;gap:2px"><span>Express</span><span style="font-size:var(--font-size-200);color:var(--text-tertiary)">Next business day</span></span></label>
+</div>
+<div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-4)">Choose a delivery method to continue</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Scope</b><span>The error belongs to the group, not to one option. It sits below the last row and is announced once.</span></div>
+<div class="rule"><b>Timing</b><span>On submit only. A group nobody has touched is not yet wrong.</span></div>
+<div class="rule"><b>Consent</b><span>A required single checkbox gets its error directly beneath it, and the label must state what is being agreed to — never "You must accept".</span></div>
+</div>
+</section>
+<section>
+<h2>Async &amp; failure</h2>
+<p class="doc-lead">A switch applies immediately, which means it can fail immediately. This is the state teams forget, and the one users notice.</p>
+<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-5);max-width:460px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5)"><span style="font-size:var(--font-size-300)">Saving…</span><span style="opacity:.6"><span style="width:44px;height:26px;flex:0 0 44px;border-radius:var(--radius-pill);padding:3px;display:inline-flex;justify-content:flex-end;background:var(--color-primary);"><span style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:var(--shadow-100)"></span></span></span></div>
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-danger-subtle);border:1px solid var(--red-30);border-radius:var(--radius-sm);padding:var(--space-4)">
+<span style="color:var(--status-danger);font-weight:700">×</span>
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-danger)">Couldn't turn on vacation mode</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Check your connection and try again</div></div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Optimistic</b><span>Move the switch immediately, then reconcile. Waiting for the server before the thumb moves makes every toggle feel broken.</span></div>
+<div class="rule"><b>On failure</b><span>Revert the control and explain inline, next to the switch. A toast alone leaves the user unsure which of six settings failed.</span></div>
+<div class="rule"><b>Never disable</b><span>Do not disable the switch while saving — disabling removes it from the tab order and moves focus unexpectedly. Dim it instead.</span></div>
+</div>
+</section>
+<section>
+<h2>Best practices</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%"><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Send me order updates by email</span></span></label></div></div><p class="ddt">Positive phrasing: checked means yes, unchecked means no.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%"><label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300);cursor:pointer"><span style="width:20px;height:20px;flex:0 0 20px;border-radius:var(--radius-xs);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;background:var(--color-primary);border:1px solid var(--color-primary);">✓</span><span style="display:flex;flex-direction:column;gap:2px"><span>Don't unsubscribe me from emails</span></span></label></div></div><p class="ddt">A double negative. Ticking the box means not-unsubscribing, and nobody parses that correctly the first time.</p></div>
+</div>
+<div style="margin-top:var(--space-7)">
+<div class="rule"><b>Click target</b><span>Label and description are always part of the target. The control alone is 20px; the row is 44px.</span></div>
+<div class="rule"><b>No mixing</b><span>Never place checkboxes and switches in the same list. One applies on save and one applies now — identical layout, opposite behaviour.</span></div>
+<div class="rule"><b>Destructive</b><span>A switch that deletes data or makes something public gets a confirmation, despite being instant.</span></div>
+<div class="rule"><b>Size</b><span>Controls never scale with the text. A 20px box beside 12px help text is correct.</span></div>
+</div>
+</section>
+<section>
+<h2>Content</h2>
+<table>
+<thead><tr><th style="width:150px">Part</th><th style="width:250px">Rule</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td class="tok">Label</td><td class="use">Positive statement, sentence case, no full stop.</td><td class="use">Send me order updates</td></tr>
+<tr><td class="tok">Switch label</td><td class="use">Names the feature, never the state.</td><td class="use">Vacation mode</td></tr>
+<tr><td class="tok">Description</td><td class="use">States the consequence, not the mechanics.</td><td class="use">Buyers see your shop as paused</td></tr>
+<tr><td class="tok">Group label</td><td class="use">A question or noun phrase.</td><td class="use">Notify me about</td></tr>
+<tr><td class="tok">Error</td><td class="use">Names the action needed.</td><td class="use">Choose a delivery method to continue</td></tr>
+<tr><td class="tok">Avoid</td><td class="use">Negations and state suffixes.</td><td class="use">Don't disable · Email: on</td></tr>
+</tbody>
+</table>
+</section>
+<section style="padding-bottom:var(--space-13)">
+<h2>Accessibility</h2>
+<div class="rule"><b>Native inputs</b><span>Real <code>&lt;input type="checkbox"&gt;</code> and <code>type="radio"</code>, visually hidden and styled around. A styled div announces nothing and cannot be toggled by voice control.</span></div>
+<div class="rule"><b>Switch</b><span>A checkbox with <code>role="switch"</code>, so it is announced as "on/off" rather than "checked".</span></div>
+<div class="rule"><b>Groups</b><span><code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>, or <code>role="radiogroup"</code> with <code>aria-labelledby</code>. Without them the group label is never announced.</span></div>
+<div class="rule"><b>Keyboard</b><span>Checkboxes and switches: Tab to reach, Space to toggle. Radios: Tab reaches the group, then arrow keys move <em>and select</em> within it.</span></div>
+<div class="rule"><b>Indeterminate</b><span>Set the DOM <code>indeterminate</code> property, not just a visual dash — otherwise it is announced as unchecked.</span></div>
+<div class="rule"><b>Errors</b><span><code>aria-describedby</code> from the group to its message, with <code>aria-invalid</code> on the inputs.</span></div>
+<div class="rule"><b>Contrast</b><span>Unchecked border <code>--border-strong</code> at 3.1:1; checked fill 6.9:1. The check mark is white on green, never green on white.</span></div>
+</section>

@@ -1,0 +1,376 @@
+<section>
+<h2>Form layout</h2>
+<p class="doc-lead">One column, 12px between fields, 32px between groups. Group headings are 19px/600. The submit button is left-aligned with the fields, never centred.</p>
+<div class="box" style="padding:var(--space-8);max-width:520px">
+<div style="font-size:var(--type-heading-size);font-weight:600">Delivery address</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)">
+<div><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name</div><div style="border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:11px var(--space-4);font-size:var(--font-size-400)">Deniz Aydin</div></div>
+<div><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Street</div><div style="border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:11px var(--space-4);font-size:var(--font-size-400)">128/4 Bagdat Cad.</div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+<div><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div><div style="border:1px solid var(--border-danger);border-radius:var(--radius-sm);padding:11px var(--space-4);font-size:var(--font-size-400)">1234</div><div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Enter a valid postcode</div></div>
+<div><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div><div style="border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:11px var(--space-4);font-size:var(--font-size-400);display:flex;justify-content:space-between">Istanbul <span style="color:var(--text-tertiary)">▾</span></div></div>
+</div>
+</div>
+<div style="height:1px;background:var(--border-subtle);margin:var(--space-8) 0"></div>
+<label style="display:flex;gap:var(--space-4);align-items:flex-start;font-size:var(--font-size-300)"><span style="width:20px;height:20px;border-radius:var(--radius-xs);background:var(--color-primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px">✓</span>Save this address for next time</label>
+<div style="display:flex;gap:var(--space-3);margin-top:var(--space-8)">
+<span class="btn" style="background:var(--color-primary);color:var(--color-on-primary)">Save address</span>
+<span class="btn" style="color:var(--text-primary)">Cancel</span>
+</div>
+</div>
+</section>
+<section>
+<h2>Principles</h2>
+<table>
+<thead><tr><th style="width:180px">Principle</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td class="tok">Ask less</td><td class="use">Every field is a reason to abandon. Delete anything you will not act on, and derive what you can — city from postcode, currency from country.</td></tr>
+<tr><td class="tok">One column</td><td class="use">A single vertical path is completed faster and with fewer errors than any multi-column arrangement.</td></tr>
+<tr><td class="tok">Group by meaning</td><td class="use">Related fields under one heading turn twelve questions into three tasks.</td></tr>
+<tr><td class="tok">Validate late</td><td class="use">Tell people they are wrong after they have finished being right, not while they type.</td></tr>
+<tr><td class="tok">Never lose input</td><td class="use">No error, dismissal or navigation clears what the user typed. Retyping an address is where forms die.</td></tr>
+</tbody>
+</table>
+</section>
+<section>
+<h2>Anatomy</h2>
+<div style="display:grid;grid-template-columns:1fr 290px;gap:var(--space-7);align-items:start">
+<div class="demo" style="max-width:460px">
+<div><div style="font-size:var(--type-heading-size);font-weight:600">Delivery address</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:var(--space-2)">Where should this order go?</div></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)">
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Deniz Aydın</span></div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Street address</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">128/4 Bağdat Cad.</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1.6fr;gap:var(--space-4)">
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">34710</span></div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Istanbul</span></div>
+</div>
+</div>
+</div>
+<div style="height:1px;background:var(--border-subtle);margin:var(--space-8) 0"></div>
+<div style="display:flex;gap:var(--space-3)"><button class="btn btn--primary" type="button">Save address</button><button class="btn btn--ghost" type="button">Cancel</button></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Group heading</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">19px / 600, with an optional line explaining why the group is being asked for.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Field stack</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">12px between fields inside a group. Tight enough to read as one task.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Field pair</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Only for genuinely paired values. Widths reflect expected content.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Divider</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">A 1px rule and 32px above the actions, separating input from commitment.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Action row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Left-aligned with the fields. Primary first, cancel beside it as ghost.</div></div></div>
+</div>
+</div>
+</section>
+<section>
+<h2>One column</h2>
+<p class="doc-lead">A single column gives one unambiguous path down the form. Two columns force the user to decide where to look next at every row, and Z-shaped scanning causes skipped fields.</p>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;display:flex;flex-direction:column;gap:var(--space-4);max-width:280px"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Deniz Aydın</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Email</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">deniz@digirella.co</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Phone</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">+90 532 000 00 00</span></div>
+</div></div></div><p class="ddt">One path, one edge to scan. Tab order matches reading order exactly.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Deniz Aydın</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Email</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">deniz@digirella.co</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Phone</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">+90 532 …</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Company</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Digirella Ltd</span></div>
+</div></div></div><p class="ddt">Two columns: does Tab go right or down? Users skip fields and the eye zig-zags on every row.</p></div>
+</div>
+<div class="rule" style="margin-top:var(--space-6)"><b>Exception</b><span>A form beside a live preview or an order summary is still one column — the second region is context, not more fields.</span></div>
+</section>
+<section>
+<h2>Field pairs</h2>
+<p class="doc-lead">Two fields share a row only when they are one piece of information split by convention, and their widths say something about the content.</p>
+<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:grid;grid-template-columns:1fr 1.6fr;gap:var(--space-4)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">34710</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Istanbul</span></div>
+</div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">First name</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Deniz</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Last name</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Aydın</span></div>
+</div></div>
+<div style="display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-4)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Card expiry</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">03 / 28</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">CVC</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">•••</span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">3 digits</div>
+</div></div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Legitimate</b><span>Postcode and city, first and last name, expiry and CVC, price and currency.</span></div>
+<div class="rule"><b>Never</b><span>Unrelated fields paired to save vertical space. Email beside phone is two questions pretending to be one.</span></div>
+<div class="rule"><b>Mobile</b><span>Pairs stack below 600px, in the same order they read on desktop.</span></div>
+</div>
+</section>
+<section>
+<h2>Groups &amp; sections</h2>
+<p class="doc-lead">Grouping is how a long form stops feeling long. Three groups of four fields read as three tasks; twelve ungrouped fields read as twelve.</p>
+<div class="demo" style="max-width:480px">
+<div><div style="font-size:var(--type-heading-size);font-weight:600">Contact</div></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Email</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">deniz@digirella.co</span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Order updates go here</div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Phone <span style="font-weight:400;color:var(--text-tertiary)">(optional)</span></div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)">+90</span></div>
+</div></div>
+<div style="height:1px;background:var(--border-subtle);margin:var(--space-8) 0"></div>
+<div><div style="font-size:var(--type-heading-size);font-weight:600">Delivery</div></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Street address</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">128/4 Bağdat Cad.</span></div>
+</div><div style="display:grid;grid-template-columns:1fr 1.6fr;gap:var(--space-4)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">34710</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Istanbul</span></div>
+</div></div></div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Size</b><span>Two to six fields per group. A single-field group is a heading doing no work; ten fields is not a group.</span></div>
+<div class="rule"><b>Spacing</b><span>12px between fields, 32px between groups. That ratio alone communicates the structure without any dividers.</span></div>
+<div class="rule"><b>Dividers</b><span>Only where headings are not enough — long forms, or groups that look alike. Space is the primary separator.</span></div>
+<div class="rule"><b>Order</b><span>Easy and familiar first. Asking for a tax number before a name makes the whole form feel bureaucratic.</span></div>
+</div>
+</section>
+<section>
+<h2>Widths &amp; spacing</h2>
+<table>
+<thead><tr><th style="width:190px">Measure</th><th style="width:120px">Value</th><th>Reason</th></tr></thead>
+<tbody>
+<tr><td class="tok">Form width</td><td class="use">480–560px</td><td class="use">Roughly 60 characters. Wider fields make short answers look wrong and long labels hard to associate.</td></tr>
+<tr><td class="tok">Field height</td><td class="use">38px</td><td class="use">Dense enough that a six-field form fits above the fold.</td></tr>
+<tr><td class="tok">Field gap</td><td class="use">12px · <code>--space-4</code></td><td class="use">Close enough to read as one group, far enough that the help text belongs to the field above it.</td></tr>
+<tr><td class="tok">Group gap</td><td class="use">32px · <code>--space-8</code></td><td class="use">Roughly triple the field gap — the ratio is what signals a new section.</td></tr>
+<tr><td class="tok">Label gap</td><td class="use">4px · <code>--space-2</code></td><td class="use">The label must sit visibly closer to its own field than to the one above.</td></tr>
+<tr><td class="tok">Actions</td><td class="use">32px above</td><td class="use">Separates input from commitment, so nobody submits while still reading.</td></tr>
+</tbody>
+</table>
+<div class="rule" style="margin-top:var(--space-5)"><b>Width as a hint</b><span>Size the field to its expected content on desktop — a 5-character postcode in a 480px field invites a wrong answer. Everything goes full width below 600px.</span></div>
+</section>
+<section>
+<h2>Action row</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;max-width:300px"><div style="height:1px;background:var(--border-subtle);margin-bottom:var(--space-6)"></div><div style="display:flex;gap:var(--space-3)"><button class="btn btn--primary" type="button">Save address</button><button class="btn btn--ghost" type="button">Cancel</button></div></div></div><p class="ddt">Left-aligned with the fields, primary first. The eye reaches it by continuing straight down.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;max-width:300px"><div style="display:flex;gap:var(--space-3);justify-content:center"><button class="btn btn--ghost" type="button">Cancel</button><button class="btn btn--primary" type="button">Save address</button></div></div></div><p class="ddt">Centred, with cancel first: no anchor to the form, and the destructive-adjacent option leads.</p></div>
+</div>
+<div style="margin-top:var(--space-6)">
+<div class="rule"><b>Alignment</b><span>Left in forms, matching the field edge. Right-aligned only inside dialog footers, where the container is the anchor.</span></div>
+<div class="rule"><b>Order</b><span>Primary, then Cancel as ghost. One primary per form.</span></div>
+<div class="rule"><b>Sticky</b><span>For forms longer than a viewport, pin the action row to the bottom with a border and card background — never make the user scroll back to submit.</span></div>
+<div class="rule"><b>Never disable</b><span>Do not disable submit until the form is valid. The user cannot then discover what is missing; submit and show the errors instead.</span></div>
+</div>
+</section>
+<section>
+<h2>Validation timing</h2>
+<table>
+<thead><tr><th style="width:170px">Moment</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td class="tok">While typing</td><td class="use">Never an error. Only live constraints the user is working against — a character counter, a password meter.</td></tr>
+<tr><td class="tok">On blur</td><td class="use">Validate a field the user filled and left. Never one they tabbed through untouched.</td></tr>
+<tr><td class="tok">On submit</td><td class="use">Validate everything, focus the first error, summarise above the form when more than two failed.</td></tr>
+<tr><td class="tok">After fixing</td><td class="use">Clear the error the moment the value becomes valid — do not wait for another blur.</td></tr>
+<tr><td class="tok">Server errors</td><td class="use">Map back to the specific field wherever possible. "Something went wrong" at the top of a form is a dead end.</td></tr>
+</tbody>
+</table>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;max-width:300px"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Email</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);"><span style="color:var(--text-primary)">deniz@</span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Enter a complete email address, like deniz@digirella.co</div>
+</div></div></div><p class="ddt">Validated on blur, and the message shows the shape of a correct answer.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;max-width:300px"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Email</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);"><span style="color:var(--text-primary)">d</span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Invalid email</div>
+</div></div></div><p class="ddt">Validated on the first keystroke: the user is told they are wrong before they had a chance to be right.</p></div>
+</div>
+</section>
+<section>
+<h2>Error summary</h2>
+<p class="doc-lead">When more than two fields fail, a summary above the form gives the user the whole picture before they start fixing. Each entry links to its field.</p>
+<div class="demo" style="max-width:480px">
+<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-danger-subtle);border:1px solid var(--red-30);border-radius:var(--radius-sm);padding:var(--space-5)">
+<span style="color:var(--text-danger);font-weight:700;line-height:1.4">×</span>
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-danger)">3 fields need attention</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Postcode is not valid · Card number is incomplete · Accept the terms to continue</div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-6)">
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);"><span style="color:var(--text-primary)">1234</span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Enter a 5-digit postcode</div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Istanbul</span></div>
+</div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Both</b><span>Summary and field-level errors together. The summary orients; the field-level message tells them what to type.</span></div>
+<div class="rule"><b>Focus</b><span>On submit, move focus to the summary so screen-reader users hear it, then let them tab to the first bad field.</span></div>
+<div class="rule"><b>Count</b><span>Name the number. "3 fields need attention" sets the size of the job.</span></div>
+<div class="rule"><b>Update</b><span>The summary shrinks as fields are fixed, and disappears when the form is valid.</span></div>
+</div>
+</section>
+<section>
+<h2>Required &amp; optional</h2>
+<p class="doc-lead">Mark the minority. If most fields are required, mark the optional ones; if most are optional, mark the required ones. Marking both is noise; marking neither is a guess.</p>
+<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-4)">
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Deniz Aydın</span></div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Company <span style="font-weight:400;color:var(--text-tertiary)">(optional)</span></div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)">Digirella Ltd</span></div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Tax number <span style="font-weight:400;color:var(--text-tertiary)">(optional)</span></div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)"></span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Only needed for business invoices</div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>The word</b><span>"(optional)" in regular weight beside the label. Unambiguous in every language and read aloud correctly.</span></div>
+<div class="rule"><b>Never an asterisk</b><span>An asterisk needs a legend, legends get skipped, and screen readers announce it as "star".</span></div>
+<div class="rule"><b>Better still</b><span>Delete optional fields. A field nobody has to fill is a field nobody needed to see.</span></div>
+</div>
+</section>
+<section>
+<h2>Submitting</h2>
+<div class="demo" style="display:flex;gap:var(--space-5);align-items:center;flex-wrap:wrap">
+<button class="btn btn--primary" type="button">Save address</button>
+<button class="btn btn--primary" type="button"><span style="display:inline-block;width:14px;height:14px;border:2px solid var(--alpha-white-16);border-top-color:var(--color-on-primary);border-radius:50%"></span> Saving…</button>
+<span class="btn" style="color:var(--text-primary);color:var(--text-disabled)">Cancel</span>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Lock the button</b><span>Disable submit for the duration so it cannot be double-fired, but never disable the fields — the user should still be able to read what they sent.</span></div>
+<div class="rule"><b>Keep width</b><span>The button keeps its size while loading. A shrinking button moves the target under the pointer.</span></div>
+<div class="rule"><b>Success</b><span>Navigate, or confirm with a toast. Never leave the user on an unchanged form wondering whether it worked.</span></div>
+<div class="rule"><b>Failure</b><span>Keep every value, show the error where it belongs, and leave the form ready to resubmit.</span></div>
+<div class="rule"><b>Autosave</b><span>For long forms, save drafts silently and show a quiet "Saved" timestamp. Never a toast per field.</span></div>
+</div>
+</section>
+<section>
+<h2>Dependent fields</h2>
+<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-4)">
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Country</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Turkey</span></div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-subtle);background:var(--surface-disabled)"><span style="color:var(--text-disabled)">Choose a country first</span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Cities load once a country is selected</div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Disabled with a reason</b><span>A dependent field is disabled and says why. An enabled field with an empty list looks broken.</span></div>
+<div class="rule"><b>Reveal, do not jump</b><span>Fields that appear based on an answer are inserted directly below it, never at the end of the form.</span></div>
+<div class="rule"><b>Preserve</b><span>Changing the parent clears the child only when the old value is genuinely invalid. Clearing eagerly punishes the user for exploring.</span></div>
+<div class="rule"><b>Never hide requirements</b><span>Conditional fields are still visible as they become relevant — never behind an accordion where a validation error cannot be seen.</span></div>
+</div>
+</section>
+<section>
+<h2>Long forms &amp; steps</h2>
+<p class="doc-lead">Past about twelve fields, one page becomes a wall. Split by task, not by arbitrary count, and only when each step is independently meaningful.</p>
+<div class="demo">
+<ol style="display:flex;align-items:center;gap:var(--space-4);list-style:none;margin:0;padding:0">
+<li style="display:flex;align-items:center;gap:var(--space-3)"><span style="width:26px;height:26px;border-radius:50%;background:var(--color-primary);color:var(--color-on-primary);display:inline-flex;align-items:center;justify-content:center;font-size:var(--font-size-200);font-weight:600">✓</span><span style="font-size:var(--font-size-300);font-weight:500;color:var(--text-secondary)">Cart</span></li>
+<span style="flex:1;height:1px;background:var(--color-primary)"></span>
+<li style="display:flex;align-items:center;gap:var(--space-3)"><span style="width:26px;height:26px;border-radius:50%;background:var(--surface-brand-subtle);border:1px solid var(--color-primary);color:var(--text-brand);display:inline-flex;align-items:center;justify-content:center;font-size:var(--font-size-200);font-weight:600">2</span><span style="font-size:var(--font-size-300);font-weight:600">Delivery</span></li>
+<span style="flex:1;height:1px;background:var(--border-default)"></span>
+<li style="display:flex;align-items:center;gap:var(--space-3)"><span style="width:26px;height:26px;border-radius:50%;background:var(--surface-sunken);color:var(--text-tertiary);display:inline-flex;align-items:center;justify-content:center;font-size:var(--font-size-200);font-weight:600">3</span><span style="font-size:var(--font-size-300);font-weight:500;color:var(--text-tertiary)">Payment</span></li>
+</ol>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Three to five steps</b><span>Each a coherent task with its own name. "Part 2 of 6" names nothing and reads as a chore.</span></div>
+<div class="rule"><b>Validate per step</b><span>Errors are caught before moving on, so nobody reaches step four to learn step one was wrong.</span></div>
+<div class="rule"><b>Back is free</b><span>Returning to a previous step preserves everything and never re-validates unrelated fields.</span></div>
+<div class="rule"><b>Alternative</b><span>Sections with a sticky in-page nav often beat steps: the user sees the whole scope and can jump around.</span></div>
+<div class="rule"><b>URL</b><span>Each step gets one, so browser back moves between steps rather than leaving the flow.</span></div>
+</div>
+</section>
+<section>
+<h2>Best practices</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;max-width:300px;display:flex;flex-direction:column;gap:var(--space-4)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">34710</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Istanbul</span></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Filled from your postcode</div>
+</div></div></div><p class="ddt">The system derives what it can and shows the result, so the user confirms rather than types.</p></div>
+<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;max-width:300px;display:flex;flex-direction:column;gap:var(--space-4)"><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">34710</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">City</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)">Enter city</span></div>
+</div><div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">District</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)">Enter district</span></div>
+</div></div></div><p class="ddt">Three fields for information one already implies. Each is a chance to abandon.</p></div>
+</div>
+<div style="margin-top:var(--space-7)">
+<div class="rule"><b>Autofill</b><span>Correct <code>autocomplete</code> and <code>name</code> attributes throughout. A checkout that cannot autofill costs the user thirty seconds and you a percentage of orders.</span></div>
+<div class="rule"><b>Accept messy input</b><span>Normalise phone numbers, card numbers and postcodes yourself. Rejecting spaces is the system refusing trivial work.</span></div>
+<div class="rule"><b>Keyboard</b><span>Enter submits a single-purpose form. Tab order follows visual order with no exceptions.</span></div>
+<div class="rule"><b>Exit safely</b><span>Navigating away from a dirty form asks first. Leaving it silently loses everything.</span></div>
+<div class="rule"><b>No reset button</b><span>Nobody wants to clear a form they just filled, and everybody occasionally clicks it by mistake.</span></div>
+</div>
+</section>
+<section>
+<h2>Content</h2>
+<table>
+<thead><tr><th style="width:150px">Part</th><th style="width:250px">Rule</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td class="tok">Form title</td><td class="use">Names the outcome, not the form.</td><td class="use">Delivery address</td></tr>
+<tr><td class="tok">Group heading</td><td class="use">Noun phrase, two or three words.</td><td class="use">Payment details</td></tr>
+<tr><td class="tok">Intro</td><td class="use">One sentence, only if it explains why you are asking.</td><td class="use">We use this to calculate shipping.</td></tr>
+<tr><td class="tok">Submit</td><td class="use">The verb from the title, one to three words.</td><td class="use">Save address</td></tr>
+<tr><td class="tok">Summary</td><td class="use">Names the count of problems.</td><td class="use">3 fields need attention</td></tr>
+<tr><td class="tok">Avoid</td><td class="use">Empty verbs and system voice.</td><td class="use">Submit · Please fill in all fields</td></tr>
+</tbody>
+</table>
+</section>
+<section style="padding-bottom:var(--space-13)">
+<h2>Accessibility</h2>
+<div class="rule"><b>Real form</b><span>A <code>&lt;form&gt;</code> element with a submit button, so Enter works and browsers can autofill. A div with a click handler breaks both.</span></div>
+<div class="rule"><b>Groups</b><span><code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> for every group, so the heading is announced with each field inside it.</span></div>
+<div class="rule"><b>Labels</b><span>Every field has a real <code>&lt;label for&gt;</code>. Placeholder text is not a label and is not reliably announced.</span></div>
+<div class="rule"><b>Errors</b><span><code>aria-invalid</code> plus <code>aria-describedby</code> to the message, and the summary in a live region focused on submit.</span></div>
+<div class="rule"><b>Autocomplete</b><span>Correct tokens satisfy WCAG 1.3.5 and help everyone, not only assistive-tech users.</span></div>
+<div class="rule"><b>Focus order</b><span>DOM order matches visual order. Never reorder fields with CSS — the tab order silently diverges from what is on screen.</span></div>
+<div class="rule"><b>Status</b><span>Submission progress and success are announced politely: "Saving", then "Address saved". A visual spinner alone announces nothing.</span></div>
+</section>

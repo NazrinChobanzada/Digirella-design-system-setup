@@ -1,0 +1,393 @@
+<p class="page__lede">A field for short, free-form text — one line or several. The plainest control in the system, and the one most forms are mostly made of.</p>
+
+<section>
+<h2>Overview</h2>
+<p>A text input collects an answer the system cannot predict: a title, a name, a note. It accepts anything, which is its strength when the answer really is open, and its weakness the moment the answer has a shape it has to take.</p>
+<p>All three text fields in this system are the same element underneath. What separates them is not what they accept — it is <strong>what the system knows before anyone types</strong>, and therefore how much of the work it can do on the person's behalf.</p>
+<table>
+<thead><tr><th style="width:150px">Field</th><th>The system knows</th><th>So it can</th></tr></thead>
+<tbody>
+<tr><td>Text input</td><td class="use">Nothing about the answer.</td><td class="use">Only hold what is typed. No keyboard hint, no autofill, no format to check against — every rule has to be written by you and read by them.</td></tr>
+<tr><td>Formatted input</td><td class="use">The shape of the answer.</td><td class="use">Bring the right mobile keyboard, offer autofill from the browser, and state the format before the first keystroke.</td></tr>
+<tr><td>Number input</td><td class="use">That the value is a quantity.</td><td class="use">Offer controls to adjust it, enforce a range, and align the digits for comparison.</td></tr>
+</tbody>
+</table>
+<p>So the question is not what the value looks like but what you know about it. If you know the shape, use the field that knows it too — the alternative is teaching the same rule in a hint, checking it in your own validation, and apologising for it in an error message.</p>
+<div class="demo">
+  <div class="field" style="width:280px">
+    <label class="field__label" for="ov1">Listing title</label>
+    <input class="control" id="ov1" placeholder="iPhone 14 Pro 256 GB" aria-describedby="ov1h">
+    <span class="field__hint" id="ov1h">Use the words a buyer would type when searching.</span>
+  </div>
+  <div class="field" style="width:280px">
+    <label class="field__label" for="ov2">Product description</label>
+    <textarea class="control" id="ov2" rows="2" maxlength="180" data-counter="ov2c" placeholder="Condition, flaws, what is in the box"></textarea>
+    <span class="field__count" id="ov2c" data-over="false">0 / 180</span>
+  </div>
+</div>
+<p class="caption">Both are live. The counter on the right updates as you type.</p>
+</section>
+
+<section data-part="Guidelines">
+<h2>Principles</h2>
+<p>Four ideas explain most of the decisions on this page.</p>
+
+<h3>The question has to stay on screen</h3>
+<p>A label is not decoration for the field, it is the question the field is asking. A placeholder cannot do that job because it leaves as soon as someone answers, which strands anyone who is interrupted, reviewing before submit, or reading the form aloud.</p>
+
+<h3>The field should describe its answer</h3>
+<p>The width of the field, the hint under it and the height of the box all say something about the expected answer before anyone types. A field sized for a paragraph invites a paragraph, even when you wanted three words. Getting this right prevents errors rather than catching them.</p>
+
+<h3>Correct late, forgive early</h3>
+<p>Nobody writes a description in one pass. Validating on every keystroke turns an unfinished answer into a failure, so the system waits for blur — and once a field has erred, it switches to validating on input, so the message clears the instant it is fixed.</p>
+
+<h3>An error is an instruction</h3>
+<p>"Invalid input" tells someone they have failed. "Titles need at least 10 characters" tells them what to do. The second costs the same to write and ends the interaction; the first starts a guessing game.</p>
+</section>
+
+<section>
+<h2>When not to use a text input</h2>
+<table>
+<thead><tr><th>Instead of a text input</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>An answer with a known format</td><td>Formatted input — email, phone, postcode, password</td></tr>
+<tr><td>A quantity you will calculate with</td><td>Number input</td></tr>
+<tr><td>Two to five known options</td><td>Radio</td></tr>
+<tr><td>Five or more known options</td><td>Select</td></tr>
+<tr><td>Many options needing filtering</td><td>Combobox</td></tr>
+<tr><td>A value inside a range</td><td>Number input — its slider variant</td></tr>
+</tbody>
+</table>
+<p>The pattern behind the table: a field someone has to guess the shape of is a field they will get wrong. If you know the shape, use the control that knows it too.</p>
+</section>
+
+<section data-part="Variants and style">
+<h2>Anatomy</h2>
+<div class="demo anatomy">
+  <div class="field" style="max-width:300px;width:100%">
+    <label class="field__label" for="a-in">Listing title</label>
+    <input class="control" id="a-in" placeholder="iPhone 14 Pro 256 GB">
+    <span class="field__hint">Use the words a buyer would type.</span>
+  </div>
+  <ul class="anatomy__key">
+    <li><b>1</b> Label — always visible, above the field.</li>
+    <li><b>2</b> Container — 38px tall, 1px <code>--border-control</code>.</li>
+    <li><b>3</b> Placeholder — an example, never the label.</li>
+    <li><b>4</b> Hint — the rule or the reason you are asking.</li>
+  </ul>
+</div>
+
+<h3>Labels are not optional</h3>
+<p>Every field has a visible label. A placeholder disappears the moment someone types, taking the question with it — which is hardest on exactly the people who most need it.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div class="field" style="width:230px"><label class="field__label" for="d1">Listing title</label>
+    <input class="control" id="d1" placeholder="iPhone 14 Pro 256 GB"></div>
+  </div><div class="dodont__note">The label stays; the placeholder shows an example.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div class="field" style="width:230px"><input class="control" placeholder="Listing title"></div>
+  </div><div class="dodont__note">The label vanishes on the first keystroke.</div></div>
+</div>
+
+<h3>Affixes</h3>
+<p>A prefix or suffix sits inside the field boundary, so the pair reads as one control rather than a field with something stuck beside it. It is documented here because it belongs to the field itself — <strong>Formatted input</strong> and <strong>Number input</strong> both use the same construction.</p>
+<div class="demo">
+  <div class="field" style="width:170px">
+    <label class="field__label" for="af1">Discount</label>
+    <div class="affix"><input class="control" id="af1" inputmode="numeric" value="15"><span class="affix__trail">%</span></div>
+  </div>
+  <div class="field" style="width:200px">
+    <label class="field__label" for="af2">Shipping weight</label>
+    <div class="affix">
+      <input class="control" id="af2" inputmode="decimal" value="1.4">
+      <select class="affix__select affix__select--trail" id="af2u" aria-label="Weight unit">
+        <option>kg</option><option>g</option>
+      </select>
+    </div>
+  </div>
+  <div class="field" style="width:230px">
+    <label class="field__label" for="af3">Phone</label>
+    <div class="affix">
+      <select class="affix__select affix__select--lead" id="af3c" aria-label="Country code">
+        <option>+994</option><option>+90</option><option>+7</option>
+      </select>
+      <input class="control" id="af3" inputmode="tel" value="50 000 00 00">
+    </div>
+  </div>
+</div>
+<p>An affix carries the part of the value that is not typed — a unit, a symbol, a dialling code — never the label.</p>
+
+<h4>Static affixes</h4>
+<p>A fixed symbol like <code>%</code> is decorative: it is not focusable and is hidden from assistive technology, because it repeats what the label already established. Put the unit in the label too, so it is announced once.</p>
+
+<h4>Selectable affixes</h4>
+<p>When the unit is part of the answer rather than a description of it, the affix becomes a control. Grams or kilograms, one country code or another — the person is choosing, not just reading, so it takes a real <code>&lt;select&gt;</code> with its own accessible name and its own place in the tab order.</p>
+<p>The test is whether changing it changes the meaning of the number. <code>15%</code> is one value; <code>1.4</code> in grams and <code>1.4</code> in kilograms are two. The second needs a control; the first does not.</p>
+<p>Submit the pair together — the amount and its unit are one answer, and a value that arrives without its unit is worse than no value, because it looks usable.</p>
+
+<div class="callout callout--warning"><div><b>A native <code>&lt;select&gt;</code> opens an operating-system menu that cannot be styled.</b> The closed control is ours — border, height, type, focus halo all follow the system. The open list is not: it is drawn by iOS, Android or the desktop OS, and no CSS reaches it. That is a browser boundary, not an oversight.<br><br>Accept it where the native list is genuinely better — on a phone it is a full-height wheel with momentum scrolling, larger targets and familiar gestures that no custom menu matches. Replace it with <strong>Combobox</strong> where the open list has to look like the rest of the product, or needs search, grouping, icons or multi-select. The trade is real: a custom listbox has to rebuild typeahead, arrow-key navigation and focus trapping that the native control gives away for free.</div></div>
+<p><strong>Suffix is the default here.</strong> Units and currency follow the number in this locale — <code>1.4 kg</code>, <code>2.480 ₼</code> — so a trailing affix matches how the value is read aloud. A prefix is for the rare case where the symbol genuinely leads in the data itself, such as a <code>+</code> before an international dialling code.</p>
+</section>
+
+<section>
+<h2>Variants</h2>
+<p>One job, two shapes.</p>
+<table>
+<thead><tr><th style="width:110px">Shape</th><th style="width:240px">Example</th><th>Use for</th><th>Don't use for</th></tr></thead>
+<tbody>
+<tr><td>Single line</td>
+<td><input class="control" aria-label="Single line example" value="iPhone 14 Pro 256 GB"></td>
+<td class="use">Titles, names, references — answers of a few words that will not wrap.</td>
+<td class="use">Anything the person may want to review as a paragraph.</td></tr>
+<tr><td>Multi-line</td>
+<td><textarea class="control" aria-label="Multi-line example" rows="2" style="min-height:0">Sent in its box with all accessories. No cosmetic flaws.</textarea></td>
+<td class="use">Descriptions, notes, messages. Add a counter when there is a real limit.</td>
+<td class="use">Short answers — a tall box invites a long reply you did not want.</td></tr>
+</tbody>
+</table>
+
+<h3>Multi-line</h3>
+<p>A multi-line field grows rather than scrolls where the layout allows it. A field that scrolls at three lines hides the beginning of the answer from the person writing it.</p>
+<p>Show a counter only when a limit really exists, and place it below the field on the right. A counter with no limit behind it is decoration that makes people self-conscious about length.</p>
+<div class="demo">
+  <div class="field" style="width:340px">
+    <label class="field__label" for="ml1">Product description</label>
+    <textarea class="control" id="ml1" rows="3" maxlength="180" data-counter="ml1c" placeholder="Condition, flaws, what is in the box">Sent in its box with all accessories.</textarea>
+    <span class="field__count" id="ml1c" data-over="false">37 / 180</span>
+  </div>
+</div>
+<p>When the limit is reached, the counter turns red and further typing is refused rather than silently truncated. Never cut text on submit — losing the end of a sentence someone wrote is worse than rejecting it while they can still see it.</p>
+
+<h3>Tokens</h3>
+<p>The state and its colours are the same decision, so they live together.</p>
+<table>
+<thead><tr><th>State</th><th>Border</th><th>Background</th><th>Text</th></tr></thead>
+<tbody>
+<tr><td>Rest</td><td><code>--border-control</code></td><td><code>--surface-card</code></td><td><code>--text-primary</code></td></tr>
+<tr><td>Hover</td><td><code>--border-strong</code></td><td><code>--surface-card</code></td><td><code>--text-primary</code></td></tr>
+<tr><td>Focus</td><td><code>--border-focus</code> + 3px halo</td><td><code>--surface-card</code></td><td><code>--text-primary</code></td></tr>
+<tr><td>Error</td><td><code>--border-danger</code></td><td><code>--surface-card</code></td><td><code>--text-primary</code></td></tr>
+<tr><td>Read-only</td><td><code>--border-subtle</code></td><td><code>--surface-sunken</code></td><td><code>--text-primary</code></td></tr>
+<tr><td>Disabled</td><td><code>--border-subtle</code></td><td><code>--surface-disabled</code></td><td><code>--neutral-50</code></td></tr>
+</tbody>
+</table>
+<div class="callout"><div><b><code>--border-control</code> exists because of an audit failure.</b> Fields originally used <code>--border-default</code> at 1.34:1. Since that boundary is the only thing defining the control, it broke WCAG 1.4.11. The replacement sits at 3.12:1, and <code>--border-default</code> is now for decorative dividers only.</div></div>
+
+<h3>Type</h3>
+<table>
+<thead><tr><th>Element</th><th>Size</th><th>Weight</th><th>Colour</th></tr></thead>
+<tbody>
+<tr><td>Label</td><td>14 / 20</td><td>500</td><td><code>--text-primary</code></td></tr>
+<tr><td>Value</td><td>14 / 20, 16 on mobile</td><td>400</td><td><code>--text-primary</code></td></tr>
+<tr><td>Placeholder</td><td>Same as value</td><td>400</td><td><code>--text-tertiary</code></td></tr>
+<tr><td>Hint</td><td>12 / 16</td><td>400</td><td><code>--text-tertiary</code></td></tr>
+<tr><td>Error</td><td>12 / 16</td><td>500</td><td><code>--text-danger</code></td></tr>
+<tr><td>Counter</td><td>12 / 16, tabular</td><td>400</td><td><code>--text-tertiary</code></td></tr>
+</tbody>
+</table>
+<p>The label and the value share a size and are separated by weight: 500 for the question, 400 for the answer. The placeholder matches the value exactly and changes only its colour, so text does not jump in size the moment someone starts typing.</p>
+<p>On screens under 640px the value rises to 16px. Below that, iOS Safari zooms the whole page when the field is focused — the one case where type goes up on a small screen rather than down.</p>
+
+<h3>Focus halo</h3>
+<p>Fields use a 3px halo of <code>--color-primary-subtle</code> rather than the offset ring buttons get. In a dense form an offset ring collides with neighbouring fields; a halo hugs the border and stays inside the row.</p>
+</section>
+
+<section>
+<h2>Size and spacing</h2>
+<table>
+<thead><tr><th>Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Height</td><td>38px</td></tr>
+<tr><td>Padding</td><td>9px / 12px</td></tr>
+<tr><td>Label to field</td><td><code>--space-2</code></td></tr>
+<tr><td>Field to hint</td><td><code>--space-2</code></td></tr>
+<tr><td>Field to field</td><td><code>--space-6</code></td></tr>
+<tr><td>Radius</td><td><code>--radius-control</code>, 6px</td></tr>
+</tbody>
+</table>
+<p>Inputs use a slightly larger radius than buttons. Buttons are objects you press; fields are containers you fill, and the softer corner reads as a space rather than a target.</p>
+
+<h3>Width</h3>
+<p>Match the field width to the expected answer. Width is a hint nobody has to read.</p>
+<div class="demo demo--stack">
+  <div style="display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:flex-end">
+    <div class="field" style="width:90px"><label class="field__label" for="w1">Size</label><input class="control" id="w1" value="42"></div>
+    <div class="field" style="width:150px"><label class="field__label" for="w2">SKU</label><input class="control" id="w2" value="DG-4471"></div>
+    <div class="field" style="flex:1;min-width:220px"><label class="field__label" for="w3">Listing title</label><input class="control" id="w3" value="iPhone 14 Pro 256 GB"></div>
+  </div>
+</div>
+<p>In a form, keep fields in a single column. Side-by-side fields are only for values that genuinely belong together.</p>
+</section>
+
+<section>
+<h2>Labels and messages</h2>
+<p>Two rules hold in any language: <strong>name what you are asking for</strong>, and <strong>say what to do when it goes wrong</strong>. "Titles need at least 10 characters" and "Başlıq ən azı 10 simvol olmalıdır" are the same instruction; "Invalid input" and "Yanlış" are the same failure.</p>
+
+<h3>Required and optional</h3>
+<p>Mark required fields with an asterisk after the label, and explain it once at the top of the form. Optional fields carry no mark — adding "optional" to everything else doubles the noise to say the same thing.</p>
+<div class="demo demo--stack">
+  <p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin:0 0 var(--space-5)"><span class="req-star">*</span> Required fields</p>
+  <div style="display:flex;gap:var(--space-5);flex-wrap:wrap">
+    <div class="field" style="width:240px">
+      <label class="field__label" for="rq1">Listing title <span class="req-star" aria-hidden="true">*</span></label>
+      <input class="control" id="rq1" aria-required="true" placeholder="iPhone 14 Pro 256 GB">
+    </div>
+    <div class="field" style="width:240px">
+      <label class="field__label" for="rq2">Model number</label>
+      <input class="control" id="rq2">
+    </div>
+  </div>
+</div>
+<p>The asterisk is <code>aria-hidden</code> and the field carries <code>aria-required="true"</code>. Drawing the mark and announcing the fact are two separate jobs: the asterisk is a visual convention that means nothing to a screen reader, and <code>aria-required</code> is announced but invisible. Both are needed, and neither substitutes for the other.</p>
+
+<h3>Error messages</h3>
+<p>Say what is wrong and what to do. The message replaces the hint and is wired through <code>aria-describedby</code>, so a screen reader reads it as part of the field.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div class="field" style="width:250px"><label class="field__label" for="e1">Listing title</label>
+    <input class="control" id="e1" value="iPhone" aria-invalid="true" aria-describedby="e1m">
+    <span class="field__error" id="e1m"><span class="msg-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M8 1.6 15 14H1L8 1.6Zm0 4.1a.75.75 0 0 0-.75.75v2.9a.75.75 0 0 0 1.5 0v-2.9A.75.75 0 0 0 8 5.7Zm0 5.4a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg></span><span>Titles need at least 10 characters.</span></span></div>
+  </div><div class="dodont__note">Names the rule, so the fix is obvious.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div class="field" style="width:250px"><label class="field__label" for="e2">Listing title</label>
+    <input class="control" id="e2" value="iPhone" aria-invalid="true" aria-describedby="e2m">
+    <span class="field__error" id="e2m"><span class="msg-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M8 1.6 15 14H1L8 1.6Zm0 4.1a.75.75 0 0 0-.75.75v2.9a.75.75 0 0 0 1.5 0v-2.9A.75.75 0 0 0 8 5.7Zm0 5.4a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg></span><span>Invalid input</span></span></div>
+  </div><div class="dodont__note">Restates that something is wrong without saying what.</div></div>
+</div>
+<p>Colour is never the only signal. The red border is paired with an icon and a message, so the error survives a monochrome screen or colour-blind vision.</p>
+<div class="callout"><div><b>Casing and word order are language decisions, not system decisions.</b> Turkish and Azerbaijani put the verb last, and capitalisation conventions differ. Set those rules once per locale in your content guidelines; the system only asks that labels are specific and messages are actionable.</div></div>
+</section>
+
+<section data-part="Behaviour">
+<h2>States</h2>
+<div class="demo demo--stack">
+  <div class="cap" style="margin-top:0">Rest, hover, focus</div>
+  <div style="display:flex;gap:var(--space-5);flex-wrap:wrap">
+    <div class="field" style="width:190px"><label class="field__label" for="s1">Rest</label>
+      <input class="control" id="s1" value="iPhone 14 Pro"></div>
+    <div class="field" style="width:190px"><label class="field__label" for="s2">Hover</label>
+      <input class="control" id="s2" value="iPhone 14 Pro" style="border-color:var(--border-strong)"></div>
+    <div class="field" style="width:190px"><label class="field__label" for="s3">Focus</label>
+      <input class="control" id="s3" value="iPhone 14 Pro" style="border-color:var(--border-focus);box-shadow:0 0 0 3px var(--color-primary-subtle)"></div>
+  </div>
+  <div class="cap">Error, read-only, disabled</div>
+  <div style="display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:flex-start">
+    <div class="field" style="width:250px"><label class="field__label" for="s4">Error</label>
+      <div class="affix" data-invalid="true">
+        <input class="control" id="s4" value="iPhone" aria-invalid="true" aria-describedby="s4e" style="border-color:var(--border-danger);box-shadow:0 0 0 3px var(--surface-danger-subtle)">
+        <button type="button" class="field__clear" aria-label="Clear listing title">✕</button>
+      </div>
+      <span class="field__error" id="s4e"><span class="msg-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M8 1.6 15 14H1L8 1.6Zm0 4.1a.75.75 0 0 0-.75.75v2.9a.75.75 0 0 0 1.5 0v-2.9A.75.75 0 0 0 8 5.7Zm0 5.4a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg></span><span>Titles need at least 10 characters.</span></span></div>
+    <div class="field" style="width:190px"><label class="field__label" for="s5">Read-only</label>
+      <input class="control" id="s5" value="DG-4471" readonly style="background:var(--surface-sunken);border-color:var(--border-subtle)">
+      <span class="field__hint">Assigned at signup.</span></div>
+    <div class="field" style="width:190px"><label class="field__label" for="s6">Disabled</label>
+      <input class="control" id="s6" value="Not applicable" disabled></div>
+  </div>
+  <div class="cap">Skeleton</div>
+  <div style="display:flex;gap:var(--space-5);flex-wrap:wrap">
+    <div class="field" style="width:190px"><span class="field__skeleton field__skeleton--label"></span><span class="field__skeleton"></span></div>
+    <div class="field" style="width:190px"><span class="field__skeleton field__skeleton--label"></span><span class="field__skeleton"></span></div>
+  </div>
+</div>
+<p class="caption">The error field shows the whole treatment together: red border, focus halo, status icon, message, and a clear button so the value can be discarded in one action rather than selected and deleted.</p>
+
+<h3>Read-only versus disabled</h3>
+<p>Read-only means "applicable but fixed" — an order number, a seller code. It stays in the tab order, stays selectable, and passes contrast, so it can be read aloud and copied. Disabled means "not applicable at all": it leaves the tab order, is skipped by screen readers, and is exempt from contrast.</p>
+<p>Reach for read-only more often than you think. A value someone cannot change is still a value they need to see.</p>
+
+<h3>Skeleton</h3>
+<p>Use a skeleton on initial page load, when the field exists but its value has not arrived. Match the skeleton to the shape of the field it replaces — a label bar and a field bar — so the layout does not shift when the real thing lands.</p>
+<p>Do not use a skeleton for a field waiting on a check. That is an async state and belongs inside the field, not in place of it.</p>
+</section>
+
+<section>
+<h2>Validation</h2>
+<h3>Timing</h3>
+<p>Validate on blur, not on every keystroke. Marking a half-typed answer as invalid is telling someone off for not having finished. The exception is a live constraint someone is working against — a character counter, which is feedback rather than judgement.</p>
+<p>Once a field has shown an error, switch it to validating on input, so the message clears the moment it is fixed rather than waiting for another blur.</p>
+
+<h3>Form-level errors</h3>
+<p>For a whole-form failure, put a summary at the top listing each bad field as a link, and move focus to it on submit. Someone at the bottom of a long form should not have to hunt upward for what went wrong.</p>
+</section>
+
+<section>
+<h2>Motion</h2>
+<p>Border and shadow transition over <code>--transition-interactive</code>, 140ms. The error state appears without a transition — a validation message that fades in reads as uncertain.</p>
+</section>
+
+<section>
+<h2>Accessibility</h2>
+<p>Most of a field's accessibility comes from three relationships: label to control, description to control, and error to control. Items marked <span class="risk">high risk</span> are the ones that come up most often in review.</p>
+
+<div class="wcag">
+<div class="wcag__group"><h3>Text input and textarea</h3>
+<p>The base of every form. Label binding is not optional.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">3.3.2</span><span>A persistent visible label — placeholder-only fields fail. Format hints are stated before entry, not after the first error. <span class="risk">high risk</span></span></li>
+<li><span class="sc" data-risk="high">1.3.1</span><span>Label bound with <code>for</code> and <code>id</code>; hints and errors linked through <code>aria-describedby</code>. <span class="risk">high risk</span></span></li>
+<li><span class="sc" data-risk="high">1.4.11</span><span>The field border reaches 3:1. Pale grey 1px borders are the single most common failure in any design system. <span class="risk">high risk</span></span></li>
+<li><span class="sc">2.4.7</span><span>The focus style is distinguishable from the error style — a field can be both at once.</span></li>
+<li><span class="sc">4.1.2</span><span>Required and invalid exposed through <code>aria-required</code> and <code>aria-invalid</code>, not by an asterisk or a colour.</span></li>
+<li><span class="sc">1.4.12</span><span>No fixed height; the field grows with the reader's own text spacing.</span></li>
+<li><span class="sc">1.4.3</span><span>Value, label, hint and error all reach 4.5:1 — including the placeholder, which most systems leave too pale to read.</span></li>
+<li><span class="sc">2.5.3</span><span>If a field carries both a visible label and an <code>aria-label</code>, the visible text is contained in the accessible name.</span></li>
+</ul></div>
+
+<div class="wcag__group"><h3>Errors and help</h3>
+<p>An error nobody hears is an error nobody fixes.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">3.3.1</span><span>The error is identified in text, not by a red border alone. <span class="risk">high risk</span></span></li>
+<li><span class="sc">3.3.3</span><span>The message suggests a correction where one can be worked out.</span></li>
+<li><span class="sc">4.1.3</span><span>A form-level error summary announced through a live region, with focus moved to it.</span></li>
+<li><span class="sc">2.4.6</span><span>Labels and hints describe the purpose; hints stay to one sentence.</span></li>
+<li><span class="sc">3.2.2</span><span>No context change on input — the form does not submit, navigate or reorder itself when a field is filled or blurred.</span></li>
+</ul></div>
+
+<div class="wcag__group"><h3>Zoom and reflow</h3>
+<p>Where a form that passed review breaks on someone else's machine.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">1.4.10</span><span>No horizontal scrolling at 320px. Side-by-side field pairs collapse to a single column. <span class="risk">high risk</span></span></li>
+<li><span class="sc">1.4.4</span><span>Text resizes to 200% without the field clipping its value or the label wrapping into it.</span></li>
+<li><span class="sc">2.4.11</span><span>A focused field is not obscured by a sticky header or footer. Reserve <code>scroll-padding</code> on the root.</span></li>
+</ul></div>
+</div>
+
+<h3>Keyboard</h3>
+<table>
+<thead><tr><th>Key</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>Tab</code></td><td>Moves into the field. Disabled fields are skipped; read-only fields are not.</td></tr>
+<tr><td><code>Enter</code></td><td>Submits the surrounding form. In a textarea, inserts a line break.</td></tr>
+<tr><td><code>Ctrl</code> or <code>Opt</code> + <code>←</code> <code>→</code></td><td>Moves word by word. Native, and broken by any script that intercepts arrow keys.</td></tr>
+<tr><td><code>Ctrl</code> or <code>Opt</code> + <code>↑</code> <code>↓</code></td><td>Jumps to the start or end of the value.</td></tr>
+</tbody>
+</table>
+<p>None of this is implemented in JavaScript. The main way to lose it is to add a key handler that calls <code>preventDefault</code> too broadly.</p>
+
+<h3>Label association</h3>
+<p>The label's <code>for</code> must match the input's <code>id</code>. That single link does three jobs: a screen reader announces the label with the field, clicking the label focuses the field, and the tap target grows to include the label text.</p>
+
+<h3>Contrast</h3>
+<table>
+<thead><tr><th>Pair</th><th>Ratio</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Value on field</td><td>16.4:1</td><td>Passes AAA</td></tr>
+<tr><td>Label on card</td><td>16.4:1</td><td>Passes AAA</td></tr>
+<tr><td>Hint on card</td><td>4.95:1</td><td>Passes AA</td></tr>
+<tr><td>Placeholder on card</td><td>4.95:1</td><td>Passes AA</td></tr>
+<tr><td>Error text on card</td><td>5.4:1</td><td>Passes AA</td></tr>
+<tr><td>Border on card</td><td>3.12:1</td><td>Passes 1.4.11</td></tr>
+</tbody>
+</table>
+<p>The placeholder passing AA is unusual and deliberate — most systems leave it too light to read, which turns an already fragile pattern into an unusable one.</p>
+
+<h3>What you still have to do</h3>
+<ul>
+<li>Give every field a unique <code>id</code> and match it in the label.</li>
+<li>Toggle <code>aria-invalid</code> as validation state changes.</li>
+<li>Pair every asterisk with <code>aria-required</code>, and explain the asterisk once at the top of the form.</li>
+<li>Provide an error summary on form-level failure and move focus to it.</li>
+<li>Never rely on the red border alone — always pair it with an icon and a message.</li>
+</ul>
+</section>

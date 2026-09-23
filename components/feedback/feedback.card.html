@@ -1,0 +1,37 @@
+<!-- @dsCard group="Components" viewport="700x330" name="Feedback" subtitle="Dialog, Toast, Tooltip" -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><title>Feedback</title>
+<link href="../../styles.css" rel="stylesheet"/>
+<style>
+  body{background:var(--surface-card);padding:var(--space-6);margin:0}
+  .row{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap}
+  .stack{display:flex;flex-direction:column;gap:var(--space-5)}
+  .lbl{font:var(--font-weight-semibold) var(--font-size-100)/1.4 var(--font-mono);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-3);font-family:var(--font-sans);font-weight:var(--font-weight-semibold);line-height:1;border-radius:var(--radius-control);border:1px solid transparent;cursor:pointer;padding:10px 20px;font-size:var(--font-size-300)}
+</style>
+</head><body>
+<div style="display:flex;gap:var(--space-6);font-family:var(--font-sans);align-items:flex-start">
+<div style="flex:1.1;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-8)">
+<div style="font-size:var(--type-heading-size);font-weight:600">Cancel this order?</div>
+<div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3);line-height:1.5">This can't be undone. The payment is refunded within 3–5 business days.</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;margin-top:var(--space-8)">
+<span class="btn" style="color:var(--text-primary)">Cancel</span>
+<span class="btn" style="background:var(--status-danger);color:#fff">Cancel order</span>
+</div>
+</div>
+<div class="stack" style="flex:1;gap:var(--space-4)">
+<div style="display:flex;gap:var(--space-4);background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300)">
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Add to cartndi</div><div style="font-size:var(--font-size-300);color:var(--text-secondary)">2 items</div></div>
+<span style="color:var(--text-tertiary)">×</span>
+</div>
+<div style="display:flex;gap:var(--space-4);background:var(--surface-danger-subtle);border-left:3px solid var(--status-danger);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300)">
+<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-danger)">Payment failed</div><div style="font-size:var(--font-size-300);color:var(--text-secondary)">Check your card details</div></div>
+<span style="color:var(--text-tertiary)">×</span>
+</div>
+<div style="display:flex;justify-content:center;padding-top:var(--space-4)">
+<span style="background:var(--surface-inverse);color:var(--text-inverse);font-size:var(--font-size-200);padding:6px 10px;border-radius:var(--radius-xs);box-shadow:var(--shadow-300)">Free returns</span>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,56 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Core" subtitle="Button, IconButton, Card, Badge, Tag" -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><title>Core</title>
+<link href="../../styles.css" rel="stylesheet"/>
+<style>
+  body{background:var(--surface-card);padding:var(--space-6);margin:0}
+  .row{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap}
+  .stack{display:flex;flex-direction:column;gap:var(--space-5)}
+  .lbl{font:var(--font-weight-semibold) var(--font-size-100)/1.4 var(--font-mono);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-3);font-family:var(--font-sans);font-weight:var(--font-weight-semibold);line-height:1;border-radius:var(--radius-control);border:1px solid transparent;cursor:pointer;padding:10px 20px;font-size:var(--font-size-300)}
+</style>
+</head><body>
+<div class="stack">
+<div>
+<div class="lbl">Button · variant</div>
+<div class="row" style="margin-top:var(--space-3)">
+<span class="btn" style="background:var(--color-primary);color:var(--color-on-primary)">Primary</span>
+<span class="btn" style="background:var(--surface-card);color:var(--text-primary);border-color:var(--border-strong)">Secondary</span>
+<span class="btn" style="background:var(--surface-brand-subtle);color:var(--text-brand)">Subtle</span>
+<span class="btn" style="background:transparent;color:var(--text-primary)">Ghost</span>
+<span class="btn" style="background:var(--status-danger);color:var(--text-inverse)">Danger</span>
+<span class="btn" style="background:var(--surface-disabled);color:var(--text-disabled)">Disabled</span>
+</div>
+</div>
+<div>
+<div class="lbl">Button · size · IconButton</div>
+<div class="row" style="margin-top:var(--space-3)">
+<span class="btn" style="background:var(--color-primary);color:var(--color-on-primary);padding:6px 14px;font-size:var(--font-size-200)">Small</span>
+<span class="btn" style="background:var(--color-primary);color:var(--color-on-primary)">Medium</span>
+<span class="btn" style="background:var(--color-primary);color:var(--color-on-primary);padding:14px 28px;font-size:var(--font-size-400)">Large</span>
+<span style="width:40px;height:40px;border-radius:var(--radius-circle);border:1px solid var(--border-default);display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary)">♡</span>
+<span style="width:40px;height:40px;border-radius:var(--radius-circle);background:var(--color-primary);color:var(--color-on-primary);display:inline-flex;align-items:center;justify-content:center">＋</span>
+</div>
+</div>
+<div>
+<div class="lbl">Badge · Tag</div>
+<div class="row" style="margin-top:var(--space-3);font-family:var(--font-sans)">
+<span style="background:var(--surface-brand-subtle);color:var(--text-success);font-size:var(--font-size-200);font-weight:600;padding:5px 10px;border-radius:var(--radius-xs)">Stokta</span>
+<span style="background:var(--surface-info-subtle);color:var(--blue-70);font-size:var(--font-size-200);font-weight:600;padding:5px 10px;border-radius:var(--radius-xs)">New</span>
+<span style="background:var(--surface-warning-subtle);color:var(--text-warning);font-size:var(--font-size-200);font-weight:600;padding:5px 10px;border-radius:var(--radius-xs)">Son 3</span>
+<span style="background:var(--surface-danger-subtle);color:var(--text-danger);font-size:var(--font-size-200);font-weight:600;padding:5px 10px;border-radius:var(--radius-xs)">Out of stock</span>
+<span style="background:var(--color-primary);color:var(--color-on-primary);font-size:var(--font-size-300);font-weight:500;padding:8px 14px;border-radius:var(--radius-pill);border:1px solid var(--color-primary)">Free shipping</span>
+<span style="background:var(--surface-card);color:var(--text-primary);font-size:var(--font-size-300);font-weight:500;padding:8px 14px;border-radius:var(--radius-pill);border:1px solid var(--border-default)">Used ×</span>
+</div>
+</div>
+<div>
+<div class="lbl">Card</div>
+<div class="row" style="margin-top:var(--space-3);align-items:stretch">
+<div style="flex:1;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:var(--space-5);font-family:var(--font-sans);font-size:var(--font-size-200);color:var(--text-tertiary)">flat</div>
+<div style="flex:1;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:var(--space-5);box-shadow:var(--shadow-200);font-family:var(--font-sans);font-size:var(--font-size-200);color:var(--text-tertiary)">raised</div>
+<div style="flex:1;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:var(--space-5);box-shadow:var(--shadow-300);font-family:var(--font-sans);font-size:var(--font-size-200);color:var(--text-tertiary)">floating</div>
+</div>
+</div>
+</div>
+</body></html>

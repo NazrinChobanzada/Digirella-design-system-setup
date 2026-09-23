@@ -1,0 +1,215 @@
+<p class="page__lede">Fields whose answer has a shape: an email address, a password, a phone number, a card. The format is known before anyone types, so the field should say so.</p>
+
+<section>
+<h2>Overview</h2>
+<p>A formatted input is a text input that knows something about its answer. That knowledge buys three things a plain field cannot offer: the right keyboard on a phone, autofill from the browser, and a hint that states the shape before the first keystroke rather than after the first mistake.</p>
+<div class="demo">
+  <div class="field" style="width:250px">
+    <label class="field__label" for="fo1">Email</label>
+    <input class="control" id="fo1" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" aria-describedby="fo1h">
+    <span class="field__hint" id="fo1h">We only use this for order updates.</span>
+  </div>
+  <div class="field" style="width:250px">
+    <label class="field__label" for="fo2">Phone</label>
+    <input class="control" id="fo2" type="tel" inputmode="tel" autocomplete="tel" placeholder="0532 000 00 00" aria-describedby="fo2h">
+    <span class="field__hint" id="fo2h">Mobile number, for delivery updates.</span>
+  </div>
+</div>
+<p class="caption">Both placeholders show the shape of the answer rather than repeating the label.</p>
+</section>
+
+<section data-part="Guidelines">
+<h2>Principles</h2>
+<p>Three ideas separate a formatted field from a plain one.</p>
+
+<h3>State the format before it is needed</h3>
+<p>If a field will reject an answer for its shape, that shape belongs in the hint, visible from the start. Discovering a password rule after failing it is the most avoidable error in any sign-up flow, and it is the one people abandon over.</p>
+
+<h3>The format goes in the hint, not the placeholder</h3>
+<p>A placeholder disappears on the first keystroke, so anything the person still needs while typing cannot live there. The format is exactly that: someone checks it halfway through a card number, not before they start.</p>
+<p>So the hint carries the shape, visibly, for as long as the field is on screen. The placeholder stays a plain example — or stays empty. It is a nice-to-have that vanishes, and nothing important should depend on it.</p>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div class="field" style="width:240px"><label class="field__label" for="pl1">Card number</label>
+    <input class="control" id="pl1" inputmode="numeric" placeholder="0000 0000 0000 0000" aria-describedby="pl1h">
+    <span class="field__hint" id="pl1h">16 digits, in groups of four.</span></div>
+  </div><div class="dodont__note">The rule stays visible; the placeholder only illustrates it.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div class="field" style="width:240px"><label class="field__label" for="pl2">Card number</label>
+    <input class="control" id="pl2" placeholder="16 digits, groups of four"></div>
+  </div><div class="dodont__note">The rule leaves exactly when it is needed.</div></div>
+</div>
+<div class="callout"><div><b>Keep placeholders plain.</b> "Enter…", "Select…", "Type here…" repeat what the control already communicates, and a placeholder that reads like an instruction competes with the hint that actually holds one. Show a bare example, or leave it empty.</div></div>
+
+<h3>Accept what people actually type</h3>
+<p>People paste phone numbers with spaces, card numbers with dashes, and email addresses with a trailing space. Strip and normalise on the way in rather than rejecting. A field that refuses a pasted value because of a space is technically correct and practically broken.</p>
+</section>
+
+<section>
+<h2>When not to use a formatted input</h2>
+<p>Reach for a plain <strong>Text input</strong> when the answer has no fixed shape, and <strong>Number input</strong> when it is a quantity you will do arithmetic on. A postcode or a card number looks numeric but is a digit string — it keeps leading zeros and never needs a stepper, so it belongs here rather than there.</p>
+<p>Do not use a formatted input to enforce a business rule that may change. Shape belongs in the field; policy belongs in validation you can update without a release.</p>
+
+<h3>Dates and times</h3>
+<p>A date is a formatted value, so the typed part of a date field follows every rule on this page: the format in the hint, an <code>inputmode</code>, an <code>autocomplete</code> token, permissive parsing. But a date picker is not only a field — it adds a calendar overlay with its own grid, keyboard model and focus management, and that machinery is larger than the field it sits under.</p>
+<p>So they are separate components. <strong>DatePicker</strong> and <strong>TimePicker</strong> own the overlay; this page owns the field beneath it. Build the typed field first and make it work on its own — someone who knows the date will always type it faster than they can navigate a calendar, and a picker whose field cannot be typed into is a picker that slows down the people who need it least.</p>
+</section>
+
+<section data-part="Variants and style">
+<h2>Variants</h2>
+<p>The variant is the combination of <code>type</code>, <code>inputmode</code> and <code>autocomplete</code>. It changes almost nothing visually and a great deal functionally.</p>
+<table>
+<thead><tr><th style="width:96px">Variant</th><th style="width:200px">Example</th><th>Attributes</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Email</td>
+<td><input class="control" type="email" aria-label="Email example" placeholder="you@example.com"></td>
+<td class="tok">type=email<br>autocomplete=email</td>
+<td class="use">Brings an @ key on mobile. Never validate with a strict pattern — valid addresses are stranger than most patterns allow.</td></tr>
+
+<tr><td>Phone</td>
+<td><input class="control" type="tel" aria-label="Phone example" placeholder="0532 000 00 00"></td>
+<td class="tok">type=tel<br>inputmode=tel<br>autocomplete=tel</td>
+<td class="use">A digit string, not a number. Accept spaces, dashes and a leading +, then normalise.</td></tr>
+
+<tr><td>Password</td>
+<td><div class="affix"><input class="control" id="pw-tbl" type="password" aria-label="Password example" value="correcthorse"><button type="button" class="affix__icon" data-reveal="pw-tbl" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1.8 12S5.4 5.4 12 5.4 22.2 12 22.2 12 18.6 18.6 12 18.6 1.8 12 1.8 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></button></div></td>
+<td class="tok">type=password<br>autocomplete=new-password</td>
+<td class="use">Always pair with a visibility toggle. State the rules in the hint, before entry.</td></tr>
+
+<tr><td>Postcode</td>
+<td><input class="control" aria-label="Postcode example" inputmode="numeric" placeholder="34710" style="max-width:120px"></td>
+<td class="tok">inputmode=numeric<br>autocomplete=postal-code</td>
+<td class="use">Never <code>type="number"</code> — it strips leading zeros and adds a spinner nobody wants.</td></tr>
+
+<tr><td>Card number</td>
+<td><input class="control" aria-label="Card example" inputmode="numeric" placeholder="0000 0000 0000 0000"></td>
+<td class="tok">inputmode=numeric<br>autocomplete=cc-number</td>
+<td class="use">Group digits as the person types. Do not block paste — password managers rely on it.</td></tr>
+
+<tr><td>URL</td>
+<td><input class="control" type="url" aria-label="URL example" placeholder="https://example.com"></td>
+<td class="tok">type=url<br>autocomplete=url</td>
+<td class="use">Add the scheme yourself if it is missing rather than erroring.</td></tr>
+</tbody>
+</table>
+
+<h3>Affixes</h3>
+<p>A prefix or suffix sits inside the field boundary, so the pair reads as one control rather than a field with something stuck beside it. Use them for the fixed part of a format — a currency symbol, a country code, a domain — never for the label. In this locale the currency symbol follows the number, so prices take a suffix.</p>
+<div class="demo">
+  <div class="field" style="width:200px">
+    <label class="field__label" for="af1">Price</label>
+    <div class="affix"><input class="control" id="af1" inputmode="decimal" value="32,400"><span class="affix__trail">₼</span></div>
+  </div>
+  <div class="field" style="width:230px">
+    <label class="field__label" for="af2">Shop address</label>
+    <div class="affix"><input class="control" id="af2" value="nazrin"><span class="affix__trail">.digirella.com</span></div>
+  </div>
+</div>
+<p class="caption">The affix is not focusable and carries no meaning of its own — it repeats what the label already established, so a screen reader hearing only the label loses nothing.</p>
+
+<h3>Masking</h3>
+<p>Masking inserts the separators as someone types: spaces into a card number, a dash into a date. It helps when the grouping is genuinely standard and hurts the moment it fights the person.</p>
+<ul>
+<li>Never move the cursor unexpectedly. A mask that jumps the caret after a paste is worse than no mask.</li>
+<li>Never block characters silently. If a letter is not allowed, ignore it — do not clear the field.</li>
+<li>Always allow paste, and normalise what arrives.</li>
+<li>Keep the underlying value unmasked. Submit digits, display grouping.</li>
+</ul>
+</section>
+
+<section>
+<h2>Password</h2>
+<p>Passwords carry two rules the other formats do not.</p>
+<h3>A visibility toggle, always</h3>
+<p>Typing a long password blind on a phone is the main reason people pick short ones. NIST SP 800-63B recommends offering the option to display the password while it is being entered, for exactly this reason.</p><p>The toggle is an eye icon inside the field — no text, so it does not compete with the value. It carries <code>aria-pressed</code> and an <code>aria-label</code> that changes with its state: "Show password" becomes "Hide password" once revealed.</p>
+<div class="demo">
+  <div class="field" style="width:280px">
+    <label class="field__label" for="pw1">Password</label>
+    <div class="affix"><input class="control" id="pw1" type="password" value="correcthorse" aria-describedby="pw1h"><button type="button" class="affix__icon" data-reveal="pw1" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1.8 12S5.4 5.4 12 5.4 22.2 12 22.2 12 18.6 18.6 12 18.6 1.8 12 1.8 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></button></div>
+    <span class="field__hint" id="pw1h">At least 10 characters, including a number.</span>
+  </div>
+</div>
+<h3>Rules before entry, not after failure</h3>
+<p>The requirements go in the hint and stay visible while typing. Revealing them only in an error message means the person has already lost the attempt.</p>
+<h3>Why paste stays enabled</h3>
+<p>Blocking paste feels safer and measures worse, and the guidance is explicit about it. <strong>NIST SP 800-63B</strong> states that verifiers shall allow password managers and autofill, and should permit paste so managers can be used where autofill APIs are unavailable — noting that password managers have been shown to increase the likelihood of people choosing stronger passwords. The UK <strong>NCSC</strong> reached the same conclusion in its guidance on letting people paste passwords.</p>
+<p>The mechanism is straightforward. A person who cannot paste cannot practically use a generated 24-character password, so they choose one they can type from memory — which means shorter, reused across sites, and guessable. Blocking paste does not stop an attacker, who is not typing into your form at all; it only constrains the person defending the account.</p>
+<p>The concern behind the instinct is real but sits elsewhere: clipboard contents can be read by other software on a compromised device. That is a threat to the device, not something a form can fix, and the mitigation is a password manager with a clearing clipboard — not a field that refuses paste.</p>
+<div class="callout"><div><b>Use <code>autocomplete="new-password"</code> on sign-up and <code>current-password</code> on sign-in.</b> These tell a password manager which field is which. Disabling autocomplete on a password field has the same effect as blocking paste, for the same reason.</div></div>
+</section>
+
+<section data-part="Behaviour">
+<h2>Validation</h2>
+<p>Validate on blur, and once a field has erred switch it to validating on input so the message clears the moment it is fixed. Be permissive about shape and strict about meaning: accept a phone number however it is spaced, then check it resolves.</p>
+<div class="demo">
+  <div class="field" style="width:260px">
+    <label class="field__label" for="v1">Email</label>
+    <input class="control" id="v1" value="nazrin@" aria-invalid="true" aria-describedby="v1e">
+    <span class="field__error" id="v1e">Add everything after the @ sign.</span>
+  </div>
+  <div class="field" style="width:260px">
+    <label class="field__label" for="v2">Card number</label>
+    <input class="control" id="v2" value="4111 1111 1111 111" aria-invalid="true" aria-describedby="v2e">
+    <span class="field__error" id="v2e">This card number is one digit short.</span>
+  </div>
+</div>
+<p>Name what is wrong with <em>this</em> value where you can. "One digit short" is worth more than "Invalid card number", and it costs one comparison to work out.</p>
+
+<h3>Async checks</h3>
+<p>When a field has to ask a server — an availability check, an address lookup — show the wait inside the field rather than disabling it. The person can keep typing; the answer arrives when it arrives.</p>
+<div class="demo">
+  <div class="field" style="width:260px">
+    <label class="field__label" for="as1">Shop name</label>
+    <div class="affix"><input class="control" id="as1" value="nazrin-store" aria-busy="true"><span class="affix__trail"><span class="spinner" aria-hidden="true"></span></span></div>
+    <span class="field__hint">Checking availability</span>
+  </div>
+  <div class="field" style="width:260px">
+    <label class="field__label" for="as2">Shop name</label>
+    <div class="affix"><input class="control" id="as2" value="nazrin-store" style="border-color:var(--color-primary)"><span class="affix__trail" style="color:var(--text-success)">✓</span></div>
+    <span class="field__hint" style="color:var(--text-success)">Available</span>
+  </div>
+</div>
+<p>Never block submission on a check that has not returned. Let the form submit and resolve the conflict server-side — a spinner that never resolves should not be able to trap someone in a form.</p>
+</section>
+
+<section>
+<h2>Accessibility</h2>
+<p>Formatted fields carry everything a text input does, plus the criteria below. Items marked <span class="risk">high risk</span> are the ones that come up most often in review.</p>
+
+<div class="wcag">
+<div class="wcag__group"><h3>Format and autofill</h3>
+<p>The criteria that exist because the field knows its answer.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">1.3.5</span><span>An <code>autocomplete</code> token on every field collecting the person's own data. This is the difference between a checkout that takes one tap and one that takes forty. <span class="risk">high risk</span></span></li>
+<li><span class="sc" data-risk="high">3.3.2</span><span>The format is stated before entry, in the hint. A rule revealed only on failure fails this. <span class="risk">high risk</span></span></li>
+<li><span class="sc">3.3.3</span><span>The error names the correction where one can be worked out, not just that the value is wrong.</span></li>
+<li><span class="sc">1.4.3</span><span>Autofilled values keep their contrast — browser autofill backgrounds override yours and are a common failure.</span></li>
+<li><span class="sc">3.2.2</span><span>No context change on input. A mask must not submit, navigate or move focus to the next field on its own.</span></li>
+</ul></div>
+
+<div class="wcag__group"><h3>Password toggle</h3>
+<p>A button inside a field, and it has to behave like one.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">4.1.2</span><span>The toggle exposes <code>aria-pressed</code>, and its accessible name changes with the state. <span class="risk">high risk</span></span></li>
+<li><span class="sc">2.1.1</span><span>Reachable and operable by keyboard, in the tab order after the field.</span></li>
+<li><span class="sc">2.5.8</span><span>At least 24 × 24px, even inside a 38px field.</span></li>
+<li><span class="sc">1.4.11</span><span>The toggle is distinguishable from the field's own border at 3:1.</span></li>
+</ul></div>
+</div>
+
+<h3>Sources</h3>
+<p>The paste and visibility guidance on this page is not a house preference. It follows:</p>
+<ul>
+<li><strong>NIST SP 800-63B</strong>, Digital Identity Guidelines — verifiers shall allow password managers and autofill, should permit paste, and should offer an option to display the password while it is entered.</li>
+<li><strong>NCSC</strong> (UK National Cyber Security Centre), <em>Let them paste passwords</em> — the same conclusion, with the reasoning about password manager adoption.</li>
+</ul>
+<p>Record this alongside any internal security review. The rules read as counterintuitive, and without the citation someone will eventually re-introduce a paste block believing it is a hardening measure.</p>
+
+<h3>What you still have to do</h3>
+<ul>
+<li>Set <code>autocomplete</code> on every personal field. It is one attribute and the single highest-value thing on this page.</li>
+<li>Put the format in the hint, not only in the placeholder — the placeholder leaves.</li>
+<li>Never disable paste, and never turn off autocomplete on a password field.</li>
+<li>Keep the accessible name of a visibility toggle in sync with what it will do next.</li>
+</ul>
+</section>

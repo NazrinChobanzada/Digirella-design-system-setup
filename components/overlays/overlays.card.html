@@ -1,0 +1,48 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Overlays" subtitle="Drawer, Popover, Menu" -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><title>Overlays</title>
+<link href="../../styles.css" rel="stylesheet"/>
+<style>
+  body{background:var(--surface-card);padding:var(--space-6);margin:0;font-family:var(--font-sans)}
+  .lbl{font:var(--font-weight-semibold) var(--font-size-100)/1.4 var(--font-mono);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.04em;margin-bottom:var(--space-3)}
+  .field{border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:8px var(--space-4);font-size:var(--font-size-300);background:var(--surface-card);min-height:38px;display:flex;align-items:center;justify-content:space-between}
+  .stack{display:flex;flex-direction:column;gap:var(--space-5)}
+</style>
+</head><body>
+<div style="display:flex;gap:var(--space-6);align-items:flex-start">
+<div style="flex:1.2;border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--neutral-10);padding:var(--space-4);display:flex;justify-content:flex-end">
+<div style="width:70%;background:var(--surface-card);border-radius:var(--radius-lg) 0 0 var(--radius-lg);box-shadow:var(--shadow-400);display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;padding:var(--space-5);border-bottom:1px solid var(--border-subtle)">
+<div><div style="font-size:var(--font-size-500);font-weight:600">Filters</div><div style="font-size:var(--font-size-200);color:var(--text-secondary)">486 results</div></div>
+<span style="color:var(--text-secondary)">×</span>
+</div>
+<div style="padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4);font-size:var(--font-size-300);color:var(--text-secondary)">
+<span>Condition</span><span>Price range</span><span>Shipping</span>
+</div>
+<div style="display:flex;gap:var(--space-3);justify-content:flex-end;padding:var(--space-5);border-top:1px solid var(--border-subtle)">
+<span style="font-size:var(--font-size-200);font-weight:600;padding:8px 16px;border-radius:var(--radius-control)">Clear</span>
+<span style="font-size:var(--font-size-200);font-weight:600;padding:8px 16px;border-radius:var(--radius-control);background:var(--color-primary);color:var(--color-on-primary)">Show results</span>
+</div>
+</div>
+</div>
+<div class="stack" style="flex:1">
+<div>
+<div class="lbl">Menu</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);width:200px">
+<div style="padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300)">Edit listing</div>
+<div style="padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Duplicate</div>
+<div style="height:1px;background:var(--border-subtle);margin:var(--space-2) 0"></div>
+<div style="padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);color:var(--text-danger)">Delete</div>
+</div>
+</div>
+<div>
+<div class="lbl">Popover</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);box-shadow:var(--shadow-300);padding:var(--space-5);width:220px;font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.5">
+<div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-primary);margin-bottom:var(--space-2)">Shipping breakdown</div>
+        Standard 0 ₺ · Express 49 ₺ · arrives in 2–4 days
+      </div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,395 @@
+{
+  "site": {
+    "name": "Digirella",
+    "tagline": "Design system"
+  },
+  "sections": [
+    {
+      "id": "foundations",
+      "label": "Foundations",
+      "entries": [
+        {
+          "slug": "architecture",
+          "name": "Architecture",
+          "status": "migrated"
+        },
+        {
+          "slug": "palette",
+          "name": "Palette",
+          "status": "migrated"
+        },
+        {
+          "slug": "semantic-colour",
+          "name": "Semantic colour",
+          "status": "migrated"
+        },
+        {
+          "slug": "typography",
+          "name": "Typography",
+          "status": "ready",
+          "rebuilt": true
+        },
+        {
+          "slug": "spacing",
+          "name": "Spacing",
+          "status": "migrated"
+        },
+        {
+          "slug": "shape",
+          "name": "Shape & border",
+          "status": "migrated"
+        },
+        {
+          "slug": "elevation",
+          "name": "Elevation",
+          "status": "migrated"
+        },
+        {
+          "slug": "motion",
+          "name": "Motion",
+          "status": "migrated"
+        },
+        {
+          "slug": "colour-accessibility",
+          "name": "Colour accessibility",
+          "status": "migrated"
+        },
+        {
+          "slug": "interaction-states",
+          "name": "Interaction states",
+          "status": "migrated"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "label": "Components",
+      "entries": [
+        {
+          "slug": "button",
+          "name": "Button",
+          "status": "ready",
+          "group": "Core",
+          "related": [
+            "input",
+            "accordion"
+          ],
+          "rebuilt": true
+        },
+        {
+          "slug": "icon-button",
+          "name": "IconButton",
+          "status": "migrated",
+          "group": "Core"
+        },
+        {
+          "slug": "card",
+          "name": "Card",
+          "status": "migrated",
+          "group": "Core"
+        },
+        {
+          "slug": "badge",
+          "name": "Badge",
+          "status": "migrated",
+          "group": "Core"
+        },
+        {
+          "slug": "tag",
+          "name": "Tag",
+          "status": "migrated",
+          "group": "Core"
+        },
+        {
+          "slug": "input",
+          "name": "Text input",
+          "status": "ready",
+          "group": "Forms",
+          "related": [
+            "formatted-input",
+            "number-input",
+            "select"
+          ],
+          "rebuilt": true,
+          "alias": "Textarea"
+        },
+        {
+          "slug": "formatted-input",
+          "name": "Formatted input",
+          "status": "ready",
+          "group": "Forms",
+          "rebuilt": true,
+          "related": [
+            "input",
+            "number-input"
+          ]
+        },
+        {
+          "slug": "number-input",
+          "name": "Number input",
+          "status": "ready",
+          "group": "Forms",
+          "rebuilt": true,
+          "alias": "QuantityStepper · Slider",
+          "related": [
+            "input",
+            "formatted-input"
+          ]
+        },
+        {
+          "slug": "date-picker",
+          "name": "DatePicker",
+          "status": "planned",
+          "group": "Forms"
+        },
+        {
+          "slug": "time-picker",
+          "name": "TimePicker",
+          "status": "planned",
+          "group": "Forms"
+        },
+        {
+          "slug": "select",
+          "name": "Select",
+          "status": "migrated",
+          "group": "Forms"
+        },
+        {
+          "slug": "combobox",
+          "name": "Combobox",
+          "status": "migrated",
+          "group": "Forms"
+        },
+        {
+          "slug": "multiselect",
+          "name": "MultiSelect",
+          "status": "migrated",
+          "group": "Forms"
+        },
+        {
+          "slug": "treeselect",
+          "name": "TreeSelect",
+          "status": "migrated",
+          "group": "Forms"
+        },
+        {
+          "slug": "checkbox",
+          "name": "Checkbox",
+          "status": "migrated",
+          "group": "Forms"
+        },
+        {
+          "slug": "radio",
+          "name": "Radio",
+          "status": "migrated",
+          "group": "Forms"
+        },
+        {
+          "slug": "switch",
+          "name": "Switch",
+          "status": "migrated",
+          "group": "Forms"
+        },
+        {
+          "slug": "search",
+          "name": "Search",
+          "status": "planned",
+          "group": "Forms"
+        },
+        {
+          "slug": "file-upload",
+          "name": "FileUpload",
+          "status": "planned",
+          "group": "Forms"
+        },
+        {
+          "slug": "tabs",
+          "name": "Tabs",
+          "status": "migrated",
+          "group": "Navigation"
+        },
+        {
+          "slug": "segmented-control",
+          "name": "SegmentedControl",
+          "status": "migrated",
+          "group": "Navigation"
+        },
+        {
+          "slug": "pagination",
+          "name": "Pagination",
+          "status": "migrated",
+          "group": "Navigation"
+        },
+        {
+          "slug": "breadcrumb",
+          "name": "Breadcrumb",
+          "status": "migrated",
+          "group": "Navigation"
+        },
+        {
+          "slug": "steps",
+          "name": "Steps",
+          "status": "migrated",
+          "group": "Navigation"
+        },
+        {
+          "slug": "side-nav",
+          "name": "SideNav",
+          "status": "planned",
+          "group": "Navigation"
+        },
+        {
+          "slug": "table",
+          "name": "Table",
+          "status": "migrated",
+          "group": "Data"
+        },
+        {
+          "slug": "accordion",
+          "name": "Accordion",
+          "status": "ready",
+          "group": "Data",
+          "related": [
+            "button",
+            "input"
+          ],
+          "rebuilt": true
+        },
+        {
+          "slug": "avatar",
+          "name": "Avatar",
+          "status": "migrated",
+          "group": "Data"
+        },
+        {
+          "slug": "rating",
+          "name": "Rating",
+          "status": "migrated",
+          "group": "Data"
+        },
+        {
+          "slug": "progress-bar",
+          "name": "ProgressBar",
+          "status": "migrated",
+          "group": "Data"
+        },
+        {
+          "slug": "skeleton",
+          "name": "Skeleton",
+          "status": "migrated",
+          "group": "Data"
+        },
+        {
+          "slug": "divider",
+          "name": "Divider",
+          "status": "planned",
+          "group": "Data"
+        },
+        {
+          "slug": "dialog",
+          "name": "Dialog",
+          "status": "migrated",
+          "group": "Feedback",
+          "alias": "Modal"
+        },
+        {
+          "slug": "alert",
+          "name": "Alert",
+          "status": "migrated",
+          "group": "Feedback"
+        },
+        {
+          "slug": "toast",
+          "name": "Toast",
+          "status": "migrated",
+          "group": "Feedback"
+        },
+        {
+          "slug": "tooltip",
+          "name": "Tooltip",
+          "status": "migrated",
+          "group": "Feedback"
+        },
+        {
+          "slug": "drawer",
+          "name": "Drawer",
+          "status": "migrated",
+          "group": "Overlays"
+        },
+        {
+          "slug": "popover",
+          "name": "Popover",
+          "status": "migrated",
+          "group": "Overlays"
+        },
+        {
+          "slug": "menu",
+          "name": "Menu",
+          "status": "migrated",
+          "group": "Overlays"
+        }
+      ]
+    },
+    {
+      "id": "patterns",
+      "label": "Patterns",
+      "entries": [
+        {
+          "slug": "page-header",
+          "name": "Page header",
+          "status": "migrated"
+        },
+        {
+          "slug": "product-grid",
+          "name": "Product card grid",
+          "status": "migrated"
+        },
+        {
+          "slug": "filter-bar",
+          "name": "Filter bar",
+          "status": "migrated"
+        },
+        {
+          "slug": "form-layout",
+          "name": "Form layout",
+          "status": "migrated"
+        },
+        {
+          "slug": "order-summary",
+          "name": "Order summary",
+          "status": "migrated"
+        },
+        {
+          "slug": "data-table",
+          "name": "Data table",
+          "status": "migrated"
+        },
+        {
+          "slug": "empty-state",
+          "name": "Empty state",
+          "status": "migrated"
+        },
+        {
+          "slug": "status-messaging",
+          "name": "Status messaging",
+          "status": "migrated"
+        },
+        {
+          "slug": "loading-states",
+          "name": "Loading states",
+          "status": "planned"
+        },
+        {
+          "slug": "page-layout",
+          "name": "Page layout",
+          "status": "planned"
+        },
+        {
+          "slug": "destructive-actions",
+          "name": "Destructive actions",
+          "status": "planned"
+        }
+      ]
+    }
+  ]
+}

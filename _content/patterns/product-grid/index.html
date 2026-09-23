@@ -1,0 +1,53 @@
+<section>
+<h2>Product card grid</h2>
+<p class="doc-lead">Square image flush to the card edge, then badges, title, price, shipping — always that order. Three columns at 1280px, two at 900px, one below 600px. Shadow appears on hover only.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6)">
+<div class="box" style="overflow:hidden;box-shadow:var(--shadow-300);border-color:var(--border-default)">
+<div class="ph" style="height:150px">product image</div>
+<div style="padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3)">
+<div style="display:flex;gap:var(--space-2)">
+<span class="badge" style="background:var(--surface-brand-subtle);color:var(--text-success)">New</span>
+<span class="badge" style="background:var(--surface-warning-subtle);color:var(--text-warning)">Deal</span>
+</div>
+<div style="font-size:var(--font-size-300);line-height:1.4">Wireless headphones · ANC</div>
+<div style="display:flex;align-items:baseline;gap:var(--space-3)">
+<span style="font-size:var(--font-size-500);font-weight:700">2 480 ₼</span>
+<span style="font-size:var(--font-size-200);color:var(--text-tertiary);text-decoration:line-through">3 100 ₼</span>
+</div>
+<div style="font-size:var(--font-size-200);color:var(--text-success)">Free shipping</div>
+</div>
+</div>
+<div class="box" style="overflow:hidden;">
+<div class="ph" style="height:150px">product image</div>
+<div style="padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3)">
+<div style="display:flex;gap:var(--space-2)">
+<span class="badge" style="background:var(--surface-sunken);color:var(--text-secondary)">Used</span>
+</div>
+<div style="font-size:var(--font-size-300);line-height:1.4">Mechanical keyboard 75%</div>
+<div style="display:flex;align-items:baseline;gap:var(--space-3)">
+<span style="font-size:var(--font-size-500);font-weight:700">1 850 ₼</span>
+</div>
+<div style="font-size:var(--font-size-200);color:var(--text-success)">Free shipping</div>
+</div>
+</div>
+<div class="box" style="overflow:hidden;">
+<div class="ph" style="height:150px">product image</div>
+<div style="padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3)">
+<div style="display:flex;gap:var(--space-2)">
+<span class="badge" style="background:var(--surface-sunken);color:var(--text-secondary)">Refurbished</span>
+<span class="badge" style="background:var(--surface-warning-subtle);color:var(--text-warning)">Deal</span>
+</div>
+<div style="font-size:var(--font-size-300);line-height:1.4">35mm film camera</div>
+<div style="display:flex;align-items:baseline;gap:var(--space-3)">
+<span style="font-size:var(--font-size-500);font-weight:700">4 200 ₼</span>
+<span style="font-size:var(--font-size-200);color:var(--text-tertiary);text-decoration:line-through">4 900 ₼</span>
+</div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary)">49 ₼ shipping</div>
+</div>
+</div>
+</div>
+<div style="margin-top:var(--space-5)">
+<div class="rule"><b>Hover</b><span>Card 1 shows the hover state: <code>--shadow-300</code> over 220ms. The image never scales.</span></div>
+<div class="rule"><b>Free shipping</b><span>Rendered in <code>--text-success</code> — the only place green text appears in a card.</span></div>
+</div>
+</section>

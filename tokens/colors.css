@@ -1,0 +1,55 @@
+/* Semantic color tokens — this is what product code and components consume. */
+:root {
+  /* Brand */
+  --color-primary: var(--green-60);
+  --color-primary-hover: var(--green-70);
+  --color-primary-active: var(--green-80);
+  --color-primary-subtle: var(--green-05);
+  --color-primary-subtle-hover: var(--green-10);
+  --color-primary-border: var(--green-20);
+  --color-on-primary: var(--neutral-00);
+
+  /* Text */
+  --text-primary: var(--neutral-90);
+  --text-secondary: var(--neutral-60);
+  --text-tertiary: var(--neutral-50);
+  --text-disabled: var(--neutral-40);
+  --text-inverse: var(--neutral-00);
+  --text-brand: var(--green-70);
+  --text-link: var(--blue-60);
+  --text-link-hover: var(--blue-70);
+  --text-success: var(--green-70);
+  --text-warning: var(--amber-60);
+  --text-danger: var(--red-60);
+
+  /* Surfaces */
+  --surface-page: var(--neutral-02);
+  --surface-card: var(--neutral-00);
+  --surface-raised: var(--neutral-00);
+  --surface-sunken: var(--neutral-05);
+  --surface-hover: var(--neutral-05);
+  --surface-active: var(--neutral-10);
+  --surface-disabled: var(--neutral-10);
+  --surface-inverse: var(--neutral-90);
+  --surface-overlay: var(--alpha-black-56);
+  --surface-brand: var(--green-60);
+  --surface-brand-subtle: var(--green-05);
+  --surface-info-subtle: var(--blue-05);
+  --surface-warning-subtle: var(--amber-05);
+  --surface-danger-subtle: var(--red-05);
+
+  /* Borders */
+  --border-subtle: var(--neutral-10);
+  --border-default: var(--neutral-20);
+  --border-strong: var(--neutral-35);
+  --border-control: var(--neutral-35);
+  --border-brand: var(--green-60);
+  --border-danger: var(--red-50);
+  --border-focus: var(--green-60);
+
+  /* Status */
+  --status-success: var(--green-60);
+  --status-info: var(--blue-50);
+  --status-warning: var(--amber-50);
+  --status-danger: var(--red-50);
+}
