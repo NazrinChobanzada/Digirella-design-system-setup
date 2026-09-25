@@ -108,8 +108,8 @@
 <tbody>
 <tr><td class="tok">hover</td><td class="use">One step darker, or a neutral fill on transparent controls. Never an opacity change.</td><td class="toks">--color-primary-hover · --surface-hover</td></tr>
 <tr><td class="tok">active</td><td class="use">One step darker again. No scale, no translate — pressing must not move the target.</td><td class="toks">--color-primary-active · --surface-active</td></tr>
-<tr><td class="tok">focus</td><td class="use">2px green ring at 2px offset, identical on every focusable element including destructive ones. Fields use a 3px tinted halo instead, because a ring around a 38px box reads as an error.</td><td class="toks">--focus-ring · --border-focus</td></tr>
-<tr><td class="tok">selected</td><td class="use">Filled with primary green where the control <em>is</em> the choice (Tag, Pagination); tinted green where the row merely holds it (table row, option).</td><td class="toks">--color-primary · --surface-brand-subtle</td></tr>
+<tr><td class="tok">focus</td><td class="use">2px green ring at 2px offset on every focusable element. Exception: danger variant buttons use <code>--border-danger</code> instead — a ring that turns green at the moment of keyboard activation discards the warning. Fields use a 3px tinted halo instead, because a ring around a 38px box reads as an error.</td><td class="toks">--focus-ring · --border-focus · --border-danger (danger variant)</td></tr>
+<tr><td class="tok">selected</td><td class="use">Filled with primary green where the control <em>is</em> the choice (Tag); tinted <code>--surface-brand-subtle</code> on Pagination's current page and wherever a row merely holds the selection (table row, option).</td><td class="toks">--color-primary · --surface-brand-subtle</td></tr>
 <tr><td class="tok">disabled</td><td class="use">Neutral fill, <code>--text-disabled</code>, <code>cursor: not-allowed</code>. Colour is dropped entirely — a faded green still reads as available.</td><td class="toks">--surface-disabled · --text-disabled</td></tr>
 </tbody>
 </table>

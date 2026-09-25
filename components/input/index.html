@@ -250,7 +250,7 @@
 
 <h3>Multi-line</h3>
 <p>A multi-line field grows rather than scrolls where the layout allows it. A field that scrolls at three lines hides the beginning of the answer from the person writing it.</p>
-<p>Show a counter only when a limit really exists, and place it below the field on the right. A counter with no limit behind it is decoration that makes people self-conscious about length.</p>
+<p>Always show a counter on a textarea that has a character limit, placed below the field on the right. The counter tells the user how much space they have left; a field with a hidden limit that silently stops accepting input is the worse alternative.</p>
 <div class="demo">
   <div class="field" style="width:340px">
     <label class="field__label" for="ml1">Product description</label>
@@ -270,7 +270,7 @@
 <tr><td>Focus</td><td><code>--border-focus</code> + 3px halo</td><td><code>--surface-card</code></td><td><code>--text-primary</code></td></tr>
 <tr><td>Error</td><td><code>--border-danger</code></td><td><code>--surface-card</code></td><td><code>--text-primary</code></td></tr>
 <tr><td>Read-only</td><td><code>--border-subtle</code></td><td><code>--surface-sunken</code></td><td><code>--text-primary</code></td></tr>
-<tr><td>Disabled</td><td><code>--border-subtle</code></td><td><code>--surface-disabled</code></td><td><code>--neutral-50</code></td></tr>
+<tr><td>Disabled</td><td><code>--border-subtle</code></td><td><code>--surface-disabled</code></td><td><code>--text-disabled</code></td></tr>
 </tbody>
 </table>
 <div class="callout"><div><b><code>--border-control</code> exists because of an audit failure.</b> Fields originally used <code>--border-default</code> at 1.34:1. Since that boundary is the only thing defining the control, it broke WCAG 1.4.11. The replacement sits at 3.12:1, and <code>--border-default</code> is now for decorative dividers only.</div></div>
@@ -303,7 +303,7 @@
 <tr><td>Padding</td><td>9px / 12px</td></tr>
 <tr><td>Label to field</td><td><code>--space-2</code></td></tr>
 <tr><td>Field to hint</td><td><code>--space-2</code></td></tr>
-<tr><td>Field to field</td><td><code>--space-6</code></td></tr>
+<tr><td>Field to field</td><td><code>--space-5</code></td></tr>
 <tr><td>Radius</td><td><code>--radius-control</code>, 6px</td></tr>
 </tbody>
 </table>
@@ -431,7 +431,7 @@
 <li><span class="sc" data-risk="high">1.4.11</span><span>The field border reaches 3:1. Pale grey 1px borders are the single most common failure in any design system. <span class="risk">high risk</span></span></li>
 <li><span class="sc">2.4.7</span><span>The focus style is distinguishable from the error style — a field can be both at once.</span></li>
 <li><span class="sc">4.1.2</span><span>Required and invalid exposed through <code>aria-required</code> and <code>aria-invalid</code>, not by an asterisk or a colour.</span></li>
-<li><span class="sc">1.4.12</span><span>No fixed height; the field grows with the reader's own text spacing.</span></li>
+<li><span class="sc">1.4.12</span><span>Height tokens set the resting size; the field must still grow when the reader increases line height, letter spacing or word spacing — no <code>overflow: hidden</code> on the value container.</span></li>
 <li><span class="sc">1.4.3</span><span>Value, label, hint and error all reach 4.5:1 — including the placeholder, which most systems leave too pale to read.</span></li>
 <li><span class="sc">2.5.3</span><span>If a field carries both a visible label and an <code>aria-label</code>, the visible text is contained in the accessible name.</span></li>
 </ul></div>
@@ -474,11 +474,11 @@
 <table>
 <thead><tr><th>Pair</th><th>Ratio</th><th>Result</th></tr></thead>
 <tbody>
-<tr><td>Value on field</td><td>16.4:1</td><td>Passes AAA</td></tr>
-<tr><td>Label on card</td><td>16.4:1</td><td>Passes AAA</td></tr>
+<tr><td>Value on field</td><td>17.7:1</td><td>Passes AAA</td></tr>
+<tr><td>Label on card</td><td>17.7:1</td><td>Passes AAA</td></tr>
 <tr><td>Hint on card</td><td>4.95:1</td><td>Passes AA</td></tr>
 <tr><td>Placeholder on card</td><td>4.95:1</td><td>Passes AA</td></tr>
-<tr><td>Error text on card</td><td>5.4:1</td><td>Passes AA</td></tr>
+<tr><td>Error text on card</td><td>8.4:1</td><td>Passes AAA</td></tr>
 <tr><td>Border on card</td><td>3.12:1</td><td>Passes 1.4.11</td></tr>
 </tbody>
 </table>

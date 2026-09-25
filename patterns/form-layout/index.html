@@ -102,10 +102,10 @@
 <div class="doc">
 <section id="form-layout">
 <h2>Form layout</h2>
-<p class="doc-lead">One column, 12px between fields, 32px between groups. Group headings are 19px/600. The submit button is left-aligned with the fields, never centred.</p>
+<p class="doc-lead">One column, 16px between fields, 32px between groups. Group headings are 19px/600. The submit button is left-aligned with the fields, never centred.</p>
 <div class="box" style="padding:var(--space-8);max-width:520px">
 <div style="font-size:var(--type-heading-size);font-weight:600">Delivery address</div>
-<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)">
+<div style="display:flex;flex-direction:column;gap:var(--space-5);margin-top:var(--space-5)">
 <div><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name</div><div style="border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:11px var(--space-4);font-size:var(--font-size-400)">Deniz Aydin</div></div>
 <div><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Street</div><div style="border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:11px var(--space-4);font-size:var(--font-size-400)">128/4 Bagdat Cad.</div></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
@@ -200,7 +200,7 @@
 <section id="field-pairs">
 <h2>Field pairs</h2>
 <p class="doc-lead">Two fields share a row only when they are one piece of information split by convention, and their widths say something about the content.</p>
-<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-4)">
+<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-5)">
 <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:var(--space-4)"><div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Postcode</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">34710</span></div>
@@ -235,17 +235,17 @@
 <p class="doc-lead">Grouping is how a long form stops feeling long. Three groups of four fields read as three tasks; twelve ungrouped fields read as twelve.</p>
 <div class="demo" style="max-width:480px">
 <div><div style="font-size:var(--type-heading-size);font-weight:600">Contact</div></div>
-<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)"><div>
+<div style="display:flex;flex-direction:column;gap:var(--space-5);margin-top:var(--space-5)"><div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Email</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">deniz@digirella.co</span></div>
 <div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Order updates go here</div>
 </div><div>
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Phone <span style="font-weight:400;color:var(--text-tertiary)">(optional)</span></div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Phone</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)">+90</span></div>
 </div></div>
 <div style="height:1px;background:var(--border-subtle);margin:var(--space-8) 0"></div>
 <div><div style="font-size:var(--type-heading-size);font-weight:600">Delivery</div></div>
-<div style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)"><div>
+<div style="display:flex;flex-direction:column;gap:var(--space-5);margin-top:var(--space-5)"><div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Street address</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">128/4 Bağdat Cad.</span></div>
 </div><div style="display:grid;grid-template-columns:1fr 1.6fr;gap:var(--space-4)"><div>
@@ -258,7 +258,7 @@
 </div>
 <div style="margin-top:var(--space-5)">
 <div class="rule"><b>Size</b><span>Two to six fields per group. A single-field group is a heading doing no work; ten fields is not a group.</span></div>
-<div class="rule"><b>Spacing</b><span>12px between fields, 32px between groups. That ratio alone communicates the structure without any dividers.</span></div>
+<div class="rule"><b>Spacing</b><span>16px between fields, 32px between groups. That ratio alone communicates the structure without any dividers.</span></div>
 <div class="rule"><b>Dividers</b><span>Only where headings are not enough — long forms, or groups that look alike. Space is the primary separator.</span></div>
 <div class="rule"><b>Order</b><span>Easy and familiar first. Asking for a tax number before a name makes the whole form feel bureaucratic.</span></div>
 </div>
@@ -270,7 +270,7 @@
 <tbody>
 <tr><td class="tok">Form width</td><td class="use">480–560px</td><td class="use">Roughly 60 characters. Wider fields make short answers look wrong and long labels hard to associate.</td></tr>
 <tr><td class="tok">Field height</td><td class="use">38px</td><td class="use">Dense enough that a six-field form fits above the fold.</td></tr>
-<tr><td class="tok">Field gap</td><td class="use">12px · <code>--space-4</code></td><td class="use">Close enough to read as one group, far enough that the help text belongs to the field above it.</td></tr>
+<tr><td class="tok">Field gap</td><td class="use">16px · <code>--space-5</code></td><td class="use">Close enough to read as one group, far enough that the help text belongs to the field above it.</td></tr>
 <tr><td class="tok">Group gap</td><td class="use">32px · <code>--space-8</code></td><td class="use">Roughly triple the field gap — the ratio is what signals a new section.</td></tr>
 <tr><td class="tok">Label gap</td><td class="use">4px · <code>--space-2</code></td><td class="use">The label must sit visibly closer to its own field than to the one above.</td></tr>
 <tr><td class="tok">Actions</td><td class="use">32px above</td><td class="use">Separates input from commitment, so nobody submits while still reading.</td></tr>
@@ -346,24 +346,25 @@
 <section id="required-amp-optional">
 <h2>Required &amp; optional</h2>
 <p class="doc-lead">Mark the minority. If most fields are required, mark the optional ones; if most are optional, mark the required ones. Marking both is noise; marking neither is a guess.</p>
-<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-4)">
+<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-5)">
+<p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin:0 0 var(--space-3)"><span class="req-star">*</span> Required fields</p>
 <div>
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Full name <span class="req-star" aria-hidden="true">*</span></div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Deniz Aydın</span></div>
 </div>
 <div>
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Company <span style="font-weight:400;color:var(--text-tertiary)">(optional)</span></div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Company</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)">Digirella Ltd</span></div>
 </div>
 <div>
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Tax number <span style="font-weight:400;color:var(--text-tertiary)">(optional)</span></div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Tax number</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-tertiary)"></span></div>
 <div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Only needed for business invoices</div>
 </div>
 </div>
 <div style="margin-top:var(--space-5)">
-<div class="rule"><b>The word</b><span>"(optional)" in regular weight beside the label. Unambiguous in every language and read aloud correctly.</span></div>
-<div class="rule"><b>Never an asterisk</b><span>An asterisk needs a legend, legends get skipped, and screen readers announce it as "star".</span></div>
+<div class="rule"><b>Required marker</b><span>An asterisk after the label, with a legend once at the top of the form: <span class="req-star">*</span> Required fields. The asterisk is <code>aria-hidden</code>; the field carries <code>aria-required="true"</code> separately.</span></div>
+<div class="rule"><b>Optional fields</b><span>No mark. Adding "(optional)" to every non-required field doubles the noise. If most fields are optional and only a few are required, consider marking the required ones instead.</span></div>
 <div class="rule"><b>Better still</b><span>Delete optional fields. A field nobody has to fill is a field nobody needed to see.</span></div>
 </div>
 </section>
@@ -384,7 +385,7 @@
 </section>
 <section id="dependent-fields">
 <h2>Dependent fields</h2>
-<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-4)">
+<div class="demo" style="max-width:460px;display:flex;flex-direction:column;gap:var(--space-5)">
 <div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Country</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);"><span style="color:var(--text-primary)">Turkey</span></div>

@@ -236,10 +236,10 @@
 <thead><tr><th>Variant</th><th>Rest</th><th>Hover</th><th>Active</th><th>Label</th></tr></thead>
 <tbody>
 <tr><td>Primary</td><td><code>--color-primary</code></td><td><code>--color-primary-hover</code></td><td><code>--color-primary-active</code></td><td><code>--color-on-primary</code></td></tr>
-<tr><td>Secondary</td><td><code>--surface-card</code></td><td><code>--surface-brand-subtle</code></td><td><code>--green-10</code></td><td><code>--color-primary</code></td></tr>
+<tr><td>Secondary</td><td><code>--surface-card</code></td><td><code>--surface-brand-subtle</code></td><td><code>--surface-brand-subtle</code></td><td><code>--color-primary</code></td></tr>
 <tr><td>Tertiary</td><td><code>--surface-card</code></td><td><code>--surface-hover</code></td><td><code>--surface-active</code></td><td><code>--text-primary</code></td></tr>
 <tr><td>Ghost</td><td>transparent</td><td><code>--surface-hover</code></td><td><code>--surface-active</code></td><td><code>--text-primary</code></td></tr>
-<tr><td>Danger</td><td><code>--status-danger</code></td><td><code>--red-60</code></td><td><code>--red-60</code></td><td><code>--text-inverse</code></td></tr>
+<tr><td>Danger</td><td><code>--status-danger</code></td><td><code>--color-danger-active</code></td><td><code>--color-danger-active</code></td><td><code>--text-inverse</code></td></tr>
 </tbody>
 </table>
 <p>Secondary carries a <code>--color-primary</code> border and tertiary a <code>--border-strong</code> one. Primary and danger rely on their fill, which is why ghost needs adjacent content to sit against.</p>
@@ -401,7 +401,7 @@
 <ul class="wcag__list"><li><span class="sc" data-risk="high">1.1.1</span><span>A required <code>aria-label</code>. The icon supplies no name of its own. <span class="risk">high risk</span></span></li><li><span class="sc" data-risk="high">2.5.8</span><span>Hit area padded to 24px even when the glyph is 16px. <span class="risk">high risk</span></span></li><li><span class="sc">2.5.3</span><span>If a tooltip shows a label, that same text is the accessible name.</span></li><li><span class="sc">4.1.2</span><span>Toggle icon buttons expose <code>aria-pressed</code>, not just a colour change.</span></li></ul></div>
 <div class="wcag__group"><h3>Zoom, reflow and text spacing</h3>
 <p>The criteria a button passes at design time and fails the moment someone changes their own settings.</p>
-<ul class="wcag__list"><li><span class="sc">1.4.4</span><span>Text resizes to 200% without the label being clipped or the button losing its action.</span></li><li><span class="sc">1.4.10</span><span>No horizontal scrolling at 320px. Button groups wrap rather than overflow.</span></li><li><span class="sc" data-risk="high">1.4.12</span><span>No fixed height. The button grows when the reader increases line height, letter spacing or word spacing. <span class="risk">high risk</span></span></li><li><span class="sc">1.4.11</span><span>Focus rings survive at 200% zoom without being clipped by an ancestor with <code>overflow: hidden</code>.</span></li></ul></div>
+<ul class="wcag__list"><li><span class="sc">1.4.4</span><span>Text resizes to 200% without the label being clipped or the button losing its action.</span></li><li><span class="sc">1.4.10</span><span>No horizontal scrolling at 320px. Button groups wrap rather than overflow.</span></li><li><span class="sc" data-risk="high">1.4.12</span><span>Height tokens set the resting size; the button must still grow when the reader increases line height, letter spacing or word spacing — no <code>overflow: hidden</code> on the label container. <span class="risk">high risk</span></span></li><li><span class="sc">1.4.11</span><span>Focus rings survive at 200% zoom without being clipped by an ancestor with <code>overflow: hidden</code>.</span></li></ul></div>
 
 <div class="wcag__group"><h3>Links styled as buttons</h3>
 <p>An anchor that looks like a button is still an anchor, and inherits an anchor's rules.</p>
@@ -438,7 +438,7 @@
 <tr><td>Secondary border on card</td><td>6.85:1</td><td>Passes 1.4.11 with room</td></tr>
 <tr><td>Tertiary label on card</td><td>17.7:1</td><td>Passes AAA</td></tr>
 <tr><td>Tertiary border on card</td><td>3.12:1</td><td>Passes 1.4.11</td></tr>
-<tr><td>Danger label on danger</td><td>5.1:1</td><td>Passes AA</td></tr>
+<tr><td>Danger label on danger</td><td>6.06:1</td><td>Passes AA</td></tr>
 <tr><td>Disabled label on disabled</td><td>4.17:1</td><td>Exempt, but kept readable</td></tr>
 </tbody>
 </table>
