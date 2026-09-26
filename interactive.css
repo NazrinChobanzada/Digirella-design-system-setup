@@ -86,10 +86,10 @@ button.btn--primary:hover:not(:disabled)   { background: var(--color-primary-hov
 button.btn--secondary:hover:not(:disabled) { background: var(--surface-brand-subtle); border-color: var(--color-primary-hover); }
 button.btn--tertiary:hover:not(:disabled)  { background: var(--surface-hover); }
 button.btn--ghost:hover:not(:disabled)     { background: var(--surface-hover); }
-button.btn--danger:hover:not(:disabled)    { background: var(--red-60); }
+button.btn--danger:hover:not(:disabled)    { background: var(--color-danger-active); }
 
 button.btn--primary:active:not(:disabled)   { background: var(--color-primary-active); }
-button.btn--secondary:active:not(:disabled) { background: var(--green-10); border-color: var(--color-primary-active); color: var(--text-brand); }
+button.btn--secondary:active:not(:disabled) { background: var(--color-primary-subtle-hover); border-color: var(--color-primary-active); color: var(--text-brand); }
 button.btn--tertiary:active:not(:disabled),
 button.btn--ghost:active:not(:disabled)     { background: var(--surface-active); }
 
@@ -100,35 +100,35 @@ button.btn--ghost:active:not(:disabled)     { background: var(--surface-active);
    permits for inactive controls and which is the point: they read as off. */
 button.btn:disabled,
 .btn[aria-disabled="true"] {
-  color: var(--neutral-50);
+  color: var(--text-disabled);
   background: transparent;
   border-color: transparent;
 }
 button.btn--primary:disabled,
 .btn--primary[aria-disabled="true"] {
-  background: var(--green-05);
+  background: var(--surface-brand-subtle);
   border-color: transparent;
 }
 button.btn--danger:disabled,
 .btn--danger[aria-disabled="true"] {
-  background: var(--red-05);
+  background: var(--surface-danger-subtle);
   border-color: transparent;
 }
 button.btn--secondary:disabled,
 .btn--secondary[aria-disabled="true"] {
   background: var(--surface-card);
-  border-color: var(--green-20);
+  border-color: var(--color-primary-border);
 }
 button.btn--tertiary:disabled,
 .btn--tertiary[aria-disabled="true"] {
   background: var(--surface-card);
   border-color: var(--border-default);
 }
-button.iconbtn:disabled { color: var(--neutral-50); background: transparent; border-color: transparent; }
+button.iconbtn:disabled { color: var(--text-disabled); background: transparent; border-color: transparent; }
 button.iconbtn--primary:disabled,
-button.iconbtn--solid:disabled { background: var(--green-05); border-color: transparent; }
-button.iconbtn--danger:disabled { background: var(--red-05); border-color: transparent; }
-button.iconbtn--secondary:disabled { background: var(--surface-card); border-color: var(--green-20); }
+button.iconbtn--solid:disabled { background: var(--surface-brand-subtle); border-color: transparent; }
+button.iconbtn--danger:disabled { background: var(--surface-danger-subtle); border-color: transparent; }
+button.iconbtn--secondary:disabled { background: var(--surface-card); border-color: var(--color-primary-border); }
 button.iconbtn--tertiary:disabled,
 button.iconbtn--outline:disabled { background: var(--surface-card); border-color: var(--border-default); }
 
@@ -172,7 +172,7 @@ button.iconbtn--outline:disabled { background: var(--surface-card); border-color
 .iconbtn--primary:hover:not(:disabled),
 .iconbtn--solid:hover:not(:disabled)     { background: var(--color-primary-hover); color: var(--color-on-primary); }
 .iconbtn--secondary:hover:not(:disabled) { background: var(--surface-brand-subtle); border-color: var(--color-primary-hover); }
-.iconbtn--danger:hover:not(:disabled)    { background: var(--red-60); color: var(--text-inverse); }
+.iconbtn--danger:hover:not(:disabled)    { background: var(--color-danger-active); color: var(--text-inverse); }
 .iconbtn:active:not(:disabled)           { background: var(--surface-active); }
 
 /* --------------------------------------------------------------------------
