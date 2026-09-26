@@ -181,21 +181,20 @@
 <div class="demo">
 <div class="cap">Select</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">In review</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div data-select-demo='{"type":"select","options":[{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"approved","label":"Approved"},{"value":"rejected","label":"Rejected"},{"value":"archived","label":"Archived"},{"value":"published","label":"Published"},{"value":"scheduled","label":"Scheduled"}],"value":"in_review","placeholder":"Select a status…"}'></div>
 <p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">7 options. Click to open, arrow keys to move, no typing filter.</p>
 </div>
 <div class="demo">
 <div class="cap">Combobox</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Country</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1">az<span style="background:var(--color-primary-subtle-hover)">erbaijan</span></span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)"><b>Az</b>erbaijan</div></div></div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">25+ options. Typing "az" filters to one match; the rest highlights.</p>
+<div data-select-demo='{"type":"combobox","options":[{"value":"az","label":"Azerbaijan"},{"value":"tr","label":"Türkiye"},{"value":"de","label":"Germany"},{"value":"fr","label":"France"},{"value":"gb","label":"United Kingdom"},{"value":"us","label":"United States"},{"value":"ru","label":"Russia"},{"value":"it","label":"Italy"},{"value":"es","label":"Spain"},{"value":"pl","label":"Poland"},{"value":"ua","label":"Ukraine"},{"value":"nl","label":"Netherlands"},{"value":"ge","label":"Georgia"},{"value":"kz","label":"Kazakhstan"},{"value":"am","label":"Armenia"}],"placeholder":"Search countries…"}'></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">15+ options. Type to filter by any substring; matches highlighted.</p>
 </div>
 <div class="demo">
 <div class="cap">TreeSelect</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1"><span style="color:var(--text-secondary)">Electronics</span><span style="color:var(--text-tertiary);margin:0 5px">/</span><span style="color:var(--text-secondary)">Audio</span><span style="color:var(--text-tertiary);margin:0 5px">/</span>Headphones</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Nested data. The full path shows in the field so "Headphones" is not ambiguous.</p>
+<div data-select-demo='{"type":"tree","options":[{"value":"electronics","label":"Electronics","children":[{"value":"audio","label":"Audio","children":[{"value":"headphones","label":"Headphones"},{"value":"speakers","label":"Speakers"},{"value":"earbuds","label":"Earbuds"}]},{"value":"laptops","label":"Laptops"},{"value":"phones","label":"Phones"}]},{"value":"clothing","label":"Clothing","children":[{"value":"mens","label":"Mens"},{"value":"womens","label":"Womens"}]},{"value":"books","label":"Books"}],"value":"headphones","defaultExpanded":["electronics","audio"],"placeholder":"Choose a category…"}'></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Nested data. Path shown in field; click ▶ to expand a branch.</p>
 </div>
 </div>
 </div>
@@ -226,15 +225,15 @@
 <div style="display:flex;flex-direction:column;gap:var(--space-4)">
 <div>
 <div style="font-size:var(--font-size-200);font-weight:500;margin-bottom:var(--space-2)">Small — 32 px</div>
-<div style="border-radius:var(--radius-sm);padding:5px 8px;min-height:32px;display:flex;align-items:center;font-size:var(--font-size-200);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-3)"><span style="flex:1">Approved</span><svg fill="none" height="14" style="color:var(--text-secondary);flex:0 0 14px;" viewBox="0 0 16 16" width="14"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div data-select-demo='{"type":"select","size":"sm","options":[{"value":"approved","label":"Approved"},{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"rejected","label":"Rejected"}],"value":"approved"}'></div>
 </div>
 <div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Medium — 40 px (default)</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">Approved</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div data-select-demo='{"type":"select","size":"md","options":[{"value":"approved","label":"Approved"},{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"rejected","label":"Rejected"}],"value":"approved"}'></div>
 </div>
 <div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Large — 48 px</div>
-<div style="border-radius:var(--radius-sm);padding:12px var(--space-5);min-height:48px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">Approved</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div data-select-demo='{"type":"select","size":"lg","options":[{"value":"approved","label":"Approved"},{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"rejected","label":"Rejected"}],"value":"approved"}'></div>
 </div>
 </div>
 </div>
@@ -305,10 +304,9 @@
 <div style="margin-top:var(--space-5)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
 <div class="demo">
-<div class="cap">List autocomplete — type "man", "ber", "yen"</div>
+<div class="cap">List autocomplete — try typing "man", "eur", "lira"</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1">man<span style="background:var(--color-primary-subtle-hover)">at</span></span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">AZN — Azerbaijani <b style="background:var(--color-primary-subtle-hover)">man</b>at</div></div></div>
+<div data-select-demo='{"type":"combobox","options":[{"value":"azn","label":"AZN — Azerbaijani manat"},{"value":"try","label":"TRY — Turkish lira"},{"value":"eur","label":"EUR — Euro"},{"value":"usd","label":"USD — US dollar"},{"value":"gbp","label":"GBP — British pound"},{"value":"rub","label":"RUB — Russian ruble"},{"value":"uah","label":"UAH — Ukrainian hryvnia"},{"value":"gel","label":"GEL — Georgian lari"},{"value":"kzt","label":"KZT — Kazakhstani tenge"}],"placeholder":"Search currencies…"}'></div>
 </div>
 <div class="demo">
 <div class="cap">Highlight token: <code>--color-primary-subtle-hover</code></div>
@@ -329,12 +327,7 @@
 <div class="demo">
 <div class="cap">Combobox + multiple — menu stays open</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team access</div>
-<div style="border:1px solid var(--border-control);border-radius:var(--radius-sm);padding:5px var(--space-4);min-height:40px;display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;background:var(--surface-card)">
-<span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500;height:24px">Leyla <span style="opacity:.7;font-size:11px">×</span></span>
-<span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500;height:24px">Kamran <span style="opacity:.7;font-size:11px">×</span></span>
-<span style="font-size:var(--font-size-200);color:var(--text-secondary)">+1</span>
-<span style="margin-left:auto;display:inline-flex"><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></span>
-</div>
+<div data-select-demo='{"type":"combobox","multiple":true,"options":[{"value":"leyla","label":"Leyla"},{"value":"kamran","label":"Kamran"},{"value":"nigar","label":"Nigar"},{"value":"azer","label":"Azer"},{"value":"gunel","label":"Günel"},{"value":"rashad","label":"Rəşad"},{"value":"samir","label":"Samir"}],"value":["leyla","kamran","nigar"],"placeholder":"Search people…"}'></div>
 </div>
 <div class="demo">
 <div class="cap">Rules</div>
@@ -362,16 +355,9 @@
 <p class="doc-lead">Same field, same menu, nested rows. A tree earns its place when the hierarchy is part of the answer — "Platform" means something different under Engineering than under Operations.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
 <div class="demo">
-<div class="cap">Tree select — expanded branch</div>
+<div class="cap">Tree select — click ▶ to expand</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1"><span style="color:var(--text-secondary)">Engineering</span><span style="color:var(--text-tertiary);margin:0 5px">/</span>Quality</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);">
-<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);font-size:var(--font-size-300);font-weight:500"><span style="color:var(--text-tertiary);font-size:10px;transform:rotate(90deg);display:inline-block">▶</span>Engineering</div>
-<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300);"><span style="color:var(--text-tertiary);font-size:10px;display:inline-block">▶</span>Platform</div>
-<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300)"><span style="color:var(--text-tertiary);font-size:10px;display:inline-block">▶</span>Mobile</div>
-<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300);background:var(--surface-brand-subtle);color:var(--text-brand);border-radius:var(--radius-xs);font-weight:600"><span style="width:14px"></span>Quality<span style="margin-left:auto;font-size:10px;color:var(--text-brand)">✓</span></div>
-<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);font-size:var(--font-size-300);font-weight:500"><span style="color:var(--text-tertiary);font-size:10px;display:inline-block">▶</span>Design</div>
-</div></div>
+<div data-select-demo='{"type":"tree","options":[{"value":"eng","label":"Engineering","children":[{"value":"platform","label":"Platform"},{"value":"mobile","label":"Mobile"},{"value":"quality","label":"Quality"}]},{"value":"design","label":"Design","children":[{"value":"ux","label":"UX"},{"value":"brand","label":"Brand"}]},{"value":"ops","label":"Operations"}],"value":"quality","defaultExpanded":["eng"],"placeholder":"Select a team…"}'></div>
 </div>
 <div class="demo">
 <div class="cap">Rules</div>
@@ -406,9 +392,9 @@
 <h2>Clearing</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
 <div class="demo">
-<div class="cap">Single — the control appears once there is a value</div>
+<div class="cap">Single — the clear control appears once there is a value</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">TRY — Turkish lira</span><span style="width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:13px;cursor:pointer;border-radius:var(--radius-xs)">✕</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div data-select-demo='{"type":"select","options":[{"value":"azn","label":"AZN — Azerbaijani manat"},{"value":"try","label":"TRY — Turkish lira"},{"value":"eur","label":"EUR — Euro"},{"value":"usd","label":"USD — US dollar"},{"value":"gbp","label":"GBP — British pound"}],"value":"try","clearable":true,"placeholder":"Select a currency…"}'></div>
 </div>
 <div class="demo">
 <div class="cap">Rules</div>
@@ -654,6 +640,137 @@
 </aside>
 </div>
 
+<script>
+(function(){
+  var SZ={sm:{h:32,px:8,py:5,fs:'var(--font-size-200)',ic:14,gap:'var(--space-3)',rpy:6,rpx:8},md:{h:40,px:12,py:8,fs:'var(--font-size-300)',ic:16,gap:'var(--space-4)',rpy:9,rpx:12},lg:{h:48,px:16,py:12,fs:'var(--font-size-300)',ic:16,gap:'var(--space-4)',rpy:10,rpx:16}};
+  function chv(sz,flip){return '<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 16 16" fill="none" style="flex:0 0 '+sz+'px;color:var(--text-secondary)'+(flip?';transform:rotate(180deg)':'')+'"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';}
+  function hl(t,q){if(!q)return t;var i=t.toLowerCase().indexOf(q.toLowerCase());if(i<0)return t;return t.slice(0,i)+'<b style="background:var(--color-primary-subtle-hover);font-weight:inherit">'+t.slice(i,i+q.length)+'</b>'+t.slice(i+q.length);}
+  function chkbox(on){return '<span style="width:16px;height:16px;border:1.5px solid '+(on?'var(--color-primary)':'var(--border-control)')+';border-radius:3px;background:'+(on?'var(--color-primary)':'transparent')+';flex:0 0 16px;display:inline-flex;align-items:center;justify-content:center">'+(on?'<svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.5 6L8 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>':'')+'</span>';}
+
+  function DS(el,cfg){
+    this.el=el; this.type=cfg.type||'select'; this.opts=cfg.options||[];
+    this.ph=cfg.placeholder||(this.type==='combobox'?'Search…':'Select…');
+    this.sz=cfg.size||'md'; this.multi=!!cfg.multiple; this.cl=cfg.clearable!==false;
+    this.val=this.multi?(cfg.value||[]):(cfg.value||null);
+    this.exp=new Set(cfg.defaultExpanded||[]);
+    this.open=false; this.q='';
+    el.style.cssText='position:relative;display:block;user-select:none';
+    this.draw();
+  }
+  DS.prototype.find=function(v,list){for(var o of(list||this.opts)){if(o.value===v)return o;if(o.children){var f=this.find(v,o.children);if(f)return f;}}};
+  DS.prototype.path=function(v,list,acc){for(var o of(list||this.opts)){var p=[...(acc||[]),o.label];if(o.value===v)return p;if(o.children){var f=this.path(v,o.children,p);if(f)return f;}}};
+  DS.prototype.filtered=function(){
+    if(!this.q)return this.type==='tree'?null:this.opts;
+    var q=this.q.toLowerCase();
+    if(this.type==='tree'){var r=[];var w=function(list,anc){list.forEach(function(o){var a=[...anc,o.label];if(o.label.toLowerCase().includes(q))r.push({...o,_anc:anc});if(o.children)w(o.children,a);});};w(this.opts,[]);return r;}
+    return this.opts.filter(function(o){return o.label.toLowerCase().includes(q);});
+  };
+  DS.prototype.fieldHTML=function(s){
+    var has=this.multi?this.val.length>0:!!this.val,inner='',self=this;
+    if(this.multi&&has){var labs=this.val.map(function(v){return self.find(v)?.label||v;});var show=labs.slice(0,3);inner+=show.map(function(l){return '<span style="display:inline-flex;align-items:center;gap:3px;background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:1px 6px;font-size:12.5px;font-weight:500;height:22px;white-space:nowrap;line-height:1">'+l+'<button type="button" data-rm="'+l+'" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;font-size:11px;line-height:1;opacity:.7;width:12px">×</button></span>';}).join('');if(labs.length>3)inner+='<span style="font-size:var(--font-size-200);color:var(--text-secondary)">+' +(labs.length-3)+'</span>';}
+    if(this.type==='combobox'){inner+='<input type="text" autocomplete="off" value="'+this.q.replace(/"/g,'&quot;')+'" placeholder="'+((!has||this.multi)?this.ph:'')+'" style="flex:1;border:none;outline:none;background:transparent;font:inherit;font-size:'+s.fs+';color:'+(this.q?'var(--text-primary)':'var(--text-tertiary)')+';min-width:60px;padding:0">';}
+    else if(!has){inner+='<span style="flex:1;color:var(--text-tertiary)">'+this.ph+'</span>';}
+    else if(this.type==='tree'){var p=this.path(this.val);inner+=p?'<span style="flex:1">'+p.slice(0,-1).map(function(s){return '<span style="color:var(--text-secondary)">'+s+'</span><span style="color:var(--text-tertiary);margin:0 4px">/</span>';}).join('')+p[p.length-1]+'</span>':'<span style="flex:1">'+this.val+'</span>';}
+    else{inner+='<span style="flex:1">'+(this.find(this.val)?.label||this.val)+'</span>';}
+    if(this.cl&&has&&!this.multi)inner+='<button type="button" data-clr aria-label="Clear" style="background:none;border:none;padding:0;cursor:pointer;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:13px;border-radius:var(--radius-xs);flex:0 0 24px">✕</button>';
+    if(this.cl&&this.multi&&has)inner+='<button type="button" data-clr aria-label="Clear all" style="background:none;border:none;padding:0;cursor:pointer;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:13px;border-radius:var(--radius-xs);flex:0 0 24px">✕</button>';
+    inner+=chv(s.ic,this.open);
+    var bord=this.open?'border:1px solid var(--border-focus);box-shadow:0 0 0 2px var(--surface-brand-subtle)':'border:1px solid var(--border-control)';
+    return '<div data-f tabindex="'+(this.type==='combobox'?-1:0)+'" style="border-radius:var(--radius-sm);padding:'+s.py+'px '+s.px+'px;min-height:'+s.h+'px;display:flex;align-items:center;font-size:'+s.fs+';background:var(--surface-card);'+bord+';gap:'+s.gap+';cursor:pointer;flex-wrap:'+(this.multi?'wrap':'nowrap')+'">'+inner+'</div>';
+  };
+  DS.prototype.rowHTML=function(o,i,s,sel,q){
+    var bg=sel&&!this.multi?';background:var(--surface-brand-subtle);color:var(--text-brand)':'';
+    var c='';
+    if(this.multi)c+=chkbox(sel);
+    if(o._anc&&o._anc.length)c+='<span style="color:var(--text-secondary);font-size:12px">'+o._anc.join(' / ')+' / </span>';
+    c+='<span>'+hl(o.label,q)+'</span>';
+    if(sel&&!this.multi)c+='<span style="margin-left:auto;color:var(--color-primary);font-size:11px">✓</span>';
+    return '<div data-v="'+o.value+'" style="display:flex;align-items:center;gap:var(--space-3);padding:'+s.rpy+'px '+s.rpx+'px;border-radius:var(--radius-xs);font-size:'+s.fs+';cursor:pointer'+bg+'">'+c+'</div>';
+  };
+  DS.prototype.treeRows=function(nodes,depth,s){
+    var self=this,out='';
+    nodes.forEach(function(o){
+      var sel=self.multi?self.val.includes(o.value):self.val===o.value;
+      var isExp=self.exp.has(o.value);var hasCh=o.children&&o.children.length;
+      var pad=8+depth*20;
+      var bg=sel&&!self.multi?';background:var(--surface-brand-subtle);color:var(--text-brand)':'';
+      var expBtn=hasCh?'<button type="button" data-ex="'+o.value+'" style="background:none;border:none;padding:0;cursor:pointer;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 18px;color:var(--text-tertiary)">'+chv(12,isExp)+'</button>':'<span style="width:18px;flex:0 0 18px"></span>';
+      var c=expBtn;
+      if(self.multi)c+=chkbox(sel);
+      c+='<span>'+o.label+'</span>';
+      if(sel&&!self.multi)c+='<span style="margin-left:auto;color:var(--color-primary);font-size:11px">✓</span>';
+      out+='<div data-v="'+o.value+'" style="display:flex;align-items:center;gap:6px;padding:8px 8px;padding-left:'+pad+'px;border-radius:var(--radius-xs);font-size:'+s.fs+';cursor:pointer'+bg+'">'+c+'</div>';
+      if(hasCh&&isExp)out+='<div>'+self.treeRows(o.children,depth+1,s)+'</div>';
+    });
+    return out;
+  };
+  DS.prototype.menuHTML=function(s){
+    var self=this,filtered=this.filtered(),rows='';
+    if(this.type==='tree'&&!this.q){rows=this.treeRows(this.opts,0,s);}
+    else{
+      var list=filtered||[];
+      if(!list.length){rows='<div style="padding:'+s.rpy+'px '+s.rpx+'px;color:var(--text-secondary);font-size:'+s.fs+'">No matches'+(this.q?' for “'+this.q+'”':'')+' </div>';}
+      else{rows=list.map(function(o,i){var sel=self.multi?self.val.includes(o.value):self.val===o.value;return self.rowHTML(o,i,s,sel,self.q);}).join('');}
+    }
+    return '<div role="listbox" style="position:absolute;top:100%;left:0;right:0;z-index:9999;margin-top:4px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);max-height:240px;overflow-y:auto">'+rows+'</div>';
+  };
+  DS.prototype.draw=function(){
+    var s=SZ[this.sz];
+    this.el.innerHTML=this.fieldHTML(s)+(this.open?this.menuHTML(s):'');
+    this.bind(s);
+  };
+  DS.prototype.bind=function(s){
+    var self=this;
+    var f=this.el.querySelector('[data-f]');
+    if(f){
+      f.addEventListener('click',function(e){
+        if(e.target.closest('[data-clr]')){e.stopPropagation();self.val=self.multi?[]:null;self.draw();return;}
+        var rm=e.target.closest('[data-rm]');
+        if(rm){e.stopPropagation();var l=rm.dataset.rm;var o=self.opts.find(function(x){return x.label===l;});if(o){self.val=self.val.filter(function(v){return v!==o.value;});self.draw();}return;}
+        self.open=!self.open;if(!self.open)self.q='';self.draw();
+        if(self.open&&self.type==='combobox'){var inp=self.el.querySelector('input');if(inp)inp.focus();}
+      });
+      if(this.type!=='combobox')f.addEventListener('keydown',function(e){self.onKey(e);});
+    }
+    var inp=this.el.querySelector('input');
+    if(inp){
+      inp.addEventListener('input',function(e){self.q=e.target.value;self.draw();var ni=self.el.querySelector('input');if(ni){ni.focus();ni.value=self.q;ni.selectionStart=ni.selectionEnd=self.q.length;}});
+      inp.addEventListener('keydown',function(e){self.onKey(e);});
+      inp.addEventListener('click',function(e){e.stopPropagation();if(!self.open){self.open=true;self.draw();var ni=self.el.querySelector('input');if(ni)ni.focus();}});
+    }
+    var menu=this.el.querySelector('[role="listbox"]');
+    if(menu){
+      menu.addEventListener('mouseover',function(e){var o=e.target.closest('[data-v]');if(o){menu.querySelectorAll('[data-v]').forEach(function(x){x.style.background='';});o.style.background='var(--surface-hover)';}});
+      menu.addEventListener('click',function(e){
+        var ex=e.target.closest('[data-ex]');
+        if(ex){e.stopPropagation();var v=ex.dataset.ex;self.exp.has(v)?self.exp.delete(v):self.exp.add(v);self.draw();return;}
+        var opt=e.target.closest('[data-v]');if(opt)self.pick(opt.dataset.v);
+      });
+    }
+    if(this.open&&!this._oh){
+      this._oh=function(e){if(!self.el.contains(e.target)){self.open=false;self.q='';self._oh=null;document.removeEventListener('click',self._oh);self.draw();}};
+      setTimeout(function(){document.addEventListener('click',self._oh);},0);
+    }
+  };
+  DS.prototype.pick=function(v){
+    if(this.multi){this.val=this.val.includes(v)?this.val.filter(function(x){return x!==v;}):[...this.val,v];this.q='';this.draw();if(this.type==='combobox'){var inp=this.el.querySelector('input');if(inp)inp.focus();}}
+    else{this.val=v;this.open=false;this.q='';this.draw();}
+  };
+  DS.prototype.onKey=function(e){
+    var opts=[...this.el.querySelectorAll('[data-v]')];
+    if(!this.open&&['ArrowDown','ArrowUp',' ','Enter'].includes(e.key)){e.preventDefault();this.open=true;this.draw();return;}
+    if(e.key==='Escape'){this.open=false;this.q='';this.draw();var f=this.el.querySelector('[data-f]');if(f)f.focus();return;}
+    if(!this.open||!opts.length)return;
+    var cur=opts.findIndex(function(o){return o.classList.contains('ds-active');});
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var next=e.key==='ArrowDown'?Math.min((cur<0?-1:cur)+1,opts.length-1):Math.max(cur-1,0);opts.forEach(function(o){o.classList.remove('ds-active');o.style.outline='';});opts[next].classList.add('ds-active');opts[next].style.outline='2px solid var(--border-focus)';opts[next].scrollIntoView({block:'nearest'});}
+    if(e.key==='Enter'){var active=opts.find(function(o){return o.classList.contains('ds-active');});if(active){e.preventDefault();this.pick(active.dataset.v);}}
+  };
+
+  document.querySelectorAll('[data-select-demo]').forEach(function(el){
+    try{new DS(el,JSON.parse(el.dataset.selectDemo));}catch(e){console.error('DigiSelect:',e);}
+  });
+})();
+</script>
 <script src="../../interactive.js"></script>
 <script src="../../site.js"></script>
 </body>
