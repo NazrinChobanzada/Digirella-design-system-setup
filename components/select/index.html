@@ -48,7 +48,7 @@
 <a href="../../components/number-input/index.html" data-status="ready"><span>Number input <span style="color:var(--text-tertiary);font-weight:400">· QuantityStepper · Slider</span></span><span class="flag">New</span></a>
 <a href="../../components/date-picker/index.html" data-status="planned"><span>DatePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
 <a href="../../components/time-picker/index.html" data-status="planned"><span>TimePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../components/select/index.html" aria-current="page" data-status="migrated"><span>Select</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
+<a href="../../components/select/index.html" aria-current="page" data-status="ready"><span>Select <span style="color:var(--text-tertiary);font-weight:400">· Combobox · TreeSelect</span></span><span class="flag">New</span></a>
 <a href="../../components/combobox/index.html" data-status="migrated"><span>Combobox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
 <a href="../../components/multiselect/index.html" data-status="migrated"><span>MultiSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
 <a href="../../components/treeselect/index.html" data-status="migrated"><span>TreeSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
@@ -98,252 +98,529 @@
 </div>
 </nav>
 <main>
-<div class="page__eyebrow">Components</div><h1 class="page__title">Select</h1><div class="statusline"><span class="dot" data-status="migrated"></span>Carried over from the previous structure</div><div class="callout"><div>This page carries its content from the previous structure, moved across unchanged. It hasn't been rewritten to the new format yet.</div></div>
+<div class="page__eyebrow">Components</div><h1 class="page__title">Select <span style="color:var(--text-tertiary);font-weight:400;font-size:.65em">· Combobox · TreeSelect</span></h1><div class="statusline"><span class="dot" data-status="ready"></span><span class="flag">New</span></div>
 <div class="doc">
-<section id="examples"><h2>Examples</h2>
-<p>The browser's own select for short, fixed lists, wearing the system's chrome.</p>
-<div class="demo demo--grid">
-<div class="field">
-<label class="field__label" for="s1">Carrier</label>
-<select class="control" id="s1">
-<option>Yurtiçi Kargo</option><option>Aras Kargo</option><option>MNG Kargo</option><option>Sürat Kargo</option>
-</select>
-</div>
-<div class="field">
-<label class="field__label" for="s2">Status</label>
-<select class="control" disabled="" id="s2"><option>Live</option></select>
-<span class="field__hint">Locked until review finishes.</span>
-</div>
-</div>
+<p class="doc-lead">Three variants on one base: <strong>Select</strong> for short, fixed lists; <strong>Combobox</strong> when typing helps filter a long list; <strong>TreeSelect</strong> when options are nested. Multiple, clearable, creatable and remote are properties that switch on across variants. This page is the complete specification for the selection family.</p>
+
+<section id="principles">
+<h2>Principles</h2>
+<div class="rule"><b>A select holds a value</b><span>Choosing a row sets state — it does not navigate, submit, or rebuild the form. If picking a row runs a command, use an action menu: different keyboard model, no value, no validation.</span></div>
+<div class="rule"><b>Visible options beat hidden ones</b><span>Up to about six options, a radio or checkbox group is better: all choices are readable at a glance and changing the answer takes one click instead of three.</span></div>
+<div class="rule"><b>Typing is an accelerator, not a gate</b><span>In a Combobox the full list still opens on click. Search makes a long list fast for people who know what they want — it must never be the only way to see what is available.</span></div>
+<div class="rule"><b>Every selection is reversible</b><span>A value can always be removed without reloading the page or inventing a "None" row in the data. Clearing is part of the control and is on by default.</span></div>
 </section>
-<section id="guidance"><h2>Guidance</h2><p>The following comes from the shared <strong>selection inputs</strong> guide, which covers this component alongside its siblings.</p></section>
-<section id="choosing-a-control">
-<h2>Choosing a control</h2>
-<p class="doc-lead">Answer three questions in order: how many can be chosen, how many options exist, and whether the options have structure. The answer is always one control — if two seem to fit, the set is too large for the simpler one.</p>
+
+<section id="not">
+<h2>When not to use</h2>
 <table>
-<thead><tr><th style="width:170px">Control</th><th style="width:120px">Choices</th><th style="width:110px">Options</th><th>Use when</th></tr></thead>
+<thead><tr><th style="width:200px">Situation</th><th style="width:180px">Use instead</th><th>Why</th></tr></thead>
 <tbody>
-<tr><td class="tok">Radio</td><td class="use">One</td><td class="use">2–5</td><td class="use">Every option should be visible without a click. Shipping speed, condition.</td></tr>
-<tr><td class="tok">Select</td><td class="use">One</td><td class="use">3–10</td><td class="use">The list is short enough to scan but long enough to fold away. Sort order, currency.</td></tr>
-<tr><td class="tok">Combobox</td><td class="use">One</td><td class="use">10+</td><td class="use">Scanning is slower than typing. City, brand, seller.</td></tr>
-<tr><td class="tok">MultiSelect</td><td class="use">Many</td><td class="use">5+</td><td class="use">Several answers are normal and must stay visible. Categories, regions.</td></tr>
-<tr><td class="tok">Checkbox group</td><td class="use">Many</td><td class="use">2–5</td><td class="use">Short list, no search needed. Notification types.</td></tr>
-<tr><td class="tok">TreeSelect</td><td class="use">One</td><td class="use">Any</td><td class="use">Options are a hierarchy the user must see to understand. Category tree.</td></tr>
+<tr><td class="tok">2–6 options, one choice</td><td class="use">Radio group</td><td class="use">All options visible and comparable without opening anything</td></tr>
+<tr><td class="tok">2–6 options, several choices</td><td class="use">Checkbox group</td><td class="use">Same reason; multi-select inside a closed menu is easy to miss</td></tr>
+<tr><td class="tok">On / off</td><td class="use">Switch or checkbox</td><td class="use">A two-row menu hides half its content to save nothing</td></tr>
+<tr><td class="tok">Running a command</td><td class="use">Action menu</td><td class="use">No value, no validation, focus moves into the menu</td></tr>
+<tr><td class="tok">Switching what is on screen</td><td class="use">Tabs or SegmentedControl</td><td class="use">A view change is not a form value</td></tr>
+<tr><td class="tok">Free text with no list behind it</td><td class="use">Text input</td><td class="use">A list that never matches is noise</td></tr>
+<tr><td class="tok">Dates, times, colours, files</td><td class="use">Their own pickers</td><td class="use">These have formats, ranges and validation a list cannot express</td></tr>
 </tbody>
 </table>
-<div class="dd">
-<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%;display:flex;flex-direction:column;gap:var(--space-4)"><label style="display:flex;gap:var(--space-3);align-items:center;font-size:var(--font-size-300)"><span style="width:20px;height:20px;border-radius:50%;border:6px solid var(--color-primary);background:var(--surface-card)"></span>Standard · 2–4 days</label><label style="display:flex;gap:var(--space-3);align-items:center;font-size:var(--font-size-300);color:var(--text-secondary)"><span style="width:20px;height:20px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface-card)"></span>Express · next day</label></div></div><p class="ddt">Two options, both visible. The user compares them without a click.</p></div>
-<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%"><div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);justify-content:space-between;gap:var(--space-4)">Standard <svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div></div></div><p class="ddt">A Select hides half the decision behind an interaction, for no gain in space.</p></div>
-</div>
 </section>
+
 <section id="anatomy">
 <h2>Anatomy</h2>
-<p class="doc-lead">Every selection control is built from the same seven parts. Only the list contents change between variants.</p>
+<p class="doc-lead">Every selection control is built from the same eight parts. Only the list contents and whether the field accepts typing change between variants.</p>
 <div style="display:grid;grid-template-columns:340px 1fr;gap:var(--space-8);align-items:start">
 <div class="demo">
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);box-shadow:0 0 0 3px var(--green-05);justify-content:space-between;gap:var(--space-4)"><span style="color:var(--text-tertiary)">Search categories</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="padding:6px var(--space-4);font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Electronics</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Headphones <span style="margin-left:auto;font-size:var(--font-size-200);color:var(--text-tertiary)">1 284</span></div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Speakers <span style="margin-left:auto;font-size:var(--font-size-200);color:var(--text-tertiary)">642</span></div></div></div>
-<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-3)">Pick the closest match</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Billing country</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1;color:var(--text-tertiary)">Search countries</span><span style="font-size:var(--font-size-200);color:var(--text-secondary);background:var(--surface-hover);border-radius:var(--radius-xs);padding:2px 6px;white-space:nowrap">✕</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Azerbaijan</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Türkiye</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Germany</div></div></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-3)">Used on invoices and receipts</div>
 </div>
 <div style="display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-3)">
-<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Label</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Always present and always visible. Placeholder text is not a label — it disappears the moment someone types.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Field</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">38px, <code>--border-control</code> at 3:1 so the boundary itself passes WCAG 1.4.11.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Value or placeholder</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Placeholder states the action ("Search categories"), never repeats the label.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Chevron</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">16px stroked glyph, rotates 180° on open. The only affordance that says "this is a list".</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Group header</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Uppercase overline, non-selectable. Only in grouped variants.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">6</span><div><div style="font-size:var(--font-size-300);font-weight:600">Option row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">44px hit area, hover <code>--surface-hover</code>, optional right-aligned count.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">7</span><div><div style="font-size:var(--font-size-300);font-weight:600">Hint or error</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Fixed slot below. Error replaces hint — they never stack.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Label</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Always visible, tied to the field. Never replaced by a placeholder.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Field</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">The trigger. 40px default height. <code>--border-control</code> at 3:1, passing WCAG 1.4.11.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Value or placeholder</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Value in <code>--text-primary</code>, placeholder muted. In a Combobox, an editable text field.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Clear control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Appears only when there is a value to clear. 24×24 hit area. On by default.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Chevron</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">16px icon, rotates 180° when open. The affordance that says "this is a list".</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">6</span><div><div style="font-size:var(--font-size-300);font-weight:600">Menu</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Overlay surface, at least as wide as the field, capped at about eight rows.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">7</span><div><div style="font-size:var(--font-size-300);font-weight:600">Row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Label, optional description, optional checkbox or tick, optional expand chevron (tree only).</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">8</span><div><div style="font-size:var(--font-size-300);font-weight:600">Helper or error text</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Fixed slot below the field. Error replaces helper text — they never stack.</div></div></div>
 </div>
 </div>
 </section>
-<section id="single-select">
-<h2>Single select</h2>
-<p class="doc-lead">The default. A native <code>&lt;select&gt;</code> under design-system chrome, so it inherits mobile pickers and platform keyboard behaviour for free.</p>
-<div class="demo" style="max-width:340px">
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Sort by</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);justify-content:space-between;gap:var(--space-4)">Best match <svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Use for</b><span>3–10 options with no need to search — sort order, currency, condition.</span></div>
-<div class="rule"><b>Not for</b><span>Boolean choices (use Switch), or actions (use Menu — a Select must never trigger navigation).</span></div>
-<div class="rule"><b>Default</b><span>Preselect the safest or most common value. An empty Select forces a decision the user may not have.</span></div>
-</div>
-<div class="api">Select · label, hint, error, options: { value, label }[]</div>
-</section>
-<section id="searchable-combobox">
-<h2>Searchable · Combobox</h2>
-<p class="doc-lead">Adds a text filter to a single select. The crossover is around ten options — past that, typing three letters beats scanning, and the gap widens fast.</p>
-<div class="demo" style="max-width:340px;position:relative">
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Brand</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);box-shadow:0 0 0 3px var(--green-05);gap:var(--space-4)">sen<span style="width:1px;height:16px;background:var(--text-primary)"></span><span style="margin-left:auto;display:inline-flex"><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></span></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Sen<b style="background:var(--green-10)">nheiser</b> <span style="margin-left:auto;font-size:var(--font-size-200);color:var(--text-tertiary)">412</span></div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);"><b style="background:var(--green-10)">Sen</b>tey <span style="margin-left:auto;font-size:var(--font-size-200);color:var(--text-tertiary)">28</span></div></div></div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Matching</b><span>Substring, case-insensitive, matched anywhere in the label — not prefix-only. Users type the word they remember, not the one the list starts with.</span></div>
-<div class="rule"><b>Highlight</b><span>Matched characters get <code>--green-10</code>. The highlight is a tint, never bold alone.</span></div>
-<div class="rule"><b>Free text</b><span>Not allowed. The value must exist in the list; if arbitrary text is valid, this is an Input with suggestions, not a Combobox.</span></div>
-</div>
-<div class="api">Combobox · options: { value, label, meta? }[], value, onChange, emptyText</div>
-</section>
-<section id="grouped">
-<h2>Grouped</h2>
-<p class="doc-lead">One flat list, divided by non-selectable headers. Use when options fall into categories the user already thinks in — but the categories themselves are never answers.</p>
-<div class="demo" style="max-width:340px">
-<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="padding:6px var(--space-4);font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Domestic</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Standard · 2–4 days</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Express · next day</div><div style="height:1px;background:var(--border-subtle);margin:var(--space-2) 0"></div><div style="padding:6px var(--space-4);font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">International</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Economy · 8–14 days</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Priority · 3–5 days</div></div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Limit</b><span>Two to five groups. More than that is a hierarchy — use TreeSelect.</span></div>
-<div class="rule"><b>Headers</b><span>Never selectable, never focusable, skipped by arrow keys.</span></div>
-</div>
-</section>
-<section id="multi-select-count">
-<h2>Multi-select · count</h2>
-<p class="doc-lead">Checkboxes inside the list, a count in the field. Use when selections are typically many and their identity matters less than how many — filter panels, bulk actions.</p>
-<div class="demo" style="max-width:340px">
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Ships to</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);justify-content:space-between;gap:var(--space-4)">12 selected <svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-subtle);margin-bottom:var(--space-2);color:var(--text-tertiary)">Filter…</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--color-primary);border:1px solid var(--color-primary)">✓</span> Germany</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--color-primary);border:1px solid var(--color-primary)">✓</span> France</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);"><span style="width:16px;height:16px;flex:0 0 16px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#fff;border:1px solid var(--border-strong);background:var(--surface-card)"></span> Italy</div></div></div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Closing</b><span>The list stays open while selecting. Closing after each pick would make choosing twelve items twelve interactions.</span></div>
-<div class="rule"><b>Select all</b><span>Only when the full set is a meaningful answer. "All regions" is; "all brands" is not.</span></div>
-</div>
-</section>
-<section id="multi-select-tags">
-<h2>Multi-select · tags</h2>
-<p class="doc-lead">Same control, selections shown as removable tags. Use when each choice must stay visible and individually removable — the field is a summary of the answer, not a count of it.</p>
-<div class="demo" style="max-width:420px">
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Categories</div>
-<div style="border:1px solid var(--border-control);border-radius:var(--radius-sm);padding:5px var(--space-4);min-height:38px;display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;background:var(--surface-card)">
-<span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Headphones <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Audio <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Vintage <span style="opacity:.7">×</span></span><span style="font-size:var(--font-size-200);color:var(--text-secondary)">+2 more</span>
-<span style="margin-left:auto;display:inline-flex"><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></span>
-</div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Overflow</b><span>Three tags, then <code>+N more</code>. The field must not grow past two rows or the form reflows as the user types.</span></div>
-<div class="rule"><b>Removal</b><span>Each tag has its own × and is reachable by keyboard; Backspace in the empty field removes the last tag.</span></div>
-</div>
-<div class="dd">
-<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center"><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Headphones <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Audio <span style="opacity:.7">×</span></span><span style="font-size:var(--font-size-200);color:var(--text-secondary)">+4 more</span></div></div><p class="ddt">Collapsing past three keeps the field one row tall and the form stable.</p></div>
-<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="display:flex;gap:var(--space-2);flex-wrap:wrap"><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Headphones <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Audio <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Vintage <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Portable <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Wireless <span style="opacity:.7">×</span></span><span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500">Studio <span style="opacity:.7">×</span></span></div></div><p class="ddt">Six tags push the field to three rows and shove every field below it down the page.</p></div>
-</div>
-<div class="api">MultiSelect · display: tags | count, maxVisibleTags, value: string[], onChange</div>
-</section>
-<section id="tree-select">
-<h2>Tree select</h2>
-<p class="doc-lead">A hierarchy the user must see to navigate. Only leaves are selectable; parents expand. The field shows the full path, because a leaf label alone is often ambiguous — "Cases" means nothing without its parent.</p>
-<div class="demo" style="max-width:400px">
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);box-shadow:0 0 0 3px var(--green-05);gap:var(--space-4)"><span style="flex:1"><span style="color:var(--text-secondary)">Electronics</span><span style="color:var(--text-tertiary);margin:0 6px">/</span><span style="color:var(--text-secondary)">Audio</span><span style="color:var(--text-tertiary);margin:0 6px">/</span>Headphones</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);font-size:var(--font-size-300);font-weight:500"><span style="width:12px;color:var(--text-tertiary);font-size:10px;transform:rotate(90deg);display:inline-block">▶</span>Electronics</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300);font-weight:500"><span style="width:12px;color:var(--text-tertiary);font-size:10px;transform:rotate(90deg);display:inline-block">▶</span>Audio</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 36px);font-size:var(--font-size-300);font-weight:600;background:var(--surface-brand-subtle);color:var(--text-brand);border-radius:var(--radius-xs)"><span style="width:12px"></span>Headphones<span style="margin-left:auto;font-size:var(--font-size-200);color:var(--text-tertiary)">1 284</span></div><div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 36px);font-size:var(--font-size-300)"><span style="width:12px"></span>Speakers<span style="margin-left:auto;font-size:var(--font-size-200);color:var(--text-tertiary)">642</span></div><div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300);font-weight:500"><span style="width:12px;color:var(--text-tertiary);font-size:10px;display:inline-block">▶</span>Computers</div></div></div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Depth</b><span>Three levels maximum. Deeper and users lose their place — flatten to paths in a Combobox instead.</span></div>
-<div class="rule"><b>Parents</b><span>Expand only, never select. A parent that is also a valid answer needs its own "All electronics" leaf.</span></div>
-<div class="rule"><b>State</b><span>The path to the current value is expanded on open, so the selection is always in view.</span></div>
-</div>
-<div class="api">TreeSelect · nodes: { value, label, count?, children? }[], value, expandedKeys, onChange, onExpand</div>
-</section>
-<section id="opening-amp-closing">
-<h2>Opening &amp; closing</h2>
+
+<section id="choosing-a-variant">
+<h2>Choosing a variant</h2>
+<p class="doc-lead">Two questions in order: does the data nest, and is the list long enough that reading it becomes work?</p>
 <table>
-<thead><tr><th style="width:220px">Trigger</th><th>Result</th></tr></thead>
+<thead><tr><th style="width:200px">Data shape</th><th>Single choice</th><th>Several choices</th></tr></thead>
 <tbody>
-<tr><td class="tok">Click field</td><td class="use">Opens. Clicking again closes — the field is a toggle, not a one-way door.</td></tr>
-<tr><td class="tok">Focus via Tab</td><td class="use">Does <em>not</em> open. Keyboard users open with ↓, Enter or Space, so tabbing through a form never floods the screen with menus.</td></tr>
-<tr><td class="tok">Select an option</td><td class="use">Single: closes and returns focus to the field. Multi: stays open.</td></tr>
-<tr><td class="tok">Click outside · Esc</td><td class="use">Closes, discarding nothing — selections apply immediately, so there is no cancel.</td></tr>
-<tr><td class="tok">Scroll the page</td><td class="use">The list follows its field. It never detaches or repositions mid-scroll.</td></tr>
-</tbody>
-</table>
-<p class="doc-lead" style="margin-top:var(--space-6)">The list opens downward, flipping above the field only when there is not enough room below. It never covers its own field — the user must be able to see what they are changing.</p>
-</section>
-<section id="filtering">
-<h2>Filtering</h2>
-<div class="rule"><b>Debounce</b><span>Local lists filter on every keystroke. Remote lists wait 250ms and show a loading row rather than an empty one.</span></div>
-<div class="rule"><b>Reset</b><span>The query clears when the list closes. Re-opening always shows the full set — a stale filter that hides options looks like data loss.</span></div>
-<div class="rule"><b>No match</b><span>The empty message names what was searched and offers the way out: "No brands match 'xyz'."</span></div>
-<div class="rule"><b>Selected</b><span>The current value stays visible even when it does not match the query, marked with a check.</span></div>
-</section>
-<section id="keyboard">
-<h2>Keyboard</h2>
-<table>
-<thead><tr><th style="width:200px">Key</th><th>Behaviour</th></tr></thead>
-<tbody>
-<tr><td class="tok">↓ / ↑</td><td class="use">Open the list, then move the highlight. Skips group headers and disabled options.</td></tr>
-<tr><td class="tok">Enter</td><td class="use">Select the highlighted option. Single closes; multi keeps the list open.</td></tr>
-<tr><td class="tok">Space</td><td class="use">Opens a closed list. Inside a multi-select, toggles the highlighted option.</td></tr>
-<tr><td class="tok">Esc</td><td class="use">Closes and returns focus to the field.</td></tr>
-<tr><td class="tok">Home / End</td><td class="use">First and last option.</td></tr>
-<tr><td class="tok">Backspace</td><td class="use">In an empty tag field, removes the last tag.</td></tr>
-<tr><td class="tok">→ / ←</td><td class="use">TreeSelect only: expand and collapse the highlighted branch.</td></tr>
-<tr><td class="tok">Tab</td><td class="use">Closes the list and moves to the next field. Never traps focus inside the list.</td></tr>
+<tr><td class="tok">Flat, 2–6</td><td class="use">Radio group — not this component</td><td class="use">Checkbox group — not this component</td></tr>
+<tr><td class="tok">Flat, 7–10</td><td class="use"><strong>Select</strong></td><td class="use"><strong>Combobox</strong> — past about five rows, multi-select needs search so the user can find what is not yet chosen</td></tr>
+<tr><td class="tok">Flat, 10+</td><td class="use"><strong>Combobox</strong></td><td class="use"><strong>Combobox</strong></td></tr>
+<tr><td class="tok">Flat, user may add values</td><td class="use"><strong>Combobox</strong> + <code>creatable</code></td><td class="use"><strong>Combobox</strong> + <code>creatable multiple</code></td></tr>
+<tr><td class="tok">Flat, 200+ or server-owned</td><td class="use"><strong>Combobox</strong> + <code>remote</code></td><td class="use"><strong>Combobox</strong> + <code>remote multiple</code></td></tr>
+<tr><td class="tok">Nested</td><td class="use"><strong>TreeSelect</strong></td><td class="use"><strong>TreeSelect</strong> + <code>multiple</code></td></tr>
 </tbody>
 </table>
 </section>
-<section id="loading-empty-error">
-<h2>Loading, empty, error</h2>
-<p class="doc-lead">Three states that get skipped in design and then improvised in code. Specify them.</p>
+
+<section id="variants">
+<h2>Variants</h2>
+<p class="doc-lead">Three variants decided by the shape of the data and whether typing helps. They share one field, one menu, one keyboard model, and one set of properties.</p>
+<table>
+<thead><tr><th style="width:140px">Variant</th><th style="width:160px">Data</th><th style="width:160px">Typing</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><td class="tok"><strong>Select</strong></td><td class="use">Flat list</td><td class="use">Type-ahead jump only</td><td class="use">Short, stable lists the user can read in one go — status, currency, role</td></tr>
+<tr><td class="tok"><strong>Combobox</strong></td><td class="use">Flat list, local or remote</td><td class="use">Filters the list</td><td class="use">Long lists, multi-select past a handful, anything the user may add to</td></tr>
+<tr><td class="tok"><strong>TreeSelect</strong></td><td class="use">Nested list</td><td class="use">Filters and expands matches</td><td class="use">Data with real parents and children — org units, categories, folders</td></tr>
+</tbody>
+</table>
+<div style="margin-top:var(--space-7)">
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
 <div class="demo">
-<div class="cap">Loading</div>
-<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-3)"><span style="height:10px;width:80%;border-radius:2px;background:var(--neutral-10)"></span><span style="height:10px;width:55%;border-radius:2px;background:var(--neutral-10)"></span><span style="height:10px;width:65%;border-radius:2px;background:var(--neutral-10)"></span></div></div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Three skeleton rows, never a spinner. The list keeps its height so nothing below it jumps.</p>
+<div class="cap">Select</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">In review</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">7 options. Click to open, arrow keys to move, no typing filter.</p>
 </div>
 <div class="demo">
-<div class="cap">Empty</div>
-<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="padding:var(--space-6) var(--space-4);text-align:center"><div style="font-size:var(--font-size-300);color:var(--text-secondary)">No brands match “xyz”</div><div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Check the spelling or clear the filter</div></div></div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Names the query and offers a route out. Never a bare “No results”.</p>
+<div class="cap">Combobox</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Country</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1">az<span style="background:var(--color-primary-subtle-hover)">erbaijan</span></span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)"><b>Az</b>erbaijan</div></div></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">25+ options. Typing "az" filters to one match; the rest highlights.</p>
 </div>
+<div class="demo">
+<div class="cap">TreeSelect</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1"><span style="color:var(--text-secondary)">Electronics</span><span style="color:var(--text-tertiary);margin:0 5px">/</span><span style="color:var(--text-secondary)">Audio</span><span style="color:var(--text-tertiary);margin:0 5px">/</span>Headphones</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Nested data. The full path shows in the field so "Headphones" is not ambiguous.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="properties">
+<h2>Properties</h2>
+<p class="doc-lead">Properties change what the component does, not which component it is.</p>
+<table>
+<thead><tr><th style="width:140px">Property</th><th style="width:90px">Select</th><th style="width:90px">Combobox</th><th style="width:90px">Tree</th><th>What it changes</th></tr></thead>
+<tbody>
+<tr><td class="tok"><code>multiple</code></td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">Checkboxes in the menu, tokens in the field, menu stays open after each pick</td></tr>
+<tr><td class="tok"><code>clearable</code></td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">Clear control in the field and × on every token. <strong>On by default.</strong></td></tr>
+<tr><td class="tok"><code>creatable</code></td><td class="use" style="color:var(--text-danger);font-weight:600">no</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--text-danger);font-weight:600">no</td><td class="use">A "Create X" row for an unmatched query. Needs typing, so only on Combobox</td></tr>
+<tr><td class="tok"><code>remote</code></td><td class="use" style="color:var(--text-danger);font-weight:600">no</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">lazy children</td><td class="use">Rows fetched per query. Introduces debounce, loading state, and retry on failure</td></tr>
+<tr><td class="tok"><code>grouped</code></td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">n/a</td><td class="use">Flat rows under non-selectable headers. One level only — deeper is a tree</td></tr>
+<tr><td class="tok"><code>size</code></td><td class="use" colspan="3">sm · md · lg (default)</td><td class="use">Matches the text input scale — 32 / 40 / 48 px</td></tr>
+<tr><td class="tok"><code>status</code></td><td class="use" colspan="3">error · warning</td><td class="use">Coloured border plus a message below the field</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="sizes">
+<h2>Sizes &amp; type</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo">
+<div class="cap">Three sizes</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div>
+<div style="font-size:var(--font-size-200);font-weight:500;margin-bottom:var(--space-2)">Small — 32 px</div>
+<div style="border-radius:var(--radius-sm);padding:5px 8px;min-height:32px;display:flex;align-items:center;font-size:var(--font-size-200);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-3)"><span style="flex:1">Approved</span><svg fill="none" height="14" style="color:var(--text-secondary);flex:0 0 14px;" viewBox="0 0 16 16" width="14"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Medium — 40 px (default)</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">Approved</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+</div>
+<div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Large — 48 px</div>
+<div style="border-radius:var(--radius-sm);padding:12px var(--space-5);min-height:48px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">Approved</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+</div>
+</div>
+</div>
+<div class="demo">
+<div class="cap">Type specs</div>
+<table style="font-size:var(--font-size-200)">
+<thead><tr><th>Part</th><th>Type</th><th>Height</th></tr></thead>
+<tbody>
+<tr><td>Label</td><td>14/20 · 500</td><td>—</td></tr>
+<tr><td>Value</td><td>14/20 · 400</td><td>sm 32 · md 40 · lg 48</td></tr>
+<tr><td>Placeholder</td><td>14/20 · 400</td><td><code>--text-tertiary</code></td></tr>
+<tr><td>Row label</td><td>14/20 · 400</td><td>34–40 px row</td></tr>
+<tr><td>Row description</td><td>12/16 · 400</td><td><code>--text-secondary</code></td></tr>
+<tr><td>Group header</td><td>11/16 · 500</td><td>Uppercase, non-selectable</td></tr>
+<tr><td>Token</td><td>12.5/16 · 500</td><td>24 px chip</td></tr>
+<tr><td>Helper / error</td><td>12/16 · 400</td><td>4 px gap below field</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section id="menu">
+<h2>Menu</h2>
+<table>
+<thead><tr><th style="width:200px">Property</th><th style="width:140px">Value</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td class="tok">Offset from field</td><td class="use">4 px</td><td class="use">Flips above when there is not enough room below</td></tr>
+<tr><td class="tok">Width</td><td class="use">≥ field width</td><td class="use">May grow for long rows, capped around 400 px. The field never resizes</td></tr>
+<tr><td class="tok">Max height</td><td class="use">280–320 px</td><td class="use">About eight rows — enough to show there is more without becoming a page</td></tr>
+<tr><td class="tok">Row height</td><td class="use">34–40 px</td><td class="use">48–56 px with a description line</td></tr>
+<tr><td class="tok">Row padding</td><td class="use">6 px 10 px</td><td class="use">Aligned to field padding so the value does not jump when the menu opens</td></tr>
+<tr><td class="tok">Tree indent</td><td class="use">16 px per level</td><td class="use">Plus an 18 px expand control on every parent row</td></tr>
+<tr><td class="tok">Border radius / shadow</td><td class="use"><code>--radius-sm</code> · overlay</td><td class="use">Rendered above the page so no ancestor can clip it</td></tr>
+<tr><td class="tok">Scroll</td><td class="use">Vertical only</td><td class="use">Long labels truncate with an ellipsis; the full text stays in the accessible name</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="behaviour">
+<h2>Opening &amp; closing</h2>
+<table>
+<thead><tr><th style="width:220px">Action</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td class="tok">Click the field</td><td class="use">Opens. In a Combobox the caret goes into the text field</td></tr>
+<tr><td class="tok">Click the field while open</td><td class="use">Closes, keeping the current value</td></tr>
+<tr><td class="tok">Type (Combobox)</td><td class="use">Opens if closed, filters as the query changes</td></tr>
+<tr><td class="tok">Select a row, single</td><td class="use">Sets the value, closes, focus returns to the field</td></tr>
+<tr><td class="tok">Select a row, multiple</td><td class="use">Toggles the row and <strong>stays open</strong>; the query clears so the next pick starts fresh</td></tr>
+<tr><td class="tok">Escape</td><td class="use">Closes and restores the value that was there before opening. Escape never clears</td></tr>
+<tr><td class="tok">Tab</td><td class="use">Closes and moves on, keeping the selection</td></tr>
+<tr><td class="tok">Click outside</td><td class="use">Closes. Bind to <code>click</code> not <code>mousedown</code> so scrollbar drags inside the menu survive</td></tr>
+<tr><td class="tok">Scroll the page</td><td class="use">The menu follows its field. It never detaches and floats</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="autocomplete">
+<h2>Search &amp; autocomplete</h2>
+<p class="doc-lead">List autocomplete filters the menu as you type and is the default for every Combobox. A Select does not filter — typing jumps to the first row starting with that character, cycling on repeats.</p>
+<div class="rule"><b>Match anywhere</b><span>Substring, not prefix: "man" finds "Azerbaijani manat". Case- and diacritic-insensitive — "turkiye" finds "Türkiye", "resad" finds "Rəşad".</span></div>
+<div class="rule"><b>Match the whole row</b><span>Descriptions, codes and — in a tree — the parent path all count, not just the visible label.</span></div>
+<div class="rule"><b>Highlight</b><span>Mark matched characters with <code>--color-primary-subtle-hover</code> so the reason a row appears in the list is visible.</span></div>
+<div class="rule"><b>Stable order</b><span>Filter, do not re-sort. An exact match may be pinned first; everything else keeps its original position.</span></div>
+<div class="rule"><b>No results</b><span>"No matches for X" plus a way out — clear the query, or create the value when <code>creatable</code>.</span></div>
+<div class="rule"><b>Empty query</b><span>The full list (static) or recent and suggested rows (remote). Focus never produces an empty menu.</span></div>
+<div class="rule"><b>Inline completion</b><span>Only for a single-select Combobox over a fixed list where one prefix has exactly one answer. Never with <code>creatable</code>, never with <code>multiple</code>, never on a remote list.</span></div>
+<div style="margin-top:var(--space-5)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo">
+<div class="cap">List autocomplete — type "man", "ber", "yen"</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1">man<span style="background:var(--color-primary-subtle-hover)">at</span></span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">AZN — Azerbaijani <b style="background:var(--color-primary-subtle-hover)">man</b>at</div></div></div>
+</div>
+<div class="demo">
+<div class="cap">Highlight token: <code>--color-primary-subtle-hover</code></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-3)">
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Sen<b style="background:var(--color-primary-subtle-hover)">nheiser</b></div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);"><b style="background:var(--color-primary-subtle-hover)">Sen</b>tey</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:0">Background tint highlights the match, never bold alone — bold changes layout and pushes other text.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="multiple">
+<h2>Multiple</h2>
+<p class="doc-lead">A property on every variant. Past about five rows, a multi-select should be a Combobox: as soon as several values are chosen, finding the ones not yet chosen is a search problem.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo">
+<div class="cap">Combobox + multiple — menu stays open</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team access</div>
+<div style="border:1px solid var(--border-control);border-radius:var(--radius-sm);padding:5px var(--space-4);min-height:40px;display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;background:var(--surface-card)">
+<span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500;height:24px">Leyla <span style="opacity:.7;font-size:11px">×</span></span>
+<span style="display:inline-flex;align-items:center;gap:var(--space-2);background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:3px 8px;font-size:var(--font-size-200);font-weight:500;height:24px">Kamran <span style="opacity:.7;font-size:11px">×</span></span>
+<span style="font-size:var(--font-size-200);color:var(--text-secondary)">+1</span>
+<span style="margin-left:auto;display:inline-flex"><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></span>
+</div>
+</div>
+<div class="demo">
+<div class="cap">Rules</div>
+<div class="rule" style="border:0;padding:0"><b>Menu</b><span>Stays open while selecting; closes on Escape, Tab or click outside.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Rows</b><span>Checkbox on the leading edge so state does not depend on colour alone.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Field</b><span>Tokens up to the field width, then "+N". Past eight selections switch to "N selected".</span></div>
+<div class="rule" style="border:0;padding:0"><b>Footer</b><span>Select all / Clear all once the list or selection gets long.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Limits</b><span>With a maximum, show "3 of 5 selected" and disable unchosen rows instead of failing on submit.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Backspace</b><span>On an empty query removes the last token, one at a time.</span></div>
+</div>
+</div>
+</section>
+
+<section id="creatable">
+<h2>Creatable</h2>
+<p class="doc-lead">A Combobox property only. It needs a query to create from — a Select has no typing, and in a tree there is no answer to "which parent does the new node belong to".</p>
+<div class="rule"><b>Explicit</b><span>A "Create X" row at the end of the filtered list, or Enter on an unmatched query. Never create silently on blur.</span></div>
+<div class="rule"><b>Normalise</b><span>Trim, collapse double spaces, apply the casing rule once, and match case-insensitively so the same value cannot be created twice.</span></div>
+<div class="rule"><b>Duplicates</b><span>If the query already matches a row exactly, show that row instead of offering to create it.</span></div>
+<div class="rule"><b>No inline completion</b><span>Inline completion would overwrite the value the user is in the middle of inventing.</span></div>
+</section>
+
+<section id="tree">
+<h2>Tree behaviour</h2>
+<p class="doc-lead">Same field, same menu, nested rows. A tree earns its place when the hierarchy is part of the answer — "Platform" means something different under Engineering than under Operations.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo">
+<div class="cap">Tree select — expanded branch</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1"><span style="color:var(--text-secondary)">Engineering</span><span style="color:var(--text-tertiary);margin:0 5px">/</span>Quality</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);">
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);font-size:var(--font-size-300);font-weight:500"><span style="color:var(--text-tertiary);font-size:10px;transform:rotate(90deg);display:inline-block">▶</span>Engineering</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300);"><span style="color:var(--text-tertiary);font-size:10px;display:inline-block">▶</span>Platform</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300)"><span style="color:var(--text-tertiary);font-size:10px;display:inline-block">▶</span>Mobile</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);padding-left:calc(var(--space-4) + 18px);font-size:var(--font-size-300);background:var(--surface-brand-subtle);color:var(--text-brand);border-radius:var(--radius-xs);font-weight:600"><span style="width:14px"></span>Quality<span style="margin-left:auto;font-size:10px;color:var(--text-brand)">✓</span></div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:8px var(--space-4);font-size:var(--font-size-300);font-weight:500"><span style="color:var(--text-tertiary);font-size:10px;display:inline-block">▶</span>Design</div>
+</div></div>
+</div>
+<div class="demo">
+<div class="cap">Rules</div>
+<div class="rule" style="border:0;padding:0"><b>Expand control</b><span>18 px chevron on every parent row, separate hit area from the label. Clicking the label selects, clicking the chevron expands.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Indent</b><span>16 px per level. Past four levels, switch to a path breadcrumb in the row label instead.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Cascade</b><span>Multiple: selecting a parent selects its descendants. A partially selected parent shows an indeterminate dash.</span></div>
+<div class="rule" style="border:0;padding:0"><b>What is selectable</b><span>Decide once: leaves only, or any node. Document the rule — silent non-cascading behaviour confuses everyone.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Search</b><span>Matches flatten into a list with their path as the description; ancestors auto-expand; clearing the query restores the previous expansion.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Default expansion</b><span>Expand the branch that contains the current value; collapse everything else. Never open everything at once.</span></div>
+</div>
+</div>
+</section>
+
+<section id="remote">
+<h2>Static vs remote</h2>
+<p class="doc-lead">Static: the whole list is in the browser; filtering is instant. Remote: every query asks the server — which introduces waiting, failure, and race conditions that all need designing.</p>
+<table>
+<thead><tr><th style="width:200px">Decision</th><th>Static</th><th>Remote</th></tr></thead>
+<tbody>
+<tr><td class="tok">Use it when</td><td class="use">The list fits in memory and changes rarely — a few hundred rows of JSON is nothing</td><td class="use">Thousands of rows, permissions decide what is visible, or data changes while the page is open</td></tr>
+<tr><td class="tok">Filtering</td><td class="use">Local, instant, no states to design</td><td class="use">Server-side; debounce 300 ms, minimum 2 characters</td></tr>
+<tr><td class="tok">Before typing</td><td class="use">The full list</td><td class="use">Recent or suggested rows — never an empty menu</td></tr>
+<tr><td class="tok">While waiting</td><td class="use">n/a</td><td class="use">A loading row with the previous results kept underneath</td></tr>
+<tr><td class="tok">Out-of-order replies</td><td class="use">n/a</td><td class="use">Ignore any response older than the current query or the list flickers to stale rows</td></tr>
+<tr><td class="tok">Failure</td><td class="use">n/a</td><td class="use">"Couldn't load options" with Retry <strong>inside the menu</strong> — an empty menu reads as "no results"</td></tr>
+<tr><td class="tok">The selected value</td><td class="use">Always in the list</td><td class="use">Store id <strong>and</strong> label so the field can render a value whose row is not in the current results</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="clearing">
+<h2>Clearing</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo">
+<div class="cap">Single — the control appears once there is a value</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1">TRY — Turkish lira</span><span style="width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:13px;cursor:pointer;border-radius:var(--radius-xs)">✕</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+</div>
+<div class="demo">
+<div class="cap">Rules</div>
+<div class="rule" style="border:0;padding:0"><b>Position</b><span>In the field, before the chevron. The chevron stays, so nothing shifts when the clear control appears or disappears.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Hit area</b><span>24×24 px minimum. Accessible name: "Clear currency", not "×" or "Clear".</span></div>
+<div class="rule" style="border:0;padding:0"><b>After clearing</b><span>Back to the placeholder, focus returns to the field, the menu does not open.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Escape</b><span>Closes and restores. Escape never clears.</span></div>
+<div class="rule" style="border:0;padding:0"><b>Required fields</b><span>Still clearable. Clearing produces the empty state and validation explains what is missing — blocking the clear just hides the error until submit.</span></div>
+</div>
+</div>
+</section>
+
+<section id="states">
+<h2>States</h2>
+<table>
+<thead><tr><th style="width:140px">State</th><th>Field</th><th>Menu</th></tr></thead>
+<tbody>
+<tr><td class="tok">Empty</td><td class="use">Placeholder in <code>--text-tertiary</code>, no clear control</td><td class="use">—</td></tr>
+<tr><td class="tok">Filled</td><td class="use">Value in <code>--text-primary</code>, clear control visible</td><td class="use">Selected row marked and scrolled into view on open</td></tr>
+<tr><td class="tok">Hover</td><td class="use"><code>--border-strong</code></td><td class="use">Row background <code>--surface-hover</code> follows the pointer</td></tr>
+<tr><td class="tok">Focus</td><td class="use"><code>--focus-ring</code> at 2 px offset</td><td class="use">Focus stays on the field; the menu shows an active row instead</td></tr>
+<tr><td class="tok">Open</td><td class="use"><code>--border-focus</code>, chevron flipped 180°</td><td class="use">Active row = the selected one, or the first match while typing</td></tr>
+<tr><td class="tok">Typing</td><td class="use">Query replaces the value visually; value returns on Escape</td><td class="use">Filtered rows, matches highlighted, count announced</td></tr>
+<tr><td class="tok">Loading</td><td class="use">Spinner on the trailing edge</td><td class="use">Loading row, previous results kept underneath</td></tr>
+<tr><td class="tok">No results</td><td class="use">Query stays</td><td class="use">"No matches for X" + clear, or create when <code>creatable</code></td></tr>
+<tr><td class="tok">Error</td><td class="use"><code>--border-danger</code>, message replaces helper text</td><td class="use">Unchanged</td></tr>
+<tr><td class="tok">Disabled</td><td class="use"><code>--text-disabled</code>, not focusable, no clear control</td><td class="use">Cannot open. Disabled rows stay visible but unselectable, with reason in description</td></tr>
+<tr><td class="tok">Read-only</td><td class="use">Value as plain text, no chevron, text still selectable</td><td class="use">No menu — and unlike disabled, the value is still submitted</td></tr>
+</tbody>
+</table>
+<div style="margin-top:var(--space-5)">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
 <div class="demo">
 <div class="cap">Error</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);justify-content:space-between;gap:var(--space-4);color:var(--text-tertiary)">Choose a category <svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);gap:var(--space-4);color:var(--text-tertiary)">Choose a category <svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
 <div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Select a category to publish</div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Validated on submit, not on blur — an untouched field is not yet wrong.</p>
+</div>
+<div class="demo">
+<div class="cap">Disabled</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2);color:var(--text-disabled)">Status</div>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-subtle);gap:var(--space-4);color:var(--text-disabled);cursor:not-allowed;opacity:.6"><span style="flex:1">Live</span><svg fill="none" height="16" style="color:var(--text-disabled);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Locked until review finishes</div>
+</div>
+<div class="demo">
+<div class="cap">Loading (remote)</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2)">
+<div style="padding:var(--space-4);display:flex;gap:var(--space-3);align-items:center;font-size:var(--font-size-300);color:var(--text-secondary)"><span style="width:13px;height:13px;border-radius:50%;border:2px solid var(--border-subtle);border-top-color:var(--color-primary);flex:none"></span>Searching…</div>
+</div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Loading row in the menu, previous results kept underneath so the menu does not collapse.</p>
 </div>
 </div>
-</section>
-<section id="overflow-amp-truncation">
-<h2>Overflow &amp; truncation</h2>
-<div class="rule"><b>Long labels</b><span>Truncate with an ellipsis at the field, never in the list. The list is where the full text has to be readable.</span></div>
-<div class="rule"><b>Long lists</b><span>Scroll at 260px, roughly six rows. Virtualise past 200 options; below that the DOM cost is irrelevant.</span></div>
-<div class="rule"><b>Field width</b><span>The list matches the field width and never exceeds it. A menu wider than its trigger reads as a different element.</span></div>
-</section>
-<section id="best-practices">
-<h2>Best practices</h2>
-<div class="dd">
-<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%"><div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div><div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);justify-content:space-between;gap:var(--space-4)"><span style="color:var(--text-tertiary)">Choose a category</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div></div></div><p class="ddt">Label above, placeholder states the action. Both survive once a value is chosen.</p></div>
-<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%"><div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:38px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);justify-content:space-between;gap:var(--space-4)"><span style="color:var(--text-tertiary)">Category</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewbox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div></div></div><p class="ddt">Using the placeholder as the label: the moment a value is picked, the user can no longer tell what the field is.</p></div>
-</div>
-<div class="dd">
-<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Cash on delivery</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Bank transfer</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Credit card</div></div></div></div><p class="ddt">Option labels read as language the user already has.</p></div>
-<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">COD</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">EFT/HAVALE</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">CC — 3DS</div></div></div></div><p class="ddt">Internal codes leak the database schema into the interface.</p></div>
-</div>
-<div style="margin-top:var(--space-7)">
-<div class="rule"><b>Order</b><span>Frequency first, then alphabetical. Never database order — that is an implementation detail leaking into the UI.</span></div>
-<div class="rule"><b>Dependent</b><span>A field that depends on another (city after country) stays disabled with a hint, rather than showing an empty list.</span></div>
-<div class="rule"><b>Width</b><span>Size to the longest expected value, not to the container. Six fields of six different widths look broken.</span></div>
-<div class="rule"><b>Count</b><span>Show result counts when they change the choice ("Headphones 1 284"). Omit them when they are noise.</span></div>
-<div class="rule"><b>Disabled</b><span>Disable an option only with a visible reason nearby. Otherwise omit it — an unexplained dead row is worse than absence.</span></div>
 </div>
 </section>
+
+<section id="accessibility">
+<h2>Accessibility</h2>
+<p class="doc-lead">These criteria apply to all three variants at every size in both themes.</p>
+<div class="rule"><b>1.3.1 — Label</b><span>A real <code>&lt;label for&gt;</code> tied to the field. The placeholder is not a label — it disappears as soon as there is a value.</span></div>
+<div class="rule"><b>2.1.1 — Keyboard</b><span>Everything works from the keyboard: open, move, select, clear, close. No mouse-only expand controls in tree rows.</span></div>
+<div class="rule"><b>2.1.2 — No trap</b><span>Focus is never trapped in the menu — Escape and Tab always get out.</span></div>
+<div class="rule"><b>2.4.3 — Focus order</b><span>Closing the menu returns focus to the field, so the tab order continues where the user left it.</span></div>
+<div class="rule"><b>2.4.7 — Focus visible</b><span>2 px ring at 2 px offset on the field, the clear control, and tree expand controls.</span></div>
+<div class="rule"><b>2.5.3 — Label in name</b><span>The accessible name contains the visible label word for word.</span></div>
+<div class="rule"><b>2.5.8 — Target size</b><span>Every target is at least 24×24 px, including the clear control, the token ×, and the tree expand control.</span></div>
+<div class="rule"><b>3.2.2 — On input</b><span>Choosing a value changes no context: no navigation, no submit, no form rebuild.</span></div>
+<div class="rule"><b>3.3.1 — Error identification</b><span>An error names the field and what is wrong, is tied with <code>aria-describedby</code>, and the field carries <code>aria-invalid="true"</code>.</span></div>
+<div class="rule"><b>4.1.2 — Name, role, value</b><span><code>role="combobox"</code> on the field with <code>aria-expanded</code>, <code>aria-controls</code>, and <code>aria-activedescendant</code>. <code>role="listbox"</code> on a flat menu, <code>role="tree"</code> on a nested one. Focus never moves into the popup.</span></div>
+<div class="rule"><b>1.4.3 — Contrast</b><span>Value and placeholder text ≥ 4.5:1. Placeholder colour is a common failure — muted does not mean exempt.</span></div>
+<div class="rule"><b>1.4.11 — Non-text contrast</b><span>Field border, chevron and clear icon ≥ 3:1 against the page background.</span></div>
+<div class="rule"><b>1.4.12 — Text spacing</b><span>Rows grow taller with increased line height — no fixed row heights in pixels that clip descenders.</span></div>
+<div class="rule"><b>1.4.13 — Hover content</b><span>The menu is dismissible (Escape), hoverable (pointer can move onto it), and persistent until dismissed or a value is chosen.</span></div>
+
+<h3 style="margin-top:var(--space-7)">Semantics per variant</h3>
+<table>
+<thead><tr><th style="width:180px">Element</th><th>Select &amp; Combobox</th><th>TreeSelect</th></tr></thead>
+<tbody>
+<tr><td class="tok">Field</td><td class="use"><code>role="combobox"</code></td><td class="use"><code>role="combobox"</code></td></tr>
+<tr><td class="tok">Popup link</td><td class="use"><code>aria-controls</code> + <code>aria-haspopup="listbox"</code></td><td class="use"><code>aria-controls</code> + <code>aria-haspopup="tree"</code></td></tr>
+<tr><td class="tok">Popup role</td><td class="use"><code>role="listbox"</code></td><td class="use"><code>role="tree"</code></td></tr>
+<tr><td class="tok">Row role</td><td class="use"><code>role="option"</code></td><td class="use"><code>role="treeitem"</code></td></tr>
+<tr><td class="tok">Selection</td><td class="use"><code>aria-selected</code></td><td class="use"><code>aria-selected</code> single · <code>aria-checked</code> multiple</td></tr>
+<tr><td class="tok">Multiple</td><td class="use"><code>aria-multiselectable="true"</code></td><td class="use"><code>aria-multiselectable="true"</code></td></tr>
+<tr><td class="tok">Active row</td><td class="use" colspan="2"><code>aria-activedescendant</code> on the field — focus never moves into the popup</td></tr>
+<tr><td class="tok">Typing</td><td class="use"><code>aria-autocomplete="list"</code> or <code>"both"</code></td><td class="use"><code>aria-autocomplete="list"</code></td></tr>
+<tr><td class="tok">Disabled rows</td><td class="use" colspan="2"><code>aria-disabled="true"</code> — still rendered, still announced, not selectable</td></tr>
+</tbody>
+</table>
+
+<h3 style="margin-top:var(--space-7)">Keyboard model</h3>
+<table>
+<thead><tr><th style="width:180px">Key</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td class="tok">↓ / ↑</td><td class="use">Opens the menu, then moves the active row. Wraps at both ends. Skips disabled rows</td></tr>
+<tr><td class="tok">Enter</td><td class="use">Selects the active row. Single closes, multiple toggles and stays open</td></tr>
+<tr><td class="tok">Space</td><td class="use">Opens a Select. In a Combobox it is a character like any other</td></tr>
+<tr><td class="tok">Escape</td><td class="use">Closes and restores the previous value. Never clears</td></tr>
+<tr><td class="tok">Tab</td><td class="use">Closes, keeps the selection, moves to the next control</td></tr>
+<tr><td class="tok">Home / End</td><td class="use">First / last visible row</td></tr>
+<tr><td class="tok">Backspace</td><td class="use">Multiple with an empty query: removes the last token</td></tr>
+<tr><td class="tok">Printable keys</td><td class="use">Combobox: filters. Select: jumps to the first row starting with that character and cycles on repeats</td></tr>
+<tr><td class="tok">→ (TreeSelect)</td><td class="use">Expands a collapsed parent; on an expanded parent, moves to its first child</td></tr>
+<tr><td class="tok">← (TreeSelect)</td><td class="use">Collapses an expanded parent; on a leaf or collapsed node, moves to its parent</td></tr>
+</tbody>
+</table>
+
+<h3 style="margin-top:var(--space-7)">Contrast</h3>
+<table>
+<thead><tr><th style="width:280px">Pair</th><th style="width:100px">Ratio</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td class="tok">Value text on the field</td><td class="use">≥ 4.5:1</td><td class="use">1.4.3 — normal-size text</td></tr>
+<tr><td class="tok">Placeholder on the field</td><td class="use">≥ 4.5:1</td><td class="use">Muted, but still real text. Most commonly failed pair in this component</td></tr>
+<tr><td class="tok">Row description (muted line)</td><td class="use">≥ 4.5:1</td><td class="use">Small and grey is not an exemption</td></tr>
+<tr><td class="tok">Field border against the page</td><td class="use">≥ 3:1</td><td class="use">1.4.11 — marks the control as a control</td></tr>
+<tr><td class="tok">Chevron and clear icon</td><td class="use">≥ 3:1</td><td class="use">1.4.11 — meaningful icons, not decoration</td></tr>
+<tr><td class="tok">Focus ring against both field and page</td><td class="use">≥ 3:1</td><td class="use">2.4.11 — a ring that only contrasts with one side fails on the other</td></tr>
+<tr><td class="tok">Error border and message text</td><td class="use">≥ 3:1 / 4.5:1</td><td class="use">Colour is never the only signal — the message says what is wrong</td></tr>
+<tr><td class="tok">Disabled rows</td><td class="use">exempt</td><td class="use">1.4.3 exempts them, but keep them readable enough to explain why they are there</td></tr>
+</tbody>
+</table>
+
+<h3 style="margin-top:var(--space-7)">Target size</h3>
+<table>
+<thead><tr><th style="width:180px">Target</th><th style="width:120px">Visual</th><th>Required</th></tr></thead>
+<tbody>
+<tr><td class="tok">Field</td><td class="use">40 px tall</td><td class="use">Fine — the whole field is one target</td></tr>
+<tr><td class="tok">Clear control</td><td class="use">16 px icon</td><td class="use">24×24 hit area around it (2.5.8)</td></tr>
+<tr><td class="tok">Token ×</td><td class="use">12 px icon</td><td class="use">24×24, or spaced so 24 px circles do not intersect</td></tr>
+<tr><td class="tok">Tree expand control</td><td class="use">18 px chevron</td><td class="use">24×24 and separate from the row's selection target</td></tr>
+<tr><td class="tok">Menu row</td><td class="use">34–40 px</td><td class="use">Fine — the whole row is clickable, not just the label</td></tr>
+<tr><td class="tok">Checkbox in a row</td><td class="use">16 px</td><td class="use">No separate target needed: the row toggles it</td></tr>
+</tbody>
+</table>
+</section>
+
 <section id="content">
 <h2>Content</h2>
 <table>
-<thead><tr><th style="width:150px">Part</th><th style="width:230px">Rule</th><th>Example</th></tr></thead>
+<thead><tr><th style="width:150px">Element</th><th>Rule</th><th>Example</th></tr></thead>
 <tbody>
-<tr><td class="tok">Label</td><td class="use">Noun, sentence case, no colon.</td><td class="use">Shipping region</td></tr>
-<tr><td class="tok">Placeholder</td><td class="use">Verb phrase naming the action, never a repeat of the label.</td><td class="use">Choose a region</td></tr>
-<tr><td class="tok">Option</td><td class="use">Parallel grammar across the whole list; no trailing punctuation.</td><td class="use">Express · next day</td></tr>
-<tr><td class="tok">Group header</td><td class="use">Uppercase overline, one or two words.</td><td class="use">INTERNATIONAL</td></tr>
-<tr><td class="tok">Hint</td><td class="use">One sentence, states consequence not mechanics.</td><td class="use">Buyers outside this list won't see the listing</td></tr>
-<tr><td class="tok">Error</td><td class="use">What to do, not what went wrong.</td><td class="use">Select a category to publish</td></tr>
+<tr><td class="tok">Label</td><td class="use">A noun, sentence case, no colon</td><td class="use">Billing country</td></tr>
+<tr><td class="tok">Placeholder</td><td class="use">"Select a …" for a Select; "Search …" for a Combobox. Never repeats the label</td><td class="use">Select a country</td></tr>
+<tr><td class="tok">Helper text</td><td class="use">The rule, not the obvious. Constraints go here, not in the placeholder</td><td class="use">Used on invoices</td></tr>
+<tr><td class="tok">Row label</td><td class="use">Front-load the distinguishing word — the list is scanned, not read</td><td class="use">AZN — Azerbaijani manat</td></tr>
+<tr><td class="tok">Row description</td><td class="use">One line, factual. Why a row is disabled belongs here</td><td class="use">Already a member</td></tr>
+<tr><td class="tok">Group header</td><td class="use">Plural noun, sentence case</td><td class="use">Europe &amp; Caucasus</td></tr>
+<tr><td class="tok">Empty state</td><td class="use">Repeat the query so it is clear what was searched</td><td class="use">No matches for "xyz"</td></tr>
+<tr><td class="tok">Error</td><td class="use">Say what to do, not what happened</td><td class="use">Select a billing country</td></tr>
+<tr><td class="tok">Multiple summary</td><td class="use">Count plus noun, never a bare number</td><td class="use">3 people selected</td></tr>
 </tbody>
 </table>
 </section>
-<section id="accessibility" style="padding-bottom:var(--space-13)">
-<h2>Accessibility</h2>
-<div class="rule"><b>Roles</b><span><code>role="combobox"</code> on the field with <code>aria-expanded</code>, <code>aria-controls</code> and <code>aria-activedescendant</code>; <code>role="listbox"</code> on the list; <code>role="option"</code> with <code>aria-selected</code> on rows.</span></div>
-<div class="rule"><b>Label</b><span>A real <code>&lt;label for&gt;</code>. <code>aria-label</code> only where no visible label can exist, and then it must match the visible context.</span></div>
-<div class="rule"><b>Announce</b><span>Result counts go to a polite live region: "12 categories available". Silent filtering leaves screen-reader users with no feedback.</span></div>
-<div class="rule"><b>Focus</b><span>Never leaves the field while the list is open — the highlight moves via <code>aria-activedescendant</code>, so Esc always returns somewhere predictable.</span></div>
-<div class="rule"><b>Contrast</b><span>Field boundary <code>--border-control</code> at 3.1:1, option text 4.9:1 or better, selection marked by a check as well as colour.</span></div>
-<div class="rule"><b>Targets</b><span>Option rows 44px tall including padding, clearing WCAG 2.5.8 with room to spare.</span></div>
+
+<section id="spacing">
+<h2>Spacing</h2>
+<table>
+<thead><tr><th style="width:220px">Measure</th><th style="width:80px">sm 32</th><th style="width:80px">md 40</th><th style="width:80px">lg 48</th></tr></thead>
+<tbody>
+<tr><td class="tok">Field height</td><td class="use">32</td><td class="use">40</td><td class="use">48</td></tr>
+<tr><td class="tok">Field padding-x</td><td class="use">8 px</td><td class="use">12 px · <code>--space-4</code></td><td class="use">16 px · <code>--space-5</code></td></tr>
+<tr><td class="tok">Gap: value → clear → chevron</td><td class="use">4</td><td class="use">6</td><td class="use">8</td></tr>
+<tr><td class="tok">Label → field</td><td class="use"><code>--space-2</code></td><td class="use"><code>--space-2</code></td><td class="use"><code>--space-2</code></td></tr>
+<tr><td class="tok">Field → helper / error</td><td class="use"><code>--space-1</code></td><td class="use"><code>--space-2</code></td><td class="use"><code>--space-2</code></td></tr>
+<tr><td class="tok">Field → menu</td><td class="use">4</td><td class="use">4</td><td class="use">4</td></tr>
+<tr><td class="tok">Menu inner padding</td><td class="use"><code>--space-1</code></td><td class="use"><code>--space-2</code></td><td class="use"><code>--space-2</code></td></tr>
+<tr><td class="tok">Row height</td><td class="use">32</td><td class="use">34–36</td><td class="use">40</td></tr>
+<tr><td class="tok">Row padding-x</td><td class="use">8</td><td class="use"><code>--space-4</code></td><td class="use"><code>--space-4</code></td></tr>
+<tr><td class="tok">Tree indent per level</td><td class="use">16</td><td class="use">16</td><td class="use">16</td></tr>
+<tr><td class="tok">Token height</td><td class="use">20</td><td class="use">24</td><td class="use">28</td></tr>
+<tr><td class="tok">Stacked fields in a form</td><td class="use"><code>--space-5</code></td><td class="use"><code>--space-5</code></td><td class="use"><code>--space-6</code></td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="api">
+<h2>API</h2>
+<pre style="background:var(--surface-code,#1a1f1e);color:var(--text-code,#dfe8e4);border-radius:var(--radius-sm);padding:var(--space-6);font:13px/1.65 var(--font-mono,'IBM Plex Mono',monospace);overflow-x:auto;margin:0"><span style="color:#6db3a8">// One base, three variants. The variant is what the data looks like;
+// everything else is a property.</span>
+
+&lt;Select              <span style="color:#6db3a8">// fixed flat list, no typing filter</span>
+  label="Status"
+  options={statuses}
+  value={value} onChange={setValue}
+  clearable multiple
+/&gt;
+
+&lt;Combobox            <span style="color:#6db3a8">// flat list + typing: the default above ~10 options</span>
+  label="Country"
+  options={countries}          <span style="color:#6db3a8">// omit when remote</span>
+  value={value} onChange={setValue}
+  multiple creatable clearable
+  inlineComplete={false}       <span style="color:#6db3a8">// single + fixed list only</span>
+  remote=&#123;&#123;
+    load: q =&gt; api.search(q),
+    debounce: 300,
+    minChars: 2,
+    recent: recentItems,
+  &#125;&#125;
+/&gt;
+
+&lt;TreeSelect          <span style="color:#6db3a8">// nested data</span>
+  label="Team"
+  nodes={org}                  <span style="color:#6db3a8">// [{ id, label, children?, disabled? }]</span>
+  value={value} onChange={setValue}
+  multiple                     <span style="color:#6db3a8">// cascades to descendants</span>
+  leafOnly={false}             <span style="color:#6db3a8">// can a parent be the answer?</span>
+  loadChildren={id =&gt; api.children(id)}
+  defaultExpanded={[currentBranchId]}
+/&gt;
+
+<span style="color:#6db3a8">// Shared by all three:
+// size="sm|md|lg"  status="error|warning"  hint  disabled  readOnly  required</span></pre>
 </section>
 
 </div>
@@ -354,24 +631,26 @@
 </main>
 <aside class="toc" aria-label="On this page">
 <div class="toc__title">On this page</div>
-<a href="#examples">Examples</a>
-<a href="#guidance">Guidance</a>
-<a href="#choosing-a-control">Choosing a control</a>
+<a href="#principles">Principles</a>
+<a href="#not">When not to use</a>
 <a href="#anatomy">Anatomy</a>
-<a href="#single-select">Single select</a>
-<a href="#searchable-combobox">Searchable · Combobox</a>
-<a href="#grouped">Grouped</a>
-<a href="#multi-select-count">Multi-select · count</a>
-<a href="#multi-select-tags">Multi-select · tags</a>
-<a href="#tree-select">Tree select</a>
-<a href="#opening-amp-closing">Opening &amp;amp; closing</a>
-<a href="#filtering">Filtering</a>
-<a href="#keyboard">Keyboard</a>
-<a href="#loading-empty-error">Loading, empty, error</a>
-<a href="#overflow-amp-truncation">Overflow &amp;amp; truncation</a>
-<a href="#best-practices">Best practices</a>
-<a href="#content">Content</a>
+<a href="#choosing-a-variant">Choosing a variant</a>
+<a href="#variants">Variants</a>
+<a href="#properties">Properties</a>
+<a href="#sizes">Sizes &amp; type</a>
+<a href="#menu">Menu</a>
+<a href="#behaviour">Opening &amp; closing</a>
+<a href="#autocomplete">Search &amp; autocomplete</a>
+<a href="#multiple">Multiple</a>
+<a href="#creatable">Creatable</a>
+<a href="#tree">Tree behaviour</a>
+<a href="#remote">Static vs remote</a>
+<a href="#clearing">Clearing</a>
+<a href="#states">States</a>
 <a href="#accessibility">Accessibility</a>
+<a href="#content">Content</a>
+<a href="#spacing">Spacing</a>
+<a href="#api">API</a>
 </aside>
 </div>
 
