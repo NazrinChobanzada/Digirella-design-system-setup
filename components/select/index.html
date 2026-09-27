@@ -108,6 +108,7 @@
 <div class="rule"><b>Visible options beat hidden ones</b><span>Up to about six options, a radio or checkbox group is better: all choices are readable at a glance and changing the answer takes one click instead of three.</span></div>
 <div class="rule"><b>Typing is an accelerator, not a gate</b><span>In a Combobox the full list still opens on click. Search makes a long list fast for people who know what they want — it must never be the only way to see what is available.</span></div>
 <div class="rule"><b>Every selection is reversible</b><span>A value can always be removed without reloading the page or inventing a "None" row in the data. Clearing is part of the control and is on by default.</span></div>
+<div class="rule"><b>Default values are a liability in required fields</b><span>Pre-selecting a value means a wrong answer produces no error — the user never sees the validation prompt and submits silently. Avoid pre-selection in required fields unless the default is almost always correct. This applies equally to radio groups. When a default is needed, make it the system-recommended value and say so in the helper text.</span></div>
 </section>
 
 <section id="not">
@@ -129,14 +130,44 @@
 <section id="anatomy">
 <h2>Anatomy</h2>
 <p class="doc-lead">Every selection control is built from the same eight parts. Only the list contents and whether the field accepts typing change between variants.</p>
-<div style="display:grid;grid-template-columns:340px 1fr;gap:var(--space-8);align-items:start">
-<div class="demo">
-<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Billing country</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:var(--space-4)"><span style="flex:1;color:var(--text-tertiary)">Search countries</span><span style="font-size:var(--font-size-200);color:var(--text-secondary);background:var(--surface-hover);border-radius:var(--radius-xs);padding:2px 6px;white-space:nowrap">✕</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
-<div style="margin-top:4px"><div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);"><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Azerbaijan</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Türkiye</div><div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Germany</div></div></div>
-<div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-3)">Used on invoices and receipts</div>
+<div class="demo anatomy" style="align-items:flex-start;gap:var(--space-9)">
+<div style="position:relative;min-width:260px;max-width:340px;width:100%;overflow:visible;padding-right:32px">
+<div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-2);position:relative">
+<span class="pin" style="flex:0 0 20px">1</span><div style="font-size:var(--font-size-300);font-weight:500">Billing country</div>
 </div>
-<div style="display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-3)">
+<div style="position:relative">
+<span class="pin" style="position:absolute;top:50%;right:0;transform:translateY(-50%)">2</span>
+<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:4px">
+<span style="flex:1;color:var(--text-tertiary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Search countries</span>
+<span style="display:inline-flex;align-items:center;justify-content:center;position:relative;width:24px;height:24px;flex:0 0 24px">
+<span style="font-size:var(--font-size-200);color:var(--text-secondary);background:var(--surface-hover);border-radius:var(--radius-xs);padding:2px 5px">✕</span>
+</span>
+<span style="display:inline-flex;align-items:center;justify-content:center;flex:0 0 16px">
+<svg fill="none" height="16" style="color:var(--text-secondary);transform:rotate(180deg)" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+</span>
+</div>
+<div style="position:absolute;bottom:-28px;left:0;right:32px;display:flex;justify-content:space-between;pointer-events:none">
+<span class="pin" style="font-size:10px;width:16px;height:16px">3</span>
+<span class="pin" style="font-size:10px;width:16px;height:16px">4</span>
+<span class="pin" style="font-size:10px;width:16px;height:16px">5</span>
+</div>
+</div>
+<div style="position:relative;margin-top:36px">
+<span class="pin" style="position:absolute;top:8px;right:0;z-index:1">6</span>
+<div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2);">
+<div style="position:relative">
+<span class="pin" style="position:absolute;top:50%;right:-24px;transform:translateY(-50%);z-index:1;font-size:10px;width:16px;height:16px">7</span>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">Azerbaijan</div>
+</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Türkiye</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Germany</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-3)">
+<span class="pin" style="flex:0 0 20px">8</span><div style="font-size:var(--font-size-200);color:var(--text-tertiary)">Used on invoices and receipts</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Label</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Always visible, tied to the field. Never replaced by a placeholder.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Field</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">The trigger. 40px default height. <code>--border-control</code> at 3:1, passing WCAG 1.4.11.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Value or placeholder</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Value in <code>--text-primary</code>, placeholder muted. In a Combobox, an editable text field.</div></div></div>
@@ -178,19 +209,19 @@
 </table>
 <div style="margin-top:var(--space-7)">
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Select</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
 <div data-select-demo='{"type":"select","options":[{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"approved","label":"Approved"},{"value":"rejected","label":"Rejected"},{"value":"archived","label":"Archived"},{"value":"published","label":"Published"},{"value":"scheduled","label":"Scheduled"}],"value":"in_review","placeholder":"Select a status…"}'></div>
 <p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">7 options. Click to open, arrow keys to move, no typing filter.</p>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Combobox</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Country</div>
 <div data-select-demo='{"type":"combobox","options":[{"value":"az","label":"Azerbaijan"},{"value":"tr","label":"Türkiye"},{"value":"de","label":"Germany"},{"value":"fr","label":"France"},{"value":"gb","label":"United Kingdom"},{"value":"us","label":"United States"},{"value":"ru","label":"Russia"},{"value":"it","label":"Italy"},{"value":"es","label":"Spain"},{"value":"pl","label":"Poland"},{"value":"ua","label":"Ukraine"},{"value":"nl","label":"Netherlands"},{"value":"ge","label":"Georgia"},{"value":"kz","label":"Kazakhstan"},{"value":"am","label":"Armenia"}],"placeholder":"Search countries…"}'></div>
 <p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">15+ options. Type to filter by any substring; matches highlighted.</p>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">TreeSelect</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
 <div data-select-demo='{"type":"tree","options":[{"value":"electronics","label":"Electronics","children":[{"value":"audio","label":"Audio","children":[{"value":"headphones","label":"Headphones"},{"value":"speakers","label":"Speakers"},{"value":"earbuds","label":"Earbuds"}]},{"value":"laptops","label":"Laptops"},{"value":"phones","label":"Phones"}]},{"value":"clothing","label":"Clothing","children":[{"value":"mens","label":"Mens"},{"value":"womens","label":"Womens"}]},{"value":"books","label":"Books"}],"value":"headphones","defaultExpanded":["electronics","audio"],"placeholder":"Choose a category…"}'></div>
@@ -220,7 +251,7 @@
 <section id="sizes">
 <h2>Sizes &amp; type</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Three sizes</div>
 <div style="display:flex;flex-direction:column;gap:var(--space-4)">
 <div>
@@ -237,7 +268,7 @@
 </div>
 </div>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Type specs</div>
 <table style="font-size:var(--font-size-200)">
 <thead><tr><th>Part</th><th>Type</th><th>Height</th></tr></thead>
@@ -303,12 +334,12 @@
 <div class="rule"><b>Inline completion</b><span>Only for a single-select Combobox over a fixed list where one prefix has exactly one answer. Never with <code>creatable</code>, never with <code>multiple</code>, never on a remote list.</span></div>
 <div style="margin-top:var(--space-5)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">List autocomplete — try typing "man", "eur", "lira"</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
 <div data-select-demo='{"type":"combobox","options":[{"value":"azn","label":"AZN — Azerbaijani manat"},{"value":"try","label":"TRY — Turkish lira"},{"value":"eur","label":"EUR — Euro"},{"value":"usd","label":"USD — US dollar"},{"value":"gbp","label":"GBP — British pound"},{"value":"rub","label":"RUB — Russian ruble"},{"value":"uah","label":"UAH — Ukrainian hryvnia"},{"value":"gel","label":"GEL — Georgian lari"},{"value":"kzt","label":"KZT — Kazakhstani tenge"}],"placeholder":"Search currencies…"}'></div>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Highlight token: <code>--color-primary-subtle-hover</code></div>
 <div style="display:flex;flex-direction:column;gap:var(--space-3)">
 <div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Sen<b style="background:var(--color-primary-subtle-hover)">nheiser</b></div>
@@ -324,16 +355,16 @@
 <h2>Multiple</h2>
 <p class="doc-lead">A property on every variant. Past about five rows, a multi-select should be a Combobox: as soon as several values are chosen, finding the ones not yet chosen is a search problem.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Combobox + multiple — menu stays open</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team access</div>
 <div data-select-demo='{"type":"combobox","multiple":true,"options":[{"value":"leyla","label":"Leyla"},{"value":"kamran","label":"Kamran"},{"value":"nigar","label":"Nigar"},{"value":"azer","label":"Azer"},{"value":"gunel","label":"Günel"},{"value":"rashad","label":"Rəşad"},{"value":"samir","label":"Samir"}],"value":["leyla","kamran","nigar"],"placeholder":"Search people…"}'></div>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Rules</div>
 <div class="rule" style="border:0;padding:0"><b>Menu</b><span>Stays open while selecting; closes on Escape, Tab or click outside.</span></div>
 <div class="rule" style="border:0;padding:0"><b>Rows</b><span>Checkbox on the leading edge so state does not depend on colour alone.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Field</b><span>Tokens up to the field width, then "+N". Past eight selections switch to "N selected".</span></div>
+<div class="rule" style="border:0;padding:0"><b>Field</b><span>Show as many tokens as fit. When some are hidden, label the overflow "+N more" — never a bare count. Past eight total, collapse to "N items selected" using the entity name so the reader knows what kind of thing is selected.</span></div>
 <div class="rule" style="border:0;padding:0"><b>Footer</b><span>Select all / Clear all once the list or selection gets long.</span></div>
 <div class="rule" style="border:0;padding:0"><b>Limits</b><span>With a maximum, show "3 of 5 selected" and disable unchosen rows instead of failing on submit.</span></div>
 <div class="rule" style="border:0;padding:0"><b>Backspace</b><span>On an empty query removes the last token, one at a time.</span></div>
@@ -354,12 +385,12 @@
 <h2>Tree behaviour</h2>
 <p class="doc-lead">Same field, same menu, nested rows. A tree earns its place when the hierarchy is part of the answer — "Platform" means something different under Engineering than under Operations.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Tree select — click ▶ to expand</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team</div>
 <div data-select-demo='{"type":"tree","options":[{"value":"eng","label":"Engineering","children":[{"value":"platform","label":"Platform"},{"value":"mobile","label":"Mobile"},{"value":"quality","label":"Quality"}]},{"value":"design","label":"Design","children":[{"value":"ux","label":"UX"},{"value":"brand","label":"Brand"}]},{"value":"ops","label":"Operations"}],"value":"quality","defaultExpanded":["eng"],"placeholder":"Select a team…"}'></div>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Rules</div>
 <div class="rule" style="border:0;padding:0"><b>Expand control</b><span>18 px chevron on every parent row, separate hit area from the label. Clicking the label selects, clicking the chevron expands.</span></div>
 <div class="rule" style="border:0;padding:0"><b>Indent</b><span>16 px per level. Past four levels, switch to a path breadcrumb in the row label instead.</span></div>
@@ -391,12 +422,12 @@
 <section id="clearing">
 <h2>Clearing</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Single — the clear control appears once there is a value</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
 <div data-select-demo='{"type":"select","options":[{"value":"azn","label":"AZN — Azerbaijani manat"},{"value":"try","label":"TRY — Turkish lira"},{"value":"eur","label":"EUR — Euro"},{"value":"usd","label":"USD — US dollar"},{"value":"gbp","label":"GBP — British pound"}],"value":"try","clearable":true,"placeholder":"Select a currency…"}'></div>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Rules</div>
 <div class="rule" style="border:0;padding:0"><b>Position</b><span>In the field, before the chevron. The chevron stays, so nothing shifts when the clear control appears or disappears.</span></div>
 <div class="rule" style="border:0;padding:0"><b>Hit area</b><span>24×24 px minimum. Accessible name: "Clear currency", not "×" or "Clear".</span></div>
@@ -427,19 +458,19 @@
 </table>
 <div style="margin-top:var(--space-5)">
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Error</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);gap:var(--space-4);color:var(--text-tertiary)">Choose a category <svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
 <div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Select a category to publish</div>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Disabled</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2);color:var(--text-disabled)">Status</div>
 <div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-subtle);gap:var(--space-4);color:var(--text-disabled);cursor:not-allowed;opacity:.6"><span style="flex:1">Live</span><svg fill="none" height="16" style="color:var(--text-disabled);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
 <div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Locked until review finishes</div>
 </div>
-<div class="demo">
+<div class="demo demo--stack">
 <div class="cap">Loading (remote)</div>
 <div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2)">
 <div style="padding:var(--space-4);display:flex;gap:var(--space-3);align-items:center;font-size:var(--font-size-300);color:var(--text-secondary)"><span style="width:13px;height:13px;border-radius:50%;border:2px solid var(--border-subtle);border-top-color:var(--color-primary);flex:none"></span>Searching…</div>
@@ -543,7 +574,7 @@
 <tr><td class="tok">Group header</td><td class="use">Plural noun, sentence case</td><td class="use">Europe &amp; Caucasus</td></tr>
 <tr><td class="tok">Empty state</td><td class="use">Repeat the query so it is clear what was searched</td><td class="use">No matches for "xyz"</td></tr>
 <tr><td class="tok">Error</td><td class="use">Say what to do, not what happened</td><td class="use">Select a billing country</td></tr>
-<tr><td class="tok">Multiple summary</td><td class="use">Count plus noun, never a bare number</td><td class="use">3 people selected</td></tr>
+<tr><td class="tok">Multiple summary</td><td class="use">Show tokens; overflow as "+N more"; past 8 total use "N items selected" with entity name, never a bare number</td><td class="use">Leyla, Kamran +2 more · 5 people selected</td></tr>
 </tbody>
 </table>
 </section>
@@ -667,7 +698,7 @@
   };
   DS.prototype.fieldHTML=function(s){
     var has=this.multi?this.val.length>0:!!this.val,inner='',self=this;
-    if(this.multi&&has){var labs=this.val.map(function(v){return self.find(v)?.label||v;});var show=labs.slice(0,3);inner+=show.map(function(l){return '<span style="display:inline-flex;align-items:center;gap:3px;background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:1px 6px;font-size:12.5px;font-weight:500;height:22px;white-space:nowrap;line-height:1">'+l+'<button type="button" data-rm="'+l+'" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;font-size:11px;line-height:1;opacity:.7;width:12px">×</button></span>';}).join('');if(labs.length>3)inner+='<span style="font-size:var(--font-size-200);color:var(--text-secondary)">+' +(labs.length-3)+'</span>';}
+    if(this.multi&&has){var labs=this.val.map(function(v){return self.find(v)?.label||v;});var show=labs.slice(0,3);inner+=show.map(function(l){return '<span style="display:inline-flex;align-items:center;gap:3px;background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:1px 6px;font-size:12.5px;font-weight:500;height:22px;white-space:nowrap;line-height:1">'+l+'<button type="button" data-rm="'+l+'" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;font-size:11px;line-height:1;opacity:.7;width:12px">×</button></span>';}).join('');if(labs.length>3)inner+='<span style="font-size:var(--font-size-200);color:var(--text-secondary);white-space:nowrap">+'+(labs.length-3)+' more</span>';}
     if(this.type==='combobox'){inner+='<input type="text" autocomplete="off" value="'+this.q.replace(/"/g,'&quot;')+'" placeholder="'+((!has||this.multi)?this.ph:'')+'" style="flex:1;border:none;outline:none;background:transparent;font:inherit;font-size:'+s.fs+';color:'+(this.q?'var(--text-primary)':'var(--text-tertiary)')+';min-width:60px;padding:0">';}
     else if(!has){inner+='<span style="flex:1;color:var(--text-tertiary)">'+this.ph+'</span>';}
     else if(this.type==='tree'){var p=this.path(this.val);inner+=p?'<span style="flex:1">'+p.slice(0,-1).map(function(s){return '<span style="color:var(--text-secondary)">'+s+'</span><span style="color:var(--text-tertiary);margin:0 4px">/</span>';}).join('')+p[p.length-1]+'</span>':'<span style="flex:1">'+this.val+'</span>';}
