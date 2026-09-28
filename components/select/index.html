@@ -689,7 +689,10 @@
     this.sz=cfg.size||'md'; this.multi=!!cfg.multiple; this.cl=cfg.clearable!==false;
     this.val=this.multi?(cfg.value||[]):(cfg.value||null);
     this.exp=new Set(cfg.defaultExpanded||[]);
-    this.open=false; this.q='';
+    this.open=false; this.q=''; this.focused=false;
+    var self=this;
+    el.addEventListener('focusin',function(){if(!self.focused){self.focused=true;self.draw();}});
+    el.addEventListener('focusout',function(e){if(!el.contains(e.relatedTarget)){self.focused=false;self.draw();}});
     el.style.cssText='position:relative;display:block;user-select:none';
     this.draw();
   }
@@ -709,8 +712,8 @@
     else if(this.type==='tree'){var p=this.path(this.val);ctn+=p?'<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+p.slice(0,-1).map(function(n){return '<span style="color:var(--text-secondary)">'+n+'</span><span style="color:var(--text-tertiary);margin:0 4px">/</span>';}).join('')+p[p.length-1]+'</span>':'<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+this.val+'</span>';}
     else{ctn+='<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+(this.find(this.val)?.label||this.val)+'</span>';}
     var ctrl='';
-    if(this.cl&&has&&!this.multi)ctrl+='<button type="button" data-clr aria-label="Clear" style="background:none;border:none;padding:0;cursor:pointer;width:'+s.clw+'px;height:'+s.clw+'px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:'+s.clfs+'px;border-radius:var(--radius-xs);flex:0 0 '+s.clw+'px">✕</button>';
-    if(this.cl&&this.multi&&has)ctrl+='<button type="button" data-clr aria-label="Clear all" style="background:none;border:none;padding:0;cursor:pointer;width:'+s.clw+'px;height:'+s.clw+'px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:'+s.clfs+'px;border-radius:var(--radius-xs);flex:0 0 '+s.clw+'px">✕</button>';
+    if(this.cl&&has&&!this.multi&&this.focused)ctrl+='<button type="button" data-clr aria-label="Clear" style="background:none;border:none;padding:0;cursor:pointer;width:'+s.clw+'px;height:'+s.clw+'px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:'+s.clfs+'px;border-radius:var(--radius-xs);flex:0 0 '+s.clw+'px">✕</button>';
+    if(this.cl&&this.multi&&has&&this.focused)ctrl+='<button type="button" data-clr aria-label="Clear all" style="background:none;border:none;padding:0;cursor:pointer;width:'+s.clw+'px;height:'+s.clw+'px;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:'+s.clfs+'px;border-radius:var(--radius-xs);flex:0 0 '+s.clw+'px">✕</button>';
     ctrl+=chv(s.ic,this.open);
     var body=this.multi?'<div style="flex:1;display:flex;flex-wrap:wrap;align-items:center;gap:'+s.gap+'">'+ctn+'</div>':ctn;
     var bord=this.open?'border:1px solid var(--border-focus);box-shadow:0 0 0 2px var(--surface-brand-subtle)':'border:1px solid var(--border-control)';
