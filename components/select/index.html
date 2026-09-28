@@ -102,13 +102,19 @@
 <div class="doc">
 <p class="doc-lead">Three variants on one base: <strong>Select</strong> for short, fixed lists; <strong>Combobox</strong> when typing helps filter a long list; <strong>TreeSelect</strong> when options are nested. Multiple, clearable, creatable and remote are properties that switch on across variants. This page is the complete specification for the selection family.</p>
 
-<section id="principles">
+<div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div><section id="principles" data-part="Guidelines">
 <h2>Principles</h2>
-<div class="rule"><b>A select holds a value</b><span>Choosing a row sets state — it does not navigate, submit, or rebuild the form. If picking a row runs a command, use an action menu: different keyboard model, no value, no validation.</span></div>
-<div class="rule"><b>Visible options beat hidden ones</b><span>Up to about six options, a radio or checkbox group is better: all choices are readable at a glance and changing the answer takes one click instead of three.</span></div>
-<div class="rule"><b>Typing is an accelerator, not a gate</b><span>In a Combobox the full list still opens on click. Search makes a long list fast for people who know what they want — it must never be the only way to see what is available.</span></div>
-<div class="rule"><b>Every selection is reversible</b><span>A value can always be removed without reloading the page or inventing a "None" row in the data. Clearing is part of the control and is on by default.</span></div>
-<div class="rule"><b>Default values are a liability in required fields</b><span>Pre-selecting a value means a wrong answer produces no error — the user never sees the validation prompt and submits silently. Avoid pre-selection in required fields unless the default is almost always correct. This applies equally to radio groups. When a default is needed, make it the system-recommended value and say so in the helper text.</span></div>
+<p>Five ideas explain most of the decisions on this page.</p>
+<h3>A select holds a value</h3>
+<p>Choosing a row sets state — it does not navigate, submit, or rebuild the form. If picking a row runs a command, use an action menu: different keyboard model, no value, no validation.</p>
+<h3>Visible options beat hidden ones</h3>
+<p>Up to about six options, a radio or checkbox group is better: all choices are readable at a glance and changing the answer takes one click instead of three.</p>
+<h3>Typing is an accelerator, not a gate</h3>
+<p>In a Combobox the full list still opens on click. Search makes a long list fast for people who know what they want — it must never be the only way to see what is available.</p>
+<h3>Every selection is reversible</h3>
+<p>A value can always be removed without reloading the page or inventing a "None" row in the data. Clearing is part of the control and is on by default.</p>
+<h3>Default values are a liability in required fields</h3>
+<p>Pre-selecting a value means a wrong answer produces no error — the user never sees the validation prompt and submits silently. Avoid pre-selection in required fields unless the default is almost always correct. This applies equally to radio groups. When a default is needed, make it the system-recommended value and say so in the helper text.</p>
 </section>
 
 <section id="not">
