@@ -106,7 +106,7 @@
 <h2>Principles</h2>
 <p>Five ideas explain most of the decisions on this page.</p>
 <h3>A select holds a value</h3>
-<p>Choosing a row sets state — it does not navigate, submit, or rebuild the form. If picking a row runs a command, use an action menu: different keyboard model, no value, no validation.</p>
+<p>Choosing a row sets state — it does not navigate, submit, or rebuild the form. If picking a row runs a command, use an action menu — it has a different keyboard model and holds no state.</p>
 <h3>Visible options beat hidden ones</h3>
 <p>Up to about six options, a radio or checkbox group is better: all choices are readable at a glance and changing the answer takes one click instead of three.</p>
 <h3>Typing is an accelerator, not a gate</h3>
@@ -147,8 +147,6 @@
 <span class="pin" style="font-size:10px;width:16px;height:16px;flex:0 0 16px">3</span>
 <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Search countries</span>
 </span>
-<span class="pin" style="font-size:10px;width:16px;height:16px;flex:0 0 16px">4</span>
-<span style="font-size:var(--font-size-200);color:var(--text-secondary);background:var(--surface-hover);border-radius:var(--radius-xs);padding:2px 5px;white-space:nowrap">✕</span>
 <span class="pin" style="font-size:10px;width:16px;height:16px;flex:0 0 16px">5</span>
 <svg fill="none" height="16" style="color:var(--text-secondary);transform:rotate(180deg);flex:0 0 16px" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
 </div>
@@ -172,7 +170,7 @@
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Label</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Always visible, tied to the field. Never replaced by a placeholder.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Field</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">The trigger. 40px default height. <code>--border-control</code> at 3:1, passing WCAG 1.4.11.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Value or placeholder</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Value in <code>--text-primary</code>, placeholder muted. In a Combobox, an editable text field.</div></div></div>
-<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Clear control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Appears only when there is a value to clear. 24×24 hit area. On by default.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Clear control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Appears only when the field is focused <em>and</em> has a value. Never shown at the same time as an unfocused filled state. 24×24 hit area. On by default.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Chevron</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">16px icon, rotates 180° when open. The affordance that says "this is a list".</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">6</span><div><div style="font-size:var(--font-size-300);font-weight:600">Menu</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Overlay surface, at least as wide as the field, capped at about eight rows.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">7</span><div><div style="font-size:var(--font-size-300);font-weight:600">Row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Label, optional description, optional checkbox or tick, optional expand chevron (tree only).</div></div></div>
@@ -326,28 +324,27 @@
 <section id="autocomplete">
 <h2>Search &amp; autocomplete</h2>
 <p class="doc-lead">List autocomplete filters the menu as you type and is the default for every Combobox. A Select does not filter — typing jumps to the first row starting with that character, cycling on repeats.</p>
-<div class="rule"><b>Match anywhere</b><span>Substring, not prefix: "man" finds "Azerbaijani manat". Case- and diacritic-insensitive — "turkiye" finds "Türkiye", "resad" finds "Rəşad".</span></div>
-<div class="rule"><b>Match the whole row</b><span>Descriptions, codes and — in a tree — the parent path all count, not just the visible label.</span></div>
-<div class="rule"><b>Highlight</b><span>Mark matched characters with <code>--color-primary-subtle-hover</code> so the reason a row appears in the list is visible.</span></div>
-<div class="rule"><b>Stable order</b><span>Filter, do not re-sort. An exact match may be pinned first; everything else keeps its original position.</span></div>
-<div class="rule"><b>No results</b><span>"No matches for X" plus a way out — clear the query, or create the value when <code>creatable</code>.</span></div>
-<div class="rule"><b>Empty query</b><span>The full list (static) or recent and suggested rows (remote). Focus never produces an empty menu.</span></div>
-<div class="rule"><b>Inline completion</b><span>Only for a single-select Combobox over a fixed list where one prefix has exactly one answer. Never with <code>creatable</code>, never with <code>multiple</code>, never on a remote list.</span></div>
-<div style="margin-top:var(--space-5)">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);margin-top:var(--space-5)">
 <div class="demo demo--stack">
 <div class="cap">List autocomplete — try typing "man", "eur", "lira"</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
 <div data-select-demo='{"type":"combobox","options":[{"value":"azn","label":"AZN — Azerbaijani manat"},{"value":"try","label":"TRY — Turkish lira"},{"value":"eur","label":"EUR — Euro"},{"value":"usd","label":"USD — US dollar"},{"value":"gbp","label":"GBP — British pound"},{"value":"rub","label":"RUB — Russian ruble"},{"value":"uah","label":"UAH — Ukrainian hryvnia"},{"value":"gel","label":"GEL — Georgian lari"},{"value":"kzt","label":"KZT — Kazakhstani tenge"}],"placeholder":"Search currencies…"}'></div>
+<div style="margin-top:var(--space-4);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-4)">
+<div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-bottom:var(--space-2);font-weight:500">Highlight token</div>
+<div style="display:flex;flex-direction:column;gap:1px">
+<div style="padding:7px var(--space-3);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Sen<b style="background:var(--color-primary-subtle-hover);font-weight:inherit">nheiser</b></div>
+<div style="padding:7px var(--space-3);border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)"><b style="background:var(--color-primary-subtle-hover);font-weight:inherit">Sen</b>tey</div>
 </div>
-<div class="demo demo--stack">
-<div class="cap">Highlight token: <code>--color-primary-subtle-hover</code></div>
-<div style="display:flex;flex-direction:column;gap:var(--space-3)">
-<div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Sen<b style="background:var(--color-primary-subtle-hover)">nheiser</b></div>
-<div style="display:flex;align-items:center;gap:var(--space-3);padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);"><b style="background:var(--color-primary-subtle-hover)">Sen</b>tey</div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:0">Background tint highlights the match, never bold alone — bold changes layout and pushes other text.</p>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-2) 0 0">Background tint (<code>--color-primary-subtle-hover</code>) marks the match — never bold, which shifts layout.</p>
 </div>
 </div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6)">
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Match anywhere</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Substring, not prefix: "man" finds "Azerbaijani manat". Case- and diacritic-insensitive — "turkiye" finds "Türkiye".</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Match the whole row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Descriptions, codes and — in a tree — the parent path all count, not just the visible label.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Stable order</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Filter, do not re-sort. An exact match may be pinned first; everything else keeps its original position.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">No results</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">"No matches for X" plus a way out — clear the query, or create the value when <code>creatable</code>.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Empty query</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">The full list (static) or recent and suggested rows (remote). Focus never produces an empty menu.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Inline completion</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Only for a single-select Combobox over a fixed list where one prefix has exactly one answer. Never with <code>creatable</code>, <code>multiple</code>, or remote.</div></div>
 </div>
 </div>
 </section>
@@ -361,14 +358,13 @@
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team access</div>
 <div data-select-demo='{"type":"combobox","multiple":true,"options":[{"value":"leyla","label":"Leyla"},{"value":"kamran","label":"Kamran"},{"value":"nigar","label":"Nigar"},{"value":"azer","label":"Azer"},{"value":"gunel","label":"Günel"},{"value":"rashad","label":"Rəşad"},{"value":"samir","label":"Samir"}],"value":["leyla","kamran","nigar"],"placeholder":"Search people…"}'></div>
 </div>
-<div class="demo demo--stack">
-<div class="cap">Rules</div>
-<div class="rule" style="border:0;padding:0"><b>Menu</b><span>Stays open while selecting; closes on Escape, Tab or click outside.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Rows</b><span>Checkbox on the leading edge so state does not depend on colour alone.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Field</b><span>Show as many tokens as fit. When some are hidden, label the overflow "+N more" — never a bare count. Past eight total, collapse to "N items selected" using the entity name so the reader knows what kind of thing is selected.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Footer</b><span>Select all / Clear all once the list or selection gets long.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Limits</b><span>With a maximum, show "3 of 5 selected" and disable unchosen rows instead of failing on submit.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Backspace</b><span>On an empty query removes the last token, one at a time.</span></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Menu</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Stays open while selecting; closes on Escape, Tab or click outside.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Rows</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Checkbox on the leading edge so state does not depend on colour alone.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Field</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Show as many tokens as fit. Overflow as "+N more" — never a bare count. Past eight total, collapse to "N items selected" with the entity name.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Footer</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Select all / Clear all once the list or selection gets long.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Limits</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">With a maximum, show "3 of 5 selected" and disable unchosen rows instead of failing on submit.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Backspace</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">On an empty query removes the last token, one at a time.</div></div>
 </div>
 </div>
 </section>
@@ -376,10 +372,29 @@
 <section id="creatable">
 <h2>Creatable</h2>
 <p class="doc-lead">A Combobox property only. It needs a query to create from — a Select has no typing, and in a tree there is no answer to "which parent does the new node belong to".</p>
-<div class="rule"><b>Explicit</b><span>A "Create X" row at the end of the filtered list, or Enter on an unmatched query. Never create silently on blur.</span></div>
-<div class="rule"><b>Normalise</b><span>Trim, collapse double spaces, apply the casing rule once, and match case-insensitively so the same value cannot be created twice.</span></div>
-<div class="rule"><b>Duplicates</b><span>If the query already matches a row exactly, show that row instead of offering to create it.</span></div>
-<div class="rule"><b>No inline completion</b><span>Inline completion would overwrite the value the user is in the middle of inventing.</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);margin-top:var(--space-5)">
+<div class="demo demo--stack">
+<div class="cap">Combobox + creatable — "Design system" is a new value</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Tag</div>
+<div style="background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);border-radius:var(--radius-sm);padding:8px 12px;min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);gap:var(--space-4)">
+  <input type="text" value="Design system" readonly style="flex:1;border:none;outline:none;background:transparent;font:inherit;font-size:var(--font-size-300);color:var(--text-primary);padding:0">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex:0 0 16px;color:var(--text-secondary)"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<div style="margin-top:4px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2)">
+  <div style="display:flex;align-items:center;gap:var(--space-3);padding:9px 12px;border-radius:var(--radius-xs);font-size:var(--font-size-300);color:var(--text-secondary);font-style:italic">No matches for "Design system"</div>
+  <div style="display:flex;align-items:center;gap:var(--space-3);padding:9px 12px;border-radius:var(--radius-xs);font-size:var(--font-size-300);background:var(--surface-hover)">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="color:var(--color-primary);flex:0 0 14px"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <span>Create <strong>"Design system"</strong></span>
+  </div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6)">
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Explicit</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">A "Create X" row at the end of the filtered list, or Enter on an unmatched query. Never create silently on blur.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Normalise</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Trim, collapse double spaces, apply the casing rule once, and match case-insensitively so the same value cannot be created twice.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Duplicates</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">If the query already matches a row exactly, show that row instead of offering to create it.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">No inline completion</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Inline completion would overwrite the value the user is in the middle of inventing.</div></div>
+</div>
+</div>
 </section>
 
 <section id="tree">
@@ -391,14 +406,13 @@
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team</div>
 <div data-select-demo='{"type":"tree","options":[{"value":"eng","label":"Engineering","children":[{"value":"platform","label":"Platform"},{"value":"mobile","label":"Mobile"},{"value":"quality","label":"Quality"}]},{"value":"design","label":"Design","children":[{"value":"ux","label":"UX"},{"value":"brand","label":"Brand"}]},{"value":"ops","label":"Operations"}],"value":"quality","defaultExpanded":["eng"],"placeholder":"Select a team…"}'></div>
 </div>
-<div class="demo demo--stack">
-<div class="cap">Rules</div>
-<div class="rule" style="border:0;padding:0"><b>Expand control</b><span>18 px chevron on every parent row, separate hit area from the label. Clicking the label selects, clicking the chevron expands.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Indent</b><span>16 px per level. Past four levels, switch to a path breadcrumb in the row label instead.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Cascade</b><span>Multiple: selecting a parent selects its descendants. A partially selected parent shows an indeterminate dash.</span></div>
-<div class="rule" style="border:0;padding:0"><b>What is selectable</b><span>Decide once: leaves only, or any node. Document the rule — silent non-cascading behaviour confuses everyone.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Search</b><span>Matches flatten into a list with their path as the description; ancestors auto-expand; clearing the query restores the previous expansion.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Default expansion</b><span>Expand the branch that contains the current value; collapse everything else. Never open everything at once.</span></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Expand control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">18 px chevron on every parent row, separate hit area from the label. Clicking the label selects, clicking the chevron expands.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Indent</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">16 px per level. Past four levels, switch to a path breadcrumb in the row label instead.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Cascade</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Multiple: selecting a parent selects its descendants. A partially selected parent shows an indeterminate dash.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">What is selectable</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Decide once: leaves only, or any node. Document the rule — silent non-cascading behaviour confuses everyone.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Search</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Matches flatten into a list with their path as the description; ancestors auto-expand; clearing the query restores the previous expansion.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Default expansion</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Expand the branch that contains the current value; collapse everything else. Never open everything at once.</div></div>
 </div>
 </div>
 </section>
@@ -428,13 +442,13 @@
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Currency</div>
 <div data-select-demo='{"type":"select","options":[{"value":"azn","label":"AZN — Azerbaijani manat"},{"value":"try","label":"TRY — Turkish lira"},{"value":"eur","label":"EUR — Euro"},{"value":"usd","label":"USD — US dollar"},{"value":"gbp","label":"GBP — British pound"}],"value":"try","clearable":true,"placeholder":"Select a currency…"}'></div>
 </div>
-<div class="demo demo--stack">
-<div class="cap">Rules</div>
-<div class="rule" style="border:0;padding:0"><b>Position</b><span>In the field, before the chevron. The chevron stays, so nothing shifts when the clear control appears or disappears.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Hit area</b><span>24×24 px minimum. Accessible name: "Clear currency", not "×" or "Clear".</span></div>
-<div class="rule" style="border:0;padding:0"><b>After clearing</b><span>Back to the placeholder, focus returns to the field, the menu does not open.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Escape</b><span>Closes and restores. Escape never clears.</span></div>
-<div class="rule" style="border:0;padding:0"><b>Required fields</b><span>Still clearable. Clearing produces the empty state and validation explains what is missing — blocking the clear just hides the error until submit.</span></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Position</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">In the field, before the chevron. The chevron stays, so nothing shifts when the clear control appears or disappears.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Visibility</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Shown only when the field is focused and has a value. Hidden at rest so it does not compete with the value for attention.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Hit area</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">24×24 px minimum. Accessible name: "Clear currency", not "×" or "Clear".</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">After clearing</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Back to the placeholder, focus returns to the field, the menu does not open.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Escape</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Closes and restores. Escape never clears.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Required fields</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Still clearable. Clearing produces the empty state and validation explains what is missing — blocking the clear just hides the error until submit.</div></div>
 </div>
 </div>
 </section>
@@ -460,15 +474,33 @@
 <div style="margin-top:var(--space-5)">
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
 <div class="demo demo--stack">
+<div class="cap">Empty</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
+<div style="border-radius:var(--radius-sm);padding:8px 12px;min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-control);gap:var(--space-4)"><span style="flex:1;color:var(--text-tertiary)">Select…</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Placeholder in <code>--text-tertiary</code>. No clear control.</p>
+</div>
+<div class="demo demo--stack">
+<div class="cap">Filled (focus to reveal clear)</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
+<div data-select-demo='{"type":"select","options":[{"value":"approved","label":"Approved"},{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"rejected","label":"Rejected"}],"value":"approved","clearable":true}'></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Value in <code>--text-primary</code>. Clear control appears only when the field is focused.</p>
+</div>
+<div class="demo demo--stack">
+<div class="cap">Read-only</div>
+<div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
+<div style="border-radius:var(--radius-sm);padding:8px 12px;min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:transparent;border:none;gap:var(--space-4)"><span style="flex:1;color:var(--text-primary)">Live</span></div>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Value as plain text, no chevron. Still submitted on form post. Unlike disabled, the value is selectable.</p>
+</div>
+<div class="demo demo--stack">
 <div class="cap">Error</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);gap:var(--space-4);color:var(--text-tertiary)">Choose a category <svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
-<div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Select a category to publish</div>
+<div style="border-radius:var(--radius-sm);padding:8px 12px;min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);gap:var(--space-4)"><span style="flex:1;color:var(--text-tertiary)">Choose a category</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Category is required</div>
 </div>
 <div class="demo demo--stack">
 <div class="cap">Disabled</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2);color:var(--text-disabled)">Status</div>
-<div style="border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-subtle);gap:var(--space-4);color:var(--text-disabled);cursor:not-allowed;opacity:.6"><span style="flex:1">Live</span><svg fill="none" height="16" style="color:var(--text-disabled);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="border-radius:var(--radius-sm);padding:8px 12px;min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-subtle);gap:var(--space-4);color:var(--text-disabled);cursor:not-allowed;opacity:.6"><span style="flex:1">Live</span><svg fill="none" height="16" style="color:var(--text-disabled);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
 <div style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">Locked until review finishes</div>
 </div>
 <div class="demo demo--stack">
@@ -476,7 +508,7 @@
 <div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2)">
 <div style="padding:var(--space-4);display:flex;gap:var(--space-3);align-items:center;font-size:var(--font-size-300);color:var(--text-secondary)"><span style="width:13px;height:13px;border-radius:50%;border:2px solid var(--border-subtle);border-top-color:var(--color-primary);flex:none"></span>Searching…</div>
 </div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Loading row in the menu, previous results kept underneath so the menu does not collapse.</p>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Loading row shown while a remote query runs. Previous results stay visible underneath.</p>
 </div>
 </div>
 </div>
@@ -558,7 +590,7 @@
 <tbody>
 <tr><td class="tok">Field</td><td class="use">40 px tall</td><td class="use">Fine — the whole field is one target</td></tr>
 <tr><td class="tok">Clear control</td><td class="use">16 px icon</td><td class="use">24×24 hit area around it (2.5.8)</td></tr>
-<tr><td class="tok">Token ×</td><td class="use">12 px icon</td><td class="use">24×24, or spaced so 24 px circles do not intersect</td></tr>
+<tr><td class="tok">Token ×</td><td class="use">12 px glyph inside a ≥ 22 px chip</td><td class="use">Add enough horizontal padding so the combined hit area reaches 24×24, or space chips so their 24 px circles do not overlap</td></tr>
 <tr><td class="tok">Tree expand control</td><td class="use">18 px chevron</td><td class="use">24×24 and separate from the row's selection target</td></tr>
 <tr><td class="tok">Menu row</td><td class="use">34–40 px</td><td class="use">Fine — the whole row is clickable, not just the label</td></tr>
 <tr><td class="tok">Checkbox in a row</td><td class="use">16 px</td><td class="use">No separate target needed: the row toggles it</td></tr>
@@ -572,14 +604,10 @@
 <thead><tr><th style="width:150px">Element</th><th>Rule</th><th>Example</th></tr></thead>
 <tbody>
 <tr><td class="tok">Label</td><td class="use">A noun, sentence case, no colon</td><td class="use">Billing country</td></tr>
-<tr><td class="tok">Placeholder</td><td class="use">"Select a …" for a Select; "Search …" for a Combobox. Never repeats the label</td><td class="use">Select a country</td></tr>
+<tr><td class="tok">Placeholder</td><td class="use">Keep it short and generic: "Select…" for a Select, "Search…" for a Combobox. Avoid "Select a [label]" — labels can be long and the placeholder disappears once there is a value</td><td class="use">Select…</td></tr>
 <tr><td class="tok">Helper text</td><td class="use">The rule, not the obvious. Constraints go here, not in the placeholder</td><td class="use">Used on invoices</td></tr>
-<tr><td class="tok">Row label</td><td class="use">Front-load the distinguishing word — the list is scanned, not read</td><td class="use">AZN — Azerbaijani manat</td></tr>
-<tr><td class="tok">Row description</td><td class="use">One line, factual. Why a row is disabled belongs here</td><td class="use">Already a member</td></tr>
-<tr><td class="tok">Group header</td><td class="use">Plural noun, sentence case</td><td class="use">Europe &amp; Caucasus</td></tr>
 <tr><td class="tok">Empty state</td><td class="use">Repeat the query so it is clear what was searched</td><td class="use">No matches for "xyz"</td></tr>
-<tr><td class="tok">Error</td><td class="use">Say what to do, not what happened</td><td class="use">Select a billing country</td></tr>
-<tr><td class="tok">Multiple summary</td><td class="use">Show tokens; overflow as "+N more"; past 8 total use "N items selected" with entity name, never a bare number</td><td class="use">Leyla, Kamran +2 more · 5 people selected</td></tr>
+<tr><td class="tok">Error</td><td class="use">Name the field and say what is required</td><td class="use">Category is required</td></tr>
 </tbody>
 </table>
 </section>
@@ -605,45 +633,6 @@
 </table>
 </section>
 
-<section id="api">
-<h2>API</h2>
-<pre style="background:var(--surface-code,#1a1f1e);color:var(--text-code,#dfe8e4);border-radius:var(--radius-sm);padding:var(--space-6);font:13px/1.65 var(--font-mono,'IBM Plex Mono',monospace);overflow-x:auto;margin:0"><span style="color:#6db3a8">// One base, three variants. The variant is what the data looks like;
-// everything else is a property.</span>
-
-&lt;Select              <span style="color:#6db3a8">// fixed flat list, no typing filter</span>
-  label="Status"
-  options={statuses}
-  value={value} onChange={setValue}
-  clearable multiple
-/&gt;
-
-&lt;Combobox            <span style="color:#6db3a8">// flat list + typing: the default above ~10 options</span>
-  label="Country"
-  options={countries}          <span style="color:#6db3a8">// omit when remote</span>
-  value={value} onChange={setValue}
-  multiple creatable clearable
-  inlineComplete={false}       <span style="color:#6db3a8">// single + fixed list only</span>
-  remote=&#123;&#123;
-    load: q =&gt; api.search(q),
-    debounce: 300,
-    minChars: 2,
-    recent: recentItems,
-  &#125;&#125;
-/&gt;
-
-&lt;TreeSelect          <span style="color:#6db3a8">// nested data</span>
-  label="Team"
-  nodes={org}                  <span style="color:#6db3a8">// [{ id, label, children?, disabled? }]</span>
-  value={value} onChange={setValue}
-  multiple                     <span style="color:#6db3a8">// cascades to descendants</span>
-  leafOnly={false}             <span style="color:#6db3a8">// can a parent be the answer?</span>
-  loadChildren={id =&gt; api.children(id)}
-  defaultExpanded={[currentBranchId]}
-/&gt;
-
-<span style="color:#6db3a8">// Shared by all three:
-// size="sm|md|lg"  status="error|warning"  hint  disabled  readOnly  required</span></pre>
-</section>
 
 </div>
 <nav class="pagernav">
@@ -672,13 +661,12 @@
 <a href="#accessibility">Accessibility</a>
 <a href="#content">Content</a>
 <a href="#spacing">Spacing</a>
-<a href="#api">API</a>
 </aside>
 </div>
 
 <style>
-[data-select-demo] [data-clr]{display:none}
-[data-select-demo]:focus-within [data-clr]{display:inline-flex}
+[data-select-demo] [data-clr]{opacity:0;pointer-events:none;transition:opacity .1s}
+[data-select-demo]:focus-within [data-clr]{opacity:1;pointer-events:auto}
 </style>
 <script>
 (function(){
