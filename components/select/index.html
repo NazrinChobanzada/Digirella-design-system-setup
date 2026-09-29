@@ -137,7 +137,10 @@
 <h2>Anatomy</h2>
 <p class="doc-lead">Every selection control is built from the same eight parts. Only the list contents and whether the field accepts typing change between variants.</p>
 <div class="demo anatomy" style="align-items:flex-start;gap:var(--space-9)">
-<div style="flex:0 0 auto;width:300px">
+<div style="flex:0 0 auto;width:300px;display:flex;flex-direction:column;gap:var(--space-7)">
+
+<div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);font-weight:500;margin-bottom:var(--space-3)">Open · searching</div>
 <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-2)">
 <span class="pin">1</span><div style="font-size:var(--font-size-300);font-weight:500">Billing country</div>
 </div>
@@ -166,11 +169,33 @@
 <span class="pin">8</span><div style="font-size:var(--font-size-200);color:var(--text-tertiary)">Used on invoices and receipts</div>
 </div>
 </div>
+
+<div>
+<div style="font-size:var(--font-size-200);color:var(--text-tertiary);font-weight:500;margin-bottom:var(--space-3)">Focused · filled</div>
+<div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-2)">
+<span class="pin">1</span><div style="font-size:var(--font-size-300);font-weight:500">Billing country</div>
+</div>
+<div style="display:flex;align-items:center;gap:var(--space-3)">
+<div style="flex:1;border-radius:var(--radius-sm);padding:8px var(--space-4);min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-focus);outline:2px solid var(--surface-brand-subtle);outline-offset:-1px;gap:4px">
+<span style="flex:1;display:flex;align-items:center;gap:4px;overflow:hidden">
+<span class="pin" style="font-size:10px;width:16px;height:16px;flex:0 0 16px">3</span>
+<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Azerbaijan</span>
+</span>
+<span class="pin" style="font-size:10px;width:16px;height:16px;flex:0 0 16px">4</span>
+<span style="font-size:var(--font-size-200);color:var(--text-secondary);background:var(--surface-hover);border-radius:var(--radius-xs);padding:2px 5px;white-space:nowrap">✕</span>
+<span class="pin" style="font-size:10px;width:16px;height:16px;flex:0 0 16px">5</span>
+<svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+</div>
+<span class="pin">2</span>
+</div>
+</div>
+
+</div>
 <div style="display:flex;flex-direction:column;gap:var(--space-4)">
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Label</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Always visible, tied to the field. Never replaced by a placeholder.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Field</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">The trigger. 40px default height. <code>--border-control</code> at 3:1, passing WCAG 1.4.11.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Value or placeholder</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Value in <code>--text-primary</code>, placeholder muted. In a Combobox, an editable text field.</div></div></div>
-<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Clear control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Appears only when the field is focused <em>and</em> has a value. Never shown at the same time as an unfocused filled state. 24×24 hit area. On by default.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Clear control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Visible when the field has a value and <code>clearable</code> is enabled. 24×24 hit area. Off by default.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Chevron</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">16px icon, rotates 180° when open. The affordance that says "this is a list".</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">6</span><div><div style="font-size:var(--font-size-300);font-weight:600">Menu</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Overlay surface, at least as wide as the field, capped at about eight rows.</div></div></div>
 <div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">7</span><div><div style="font-size:var(--font-size-300);font-weight:600">Row</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Label, optional description, optional checkbox or tick, optional expand chevron (tree only).</div></div></div>
@@ -185,14 +210,12 @@
 <table>
 <thead><tr><th style="width:200px">Data shape</th><th>Single choice</th><th>Several choices</th></tr></thead>
 <tbody>
-<tr><td class="tok">Flat, 2–6</td><td class="use">Radio group — not this component</td><td class="use">Checkbox group — not this component</td></tr>
-<tr><td class="tok">Flat, 7–10</td><td class="use"><strong>Select</strong></td><td class="use"><strong>Combobox</strong> — past about five rows, multi-select needs search so the user can find what is not yet chosen</td></tr>
-<tr><td class="tok">Flat, 10+</td><td class="use"><strong>Combobox</strong></td><td class="use"><strong>Combobox</strong></td></tr>
-<tr><td class="tok">Flat, user may add values</td><td class="use"><strong>Combobox</strong> + <code>creatable</code></td><td class="use"><strong>Combobox</strong> + <code>creatable multiple</code></td></tr>
-<tr><td class="tok">Flat, 200+ or server-owned</td><td class="use"><strong>Combobox</strong> + <code>remote</code></td><td class="use"><strong>Combobox</strong> + <code>remote multiple</code></td></tr>
+<tr><td class="tok">Flat, up to ~10</td><td class="use"><strong>Select</strong></td><td class="use"><strong>Select</strong> if the field shows a text summary (e.g. "3 items selected"); <strong>Combobox</strong> if selections are removable tags</td></tr>
+<tr><td class="tok">Flat, 10+</td><td class="use"><strong>Combobox</strong></td><td class="use"><strong>Combobox</strong> — once there are more options than the user can scan, search is necessary</td></tr>
 <tr><td class="tok">Nested</td><td class="use"><strong>TreeSelect</strong></td><td class="use"><strong>TreeSelect</strong> + <code>multiple</code></td></tr>
 </tbody>
 </table>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:var(--space-4)"><strong>creatable</strong> and <strong>remote</strong> are properties on a Combobox, not separate variants — they change how the list is populated, not the interaction model. <strong>grouped</strong> is a layout property available on Select and Combobox.</p>
 </section>
 
 <section id="variants">
@@ -202,7 +225,7 @@
 <thead><tr><th style="width:140px">Variant</th><th style="width:160px">Data</th><th style="width:160px">Typing</th><th>Best for</th></tr></thead>
 <tbody>
 <tr><td class="tok"><strong>Select</strong></td><td class="use">Flat list</td><td class="use">Type-ahead jump only</td><td class="use">Short, stable lists the user can read in one go — status, currency, role</td></tr>
-<tr><td class="tok"><strong>Combobox</strong></td><td class="use">Flat list, local or remote</td><td class="use">Filters the list</td><td class="use">Long lists, multi-select past a handful, anything the user may add to</td></tr>
+<tr><td class="tok"><strong>Combobox</strong></td><td class="use">Flat list, local or remote</td><td class="use">Filters the list; typing is optional for grouped or remote lists</td><td class="use">Long lists, multiple with tags, grouped options, creatable values, remote data</td></tr>
 <tr><td class="tok"><strong>TreeSelect</strong></td><td class="use">Nested list</td><td class="use">Filters and expands matches</td><td class="use">Data with real parents and children — org units, categories, folders</td></tr>
 </tbody>
 </table>
@@ -211,7 +234,7 @@
 <div class="demo demo--stack">
 <div class="cap">Select</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
-<div data-select-demo='{"type":"select","options":[{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"approved","label":"Approved"},{"value":"rejected","label":"Rejected"},{"value":"archived","label":"Archived"},{"value":"published","label":"Published"},{"value":"scheduled","label":"Scheduled"}],"value":"in_review","placeholder":"Select a status…"}'></div>
+<div data-select-demo='{"type":"select","options":[{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"approved","label":"Approved"},{"value":"rejected","label":"Rejected"},{"value":"archived","label":"Archived"},{"value":"published","label":"Published"},{"value":"scheduled","label":"Scheduled"}],"value":"in_review","clearable":true,"placeholder":"Select a status…"}'></div>
 <p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">7 options. Click to open, arrow keys to move, no typing filter.</p>
 </div>
 <div class="demo demo--stack">
@@ -223,7 +246,7 @@
 <div class="demo demo--stack">
 <div class="cap">TreeSelect</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
-<div data-select-demo='{"type":"tree","options":[{"value":"electronics","label":"Electronics","children":[{"value":"audio","label":"Audio","children":[{"value":"headphones","label":"Headphones"},{"value":"speakers","label":"Speakers"},{"value":"earbuds","label":"Earbuds"}]},{"value":"laptops","label":"Laptops"},{"value":"phones","label":"Phones"}]},{"value":"clothing","label":"Clothing","children":[{"value":"mens","label":"Mens"},{"value":"womens","label":"Womens"}]},{"value":"books","label":"Books"}],"value":"headphones","defaultExpanded":["electronics","audio"],"placeholder":"Choose a category…"}'></div>
+<div data-select-demo='{"type":"tree","options":[{"value":"electronics","label":"Electronics","children":[{"value":"audio","label":"Audio","children":[{"value":"headphones","label":"Headphones"},{"value":"speakers","label":"Speakers"},{"value":"earbuds","label":"Earbuds"}]},{"value":"laptops","label":"Laptops"},{"value":"phones","label":"Phones"}]},{"value":"clothing","label":"Clothing","children":[{"value":"mens","label":"Mens"},{"value":"womens","label":"Womens"}]},{"value":"books","label":"Books"}],"value":"headphones","clearable":true,"defaultExpanded":["electronics","audio"],"placeholder":"Choose a category…"}'></div>
 <p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-4) 0 0">Nested data. Path shown in field; click ▶ to expand a branch.</p>
 </div>
 </div>
@@ -237,7 +260,7 @@
 <thead><tr><th style="width:140px">Property</th><th style="width:90px">Select</th><th style="width:90px">Combobox</th><th style="width:90px">Tree</th><th>What it changes</th></tr></thead>
 <tbody>
 <tr><td class="tok"><code>multiple</code></td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">Checkboxes in the menu, tokens in the field, menu stays open after each pick</td></tr>
-<tr><td class="tok"><code>clearable</code></td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">Clear control in the field and × on every token. <strong>On by default.</strong></td></tr>
+<tr><td class="tok"><code>clearable</code></td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">Shows a clear control in the field when a value is present. <strong>Off by default.</strong></td></tr>
 <tr><td class="tok"><code>creatable</code></td><td class="use" style="color:var(--text-danger);font-weight:600">no</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--text-danger);font-weight:600">no</td><td class="use">A "Create X" row for an unmatched query. Needs typing, so only on Combobox</td></tr>
 <tr><td class="tok"><code>remote</code></td><td class="use" style="color:var(--text-danger);font-weight:600">no</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">lazy children</td><td class="use">Rows fetched per query. Introduces debounce, loading state, and retry on failure</td></tr>
 <tr><td class="tok"><code>grouped</code></td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use" style="color:var(--color-primary);font-weight:600">yes</td><td class="use">n/a</td><td class="use">Flat rows under non-selectable headers. One level only — deeper is a tree</td></tr>
@@ -303,23 +326,6 @@
 </table>
 </section>
 
-<section id="behaviour">
-<h2>Opening &amp; closing</h2>
-<table>
-<thead><tr><th style="width:220px">Action</th><th>Result</th></tr></thead>
-<tbody>
-<tr><td class="tok">Click the field</td><td class="use">Opens. In a Combobox the caret goes into the text field</td></tr>
-<tr><td class="tok">Click the field while open</td><td class="use">Closes, keeping the current value</td></tr>
-<tr><td class="tok">Type (Combobox)</td><td class="use">Opens if closed, filters as the query changes</td></tr>
-<tr><td class="tok">Select a row, single</td><td class="use">Sets the value, closes, focus returns to the field</td></tr>
-<tr><td class="tok">Select a row, multiple</td><td class="use">Toggles the row and <strong>stays open</strong>; the query clears so the next pick starts fresh</td></tr>
-<tr><td class="tok">Escape</td><td class="use">Closes and restores the value that was there before opening. Escape never clears</td></tr>
-<tr><td class="tok">Tab</td><td class="use">Closes and moves on, keeping the selection</td></tr>
-<tr><td class="tok">Click outside</td><td class="use">Closes. Bind to <code>click</code> not <code>mousedown</code> so scrollbar drags inside the menu survive</td></tr>
-<tr><td class="tok">Scroll the page</td><td class="use">The menu follows its field. It never detaches and floats</td></tr>
-</tbody>
-</table>
-</section>
 
 <section id="autocomplete">
 <h2>Search &amp; autocomplete</h2>
@@ -356,12 +362,13 @@
 <div class="demo demo--stack">
 <div class="cap">Combobox + multiple — menu stays open</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team access</div>
-<div data-select-demo='{"type":"combobox","multiple":true,"options":[{"value":"leyla","label":"Leyla"},{"value":"kamran","label":"Kamran"},{"value":"nigar","label":"Nigar"},{"value":"azer","label":"Azer"},{"value":"gunel","label":"Günel"},{"value":"rashad","label":"Rəşad"},{"value":"samir","label":"Samir"}],"value":["leyla","kamran","nigar"],"placeholder":"Search people…"}'></div>
+<div data-select-demo='{"type":"combobox","multiple":true,"clearable":true,"options":[{"value":"leyla","label":"Leyla"},{"value":"kamran","label":"Kamran"},{"value":"nigar","label":"Nigar"},{"value":"azer","label":"Azer"},{"value":"gunel","label":"Günel"},{"value":"rashad","label":"Rəşad"},{"value":"samir","label":"Samir"}],"value":["leyla","kamran","nigar"],"placeholder":"Search people…"}'></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:var(--space-4)">
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Menu</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Stays open while selecting; closes on Escape, Tab or click outside.</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Rows</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Checkbox on the leading edge so state does not depend on colour alone.</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Field</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Show as many tokens as fit. Overflow as "+N more" — never a bare count. Past eight total, collapse to "N items selected" with the entity name.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Grouped display</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">When all selected items belong to one group, summarise as "Group (N)" — "Designers (3)" instead of "Nazrin, Narmin, Nigar". For a single-select field with grouped or hierarchical options, show a breadcrumb: "Designers / Nazrin".</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Footer</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Select all / Clear all once the list or selection gets long.</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Limits</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">With a maximum, show "3 of 5 selected" and disable unchosen rows instead of failing on submit.</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Backspace</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">On an empty query removes the last token, one at a time.</div></div>
@@ -404,7 +411,7 @@
 <div class="demo demo--stack">
 <div class="cap">Tree select — click ▶ to expand</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Team</div>
-<div data-select-demo='{"type":"tree","options":[{"value":"eng","label":"Engineering","children":[{"value":"platform","label":"Platform"},{"value":"mobile","label":"Mobile"},{"value":"quality","label":"Quality"}]},{"value":"design","label":"Design","children":[{"value":"ux","label":"UX"},{"value":"brand","label":"Brand"}]},{"value":"ops","label":"Operations"}],"value":"quality","defaultExpanded":["eng"],"placeholder":"Select a team…"}'></div>
+<div data-select-demo='{"type":"tree","options":[{"value":"eng","label":"Engineering","children":[{"value":"platform","label":"Platform"},{"value":"mobile","label":"Mobile"},{"value":"quality","label":"Quality"}]},{"value":"design","label":"Design","children":[{"value":"ux","label":"UX"},{"value":"brand","label":"Brand"}]},{"value":"ops","label":"Operations"}],"value":"quality","clearable":true,"defaultExpanded":["eng"],"placeholder":"Select a team…"}'></div>
 </div>
 <div style="display:flex;flex-direction:column;gap:var(--space-4)">
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Expand control</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">18 px chevron on every parent row, separate hit area from the label. Clicking the label selects, clicking the chevron expands.</div></div>
@@ -444,7 +451,7 @@
 </div>
 <div style="display:flex;flex-direction:column;gap:var(--space-4)">
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Position</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">In the field, before the chevron. The chevron stays, so nothing shifts when the clear control appears or disappears.</div></div>
-<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Visibility</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Shown only when the field is focused and has a value. Hidden at rest so it does not compete with the value for attention.</div></div>
+<div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Visibility</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Shown whenever the field has a value. Disappears when the value is cleared.</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Hit area</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">24×24 px minimum. Accessible name: "Clear currency", not "×" or "Clear".</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">After clearing</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Back to the placeholder, focus returns to the field, the menu does not open.</div></div>
 <div><div style="font-size:var(--font-size-200);font-weight:600;margin-bottom:2px">Escape</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55">Closes and restores. Escape never clears.</div></div>
@@ -483,7 +490,7 @@
 <div class="cap">Filled (focus to reveal clear)</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Status</div>
 <div data-select-demo='{"type":"select","options":[{"value":"approved","label":"Approved"},{"value":"draft","label":"Draft"},{"value":"in_review","label":"In review"},{"value":"rejected","label":"Rejected"}],"value":"approved","clearable":true}'></div>
-<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Value in <code>--text-primary</code>. Clear control appears only when the field is focused.</p>
+<p style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin:var(--space-3) 0 0">Value in <code>--text-primary</code>. Clear control visible whenever the field has a value.</p>
 </div>
 <div class="demo demo--stack">
 <div class="cap">Read-only</div>
@@ -494,7 +501,7 @@
 <div class="demo demo--stack">
 <div class="cap">Error</div>
 <div style="font-size:var(--font-size-300);font-weight:500;margin-bottom:var(--space-2)">Category</div>
-<div style="border-radius:var(--radius-sm);padding:8px 12px;min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);gap:var(--space-4)"><span style="flex:1;color:var(--text-tertiary)">Choose a category</span><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
+<div style="border-radius:var(--radius-sm);padding:8px 12px;min-height:40px;display:flex;align-items:center;font-size:var(--font-size-300);background:var(--surface-card);border:1px solid var(--border-danger);gap:var(--space-4)"><span style="flex:1;color:var(--text-tertiary)">Choose a category</span><svg fill="none" width="16" height="16" style="color:var(--text-danger);flex:0 0 16px;" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".75" fill="currentColor"/></svg><svg fill="none" height="16" style="color:var(--text-secondary);flex:0 0 16px;" viewBox="0 0 16 16" width="16"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg></div>
 <div style="font-size:var(--font-size-200);color:var(--text-danger);margin-top:var(--space-2)">Category is required</div>
 </div>
 <div class="demo demo--stack">
@@ -650,7 +657,6 @@
 <a href="#properties">Properties</a>
 <a href="#sizes">Sizes &amp; type</a>
 <a href="#menu">Menu</a>
-<a href="#behaviour">Opening &amp; closing</a>
 <a href="#autocomplete">Search &amp; autocomplete</a>
 <a href="#multiple">Multiple</a>
 <a href="#creatable">Creatable</a>
@@ -664,10 +670,6 @@
 </aside>
 </div>
 
-<style>
-[data-select-demo] [data-clr]{opacity:0;pointer-events:none;transition:opacity .1s}
-[data-select-demo]:focus-within [data-clr]{opacity:1;pointer-events:auto}
-</style>
 <script>
 (function(){
   var SZ={sm:{h:32,px:8,py:5,fs:'var(--font-size-200)',ic:14,clw:20,clfs:12,gap:'var(--space-3)',rpy:6,rpx:8},md:{h:40,px:12,py:8,fs:'var(--font-size-300)',ic:16,clw:24,clfs:13,gap:'var(--space-4)',rpy:9,rpx:12},lg:{h:48,px:16,py:12,fs:'var(--font-size-300)',ic:16,clw:26,clfs:14,gap:'var(--space-4)',rpy:10,rpx:16}};
@@ -678,7 +680,7 @@
   function DS(el,cfg){
     this.el=el; this.type=cfg.type||'select'; this.opts=cfg.options||[];
     this.ph=cfg.placeholder||(this.type==='combobox'?'Search…':'Select…');
-    this.sz=cfg.size||'md'; this.multi=!!cfg.multiple; this.cl=cfg.clearable!==false;
+    this.sz=cfg.size||'md'; this.multi=!!cfg.multiple; this.cl=!!cfg.clearable;
     this.val=this.multi?(cfg.value||[]):(cfg.value||null);
     this.exp=new Set(cfg.defaultExpanded||[]);
     this.open=false; this.q='';
@@ -696,7 +698,7 @@
   DS.prototype.fieldHTML=function(s){
     var has=this.multi?this.val.length>0:!!this.val,ctn='',self=this;
     if(this.multi&&has){var labs=this.val.map(function(v){return self.find(v)?.label||v;});var show=labs.slice(0,3);ctn+=show.map(function(l){return '<span style="display:inline-flex;align-items:center;gap:3px;background:var(--surface-brand-subtle);color:var(--text-brand);border:1px solid var(--color-primary-border);border-radius:var(--radius-xs);padding:1px 6px;font-size:12.5px;font-weight:500;height:22px;white-space:nowrap;line-height:1">'+l+'<button type="button" data-rm="'+l+'" style="background:none;border:none;padding:0;color:inherit;cursor:pointer;font-size:11px;line-height:1;opacity:.7;width:12px">×</button></span>';}).join('');if(labs.length>3)ctn+='<span style="font-size:var(--font-size-200);color:var(--text-secondary);white-space:nowrap">+'+(labs.length-3)+' more</span>';}
-    if(this.type==='combobox'){ctn+='<input type="text" autocomplete="off" value="'+this.q.replace(/"/g,'&quot;')+'" placeholder="'+((!has||this.multi)?this.ph:'')+'" style="flex:1;border:none;outline:none;background:transparent;font:inherit;font-size:'+s.fs+';color:'+(this.q?'var(--text-primary)':'var(--text-tertiary)')+';min-width:60px;padding:0">';}
+    if(this.type==='combobox'){ctn+='<input type="text" autocomplete="off" value="'+this.q.replace(/"/g,'&quot;')+'" placeholder="'+(!has?this.ph:'')+'" style="flex:1;border:none;outline:none;background:transparent;font:inherit;font-size:'+s.fs+';color:'+(this.q?'var(--text-primary)':'var(--text-tertiary)')+';min-width:60px;padding:0">';}
     else if(!has){ctn+='<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text-tertiary)">'+this.ph+'</span>';}
     else if(this.type==='tree'){var p=this.path(this.val);ctn+=p?'<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+p.slice(0,-1).map(function(n){return '<span style="color:var(--text-secondary)">'+n+'</span><span style="color:var(--text-tertiary);margin:0 4px">/</span>';}).join('')+p[p.length-1]+'</span>':'<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+this.val+'</span>';}
     else{ctn+='<span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+(this.find(this.val)?.label||this.val)+'</span>';}
