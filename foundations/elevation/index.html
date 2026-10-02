@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elevation — Digirella</title>
@@ -8,8 +7,7 @@
 <link rel="stylesheet" href="../../interactive.css">
 <link rel="stylesheet" href="../../site.css">
 </head>
-<body class="ix">
-<header class="masthead">
+<body class="ix"><header class="masthead">
   <div class="masthead__inner">
     <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
     <a class="masthead__brand" href="../../index.html">digirella</a>
@@ -97,13 +95,144 @@
 </div>
 </nav>
 <main>
-<div class="page__eyebrow">Foundations</div><h1 class="page__title">Elevation</h1><div class="statusline"><span class="dot" data-status="migrated"></span>Carried over from the previous structure</div><div class="callout"><div>This page carries its content from the previous structure, moved across unchanged. It hasn't been rewritten to the new format yet.</div></div>
+<div class="page__eyebrow">Foundations</div><h1 class="page__title">Elevation <span class="flag flag--lg">New</span></h1>
 <div class="doc">
-<section id="elevation">
-<h2>Elevation</h2>
+<section>
+
 <p class="doc-lead"><code>tokens/elevation.css</code> · Shadow is a signal, not decoration. Cards are flat by default; shadow means interaction or layering.</p>
-<table><thead><tr><th style="width:190px"></th><th>Token</th><th>Usage</th></tr></thead><tbody><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-100)"></span></td><td class="tok">--shadow-100</td><td class="use">Sticky header, switch knob</td></tr><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-200)"></span></td><td class="tok">--shadow-200</td><td class="use">Raised card, summary panel</td></tr><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-300)"></span></td><td class="tok">--shadow-300</td><td class="use">Hover, popover, toast</td></tr><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-400)"></span></td><td class="tok">--shadow-400</td><td class="use">Modal</td></tr></tbody></table>
+<table><thead><tr><th style="width:150px"></th><th style="width:150px">Primitive</th><th style="width:200px">Semantic</th><th>What reads it</th></tr></thead><tbody><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--elevation-border)"></span></td><td class="tok">--shadow-none</td><td class="tok">--elevation-flat</td><td class="use">Everything by default. Not the absence of a token — the flat level is a choice.</td></tr><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-100)"></span></td><td class="tok">--shadow-100</td><td class="tok">--elevation-raised</td><td class="use">Switch knob, slider thumb, the selected item in a segmented control, a raised card.</td></tr><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-200)"></span></td><td class="tok">--shadow-200</td><td class="tok">--elevation-sticky</td><td class="use">The top bar once content scrolls under it, sticky table headers.</td></tr><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-300)"></span></td><td class="tok">--shadow-300</td><td class="tok">--elevation-overlay</td><td class="use">Menu, popover, tooltip, every select and combobox list, an interactive card on hover.</td></tr><tr><td><span style="display:block;width:120px;height:44px;background:var(--surface-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-400)"></span></td><td class="tok">--shadow-400</td><td class="tok">--elevation-modal<br><span class="na">--elevation-transient</span></td><td class="use">Dialog and drawer. Toast takes the same value and clears them by <code>--z-toast</code>.</td></tr></tbody></table>
+<p class="caption">Read the middle column, not the left one. A component asks for a <em>behaviour</em> — <code>--elevation-overlay</code> — and the primitive it resolves to is an implementation detail that can be retuned without touching a single component. <code>--shadow-inset</code> is separate again: it is a highlight along a top edge, not a level.</p>
+<p><strong>Four values draw something</strong> (100 through 400), plus <code>none</code>. They back <strong>six behaviours</strong>, because flat uses <code>none</code> and modal and transient share 400 — those two are separated by stacking order rather than by a heavier shade. So: four shadows, six levels, and the two numbers are not supposed to match.</p>
 </section>
+
+<div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div><section id="six-behaviours-four-values" data-part="Guidelines">
+<h2>Six behaviours, four values</h2>
+<p>A level is a behaviour, not a depth: what the surface is allowed to do. Naming them after behaviours is what stops a shadow being picked because it looks nice.</p>
+<p>There are six behaviours and four shadow values, so two pairs share one — and where they share, the difference is carried by stacking order instead. That is a compression, and it is written down here rather than left for someone to discover.</p>
+<table><thead><tr><th style="width:96px">Level</th><th style="width:170px">Behaviour</th><th style="width:190px">Token</th><th>What sits here</th></tr></thead><tbody>
+<tr><td class="val">0</td><td>Flat</td><td class="tok">--elevation-flat</td><td class="use">Page, body content, buttons, inputs, tabs, table rows, tags, badges, accordions, alerts.</td></tr>
+<tr><td class="val">1</td><td>Raised</td><td class="tok">--elevation-raised</td><td class="use">A part that moves inside a control that does not — switch knob, slider thumb, the selected item in a segmented control. Also a deliberately raised card.</td></tr>
+<tr><td class="val">2</td><td>Sticky</td><td class="tok">--elevation-sticky</td><td class="use">Chrome that stays put while content scrolls under it: the top bar, a sticky table header, a sticky order summary.</td></tr>
+<tr><td class="val">3</td><td>Overlay</td><td class="tok">--elevation-overlay</td><td class="use">Anchored floating UI: menu, popover, tooltip, every select and combobox list, date and time pickers.</td></tr>
+<tr><td class="val">4</td><td>Modal</td><td class="tok">--elevation-modal</td><td class="use">Surfaces that take the page away and need a scrim: dialog, drawer.</td></tr>
+<tr><td class="val">5</td><td>Transient</td><td class="tok">--elevation-transient</td><td class="use">Never at rest: toast, and an item being dragged. Same shadow as modal; it clears a dialog by <code>--z-toast</code>.</td></tr>
+</tbody></table>
+
+<h3>Flat is the default, not the absence of a decision</h3>
+<p>Most of an interface carries no shadow at all. A 1px border does the containing in dense UI — <code>--elevation-border</code> exists as a named option for exactly that — and shadows are saved for surfaces that genuinely float. A grid where every card is raised has no hierarchy left to read.</p>
+
+<h3>Never stack shadows</h3>
+<p>In nested layers only the outermost surface carries one. A card inside a dialog is flat; a list inside a popover is flat; the panel of an open accordion is flat. Two shadows in one stack read as noise rather than as two depths.</p>
+
+<h3>Surface, shadow and stacking order are one decision</h3>
+<p>A shadow on the wrong surface colour reads as a rendering bug. <code>--elevation-overlay</code> goes with <code>--surface-card</code> and <code>--z-dropdown</code>, and none of the three is chosen without the other two — which is why the shadows and the z-index band live in the same file.</p>
+
+<div class="demo demo--sunken" style="flex-direction:column;align-items:stretch;gap:var(--space-4)"><div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);box-shadow:var(--elevation-transient)"><span style="font-size:var(--type-ui-size)">Toast</span><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">5 · --elevation-transient</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);box-shadow:var(--elevation-modal)"><span style="font-size:var(--type-ui-size)">Dialog, drawer</span><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">4 · --elevation-modal</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);box-shadow:var(--elevation-overlay)"><span style="font-size:var(--type-ui-size)">Menu, popover, tooltip</span><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">3 · --elevation-overlay</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);box-shadow:var(--elevation-sticky)"><span style="font-size:var(--type-ui-size)">Top bar, on scroll</span><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">2 · --elevation-sticky</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);box-shadow:var(--elevation-raised)"><span style="font-size:var(--type-ui-size)">Switch knob, raised card</span><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">1 · --elevation-raised</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);box-shadow:var(--elevation-border)"><span style="font-size:var(--type-ui-size)">Page content</span><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">0 · --elevation-border</span></div></div>
+<p class="caption">The real tokens, rendered. Level 0 is drawn with <code>--elevation-border</code> here so it has an edge to show; in a product it carries nothing at all.</p>
+<h4>Two gaps, and one disagreement</h4>
+<p><strong>Level 2 was missing entirely.</strong> The top bar is sticky and had no elevation treatment at all, so content scrolled under it with nothing marking the seam. A bar earns its shadow only once content is actually underneath it — flat at the top of the page, <code>--elevation-sticky</code> after that.</p>
+<p><strong>Level 5 has no drag state.</strong> Nothing here can be dragged yet, so <code>--elevation-transient</code> covers only the toast. When a draggable component arrives, the item takes this level plus a 1–2° tilt and returns to its rest level on drop.</p>
+<p><strong>The inline alert sits a level lower than the consensus.</strong> Material 3 puts a banner at 1, Polaris at its 200, and this system keeps it at 0. An alert here already carries a tint, a border and an icon; adding depth on top would make a message <em>about</em> the page look like it floats <em>over</em> the page. The same component floating as a toast is a different question and takes level 5.</p>
+</section>
+
+<section id="component-map">
+<h2>Component map</h2>
+<p>Where each component sits at rest, and what interaction does to it. The two columns answer different questions: the first is a <em>level</em>, the second is a <em>change</em>. A component can rest at 1 and still say “no change” — the switch knob does.</p>
+<table><thead><tr><th>Component</th><th style="width:130px">Rest</th><th style="width:160px">On interaction</th><th>Note</th></tr></thead><tbody>
+<tr><td>Page, body, section</td><td class="val">0</td><td class="use">no change</td><td class="use">Never a shadow</td></tr>
+<tr><td>Card, static in a grid</td><td class="val">0</td><td class="use">no change</td><td class="use">Border, not shadow — the default</td></tr>
+<tr><td>Card, raised</td><td class="val">1</td><td class="use">no change</td><td class="use">Deliberately lifted out of a flat grid</td></tr>
+<tr><td>Card, interactive</td><td class="val">0</td><td class="val">3 + 2px lift</td><td class="use">The widest jump in the system; the lift is what makes it legible</td></tr>
+<tr><td>Button, all five variants</td><td class="val">0</td><td class="use">no change</td><td class="use">Darkens; never lifts. The reference model also lists an <em>elevated button</em> that rests at 1 and hovers to 2 — a Material 3 variant this system does not have, and the only reason a button would change level at all.</td></tr>
+<tr><td>Input, textarea, select field</td><td class="val">0</td><td class="use">no change</td><td class="use">Focus takes a ring, not a shadow</td></tr>
+<tr><td>Switch knob, slider thumb</td><td class="val">1</td><td class="use">no change</td><td class="use">The part that moves inside a flat control</td></tr>
+<tr><td>Segmented control, selected item</td><td class="val">1</td><td class="use">no change</td><td class="use">Raised out of a sunken container</td></tr>
+<tr><td>Top bar</td><td class="val">0</td><td class="val">2 on scroll</td><td class="use">Earns its shadow only once content is under it</td></tr>
+<tr><td>Menu, popover</td><td class="val">3</td><td class="use">no change</td><td class="use">Items inside are flat</td></tr>
+<tr><td>Select, combobox, multiselect, treeselect list</td><td class="val">3</td><td class="use">no change</td><td class="use">The field stays flat</td></tr>
+<tr><td>Tooltip</td><td class="val">3</td><td class="use">no change</td><td class="use">Caret inherits the bubble's shadow</td></tr>
+<tr><td>Dialog, drawer</td><td class="val">4</td><td class="use">no change</td><td class="use">Scrim does the separating; the shadow keeps the edges legible</td></tr>
+<tr><td>Toast</td><td class="val">5</td><td class="use">no change</td><td class="use">Above a dialog by stacking order</td></tr>
+<tr><td>Alert, inline banner</td><td class="val">0</td><td class="use">no change</td><td class="use">Tint and border, not depth — a divergence: the reference model puts a banner at level 1</td></tr>
+<tr><td>Table row, list row</td><td class="val">0</td><td class="use">no change</td><td class="use">Hover is a background tint</td></tr>
+<tr><td>Tag, badge, accordion</td><td class="val">0</td><td class="use">no change</td><td class="use">Establish themselves with border or fill</td></tr>
+<tr><td>Disabled anything</td><td class="val">0</td><td class="use">no change</td><td class="use">A disabled element never floats</td></tr>
+</tbody></table>
+</section>
+
+<section id="interaction-states">
+<h2>Interaction states</h2>
+<p>A surface that lifts on hover is claiming it can be picked up or opened. If it cannot be, it must not lift. Hover moves one level; press returns to rest and never <em>adds</em> shadow.</p><div class="demo demo--sunken" style="gap:var(--space-6);align-items:flex-start"><div style="background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px;box-shadow:var(--elevation-raised)"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size)">Rest</div><div style="font-size:var(--type-caption-size);color:var(--text-secondary);margin-top:var(--space-1)">level 1</div></div><div style="background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px;box-shadow:var(--elevation-sticky);transform:translateY(-2px)"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size)">Hover</div><div style="font-size:var(--type-caption-size);color:var(--text-secondary);margin-top:var(--space-1)">+1 level, −2px</div></div><div style="background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px;box-shadow:var(--elevation-raised);transform:translateY(0)"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size)">Press</div><div style="font-size:var(--type-caption-size);color:var(--text-secondary);margin-top:var(--space-1)">back to rest</div></div><div style="background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px;box-shadow:var(--elevation-transient);transform:rotate(-1.5deg)"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size)">Drag</div><div style="font-size:var(--type-caption-size);color:var(--text-secondary);margin-top:var(--space-1)">level 5, 1.5° tilt</div></div></div>
+<p class="caption">Static specimens, so the four steps can be compared side by side instead of chased with a pointer. The live one is the interactive card on the <a href="../../components/card/">card</a> page.</p>
+
+<table><thead><tr><th style="width:170px">State</th><th style="width:170px">Change</th><th>Timing and rule</th></tr></thead><tbody>
+<tr><td>Hover</td><td class="val">+1 level</td><td class="use"><code>--elevation-in</code> · 140ms on the standard curve</td></tr>
+<tr><td>Focus, keyboard</td><td class="val">no change</td><td class="use">Elevation is not a focus indicator — it is not visible enough to pass 2.4.7. Use <code>--focus-ring</code>.</td></tr>
+<tr><td>Press</td><td class="val">back to rest</td><td class="use"><code>--elevation-out</code> · 80ms, faster coming down than going up</td></tr>
+<tr><td>Drag</td><td class="val">level 5</td><td class="use">Plus a 1–2° tilt. Returns to its rest level on drop.</td></tr>
+<tr><td>Disabled</td><td class="val">level 0</td><td class="use">Shadow is removed outright — a disabled control never floats</td></tr>
+<tr><td>Content scrolls under a bar</td><td class="val">0 → 2</td><td class="use">The only state driven by scroll position rather than pointer or focus</td></tr>
+</tbody></table>
+<p>Under <code>prefers-reduced-motion</code> the lift is removed and the shadow change is kept. The depth cue survives; the movement does not.</p>
+</section>
+
+<section id="four-ways-to-say-separate-surface">
+<h2>Four ways to say “separate surface”</h2>
+<p>Shadow is one option of four, and it costs the most attention. Pick by context.</p><div class="demo demo--sunken" style="gap:var(--space-6);align-items:stretch"><div style="background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px;box-shadow:var(--elevation-overlay)"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size)">Shadow</div><div style="font-size:var(--type-caption-size);color:var(--text-secondary);margin-top:var(--space-1)">floats, dismissible</div></div><div style="background:var(--surface-card);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px;box-shadow:var(--elevation-border)"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size)">Border</div><div style="font-size:var(--type-caption-size);color:var(--text-secondary);margin-top:var(--space-1)">containment, dense UI</div></div><div style="background:var(--surface-sunken);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size)">Tone</div><div style="font-size:var(--type-caption-size);color:var(--text-secondary);margin-top:var(--space-1)">recessed, no shadow</div></div><div style="background:var(--surface-overlay);border-radius:var(--radius-md);padding:var(--space-5) var(--space-6);min-width:150px"><div style="font-weight:var(--font-weight-semibold);font-size:var(--type-ui-size);color:var(--text-inverse)">Scrim</div><div style="font-size:var(--type-caption-size);color:var(--text-inverse);opacity:.8;margin-top:var(--space-1)">blocks the page</div></div></div>
+
+<table><thead><tr><th style="width:150px">Mechanism</th><th style="width:230px">Use it for</th><th>Here</th></tr></thead><tbody>
+<tr><td>Shadow</td><td class="use">Surfaces that float and can be dismissed</td><td class="use"><code>--elevation-overlay</code> and up</td></tr>
+<tr><td>Border</td><td class="use">Containment in dense UI — tables, panels, cards in a grid</td><td class="use"><code>--elevation-border</code>, a 1px hairline</td></tr>
+<tr><td>Tonal difference</td><td class="use">Recessed areas, and anywhere a shadow would disappear</td><td class="use"><code>--surface-sunken</code> under a segmented control</td></tr>
+<tr><td>Scrim</td><td class="use">Anything that blocks the page</td><td class="use"><code>--surface-overlay</code> at 56%</td></tr>
+</tbody></table>
+<table><thead><tr><th style="width:330px">Situation</th><th>Reach for</th></tr></thead><tbody>
+<tr><td>A busy or photographic background behind a card</td><td class="use">Shadow — a hairline will not separate it</td></tr>
+<tr><td>Dense tables, settings panels, cards side by side</td><td class="use">Border, no shadow</td></tr>
+<tr><td>Content scrolling under a sticky bar</td><td class="use">A shadow that appears on scroll only, level 2</td></tr>
+<tr><td>Content scrolling inside a container</td><td class="use">An edge shadow at the scrolling edge, not on the container</td></tr>
+<tr><td>Anything that takes the page away</td><td class="use">Scrim plus level 4</td></tr>
+<tr><td>A coloured or dark surface</td><td class="use">Draw the edge instead — a shadow tuned for white barely shows on green and not at all on the inverse surface</td></tr>
+</tbody></table>
+<p>The scrim is 56% rather than something lighter because the page behind a dialog is a marketplace with product photography in it, and a thinner scrim leaves it competing for attention.</p>
+</section>
+
+<section id="shadows-on-coloured-and-dark-surfaces">
+<h2>Shadows on coloured and dark surfaces</h2>
+<p>A shadow works by darkening what is behind it, so its strength depends entirely on what that is. Every level here mixes from <code>#0A0C0A</code>, which is tuned for the page and card surfaces — and stops working as the ground gets darker.</p>
+<table><thead><tr><th style="width:230px">Ground</th><th style="width:160px">Shadow reads as</th><th>Verdict</th></tr></thead><tbody>
+<tr><td class="tok">--surface-card</td><td class="val">1.43:1</td><td class="use">Works — this is what the ramp was tuned against</td></tr>
+<tr><td class="tok">--surface-page</td><td class="val">1.42:1</td><td class="use">Works</td></tr>
+<tr><td class="tok">--surface-brand</td><td class="val">1.22:1</td><td class="use">Weak. A card dropped on the green hero needs its own edge, not a heavier shadow.</td></tr>
+<tr><td class="tok">--surface-inverse</td><td class="val">1.02:1</td><td class="use">Invisible. There is nothing left to darken.</td></tr>
+</tbody></table>
+<p>Which turned up a live one: the <a href="../../components/tooltip/">tooltip</a> sits on <code>--surface-inverse</code> and is documented as level 3, and its shadow was resolving at 1.02:1 against its own ground. It was paying for a shadow it never received — and in the interactive layer it had no <code>box-shadow</code> at all, so the React component and the CSS disagreed on top of that.</p>
+<p>The fix is the mechanism, not a bigger number: a dark surface gets its edge <em>drawn</em>. <code>--elevation-edge-on-dark</code> is an inset hairline in <code>--alpha-white-16</code>, and it composes with the level rather than replacing it, so a tooltip still carries overlay elevation for any ground that can show it.</p>
+<div class="demo" style="background:var(--surface-inverse);gap:var(--space-6)">
+  <span style="background:var(--surface-inverse);color:var(--text-inverse);padding:var(--tooltip-padding-y) var(--tooltip-padding-x);border-radius:var(--radius-sm);font-size:var(--type-caption-size);box-shadow:var(--elevation-overlay)">Shadow only — no edge</span>
+  <span style="background:var(--surface-inverse);color:var(--text-inverse);padding:var(--tooltip-padding-y) var(--tooltip-padding-x);border-radius:var(--radius-sm);font-size:var(--type-caption-size);box-shadow:var(--elevation-overlay),var(--elevation-edge-on-dark)">Shadow plus drawn edge</span>
+</div>
+<p class="caption">Both on <code>--surface-inverse</code>. The first is the level the docs promised; the second is the level you can actually see.</p>
+<p>The same mechanism is what a dark theme will need across the board — lighter surface per level, stronger shadow, and a hairline on overlays. None of that exists yet, and it is listed as a gap rather than described as if it did.</p>
+</section>
+
+<section id="stacking-order">
+<h2>Stacking order</h2><div class="demo demo--sunken" style="flex-direction:column;align-items:stretch;gap:var(--space-2)"><div style="display:grid;grid-template-columns:56px 1fr;gap:var(--space-4);align-items:center"><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary);text-align:right">120</span><span style="display:flex;justify-content:space-between;align-items:center;background:var(--surface-card);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-5);box-shadow:var(--elevation-transient);font-size:var(--type-ui-size)">Toast<span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">L5</span></span></div><div style="display:grid;grid-template-columns:56px 1fr;gap:var(--space-4);align-items:center"><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary);text-align:right">101</span><span style="display:flex;justify-content:space-between;align-items:center;background:var(--surface-card);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-5);box-shadow:var(--elevation-modal);font-size:var(--type-ui-size)">Dialog, drawer<span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">L4</span></span></div><div style="display:grid;grid-template-columns:56px 1fr;gap:var(--space-4);align-items:center"><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary);text-align:right">100</span><span style="display:flex;justify-content:space-between;align-items:center;background:var(--surface-card);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-5);box-shadow:var(--elevation-flat);font-size:var(--type-ui-size)">Scrim<span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">—</span></span></div><div style="display:grid;grid-template-columns:56px 1fr;gap:var(--space-4);align-items:center"><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary);text-align:right">70</span><span style="display:flex;justify-content:space-between;align-items:center;background:var(--surface-card);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-5);box-shadow:var(--elevation-overlay);font-size:var(--type-ui-size)">Tooltip<span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">L3</span></span></div><div style="display:grid;grid-template-columns:56px 1fr;gap:var(--space-4);align-items:center"><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary);text-align:right">60</span><span style="display:flex;justify-content:space-between;align-items:center;background:var(--surface-card);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-5);box-shadow:var(--elevation-overlay);font-size:var(--type-ui-size)">Menu, popover, lists<span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">L3</span></span></div><div style="display:grid;grid-template-columns:56px 1fr;gap:var(--space-4);align-items:center"><span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary);text-align:right">50</span><span style="display:flex;justify-content:space-between;align-items:center;background:var(--surface-card);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-5);box-shadow:var(--elevation-sticky);font-size:var(--type-ui-size)">Top bar<span style="font-family:var(--font-mono);font-size:var(--type-data-size);color:var(--text-tertiary)">L2</span></span></div></div>
+
+<p>Shadow says which layer something looks like it is on; <code>z-index</code> decides which layer it renders on. Define both per level or they drift — and they had: a dropdown sat at 40 while the sticky header sat at 50, so a select opened near the top of the page rendered <em>behind</em> the header. Both now come from tokens in <code>tokens/elevation.css</code>, next to the shadows they belong with.</p>
+<table><thead><tr><th>Token</th><th style="width:100px">Value</th><th style="width:90px">Level</th><th>Layer</th></tr></thead><tbody>
+<tr><td class="tok">--z-base</td><td class="val">0</td><td class="val">0</td><td class="use">Page content</td></tr>
+<tr><td class="tok">--z-raised</td><td class="val">1</td><td class="val">1</td><td class="use">A focused control lifting above its neighbour's border</td></tr>
+<tr><td class="tok">--z-sticky</td><td class="val">50</td><td class="val">2</td><td class="use">Top bar, sticky rails</td></tr>
+<tr><td class="tok">--z-dropdown</td><td class="val">60</td><td class="val">3</td><td class="use">Menu, popover, every select and combobox list</td></tr>
+<tr><td class="tok">--z-tooltip</td><td class="val">70</td><td class="val">3</td><td class="use">Above a dropdown, because it can describe one</td></tr>
+<tr><td class="tok">--z-backdrop</td><td class="val">100</td><td class="use">not a level</td><td class="use">The scrim — it dims, it does not float</td></tr>
+<tr><td class="tok">--z-modal</td><td class="val">101</td><td class="val">4</td><td class="use">Dialog, drawer — one above their own scrim</td></tr>
+<tr><td class="tok">--z-toast</td><td class="val">120</td><td class="val">5</td><td class="use">Above everything, including a dialog</td></tr>
+</tbody></table>
+<p>Two traps worth knowing. A <code>transform</code>, <code>filter</code> or <code>opacity</code> below 1 creates a new stacking context, so a child's <code>z-index</code> is then measured against its parent rather than the page — which is why the interactive card's 2px lift must never wrap a dropdown. And an overlay inside a scrolling container clips against it. Both are solved by rendering overlays at the document root rather than by raising numbers.</p>
+</section>
+
 
 </div>
 <nav class="pagernav">
@@ -111,10 +240,21 @@
 <a href="../../foundations/motion/index.html" style="text-align:right"><span>Next</span>Motion</a>
 </nav>
 </main>
-
+<aside class="toc" aria-label="On this page">
+<div class="toc__title">On this page</div>
+<div class="toc__part">Guidelines</div>
+<a href="#six-behaviours-four-values" aria-current="false">Six behaviours, four values</a>
+<a href="#component-map" aria-current="true">Component map</a>
+<a href="#interaction-states" aria-current="false">Interaction states</a>
+<a href="#four-ways-to-say-separate-surface" aria-current="false">Four ways to say “separate surface”</a>
+<a href="#shadows-on-coloured-and-dark-surfaces" aria-current="false">Shadows on coloured and dark surfaces</a>
+<a href="#stacking-order" aria-current="false">Stacking order</a>
+</aside>
 </div>
 
 <script src="../../interactive.js"></script>
 <script src="../../site.js"></script>
+
+
 </body>
 </html>

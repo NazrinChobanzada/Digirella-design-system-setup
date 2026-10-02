@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spacing — Digirella</title>
@@ -8,8 +7,7 @@
 <link rel="stylesheet" href="../../interactive.css">
 <link rel="stylesheet" href="../../site.css">
 </head>
-<body class="ix">
-<header class="masthead">
+<body class="ix"><header class="masthead">
   <div class="masthead__inner">
     <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
     <a class="masthead__brand" href="../../index.html">digirella</a>
@@ -97,26 +95,195 @@
 </div>
 </nav>
 <main>
-<div class="page__eyebrow">Foundations</div><h1 class="page__title">Spacing</h1><div class="statusline"><span class="dot" data-status="migrated"></span>Carried over from the previous structure</div><div class="callout"><div>This page carries its content from the previous structure, moved across unchanged. It hasn't been rewritten to the new format yet.</div></div>
+<div class="page__eyebrow">Foundations</div><h1 class="page__title">Spacing <span class="flag flag--lg">New</span></h1><p class="page__lede">Space is how the interface says what belongs together. The scale is small on purpose — a system with twenty steps has no opinion about which one you should use.</p>
 <div class="doc">
-<section id="spacing">
-<h2>Spacing</h2>
-<p class="doc-lead"><code>tokens/spacing.css</code> · 4px base grid. 2px exists only for optical corrections such as icon-to-text alignment.</p>
-<table><thead><tr><th style="width:190px"></th><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-1);min-width:2px"></span></td><td class="tok">--space-1</td><td class="val">2px</td><td class="use">Optical adjustment</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-2);min-width:2px"></span></td><td class="tok">--space-2</td><td class="val">4px</td><td class="use">Icon-to-text</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-3);min-width:2px"></span></td><td class="tok">--space-3</td><td class="val">8px</td><td class="use">Tight groups, in-button gap</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-4);min-width:2px"></span></td><td class="tok">--space-4</td><td class="val">12px</td><td class="use">Between form fields</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-5);min-width:2px"></span></td><td class="tok">--space-5</td><td class="val">16px</td><td class="use">Dense card padding</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-6);min-width:2px"></span></td><td class="tok">--space-6</td><td class="val">20px</td><td class="use">Default card padding</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-7);min-width:2px"></span></td><td class="tok">--space-7</td><td class="val">24px</td><td class="use">Column gap, page gutter</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-8);min-width:2px"></span></td><td class="tok">--space-8</td><td class="val">32px</td><td class="use">Modal padding, block spacing</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-9);min-width:2px"></span></td><td class="tok">--space-9</td><td class="val">40px</td><td class="use">Intra-section spacing</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-10);min-width:2px"></span></td><td class="tok">--space-10</td><td class="val">48px</td><td class="use">Hero padding</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-11);min-width:2px"></span></td><td class="tok">--space-11</td><td class="val">64px</td><td class="use">Between sections</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-12);min-width:2px"></span></td><td class="tok">--space-12</td><td class="val">80px</td><td class="use">Page bottom padding</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-13);min-width:2px"></span></td><td class="tok">--space-13</td><td class="val">96px</td><td class="use">Empty and confirmation states</td></tr></tbody></table>
+
+
+<section>
+
+<p class="doc-lead"><code>tokens/spacing.css</code> · 4px base grid, 8px rhythm. Everything below 8 is an optical correction, not a layout choice.</p>
+<table><thead><tr><th style="width:190px"></th><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-1);min-width:2px"></span></td><td class="tok">--space-1</td><td class="val">2px</td><td class="use">Optical adjustment, title to subtitle</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-2);min-width:2px"></span></td><td class="tok">--space-2</td><td class="val">4px</td><td class="use">Icon-to-text, field to helper text</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-optical-6);min-width:2px"></span></td><td class="tok">--space-optical-6</td><td class="val">6px</td><td class="use">Optical only — menu container, condensed cells</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-3);min-width:2px"></span></td><td class="tok">--space-3</td><td class="val">8px</td><td class="use">Icon to label, button to button, related items</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-optical-10);min-width:2px"></span></td><td class="tok">--space-optical-10</td><td class="val">10px</td><td class="use">Optical only — icon-only button at 36px</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-4);min-width:2px"></span></td><td class="tok">--space-4</td><td class="val">12px</td><td class="use">Field and menu-item padding, table cell</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-5);min-width:2px"></span></td><td class="tok">--space-5</td><td class="val">16px</td><td class="use">Card padding, stacked fields, unrelated items</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-6);min-width:2px"></span></td><td class="tok">--space-6</td><td class="val">20px</td><td class="use">Large button padding, nav group gap</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-7);min-width:2px"></span></td><td class="tok">--space-7</td><td class="val">24px</td><td class="use">Dialog padding, sub-sections, tablet margin</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-8);min-width:2px"></span></td><td class="tok">--space-8</td><td class="val">32px</td><td class="use">Form groups, sections, desktop margin</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-9);min-width:2px"></span></td><td class="tok">--space-9</td><td class="val">40px</td><td class="use">Large-screen page margin</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-10);min-width:2px"></span></td><td class="tok">--space-10</td><td class="val">48px</td><td class="use">Page sections on desktop</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-11);min-width:2px"></span></td><td class="tok">--space-11</td><td class="val">64px</td><td class="use">Hero and major bands</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-12);min-width:2px"></span></td><td class="tok">--space-12</td><td class="val">80px</td><td class="use">Marketing sections</td></tr><tr><td><span style="display:block;height:12px;border-radius:var(--radius-xs);background:var(--color-primary);width:var(--space-13);min-width:2px"></span></td><td class="tok">--space-13</td><td class="val">96px</td><td class="use">Empty and confirmation states</td></tr></tbody></table>
+<p class="caption">4, 8, 16, 24 and 32 appear in 13 of the 14 published scales surveyed. The two optical steps appear in four and two respectively — which is exactly why they are labelled, and why they never carry a layout decision.</p>
+
 <h4>Layout</h4>
-<table><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td class="tok">--layout-max-width</td><td class="val">1280px</td><td class="use">Maximum page width</td></tr><tr><td class="tok">--layout-content-width</td><td class="val">720px</td><td class="use">Long-form measure</td></tr><tr><td class="tok">--layout-gutter</td><td class="val">24px</td><td class="use">Page edge padding</td></tr><tr><td class="tok">--layout-section</td><td class="val">64px</td><td class="use">Vertical section rhythm</td></tr></tbody></table>
+<table><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td class="tok">--layout-max-width</td><td class="val">1280px</td><td class="use">Maximum page width</td></tr><tr><td class="tok">--layout-content-width</td><td class="val">720px</td><td class="use">Long-form measure</td></tr><tr><td class="tok">--page-margin</td><td class="val">16 → 24 → 32 → 40</td><td class="use">Page edge padding, by breakpoint</td></tr><tr><td class="tok">--grid-gutter</td><td class="val">16 → 24</td><td class="use">Column gap</td></tr><tr><td class="tok">--section-gap</td><td class="val">32 → 40 → 48</td><td class="use">Vertical section rhythm</td></tr><tr><td class="tok">--layout-gutter</td><td class="val">24px</td><td class="use">Fixed gutter — prefer --page-margin</td></tr><tr><td class="tok">--layout-section</td><td class="val">64px</td><td class="use">Marketing band rhythm</td></tr></tbody></table>
+
+<h4>Control heights</h4>
+<p>Height is fixed first and padding is derived from it, which is why buttons and fields carry no vertical padding at all — the height token plus flex centring already sets the box.</p>
+<table><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody><tr><td class="tok">--control-height-sm</td><td class="val">30px</td><td class="use">Small button — 8px below the default</td></tr><tr><td class="tok">--control-height-md</td><td class="val">38px</td><td class="use">Default button — matches the field</td></tr><tr><td class="tok">--control-height-lg</td><td class="val">46px</td><td class="use">Large button — 8px above the default</td></tr><tr><td class="tok">--control-height-field</td><td class="val">38px</td><td class="use">Every form field — matches the default button</td></tr><tr><td class="tok">--touch-target-min</td><td class="val">44px</td><td class="use">Minimum hit area on touch</td></tr></tbody></table>
 </section>
 
+<div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div><section id="eight-rules" data-part="Guidelines">
+<h2>Eight rules</h2>
+<p>The numbers only work if they follow these. Each one appears, in some wording, in most of the fourteen systems surveyed.</p>
+
+<h3>Inside is never larger than outside</h3>
+<p>Space inside a group is always smaller than the space around it. That relationship is what tells someone where one object ends and the next begins — get it backwards and a row of cards reads as one block. Card padding is 16, so the gap between cards is at least 16.</p>
+
+<h3>Three zones, three ranges</h3>
+<p>2–12px inside a component, 8–24px between components, 24–96px for layout. A value that crosses zones is usually a mistake: 32px inside a card is a layout decision that wandered in.</p>
+
+<h3>Parents own spacing</h3>
+<p>Use <code>gap</code> on the flex or grid parent, and <code>padding</code> on containers. Margins on children collapse, double up against each other, and leave the last item with trailing space nobody asked for. The one exception in this system is the field label, which carries a <code>padding-bottom</code> so that label-to-field reaches 8 while the rest of the stack sits at 4.</p>
+
+<h3>Height first, padding follows</h3>
+<p>Fix the control height, set the horizontal padding, and let the height do the vertical work: <code>(height − line-height) ÷ 2 − border</code>. Every control in this system takes <code>padding: 0 &lt;x&gt;</code> plus a height token for exactly this reason — vertical padding and a fixed height fight each other, and the height should win.</p>
+
+<h3>Off-grid values are for optics only</h3>
+<p><code>--space-optical-6</code> and <code>--space-optical-10</code> exist to compensate for icon padding and borders. A 36px icon-only button holding a 16px icon needs 10px, and no amount of wishing makes that 8 or 12. They are named as optical so nobody reaches for them to space a section.</p>
+
+<h3>The icon side takes less padding</h3>
+<p>An icon carries its own whitespace, so the side with an icon gets less padding than the side with text. A tag is 12 on the label side and 8 on the icon side; without the asymmetry the icon looks pushed away from its own label.</p>
+
+<h3>Tokens keep their value; the choice moves</h3>
+<p>A token's value does not change with the screen size — you pick a different step instead. <code>--page-margin</code> and <code>--section-gap</code> are the only exceptions in this system, and they move one step at a time: 16 → 24 → 32 → 40.</p>
+
+<h3>Density is one step, not a second component</h3>
+<p>Compact mode steps every value down one token; comfortable steps up. There is no separate compact card. Set <code>data-density</code> on an ancestor and the same components retune themselves.</p>
+</section>
+
+<section id="the-ladder">
+<h2>The ladder</h2>
+<p>When you do not know which value to use, name the relationship first and read the value off it.</p>
+<table><thead><tr><th style="width:70px">Value</th><th style="width:180px">Relationship</th><th>Where it shows up</th></tr></thead><tbody>
+<tr><td class="val">4</td><td>Tightly bound</td><td class="use">Icon to small text, field to its helper or error, title to subtitle</td></tr>
+<tr><td class="val">8</td><td>Related</td><td class="use">Buttons in a group, tag to tag, label to field, heading to its own paragraph</td></tr>
+<tr><td class="val">16</td><td>Unrelated siblings</td><td class="use">Stacked form fields, card padding, cards in a grid, paragraph to paragraph</td></tr>
+<tr><td class="val">24</td><td>Sub-sections</td><td class="use">Dialog padding, body to footer actions, header to content, tablet margin</td></tr>
+<tr><td class="val">32</td><td>Sections</td><td class="use">Form groups, section breaks in product UI, desktop page margin</td></tr>
+<tr><td class="val">48</td><td>Page sections</td><td class="use">Major blocks on desktop — step down to 32 on mobile</td></tr>
+<tr><td class="val">64</td><td>Bands</td><td class="use">Landing-page sections, hero to content</td></tr>
+<tr><td class="val">96</td><td>Marketing rhythm</td><td class="use">Full-width bands on large screens — 64 on mobile</td></tr>
+</tbody></table>
+</section>
+
+<section id="component-spacing">
+<h2>Component spacing</h2>
+<p>Every value below is what the component actually ships, read from <code>tokens/spacing-components.css</code>. Each component page carries the same table for itself, with its variants.</p>
+<table><thead><tr><th>Component</th><th>Height</th><th>Padding — vertical × horizontal</th><th>Inner gap</th><th>Gap to siblings</th></tr></thead><tbody>
+<tr><td>Button</td><td class="val">30 / 38 / 46</td><td class="val">0 × 12 / 16 / 20</td><td class="val">8</td><td class="val">8</td></tr>
+<tr><td>IconButton</td><td class="val">36</td><td class="val">8</td><td class="val">—</td><td class="val">4 · 8 between groups</td></tr>
+<tr><td>Tag</td><td class="val">content</td><td class="val">4 × 12 · 8 icon side</td><td class="val">8</td><td class="val">8</td></tr>
+<tr><td>Badge</td><td class="val">content</td><td class="val">2 × 8</td><td class="val">4</td><td class="val">8 from a title</td></tr>
+<tr><td>Text input · Select · Combobox</td><td class="val">38</td><td class="val">0 × 12</td><td class="val">8</td><td class="val">16 stacked</td></tr>
+<tr><td>Textarea</td><td class="val">88 min</td><td class="val">8 × 12</td><td class="val">—</td><td class="val">16</td></tr>
+<tr><td>Checkbox · Radio · Switch</td><td class="val">row</td><td class="val">—</td><td class="val">8 control to label</td><td class="val">8 stacked · 24 inline</td></tr>
+<tr><td>Card</td><td class="val">content</td><td class="val">16 · 24 roomy</td><td class="val">8 title to body</td><td class="val">16</td></tr>
+<tr><td>Dialog · Drawer</td><td class="val">content</td><td class="val">24</td><td class="val">16 title to body</td><td class="val">8 between actions</td></tr>
+<tr><td>Menu · Popover</td><td class="val">36 item</td><td class="val">6 container · 0 × 12 item</td><td class="val">8</td><td class="val">4 around dividers</td></tr>
+<tr><td>Tooltip</td><td class="val">content</td><td class="val">4 × 8</td><td class="val">—</td><td class="val">4 from trigger</td></tr>
+<tr><td>Table</td><td class="val">40 row</td><td class="val">12 × 16</td><td class="val">—</td><td class="val">16 toolbar to table</td></tr>
+<tr><td>Tabs</td><td class="val">content</td><td class="val">8 × 16</td><td class="val">8</td><td class="val">0 — the underline abuts</td></tr>
+<tr><td>SegmentedControl</td><td class="val">content</td><td class="val">4 container · 6 × 12 item</td><td class="val">—</td><td class="val">4</td></tr>
+<tr><td>Alert · Toast</td><td class="val">48 min</td><td class="val">12 × 16</td><td class="val">12 icon to text</td><td class="val">8 stacked toasts</td></tr>
+<tr><td>Accordion</td><td class="val">content</td><td class="val">16</td><td class="val">16</td><td class="val">—</td></tr>
+<tr><td>Avatar</td><td class="val">—</td><td class="val">—</td><td class="val">8 / 12 / 16 by size</td><td class="val">−8 when stacked</td></tr>
+<tr><td>Steps</td><td class="val">—</td><td class="val">—</td><td class="val">8 marker to label</td><td class="val">16</td></tr>
+<tr><td>Breadcrumb</td><td class="val">—</td><td class="val">—</td><td class="val">—</td><td class="val">8</td></tr>
+<tr><td>Pagination</td><td class="val">34</td><td class="val">0 × 8</td><td class="val">—</td><td class="val">4</td></tr>
+<tr><td>Rating</td><td class="val">—</td><td class="val">—</td><td class="val">2 between stars</td><td class="val">8 to the count</td></tr>
+<tr><td>ProgressBar</td><td class="val">—</td><td class="val">—</td><td class="val">8 to the label</td><td class="val">—</td></tr>
+</tbody></table>
+<p class="caption">A vertical padding of 0 is not a gap in the spec. Controls with a fixed height — button, field, menu item, tab — set <code>padding: 0 &lt;horizontal&gt;</code> and let the height token plus flex centring place the text, per “Height first, padding follows”. Declaring both would make the line box fight the height.</p>
+</section>
+
+<section id="page-margins-and-section-rhythm">
+<h2>Page margins and section rhythm</h2>
+<p>Three breakpoints, and the margin steps once at each. Long-form text stays capped at 720px regardless — a 1280px measure is unreadable no matter how much margin surrounds it.</p>
+<table><thead><tr><th>Breakpoint</th><th>Page margin</th><th>Grid gutter</th><th>Section gap</th></tr></thead><tbody>
+<tr><td>Compact · below 600px</td><td class="val">16</td><td class="val">16</td><td class="val">32</td></tr>
+<tr><td>Medium · 600–1023px</td><td class="val">24</td><td class="val">16</td><td class="val">40</td></tr>
+<tr><td>Expanded · 1024px and up</td><td class="val">32</td><td class="val">24</td><td class="val">48</td></tr>
+<tr><td>Wide · 1440px and up</td><td class="val">40</td><td class="val">24</td><td class="val">48</td></tr>
+</tbody></table>
+</section>
+
+<section id="text-rhythm">
+<h2>Text rhythm</h2>
+<p>A heading belongs to the text below it, not the text above it. Two to three times as much space above a heading as below is what makes that legible without a single rule or divider — measured against this scale, a section break at 32 over a 12px heading gap is 2.7×, and 48 over 12 is 4×.</p>
+<table><thead><tr><th>Between</th><th>Value</th></tr></thead><tbody>
+<tr><td>Page title and its intro</td><td class="val">8</td></tr>
+<tr><td>Page header and first content</td><td class="val">24</td></tr>
+<tr><td>Previous section and the next heading</td><td class="val">32–48</td></tr>
+<tr><td>Section heading and its body</td><td class="val">12</td></tr>
+<tr><td>Sub-heading and its body</td><td class="val">8</td></tr>
+<tr><td>Paragraph and paragraph</td><td class="val">16</td></tr>
+<tr><td>List item and list item</td><td class="val">8 · 4 dense</td></tr>
+<tr><td>Label and value in a key/value pair</td><td class="val">4</td></tr>
+<tr><td>Title and subtitle</td><td class="val">2–4</td></tr>
+<tr><td>Field and its error message</td><td class="val">4</td></tr>
+</tbody></table>
+</section>
+
+<section id="density">
+<h2>Density</h2>
+<p>Set <code>data-density</code> on any ancestor. The same components move along the scale — there is no second set of compact components to maintain.</p>
+<table><thead><tr><th>Mode</th><th>For</th><th>Button pad-x</th><th>Field pad-x</th><th>Field stack</th><th>Card padding</th></tr></thead><tbody>
+<tr><td class="tok">compact</td><td class="use">Data-dense tools, tables, admin</td><td class="val">12</td><td class="val">8</td><td class="val">12</td><td class="val">12</td></tr>
+<tr><td class="tok">default</td><td class="use">Most product UI</td><td class="val">16</td><td class="val">12</td><td class="val">16</td><td class="val">16</td></tr>
+<tr><td class="tok">comfortable</td><td class="use">Touch, kiosks, onboarding</td><td class="val">20</td><td class="val">16</td><td class="val">24</td><td class="val">24</td></tr>
+</tbody></table>
+<p>One constraint worth knowing before you move a surface token: a field sitting on <code>--surface-page</code> rather than on a card puts <code>--border-control</code> at exactly 3.00:1 — it meets 1.4.11 with nothing to spare. Darkening the page surface or lightening the control boundary breaks it.</p>
+<p>Compact never shrinks a hit area below <code>--touch-target-min</code>. If a row has to get smaller than 44px on touch, extend the hit area with transparent padding rather than making the target smaller than a finger.</p>
+</section>
+
+<section id="known-divergences">
+<h2>Known divergences</h2>
+<p>Two places where this system deliberately does not match the consensus. Both are recorded here so they read as decisions rather than as drift.</p>
+
+<h3>Control heights are 30 / 38 / 46, not 32 / 40 / 48</h3>
+<p>Thirteen of the fourteen systems surveyed settle on 32 / 40 / 48. Digirella sits 2px under at every step, and the reason is the field.</p>
+<p>The 38px field is a density decision: at 38 with 14px text a six-field form fits without folding, where 44/16 did not. The consensus rule that matters more than the exact number is that a field and a default button must share a height, so the button was pulled to 38 rather than the field pushed to 40. A field and a button now sit on one line with no adjustment, which is what the rule was protecting.</p>
+<p>The ends are then set 8px either side of the default, so the ladder steps evenly: 30, 38, 46. An even ladder is worth more than matching the consensus number, because it is the thing a designer reads off when choosing a size.</p>
+<p>One consequence to know: the large button at 46px is the only control that clears 44px, so it is the only one that meets the touch target on its own. Everything else needs its hit area extended.</p>
+</section>
+
+<section id="semantic-tokens">
+<h2>Semantic tokens</h2>
+<p><code>tokens/spacing-components.css</code> is the component layer: 126 tokens that name a relationship rather than a value, so a component can be retuned without touching the scale underneath it. Product code and components read these; the <code>--space-*</code> scale is for layout.</p>
+<p>The naming follows the architecture: <code>--&lt;component&gt;-&lt;relationship&gt;</code>, and every one of them resolves to a step on the scale. None holds a raw pixel except the four that hold a height — <code>--button-min-width</code>, <code>--menu-item-height</code>, <code>--tooltip-max-width</code> and <code>--avatar-stack-overlap</code> — which are sizes, not spacing.</p>
+<table><thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead><tbody>
+<tr><td class="tok">--button-padding-x-md</td><td class="val">16px</td><td class="use">Default button, horizontal only</td></tr>
+<tr><td class="tok">--button-icon-gap</td><td class="val">8px</td><td class="use">Icon to label, every variant</td></tr>
+<tr><td class="tok">--field-label-gap</td><td class="val">8px</td><td class="use">Label down to its control</td></tr>
+<tr><td class="tok">--field-helper-gap</td><td class="val">4px</td><td class="use">Control down to helper or error</td></tr>
+<tr><td class="tok">--field-stack-gap</td><td class="val">16px</td><td class="use">Field to field</td></tr>
+<tr><td class="tok">--field-group-gap</td><td class="val">32px</td><td class="use">Fieldset to fieldset</td></tr>
+<tr><td class="tok">--card-padding</td><td class="val">16px</td><td class="use">Card interior</td></tr>
+<tr><td class="tok">--card-gap</td><td class="val">16px</td><td class="use">Card to card — never less than the padding</td></tr>
+<tr><td class="tok">--dialog-padding</td><td class="val">24px</td><td class="use">Dialog and drawer interior</td></tr>
+<tr><td class="tok">--table-cell-padding-x</td><td class="val">16px</td><td class="use">Header and body cells alike</td></tr>
+<tr><td class="tok">--overlay-trigger-offset</td><td class="val">4px</td><td class="use">Trigger to the layer it opens</td></tr>
+<tr><td class="tok">--touch-target-min</td><td class="val">44px</td><td class="use">Floor for any hit area on touch</td></tr>
+</tbody></table>
+<p class="caption">Twelve of the 126 shown. Read the file for the rest — it is grouped by component and every line carries its resolved value in a comment.</p>
+</section>
+
+<section id="related"><h2>Related</h2><div class="related"><a href="../../foundations/architecture/index.html">Architecture</a><a href="../../foundations/shape/index.html">Shape &amp; border</a></div></section>
 </div>
 <nav class="pagernav">
 <a href="../../foundations/typography/index.html"><span>Previous</span>Typography</a>
 <a href="../../foundations/shape/index.html" style="text-align:right"><span>Next</span>Shape &amp; border</a>
 </nav>
 </main>
-
+<aside class="toc" aria-label="On this page">
+<div class="toc__title">On this page</div>
+<div class="toc__part">Guidelines</div>
+<a href="#eight-rules" aria-current="false">Eight rules</a>
+<a href="#the-ladder" aria-current="false">The ladder</a>
+<a href="#component-spacing" aria-current="false">Component spacing</a>
+<a href="#page-margins-and-section-rhythm" aria-current="false">Page margins and section rhythm</a>
+<a href="#text-rhythm" aria-current="false">Text rhythm</a>
+<a href="#density" aria-current="false">Density</a>
+<a href="#known-divergences" aria-current="false">Known divergences</a>
+<a href="#semantic-tokens" aria-current="false">Semantic tokens</a>
+<a href="#related" aria-current="false">Related</a>
+</aside>
 </div>
 
 <script src="../../interactive.js"></script>
 <script src="../../site.js"></script>
+
+
 </body>
 </html>
