@@ -216,7 +216,8 @@
     <div class="affix">
       <button class="affix__select affix__select--lead" type="button"
               aria-expanded="false" aria-haspopup="listbox" aria-label="Country code"
-              data-pop="af1c">
+              data-pop="af1c"
+              style="display:flex;align-items:center;align-self:stretch;gap:var(--space-2);padding:0 var(--space-3);border:none;background:var(--surface-sunken);font-family:inherit;font-size:var(--font-size-300);color:var(--text-secondary);cursor:pointer;white-space:nowrap;border-right:1px solid var(--border-subtle);">
         <span data-value="">+994</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -304,7 +305,7 @@
     <label class="field__label" for="df1">Phone</label>
     <input class="control" id="df1" type="tel" inputmode="tel" autocomplete="tel" placeholder="050 000 00 00" maxlength="13" aria-describedby="df1h">
     <span class="field__hint" id="df1h">Format: 050 123 45 67</span>
-    <span class="field__error" id="df1e" hidden>Enter a 10-digit phone number.</span>
+    <span class="field__error" id="df1e" style="display:none">Enter a 10-digit phone number.</span>
   </div>
 </div>
 <script>
@@ -323,15 +324,15 @@
   function clearError() {
     el.removeAttribute('aria-invalid');
     el.setAttribute('aria-describedby', 'df1h');
-    err.hidden = true;
-    hint.hidden = false;
+    err.style.display = 'none';
+    hint.style.display = '';
     errored = false;
   }
   function showError() {
     el.setAttribute('aria-invalid', 'true');
     el.setAttribute('aria-describedby', 'df1e');
-    hint.hidden = true;
-    err.hidden = false;
+    hint.style.display = 'none';
+    err.style.display = 'flex';
     errored = true;
   }
   el.addEventListener('keydown', function(e) {
