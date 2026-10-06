@@ -140,13 +140,19 @@
 (function () {
   var el = document.getElementById('mask-phone');
   if (!el) return;
+  el.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey) return;
+    if ([8, 9, 27, 35, 36, 37, 38, 39, 40, 46].indexOf(e.keyCode) !== -1) return;
+    if (e.key && !/^\d$/.test(e.key)) e.preventDefault();
+  });
   el.addEventListener('input', function (e) {
     var pos = el.selectionStart;
     var raw = el.value.replace(/\D/g, '').slice(0, 10);
     var groups = [raw.slice(0, 3), raw.slice(3, 6), raw.slice(6, 8), raw.slice(8, 10)].filter(function (g) { return g.length > 0; });
     var masked = groups.join(' ');
+    var prev = e.target._prev || '';
     el.value = masked;
-    var diff = masked.length - (e.target._prev || '').length;
+    var diff = masked.length - prev.length;
     var newPos = Math.max(0, pos + (diff > 0 && pos > 0 ? (masked[pos - 1] === ' ' ? 1 : 0) : 0));
     try { el.setSelectionRange(newPos, newPos); } catch (err) {}
     e.target._prev = masked;
@@ -176,6 +182,63 @@
 </section>
 
 <section data-part="Behaviour">
+<h2>Digit fields</h2>
+<p>Phone numbers, card numbers and postcodes accept only digits. The field silently drops any other character — no error, no flash, the key simply does not appear. This is filtering, not validation: the person has not made a mistake, so there is nothing to mark wrong.</p>
+<p>Errors belong on blur, not on keystroke. While someone is mid-entry the placeholder already shows the expected shape, so nothing is wrong yet — they are still building the value. Once a field has shown an error, switch to validating on input so the message clears as soon as the value becomes valid.</p>
+<div class="demo">
+  <div class="field" style="width:260px">
+    <label class="field__label" for="df1">Phone</label>
+    <input class="control" id="df1" type="tel" inputmode="tel" autocomplete="tel" placeholder="050 000 00 00" maxlength="13" aria-describedby="df1h">
+    <span class="field__hint" id="df1h">10 digits — letters are ignored.</span>
+    <span class="field__error" id="df1e" hidden>Enter a 10-digit phone number.</span>
+  </div>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('df1');
+  var err = document.getElementById('df1e');
+  var hint = document.getElementById('df1h');
+  if (!el || !err) return;
+  var errored = false;
+  function getDigits() { return el.value.replace(/\D/g, ''); }
+  function applyMask() {
+    var d = getDigits().slice(0, 10);
+    var groups = [d.slice(0,3), d.slice(3,6), d.slice(6,8), d.slice(8,10)].filter(function(g){ return g.length > 0; });
+    el.value = groups.join(' ');
+  }
+  function clearError() {
+    el.removeAttribute('aria-invalid');
+    el.setAttribute('aria-describedby', 'df1h');
+    err.hidden = true;
+    errored = false;
+  }
+  function showError() {
+    el.setAttribute('aria-invalid', 'true');
+    el.setAttribute('aria-describedby', 'df1e');
+    err.hidden = false;
+    errored = true;
+  }
+  el.addEventListener('keydown', function(e) {
+    if (e.ctrlKey || e.metaKey) return;
+    if ([8, 9, 27, 35, 36, 37, 38, 39, 40, 46].indexOf(e.keyCode) !== -1) return;
+    if (e.key && !/^\d$/.test(e.key)) e.preventDefault();
+  });
+  el.addEventListener('input', function() {
+    var pos = el.selectionStart;
+    var prev = el.value;
+    applyMask();
+    var diff = el.value.length - prev.length;
+    var newPos = Math.max(0, pos + (diff !== 0 && pos > 0 && el.value[pos - 1] === ' ' ? 1 : 0));
+    try { el.setSelectionRange(newPos, newPos); } catch(ex) {}
+    if (errored) { getDigits().length >= 10 ? clearError() : showError(); }
+  });
+  el.addEventListener('blur', function() {
+    if (getDigits().length === 0) { clearError(); return; }
+    if (getDigits().length < 10) showError(); else clearError();
+  });
+}());
+</script>
+
 <h2>Validation</h2>
 <p>Validate on blur, and once a field has erred switch it to validating on input so the message clears the moment it is fixed. Be permissive about shape and strict about meaning: accept a phone number however it is spaced, then check it resolves.</p>
 <div class="demo">
