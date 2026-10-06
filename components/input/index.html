@@ -222,11 +222,9 @@
 <p>A fixed symbol like <code>%</code> is decorative: it is not focusable and is hidden from assistive technology, because it repeats what the label already established. Put the unit in the label too, so it is announced once.</p>
 
 <h4>Selectable affixes</h4>
-<p>When the unit is part of the answer rather than a description of it, the affix becomes a control. Grams or kilograms, one country code or another — the person is choosing, not just reading, so it takes a real <code>&lt;select&gt;</code> with its own accessible name and its own place in the tab order.</p>
+<p>When the unit is part of the answer rather than a description of it, the affix becomes a <strong>Select</strong> component. Grams or kilograms, one country code or another — the person is choosing, not just reading, so it gets its own accessible name and its own place in the tab order.</p>
 <p>The test is whether changing it changes the meaning of the number. <code>15%</code> is one value; <code>1.4</code> in grams and <code>1.4</code> in kilograms are two. The second needs a control; the first does not.</p>
 <p>Submit the pair together — the amount and its unit are one answer, and a value that arrives without its unit is worse than no value, because it looks usable.</p>
-
-<div class="callout callout--warning"><div><b>A native <code>&lt;select&gt;</code> opens an operating-system menu that cannot be styled.</b> The closed control is ours — border, height, type, focus halo all follow the system. The open list is not: it is drawn by iOS, Android or the desktop OS, and no CSS reaches it. That is a browser boundary, not an oversight.<br><br>Accept it where the native list is genuinely better — on a phone it is a full-height wheel with momentum scrolling, larger targets and familiar gestures that no custom menu matches. Replace it with <strong>Combobox</strong> where the open list has to look like the rest of the product, or needs search, grouping, icons or multi-select. The trade is real: a custom listbox has to rebuild typeahead, arrow-key navigation and focus trapping that the native control gives away for free.</div></div>
 <p><strong>Suffix is the default here.</strong> Units and currency follow the number in this locale — <code>1.4 kg</code>, <code>2.480 ₼</code> — so a trailing affix matches how the value is read aloud. A prefix is for the rare case where the symbol genuinely leads in the data itself, such as a <code>+</code> before an international dialling code.</p>
 </section>
 
