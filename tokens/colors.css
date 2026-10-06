@@ -14,10 +14,12 @@
   --text-secondary: var(--neutral-60);
   --text-tertiary: var(--neutral-50);
   --text-disabled: var(--neutral-40);
+  --text-disabled-strong: var(--neutral-50);
   --text-inverse: var(--neutral-00);
   --text-brand: var(--green-70);
   --text-link: var(--blue-60);
   --text-link-hover: var(--blue-70);
+  --text-info: var(--blue-60);
   --text-success: var(--green-70);
   --text-warning: var(--amber-60);
   --text-danger: var(--red-60);
@@ -37,19 +39,39 @@
   --surface-info-subtle: var(--blue-05);
   --surface-warning-subtle: var(--amber-05);
   --surface-danger-subtle: var(--red-05);
+  --surface-control-off: var(--neutral-45);
+  --surface-focus-halo: var(--green-05);
+  --surface-track: var(--neutral-20);
+  --surface-track-disabled: var(--neutral-30);
+  --surface-skeleton: var(--neutral-05);
+  --surface-skeleton-sheen: var(--neutral-10);
+  --surface-wash: var(--alpha-black-08);
+  --surface-sheen: var(--alpha-white-16);
 
   /* Borders */
   --border-subtle: var(--neutral-10);
   --border-default: var(--neutral-20);
-  --border-strong: var(--neutral-35);
-  --border-control: var(--neutral-35);
+  --border-strong: var(--neutral-45);
+  --border-control: var(--neutral-45);
   --border-brand: var(--green-60);
   --border-danger: var(--red-50);
   --border-focus: var(--green-60);
+  --border-success-subtle: var(--green-20);
+  --border-info-subtle: var(--blue-20);
+  --border-warning-subtle: var(--amber-20);
+  --border-danger-subtle: var(--red-20);
 
   /* Status */
   --status-success: var(--green-60);
   --status-info: var(--blue-50);
   --status-warning: var(--amber-50);
   --status-danger: var(--red-50);
+  --status-danger-hover: var(--red-60);
+
+  /* Data visualisation — purple only; never green/red/amber/blue for a neutral series */
+  --viz-neutral-line: var(--purple-50);
+  --viz-neutral-point: var(--purple-50);
+  --viz-neutral-fill: var(--purple-10);
+  --viz-neutral-text: var(--purple-60);
+  --viz-forecast-hatch: var(--purple-30);
 }

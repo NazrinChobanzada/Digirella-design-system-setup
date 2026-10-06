@@ -22,6 +22,7 @@
   --neutral-30: #C2C7C2;
   --neutral-35: #8F938F;
   --neutral-40: #9BA29B;
+  --neutral-45: #8F938F;
   --neutral-50: #6B726B;
   --neutral-60: #5A605A;
   --neutral-70: #3E433E;
@@ -31,23 +32,39 @@
 
   /* Blue — informational / links only */
   --blue-05: #E8F1FC;
-  --blue-30: #6BA6E8;
+  --blue-20: #9BC4FB;
+  --blue-30: #6BA7F5;
   --blue-50: #1F6FCC;
   --blue-60: #0B57A8;
   --blue-70: #08427F;
 
   /* Amber — warning */
   --amber-05: #FDF3E3;
-  --amber-30: #E8B45C;
+  --amber-20: #DEBA8E;
+  --amber-30: #CD9A57;
   --amber-50: #B27400;
   --amber-60: #8C5B00;
 
   /* Red — error / destructive */
   --red-05: #FCEDED;
-  --red-30: #E88C8C;
+  --red-20: #FEA69C;
+  --red-30: #FA776B;
   --red-50: #C4141C;
   --red-60: #9C0F16;
   --red-70: #740B10;
+
+  /* Purple — data visualisation only; never used for UI status or controls */
+  --purple-00: #FAF0FF;
+  --purple-05: #F3E3FF;
+  --purple-10: #E5C8FF;
+  --purple-20: #C99CF5;
+  --purple-30: #AD6FEA;
+  --purple-40: #9146D8;
+  --purple-50: #7A28CC;
+  --purple-60: #6120A8;
+  --purple-70: #4A1880;
+  --purple-80: #331058;
+  --purple-90: #1F0838;
 
   /* Alpha overlays */
   --alpha-black-04: rgba(10, 12, 10, 0.04);
@@ -55,4 +72,5 @@
   --alpha-black-16: rgba(10, 12, 10, 0.16);
   --alpha-black-56: rgba(10, 12, 10, 0.56);
   --alpha-white-16: rgba(255, 255, 255, 0.16);
+  --alpha-white-80: rgba(255, 255, 255, 0.80);
 }
