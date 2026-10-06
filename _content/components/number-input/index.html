@@ -278,6 +278,10 @@
 
 <h3>Rounding and precision</h3>
 <p>Decide what happens to extra decimals before someone finds out by accident. Round on blur, not on input — truncating the third decimal while the second is still being typed is disorienting. State the precision in the hint when it is not obvious from the unit.</p>
+
+<h3>Validation</h3>
+<p>Show a validation error on blur, not while the person is mid-type. A value passing through an out-of-range number on its way to a valid one is not yet an error. Once a field has shown an error, clear it on input the moment the value becomes valid — do not wait for another blur.</p>
+<p>An empty field is not an error until blur. Treat empty as "not yet decided"; only flag it once focus has left and the field is still blank.</p>
 </section>
 
 <section>

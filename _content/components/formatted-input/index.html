@@ -108,18 +108,31 @@
 </table>
 
 <h3>Affixes</h3>
-<p>A prefix or suffix sits inside the field boundary, so the pair reads as one control rather than a field with something stuck beside it. Use them for the fixed part of a format — a country code prefix, a currency suffix — never for the label. In this locale the currency symbol follows the number, so prices take a suffix.</p>
+<p>A prefix or suffix sits inside the field boundary, so the pair reads as one control rather than a field with something stuck beside it. Use them for the fixed part of a format — a selectable country code, a currency suffix — never for the label. In this locale the currency symbol follows the number, so prices take a suffix.</p>
 <div class="demo">
-  <div class="field" style="width:200px">
+  <div class="field anchor" style="width:220px">
     <label class="field__label" for="af1">Phone</label>
-    <div class="affix"><span class="affix__lead">+994</span><input class="control" id="af1" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="55 000 00 00"></div>
+    <div class="affix">
+      <button class="affix__select affix__select--lead" type="button"
+              aria-expanded="false" aria-haspopup="listbox" aria-label="Country code"
+              data-pop="af1c">
+        <span data-value="">+994</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <input class="control" id="af1" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="55 000 00 00">
+    </div>
+    <div class="pop" id="af1c" role="listbox" hidden>
+      <button class="opt" role="option" aria-selected="true" data-value="+994" type="button"><span class="opt__label">+994 — Azerbaijan</span></button>
+      <button class="opt" role="option" aria-selected="false" data-value="+90" type="button"><span class="opt__label">+90 — Turkey</span></button>
+      <button class="opt" role="option" aria-selected="false" data-value="+7" type="button"><span class="opt__label">+7 — Russia</span></button>
+    </div>
   </div>
   <div class="field" style="width:200px">
     <label class="field__label" for="af2">Price</label>
     <div class="affix"><input class="control" id="af2" inputmode="decimal" value="32,400.00"><span class="affix__trail">₼</span></div>
   </div>
 </div>
-<p class="caption">The affix is not focusable and carries no meaning of its own — it repeats what the label already established, so a screen reader hearing only the label loses nothing.</p>
+<p class="caption">A selectable affix is part of the answer — which country code changes what a valid phone number looks like. A static affix like <code>₼</code> is decorative and hidden from assistive technology, since it repeats what the label already established.</p>
 
 <h3>Masking</h3>
 <p>Masking inserts the separators as someone types: spaces into a phone number, a dash into a date. It helps when the grouping is genuinely standard and hurts the moment it fights the person.</p>
@@ -189,7 +202,7 @@
   <div class="field" style="width:260px">
     <label class="field__label" for="df1">Phone</label>
     <input class="control" id="df1" type="tel" inputmode="tel" autocomplete="tel" placeholder="050 000 00 00" maxlength="13" aria-describedby="df1h">
-    <span class="field__hint" id="df1h">10 digits — letters are ignored.</span>
+    <span class="field__hint" id="df1h">Format: 050 123 45 67</span>
     <span class="field__error" id="df1e" hidden>Enter a 10-digit phone number.</span>
   </div>
 </div>
@@ -210,11 +223,13 @@
     el.removeAttribute('aria-invalid');
     el.setAttribute('aria-describedby', 'df1h');
     err.hidden = true;
+    hint.hidden = false;
     errored = false;
   }
   function showError() {
     el.setAttribute('aria-invalid', 'true');
     el.setAttribute('aria-describedby', 'df1e');
+    hint.hidden = true;
     err.hidden = false;
     errored = true;
   }

@@ -213,31 +213,14 @@
       <button class="opt" role="option" aria-selected="false" data-value="g" type="button"><span class="opt__label">g</span></button>
     </div>
   </div>
-  <div class="field anchor" style="width:230px">
-    <label class="field__label" for="af3">Phone</label>
-    <div class="affix">
-      <button class="affix__select affix__select--lead" type="button"
-              aria-expanded="false" aria-haspopup="listbox" aria-label="Country code"
-              data-pop="af3c">
-        <span data-value="">+994</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <input class="control" id="af3" inputmode="tel" value="50 000 00 00">
-    </div>
-    <div class="pop" id="af3c" role="listbox" hidden>
-      <button class="opt" role="option" aria-selected="true" data-value="+994" type="button"><span class="opt__label">+994</span></button>
-      <button class="opt" role="option" aria-selected="false" data-value="+90" type="button"><span class="opt__label">+90</span></button>
-      <button class="opt" role="option" aria-selected="false" data-value="+7" type="button"><span class="opt__label">+7</span></button>
-    </div>
-  </div>
 </div>
-<p>An affix carries the part of the value that is not typed — a unit, a symbol, a dialling code — never the label.</p>
+<p>An affix carries the part of the value that is not typed — a unit, a symbol — never the label. When the affix is part of the answer itself (choosing kg versus g changes the meaning of 1.4), it is a <strong>Select</strong> component with its own name and tab stop. A phone number with a selectable country code belongs on <strong>Formatted input</strong>, where the number's shape depends on which country is chosen.</p>
 
 <h4>Static affixes</h4>
 <p>A fixed symbol like <code>%</code> is decorative: it is not focusable and is hidden from assistive technology, because it repeats what the label already established. Put the unit in the label too, so it is announced once.</p>
 
 <h4>Selectable affixes</h4>
-<p>When the unit is part of the answer rather than a description of it, the affix becomes a <strong>Select</strong> component. Grams or kilograms, one country code or another — the person is choosing, not just reading, so it gets its own accessible name and its own place in the tab order.</p>
+<p>When the unit is part of the answer rather than a description of it, the affix becomes a <strong>Select</strong> component. Grams or kilograms — the person is choosing, not just reading, so it gets its own accessible name and its own place in the tab order.</p>
 <p>The test is whether changing it changes the meaning of the number. <code>15%</code> is one value; <code>1.4</code> in grams and <code>1.4</code> in kilograms are two. The second needs a control; the first does not.</p>
 <p>Submit the pair together — the amount and its unit are one answer, and a value that arrives without its unit is worse than no value, because it looks usable.</p>
 <p><strong>Suffix is the default here.</strong> Units and currency follow the number in this locale — <code>1.4 kg</code>, <code>2.480 ₼</code> — so a trailing affix matches how the value is read aloud. A prefix is for the rare case where the symbol genuinely leads in the data itself, such as a <code>+</code> before an international dialling code.</p>
@@ -388,7 +371,7 @@
   <div style="display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:flex-start">
     <div class="field" style="width:250px"><label class="field__label" for="s4">Error</label>
       <div class="affix" data-invalid="true">
-        <input class="control" id="s4" value="iPhone" aria-invalid="true" aria-describedby="s4e" style="border-color:var(--border-danger);box-shadow:0 0 0 3px var(--surface-danger-subtle)">
+        <input class="control" id="s4" value="iPhone" aria-invalid="true" aria-describedby="s4e">
         <button type="button" class="field__clear" aria-label="Clear listing title">✕</button>
       </div>
       <span class="field__error" id="s4e"><span class="msg-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M8 1.6 15 14H1L8 1.6Zm0 4.1a.75.75 0 0 0-.75.75v2.9a.75.75 0 0 0 1.5 0v-2.9A.75.75 0 0 0 8 5.7Zm0 5.4a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z"/></svg></span><span>Titles need at least 10 characters.</span></span></div>
