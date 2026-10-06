@@ -140,7 +140,18 @@
     <input class="control" id="pl2" placeholder="16 digits, groups of four"></div>
   </div><div class="dodont__note">The rule leaves exactly when it is needed.</div></div>
 </div>
-<div class="callout"><div><b>Keep placeholders plain.</b> "Enter…", "Select…", "Type here…" repeat what the control already communicates, and a placeholder that reads like an instruction competes with the hint that actually holds one. Show a bare example, or leave it empty.</div></div>
+<div class="callout"><div><b>Use the placeholder to show the shape, not to prompt.</b> On a plain text field, <em>daxil edin</em> or "Enter…" is harmless convention — the field has no pattern to show. On a formatted input that slot has a job: it is the one moment before the first keystroke when a format example can set the right expectation. A prompt adds nothing the label does not already say; a pattern does.</div></div>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div class="field" style="width:240px"><label class="field__label" for="phl1">Phone</label>
+    <input class="control" id="phl1" type="tel" inputmode="tel" placeholder="+994 55 000 00 00"></div>
+  </div><div class="dodont__note">The pattern is visible before the first keystroke.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div class="field" style="width:240px"><label class="field__label" for="phl2">Phone</label>
+    <input class="control" id="phl2" type="tel" inputmode="tel" placeholder="nömrəni daxil edin"></div>
+  </div><div class="dodont__note">Repeats the label in different words; says nothing about the shape.</div></div>
+</div>
+<p>The same applies across variants: <code>you@example.com</code> not <em>e-poçt daxil edin</em>; <code>gg.aa.iiii</code> not <em>tarixi daxil edin</em>; <code>0000 0000 0000 0000</code> not <em>kart nömrəsini daxil edin</em>.</p>
 
 <h3>Accept what people actually type</h3>
 <p>People paste phone numbers with spaces, card numbers with dashes, and email addresses with a trailing space. Strip and normalise on the way in rather than rejecting. A field that refuses a pasted value because of a space is technically correct and practically broken.</p>
