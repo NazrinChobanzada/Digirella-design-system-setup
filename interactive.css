@@ -853,6 +853,26 @@ body[data-locked="true"] { overflow: hidden; }
 .control[data-state="warning"]:focus { box-shadow: 0 0 0 3px var(--surface-warning-subtle); }
 .field__warning { font-size: var(--font-size-200); color: var(--text-warning); line-height: 1.5; }
 
+/* Affix select — a selectable prefix or suffix (e.g. country code) */
+.affix__select {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  border: none;
+  background: var(--surface-sunken);
+  font-family: inherit;
+  font-size: var(--font-size-300);
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition-interactive);
+}
+.affix__select:hover { background: var(--surface-hover); }
+.affix__select:focus-visible { box-shadow: var(--focus-ring); }
+.affix__select--lead { border-right: 1px solid var(--border-subtle); }
+.affix__select--trail { border-left: 1px solid var(--border-subtle); }
+
 /* Affix button — a control living inside a field, e.g. a password toggle */
 .affix__btn {
   border: none;

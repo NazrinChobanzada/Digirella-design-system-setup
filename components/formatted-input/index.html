@@ -311,7 +311,8 @@
 (function () {
   var el = document.getElementById('df1');
   var err = document.getElementById('df1e');
-  if (!el || !err) return;
+  var hint = document.getElementById('df1h');
+  if (!el || !err || !hint) return;
   var errored = false;
   function getDigits() { return el.value.replace(/\D/g, ''); }
   function applyMask() {
