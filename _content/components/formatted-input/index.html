@@ -58,12 +58,15 @@
 
 <section>
 <h2>When not to use a formatted input</h2>
-<p>Reach for a plain <strong>Text input</strong> when the answer has no fixed shape, and <strong>Number input</strong> when it is a quantity you will do arithmetic on. A postcode or a card number looks numeric but is a digit string — it keeps leading zeros and never needs a stepper, so it belongs here rather than there.</p>
-<p>Do not use a formatted input to enforce a business rule that may change. Shape belongs in the field; policy belongs in validation you can update without a release.</p>
-
-<h3>Dates and times</h3>
-<p>A date is a formatted value, so the typed part of a date field follows every rule on this page: the format in the hint, an <code>inputmode</code>, an <code>autocomplete</code> token, permissive parsing. But a date picker is not only a field — it adds a calendar overlay with its own grid, keyboard model and focus management, and that machinery is larger than the field it sits under.</p>
-<p>So they are separate components. <strong>DatePicker</strong> and <strong>TimePicker</strong> own the overlay; this page owns the field beneath it. Build the typed field first and make it work on its own — someone who knows the date will always type it faster than they can navigate a calendar, and a picker whose field cannot be typed into is a picker that slows down the people who need it least.</p>
+<table>
+<thead><tr><th>Instead of a formatted input</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>No fixed shape — a name, a description, a search query</td><td>Text input</td></tr>
+<tr><td>A quantity you will do arithmetic on</td><td>Number input — a postcode or card number looks numeric but is a digit string, so it stays here</td></tr>
+<tr><td>A value driven by a business rule that may change</td><td>Keep the field plain and enforce the rule in validation, not in the field's shape</td></tr>
+<tr><td>A date or time that also needs a calendar overlay</td><td>DatePicker or TimePicker — they own the overlay; the typed field beneath follows this page's rules</td></tr>
+</tbody>
+</table>
 </section>
 
 <section data-part="Variants and style">
@@ -105,34 +108,58 @@
 </table>
 
 <h3>Affixes</h3>
-<p>A prefix or suffix sits inside the field boundary, so the pair reads as one control rather than a field with something stuck beside it. Use them for the fixed part of a format — a currency symbol, a country code, a domain — never for the label. In this locale the currency symbol follows the number, so prices take a suffix.</p>
+<p>A prefix or suffix sits inside the field boundary, so the pair reads as one control rather than a field with something stuck beside it. Use them for the fixed part of a format — a country code prefix, a currency suffix — never for the label. In this locale the currency symbol follows the number, so prices take a suffix.</p>
 <div class="demo">
   <div class="field" style="width:200px">
-    <label class="field__label" for="af1">Price</label>
-    <div class="affix"><input class="control" id="af1" inputmode="decimal" value="32,400"><span class="affix__trail">₼</span></div>
+    <label class="field__label" for="af1">Phone</label>
+    <div class="affix"><span class="affix__lead">+994</span><input class="control" id="af1" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="55 000 00 00"></div>
   </div>
-  <div class="field" style="width:230px">
-    <label class="field__label" for="af2">Shop address</label>
-    <div class="affix"><input class="control" id="af2" value="nazrin"><span class="affix__trail">.digirella.com</span></div>
+  <div class="field" style="width:200px">
+    <label class="field__label" for="af2">Price</label>
+    <div class="affix"><input class="control" id="af2" inputmode="decimal" value="32,400.00"><span class="affix__trail">₼</span></div>
   </div>
 </div>
 <p class="caption">The affix is not focusable and carries no meaning of its own — it repeats what the label already established, so a screen reader hearing only the label loses nothing.</p>
 
 <h3>Masking</h3>
-<p>Masking inserts the separators as someone types: spaces into a card number, a dash into a date. It helps when the grouping is genuinely standard and hurts the moment it fights the person.</p>
+<p>Masking inserts the separators as someone types: spaces into a phone number, a dash into a date. It helps when the grouping is genuinely standard and hurts the moment it fights the person.</p>
 <ul>
 <li>Never move the cursor unexpectedly. A mask that jumps the caret after a paste is worse than no mask.</li>
 <li>Never block characters silently. If a letter is not allowed, ignore it — do not clear the field.</li>
 <li>Always allow paste, and normalise what arrives.</li>
 <li>Keep the underlying value unmasked. Submit digits, display grouping.</li>
 </ul>
+<div class="demo">
+  <div class="field" style="width:240px">
+    <label class="field__label" for="mask-phone">Phone</label>
+    <input class="control" id="mask-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="050 000 00 00" maxlength="13">
+    <span class="field__hint">Spaces are inserted as you type.</span>
+  </div>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('mask-phone');
+  if (!el) return;
+  el.addEventListener('input', function (e) {
+    var pos = el.selectionStart;
+    var raw = el.value.replace(/\D/g, '').slice(0, 10);
+    var groups = [raw.slice(0, 3), raw.slice(3, 6), raw.slice(6, 8), raw.slice(8, 10)].filter(function (g) { return g.length > 0; });
+    var masked = groups.join(' ');
+    el.value = masked;
+    var diff = masked.length - (e.target._prev || '').length;
+    var newPos = Math.max(0, pos + (diff > 0 && pos > 0 ? (masked[pos - 1] === ' ' ? 1 : 0) : 0));
+    try { el.setSelectionRange(newPos, newPos); } catch (err) {}
+    e.target._prev = masked;
+  });
+}());
+</script>
 </section>
 
 <section>
 <h2>Password</h2>
 <p>Passwords carry two rules the other formats do not.</p>
 <h3>A visibility toggle, always</h3>
-<p>Typing a long password blind on a phone is the main reason people pick short ones. NIST SP 800-63B recommends offering the option to display the password while it is being entered, for exactly this reason.</p><p>The toggle is an eye icon inside the field — no text, so it does not compete with the value. It carries <code>aria-pressed</code> and an <code>aria-label</code> that changes with its state: "Show password" becomes "Hide password" once revealed.</p>
+<p>Typing a long password blind on a phone is the main reason people pick short ones. Letting someone see what they typed removes the need to shorten it.</p><p>The toggle is an eye icon inside the field — no text, so it does not compete with the value. It carries <code>aria-pressed</code> and an <code>aria-label</code> that changes with its state: "Show password" becomes "Hide password" once revealed.</p>
 <div class="demo">
   <div class="field" style="width:280px">
     <label class="field__label" for="pw1">Password</label>
@@ -143,9 +170,8 @@
 <h3>Rules before entry, not after failure</h3>
 <p>The requirements go in the hint and stay visible while typing. Revealing them only in an error message means the person has already lost the attempt.</p>
 <h3>Why paste stays enabled</h3>
-<p>Blocking paste feels safer and measures worse, and the guidance is explicit about it. <strong>NIST SP 800-63B</strong> states that verifiers shall allow password managers and autofill, and should permit paste so managers can be used where autofill APIs are unavailable — noting that password managers have been shown to increase the likelihood of people choosing stronger passwords. The UK <strong>NCSC</strong> reached the same conclusion in its guidance on letting people paste passwords.</p>
-<p>The mechanism is straightforward. A person who cannot paste cannot practically use a generated 24-character password, so they choose one they can type from memory — which means shorter, reused across sites, and guessable. Blocking paste does not stop an attacker, who is not typing into your form at all; it only constrains the person defending the account.</p>
-<p>The concern behind the instinct is real but sits elsewhere: clipboard contents can be read by other software on a compromised device. That is a threat to the device, not something a form can fix, and the mitigation is a password manager with a clearing clipboard — not a field that refuses paste.</p>
+<p>Blocking paste feels safer and measures worse. A person who cannot paste cannot practically use a generated 24-character password, so they choose one they can type from memory — shorter, reused across sites, and easier to guess. The block does not stop an attacker, who is not typing into your form at all; it only constrains the person trying to protect their account.</p>
+<p>The concern behind the instinct sits elsewhere: clipboard contents can be read by other software on a compromised device. That is a threat to the device, not something a form can fix. The right mitigation is a password manager that clears its clipboard — not a field that refuses paste.</p>
 <div class="callout"><div><b>Use <code>autocomplete="new-password"</code> on sign-up and <code>current-password</code> on sign-in.</b> These tell a password manager which field is which. Disabling autocomplete on a password field has the same effect as blocking paste, for the same reason.</div></div>
 </section>
 
@@ -207,14 +233,6 @@
 <li><span class="sc">1.4.11</span><span>The toggle is distinguishable from the field's own border at 3:1.</span></li>
 </ul></div>
 </div>
-
-<h3>Sources</h3>
-<p>The paste and visibility guidance on this page is not a house preference. It follows:</p>
-<ul>
-<li><strong>NIST SP 800-63B</strong>, Digital Identity Guidelines — verifiers shall allow password managers and autofill, should permit paste, and should offer an option to display the password while it is entered.</li>
-<li><strong>NCSC</strong> (UK National Cyber Security Centre), <em>Let them paste passwords</em> — the same conclusion, with the reasoning about password manager adoption.</li>
-</ul>
-<p>Record this alongside any internal security review. The rules read as counterintuitive, and without the citation someone will eventually re-introduce a paste block believing it is a hardening measure.</p>
 
 <h3>What you still have to do</h3>
 <ul>
