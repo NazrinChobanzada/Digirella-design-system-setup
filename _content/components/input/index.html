@@ -153,7 +153,7 @@
 <td class="use">Titles, names, references — answers of a few words that will not wrap.</td>
 <td class="use">Anything the person may want to review as a paragraph.</td></tr>
 <tr><td>Multi-line</td>
-<td><textarea class="control" aria-label="Multi-line example" rows="2" style="min-height:0">Sent in its box with all accessories. No cosmetic flaws.</textarea></td>
+<td><textarea class="control" aria-label="Multi-line example" rows="3">Sent in its box with all accessories. No cosmetic flaws.</textarea></td>
 <td class="use">Descriptions, notes, messages. Add a counter when there is a real limit.</td>
 <td class="use">Short answers — a tall box invites a long reply you did not want.</td></tr>
 </tbody>
@@ -237,12 +237,12 @@
 <p>Two rules hold in any language: <strong>name what you are asking for</strong>, and <strong>say what to do when it goes wrong</strong>. "Titles need at least 10 characters" and "Başlıq ən azı 10 simvol olmalıdır" are the same instruction; "Invalid input" and "Yanlış" are the same failure.</p>
 
 <h3>Required and optional</h3>
-<p>Mark required fields with an asterisk after the label, and explain it once at the top of the form. Optional fields carry no mark — adding "optional" to everything else doubles the noise to say the same thing.</p>
+<p>Mark required fields with an asterisk before the label, and explain it once at the top of the form. Optional fields carry no mark — adding "optional" to everything else doubles the noise to say the same thing.</p>
 <div class="demo demo--stack">
   <p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin:0 0 var(--space-5)"><span class="req-star">*</span> Required fields</p>
   <div style="display:flex;gap:var(--space-5);flex-wrap:wrap">
     <div class="field" style="width:240px">
-      <label class="field__label" for="rq1">Listing title <span class="req-star" aria-hidden="true">*</span></label>
+      <label class="field__label" for="rq1"><span class="req-star" aria-hidden="true">*</span> Listing title</label>
       <input class="control" id="rq1" aria-required="true" placeholder="iPhone 14 Pro 256 GB">
     </div>
     <div class="field" style="width:240px">

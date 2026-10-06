@@ -51,7 +51,7 @@
   /* Borders */
   --border-subtle: var(--neutral-10);
   --border-default: var(--neutral-20);
-  --border-strong: var(--neutral-45);
+  --border-strong: var(--neutral-50);
   --border-control: var(--neutral-45);
   --border-brand: var(--green-60);
   --border-danger: var(--red-50);

@@ -947,7 +947,7 @@ body[data-locked="true"] { overflow: hidden; }
 /* Required marker — an asterisk, per local convention. The legend at the top
    of the form explains it once; the mark itself is hidden from assistive tech
    because aria-required already announces the same fact. */
-.req-star { color: var(--status-danger); margin-left: 2px; }
+.req-star { color: var(--status-danger); margin-right: 3px; }
 
 /* Skeleton field, for initial load */
 .field__skeleton {
