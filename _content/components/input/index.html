@@ -96,22 +96,37 @@
     <label class="field__label" for="af1">Discount</label>
     <div class="affix"><input class="control" id="af1" inputmode="numeric" value="15"><span class="affix__trail">%</span></div>
   </div>
-  <div class="field" style="width:200px">
+  <div class="field anchor" style="width:200px">
     <label class="field__label" for="af2">Shipping weight</label>
     <div class="affix">
       <input class="control" id="af2" inputmode="decimal" value="1.4">
-      <select class="affix__select affix__select--trail" id="af2u" aria-label="Weight unit">
-        <option>kg</option><option>g</option>
-      </select>
+      <button class="affix__select affix__select--trail" type="button"
+              aria-expanded="false" aria-haspopup="listbox" aria-label="Weight unit"
+              data-pop="af2u">
+        <span data-value="">kg</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="pop" id="af2u" role="listbox" hidden>
+      <button class="opt" role="option" aria-selected="true" data-value="kg" type="button"><span class="opt__label">kg</span></button>
+      <button class="opt" role="option" aria-selected="false" data-value="g" type="button"><span class="opt__label">g</span></button>
     </div>
   </div>
-  <div class="field" style="width:230px">
+  <div class="field anchor" style="width:230px">
     <label class="field__label" for="af3">Phone</label>
     <div class="affix">
-      <select class="affix__select affix__select--lead" id="af3c" aria-label="Country code">
-        <option>+994</option><option>+90</option><option>+7</option>
-      </select>
+      <button class="affix__select affix__select--lead" type="button"
+              aria-expanded="false" aria-haspopup="listbox" aria-label="Country code"
+              data-pop="af3c">
+        <span data-value="">+994</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6.5L8 10.5L12 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
       <input class="control" id="af3" inputmode="tel" value="50 000 00 00">
+    </div>
+    <div class="pop" id="af3c" role="listbox" hidden>
+      <button class="opt" role="option" aria-selected="true" data-value="+994" type="button"><span class="opt__label">+994</span></button>
+      <button class="opt" role="option" aria-selected="false" data-value="+90" type="button"><span class="opt__label">+90</span></button>
+      <button class="opt" role="option" aria-selected="false" data-value="+7" type="button"><span class="opt__label">+7</span></button>
     </div>
   </div>
 </div>

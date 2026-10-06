@@ -289,7 +289,7 @@ main { padding: var(--space-11) 0 var(--space-13); min-width: 0; }
   border-radius: var(--radius-md);
   padding: var(--space-7);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-5);
   flex-wrap: wrap;
   margin: var(--space-5) 0;
@@ -717,23 +717,24 @@ main { padding: var(--space-11) 0 var(--space-13); min-width: 0; }
 
 /* A selectable affix — units or country codes the person can change */
 .affix__select {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   border: none;
   background: var(--surface-sunken);
   padding: 0 var(--space-3);
-  padding-right: 28px;
   font-family: var(--font-sans);
   font-size: var(--font-size-300);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg fill='none' height='12' width='12' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6.5L8 10.5L12 6.5' stroke='%236B726B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-position: calc(100% - 8px) 50%;
-  background-size: 12px 12px;
-  background-repeat: no-repeat;
+  height: 100%;
+  white-space: nowrap;
   transition: var(--transition-interactive);
 }
+.affix__select svg { flex-shrink: 0; color: var(--text-tertiary); transition: transform 140ms; }
+.affix__select[aria-expanded="true"] svg { transform: rotate(180deg); }
 .affix__select:hover { background-color: var(--surface-hover); }
-.affix__select:focus-visible { box-shadow: var(--focus-ring); border-radius: var(--radius-xs); }
+.affix__select:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-xs); }
 .affix__select--lead { border-right: 1px solid var(--border-subtle); }
 .affix__select--trail { border-left: 1px solid var(--border-subtle); }
 
