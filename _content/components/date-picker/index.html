@@ -1,110 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DatePicker — Digirella</title>
-<link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="../../interactive.css">
-<link rel="stylesheet" href="../../site.css">
-</head>
-<body class="ix">
-<header class="masthead">
-  <div class="masthead__inner">
-    <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
-    <a class="masthead__brand" href="../../index.html">digirella</a>
-    <span class="masthead__tag">Design system</span>
-    <span class="masthead__spacer"></span>
-    <span class="masthead__meta">v1.0 · primary #006A09</span>
-  </div>
-</header>
-
-<div class="frame">
-<nav class="sidenav" id="sidenav" aria-label="Sections">
-<div class="sidenav__section">
-<div class="sidenav__title">Foundations</div>
-<a href="../../foundations/architecture/index.html" data-status="ready"><span>Architecture</span><span class="flag">New</span></a>
-<a href="../../foundations/palette/index.html" data-status="ready"><span>Palette</span><span class="flag">New</span></a>
-<a href="../../foundations/semantic-colour/index.html" data-status="ready"><span>Semantic colour</span><span class="flag">New</span></a>
-<a href="../../foundations/typography/index.html" data-status="ready"><span>Typography</span><span class="flag">New</span></a>
-<a href="../../foundations/spacing/index.html" data-status="ready"><span>Spacing</span><span class="flag">New</span></a>
-<a href="../../foundations/shape/index.html" data-status="migrated"><span>Shape &amp; border</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../foundations/elevation/index.html" data-status="ready"><span>Elevation</span><span class="flag">New</span></a>
-<a href="../../foundations/motion/index.html" data-status="migrated"><span>Motion</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../foundations/colour-accessibility/index.html" data-status="migrated"><span>Colour accessibility</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../foundations/interaction-states/index.html" data-status="ready"><span>Interaction states</span><span class="flag">New</span></a>
-</div>
-<div class="sidenav__section">
-<div class="sidenav__title">Components</div>
-<div class="sidenav__group">Core</div>
-<a href="../../components/button/index.html" data-status="ready"><span>Button</span><span class="flag">New</span></a>
-<a href="../../components/icon-button/index.html" data-status="migrated"><span>IconButton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/card/index.html" data-status="migrated"><span>Card</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/tag/index.html" data-status="ready"><span>Tags</span><span class="flag">New</span></a>
-<div class="sidenav__group">Forms</div>
-<a href="../../components/input/index.html" data-status="ready"><span>Text input <span style="color:var(--text-tertiary);font-weight:400">· Textarea</span></span><span class="flag">New</span></a>
-<a href="../../components/formatted-input/index.html" data-status="ready"><span>Formatted input</span><span class="flag">New</span></a>
-<a href="../../components/number-input/index.html" data-status="ready"><span>Number input <span style="color:var(--text-tertiary);font-weight:400">· QuantityStepper · Slider</span></span><span class="flag">New</span></a>
-<a href="../../components/date-picker/index.html" aria-current="page" data-status="ready"><span>DatePicker</span><span class="flag">New</span></a>
-<a href="../../components/time-picker/index.html" data-status="planned"><span>TimePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../components/select/index.html" data-status="migrated"><span>Select</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/combobox/index.html" data-status="migrated"><span>Combobox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/multiselect/index.html" data-status="migrated"><span>MultiSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/treeselect/index.html" data-status="migrated"><span>TreeSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/checkbox/index.html" data-status="migrated"><span>Checkbox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/radio/index.html" data-status="migrated"><span>Radio</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/switch/index.html" data-status="migrated"><span>Switch</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/search/index.html" data-status="planned"><span>Search</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../components/file-upload/index.html" data-status="planned"><span>FileUpload</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<div class="sidenav__group">Navigation</div>
-<a href="../../components/tabs/index.html" data-status="migrated"><span>Tabs</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/segmented-control/index.html" data-status="migrated"><span>SegmentedControl</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/pagination/index.html" data-status="migrated"><span>Pagination</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/breadcrumb/index.html" data-status="migrated"><span>Breadcrumb</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/steps/index.html" data-status="migrated"><span>Steps</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/side-nav/index.html" data-status="planned"><span>SideNav</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<div class="sidenav__group">Data</div>
-<a href="../../components/table/index.html" data-status="migrated"><span>Table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/accordion/index.html" data-status="ready"><span>Accordion</span><span class="flag">New</span></a>
-<a href="../../components/avatar/index.html" data-status="migrated"><span>Avatar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/rating/index.html" data-status="migrated"><span>Rating</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/progress-bar/index.html" data-status="migrated"><span>ProgressBar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/skeleton/index.html" data-status="migrated"><span>Skeleton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/divider/index.html" data-status="planned"><span>Divider</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<div class="sidenav__group">Feedback</div>
-<a href="../../components/dialog/index.html" data-status="migrated"><span>Dialog <span style="color:var(--text-tertiary);font-weight:400">· Modal</span></span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/alert/index.html" data-status="ready"><span>Alert</span><span class="flag">New</span></a>
-<a href="../../components/toast/index.html" data-status="migrated"><span>Toast</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/tooltip/index.html" data-status="migrated"><span>Tooltip</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<div class="sidenav__group">Overlays</div>
-<a href="../../components/drawer/index.html" data-status="migrated"><span>Drawer</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/popover/index.html" data-status="migrated"><span>Popover</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/menu/index.html" data-status="migrated"><span>Menu</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-</div>
-<div class="sidenav__section">
-<div class="sidenav__title">Patterns</div>
-<a href="../../patterns/page-header/index.html" data-status="migrated"><span>Page header</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/product-grid/index.html" data-status="migrated"><span>Product card grid</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/filter-bar/index.html" data-status="migrated"><span>Filter bar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/form-layout/index.html" data-status="migrated"><span>Form layout</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/order-summary/index.html" data-status="migrated"><span>Order summary</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/data-table/index.html" data-status="migrated"><span>Data table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/empty-state/index.html" data-status="migrated"><span>Empty state</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/status-messaging/index.html" data-status="migrated"><span>Status messaging</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/loading-states/index.html" data-status="planned"><span>Loading states</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../patterns/page-layout/index.html" data-status="planned"><span>Page layout</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../patterns/destructive-actions/index.html" data-status="planned"><span>Destructive actions</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-</div>
-</nav>
-<main>
-<div class="page__eyebrow">Components</div><h1 class="page__title">DatePicker</h1><div class="statusline"><span class="dot" data-status="ready"></span>New</div>
-<div class="doc">
-<section id="overview"><h2>Overview</h2>
+<section><h2>Overview</h2>
 <p class="doc-lead">A field that collects a date, a time, or a span of them. The calendar is optional equipment — it helps when the answer depends on where a date sits relative to other dates, and it slows people down when it doesn't.</p>
 <div class="callout"><div>The deciding question is never "do we need a calendar" — it's whether the user already knows the date. If they do, a calendar is in the way; if they don't, typing is.</div></div>
 </section>
 
-<section id="principles">
+<section>
 <h2>Principles</h2>
 <div class="dd">
 <div class="ddc"><div class="ddh ok">Known dates are typed, not browsed</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Nobody finds their own birthday faster in a calendar. If the user can answer from memory or from a document in front of them, give them fields to type into.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">birth date, invoice date, expiry → type</p></div></div>
@@ -114,7 +13,7 @@
 </div>
 </section>
 
-<section id="choosing-a-variant">
+<section>
 <h2>Choosing a variant</h2>
 <table>
 <thead><tr><th style="width:240px">What you're asking for</th><th style="width:160px">Use</th><th>Why</th></tr></thead>
@@ -131,7 +30,7 @@
 </table>
 </section>
 
-<section id="date-field">
+<section>
 <h2>Date field</h2>
 <p class="doc-lead">Three labelled boxes — day, month, year. No calendar. The fastest way to collect a date somebody already knows, and the only one that works when the date is decades away.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
@@ -156,7 +55,7 @@
 </div>
 </section>
 
-<section id="date-picker">
+<section>
 <h2>Date picker</h2>
 <p class="doc-lead">A text field with a calendar attached. The field is the primary input; the calendar is the assist. Opening it never clears what's typed, and closing it never loses it.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
@@ -182,7 +81,7 @@
 </div>
 </section>
 
-<section id="range-picker">
+<section>
 <h2>Range picker</h2>
 <p class="doc-lead">Two dates, one control. The in-between days are part of the answer, so they're drawn — and the second click is guided by a preview that follows the pointer.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
@@ -202,7 +101,7 @@
 </div>
 </section>
 
-<section id="range-with-presets">
+<section>
 <h2>Range with presets</h2>
 <p class="doc-lead">For dashboards and logs, where the honest default is "the last week" and the calendar is the exception. Presets are relative; the calendar is absolute; the control shows both.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
@@ -222,7 +121,7 @@
 </div>
 </section>
 
-<section id="time-picker">
+<section>
 <h2>Time picker</h2>
 <p class="doc-lead">A list of plausible times plus a field that accepts anything. The list is a shortcut, not a constraint — 12:38 is a real time even when the list counts in halves.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
@@ -245,7 +144,7 @@
 </div>
 </section>
 
-<section id="date-time">
+<section>
 <h2>Date + time</h2>
 <p class="doc-lead">Two fields that share one value. The pair is the component; the time zone is part of it, not a footnote.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
@@ -268,7 +167,7 @@
 </div>
 </section>
 
-<section id="month-year-picker">
+<section>
 <h2>Month &amp; year picker</h2>
 <p class="doc-lead">When the unit of the answer is a month, a quarter, or a year, days are noise. Same field, different grid.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
@@ -288,7 +187,7 @@
 </div>
 </section>
 
-<section id="typing-parsing">
+<section>
 <h2>Typing &amp; parsing</h2>
 <p class="doc-lead">Be strict about what you store and generous about what you accept. Every rejected input here is a user who typed a perfectly sensible date.</p>
 <table>
@@ -308,7 +207,7 @@
 </div>
 </section>
 
-<section id="formats-locale">
+<section>
 <h2>Formats &amp; locale</h2>
 <table>
 <thead><tr><th style="width:160px">Decision</th><th>Rule</th></tr></thead>
@@ -322,7 +221,7 @@
 </table>
 </section>
 
-<section id="limits-disabled-days">
+<section>
 <h2>Limits &amp; disabled days</h2>
 <table>
 <thead><tr><th style="width:180px">Rule</th><th>Detail</th></tr></thead>
@@ -335,7 +234,7 @@
 </table>
 </section>
 
-<section id="time-zones">
+<section>
 <h2>Time zones</h2>
 <div class="rule"><b>Plain dates</b><span>A birth date has no time zone. Store it as a date, never as a timestamp at midnight UTC — that's the classic shift to the day before.</span></div>
 <div class="rule"><b>Moments</b><span>A meeting is a timestamp. Store UTC, display in the viewer's zone, and show which zone is being displayed.</span></div>
@@ -343,7 +242,7 @@
 <div class="rule"><b>Daylight saving</b><span>Two hours a year don't exist and two happen twice. Time lists must not offer the missing one.</span></div>
 </section>
 
-<section id="accessibility" style="padding-bottom:var(--space-13)">
+<section style="padding-bottom:var(--space-13)">
 <h2>Accessibility</h2>
 <div class="rule"><b>Roles</b><span><code>role="dialog"</code> on the calendar popup with <code>aria-label="Choose date"</code>; <code>role="grid"</code> on the calendar table; <code>role="gridcell"</code> on each day button.</span></div>
 <div class="rule"><b>Keyboard — calendar</b><span>Arrow keys move by day; PageUp/Down move by month; Ctrl+PageUp/Down move by year; Home/End jump to start/end of week; Enter or Space select; Esc closes and returns focus to the field.</span></div>
@@ -356,34 +255,3 @@
 <div class="api">DateRangePicker · startValue, endValue, min, max, maxSpan, presets, onSelect</div>
 <div class="api">TimePicker · value, min, max, step, locale, onSelect</div>
 </section>
-
-</div>
-<nav class="pagernav">
-<a href="../../components/number-input/index.html"><span>Previous</span>Number input</a>
-<a href="../../components/time-picker/index.html" style="text-align:right"><span>Next</span>TimePicker</a>
-</nav>
-</main>
-<aside class="toc" aria-label="On this page">
-<div class="toc__title">On this page</div>
-<a href="#overview">Overview</a>
-<a href="#principles">Principles</a>
-<a href="#choosing-a-variant">Choosing a variant</a>
-<a href="#date-field">Date field</a>
-<a href="#date-picker">Date picker</a>
-<a href="#range-picker">Range picker</a>
-<a href="#range-with-presets">Range with presets</a>
-<a href="#time-picker">Time picker</a>
-<a href="#date-time">Date + time</a>
-<a href="#month-year-picker">Month &amp; year picker</a>
-<a href="#typing-parsing">Typing &amp; parsing</a>
-<a href="#formats-locale">Formats &amp; locale</a>
-<a href="#limits-disabled-days">Limits &amp; disabled days</a>
-<a href="#time-zones">Time zones</a>
-<a href="#accessibility">Accessibility</a>
-</aside>
-</div>
-
-<script src="../../interactive.js"></script>
-<script src="../../site.js"></script>
-</body>
-</html>
