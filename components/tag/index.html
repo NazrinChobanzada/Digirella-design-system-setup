@@ -130,10 +130,10 @@
 </div>
 <div class="cap">Tag — identifier with interactive popover</div>
 <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
-  <button type="button" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">SKU-4821</button>
-  <button type="button" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">warehouse-A</button>
-  <button type="button" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">logistics</button>
-  <button type="button" style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:22px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-tertiary);font-size:var(--font-size-200);cursor:pointer">+3</button>
+  <button type="button" class="tag--id">SKU-4821</button>
+  <button type="button" class="tag--id">warehouse-A</button>
+  <button type="button" class="tag--id">logistics</button>
+  <button type="button" class="tag--count" aria-label="3 more tags">+3</button>
 </div>
 <div class="cap">Lozenge — inline status label</div>
 <div style="display:flex;gap:var(--space-2);flex-wrap:wrap">
@@ -248,56 +248,76 @@
 <section id="tag-overview" data-part="tag">
 <h2>What it is</h2>
 <p>A Tag is an identifier — a label applied to a record to categorise it or link it to related information. Unlike a Chip, it cannot be cleared by the user. Unlike a Lozenge, it is interactive: clicking it opens a popover with details about that identifier, or triggers navigation to a filtered view.</p>
-<p>Tags always come in groups. When more than a threshold number would show (typically 3–4), the rest collapse into a counter chip (+N). Clicking the counter opens a popover listing the hidden tags, which may themselves be interactive.</p>
-<div class="demo">
+<p>Tags always come in groups. When more than a threshold number would show (typically 3–4), the rest collapse into a dark "+N" counter. Clicking the counter opens a popover listing the hidden tags, which may themselves be interactive.</p>
+<div class="demo demo--stack">
+<div class="cap" style="margin-top:0">Neutral</div>
 <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
-  <button type="button" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer;transition:background var(--duration-fast) var(--ease-standard)">SKU-4821</button>
-  <button type="button" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">warehouse-A</button>
-  <button type="button" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">logistics</button>
-  <button type="button" aria-haspopup="true" style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:22px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-tertiary);font-size:var(--font-size-200);cursor:pointer">+3</button>
+  <button type="button" class="tag--id">SKU-4821</button>
+  <button type="button" class="tag--id">warehouse-A</button>
+  <button type="button" class="tag--id">logistics</button>
+  <button type="button" class="tag--count" aria-label="3 more tags: vendor-3, SKU-0042, export-batch-2">+3</button>
+</div>
+<div class="cap">Warm tone</div>
+<div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
+  <button type="button" class="tag--id" data-tone="warm">Headphones</button>
+  <button type="button" class="tag--id" data-tone="warm">Electronics</button>
+  <button type="button" class="tag--count" aria-label="2 more tags">+2</button>
+</div>
+<div class="cap">Rose tone</div>
+<div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
+  <button type="button" class="tag--id" data-tone="rose">Perishable</button>
+  <button type="button" class="tag--id" data-tone="rose">Fragile</button>
+</div>
+<div class="cap">Cool tone</div>
+<div style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
+  <button type="button" class="tag--id" data-tone="cool">logistics</button>
+  <button type="button" class="tag--id" data-tone="cool">warehouse-A</button>
 </div>
 </div>
-<p class="caption">Three tags shown, three more collapsed into "+3". Clicking any tag opens a details popover.</p>
+<p class="caption">Tags shown in all four tones. The tone is assigned at the category level — all tags that belong to the same category share the same tone.</p>
 </section>
 
 <section id="tag-anatomy" data-part="tag">
 <h2>Anatomy</h2>
 <div class="demo" style="display:grid;grid-template-columns:1fr 260px;gap:var(--space-7);align-items:start">
-<div>
-  <button type="button" style="display:inline-flex;align-items:center;gap:var(--space-2);padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">SKU-4821</button>
+<div style="display:flex;gap:var(--space-3);align-items:center">
+  <button type="button" class="tag--id">SKU-4821</button>
+  <button type="button" class="tag--count" aria-label="3 more tags">+3</button>
 </div>
 <div style="display:flex;flex-direction:column;gap:var(--space-4)">
   <div style="display:flex;gap:var(--space-3)"><span class="pin">1</span><div><b style="font-size:var(--font-size-300)">Label</b><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">12px, neutral. Always the identifier string itself.</div></div></div>
-  <div style="display:flex;gap:var(--space-3)"><span class="pin">2</span><div><b style="font-size:var(--font-size-300)">Container</b><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Rectangle at <code>--radius-xs</code> (2–4px). Border + card background. Height 22px.</div></div></div>
-  <div style="display:flex;gap:var(--space-3)"><span class="pin">3</span><div><b style="font-size:var(--font-size-300)">No clear icon</b><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Tags are not removable. If the user should be able to remove it, use a Chip.</div></div></div>
+  <div style="display:flex;gap:var(--space-3)"><span class="pin">2</span><div><b style="font-size:var(--font-size-300)">Container</b><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Rectangle at <code>--radius-xs</code>. Border + card background. Height 22px. Optional tone fill.</div></div></div>
+  <div style="display:flex;gap:var(--space-3)"><span class="pin">3</span><div><b style="font-size:var(--font-size-300)">+N counter</b><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Dark pill (<code>.tag--count</code>). Appears when tags exceed the threshold.</div></div></div>
+  <div style="display:flex;gap:var(--space-3)"><span class="pin">4</span><div><b style="font-size:var(--font-size-300)">No clear icon</b><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">Tags are not removable. If the user should be able to remove it, use a Chip.</div></div></div>
 </div>
 </div>
+<div class="api">Tag · label, tone ("neutral" | "warm" | "rose" | "cool"), onClick · class <code>.tag--id[data-tone]</code></div>
 </section>
 
 <section id="tag-overflow" data-part="tag">
 <h2>Overflow and +N</h2>
-<p>Show no more than the threshold count (typically 3–4, determined per context). Remaining tags collapse into a "+N" counter. The counter looks identical to a Tag but carries a number instead of text.</p>
+<p>Show no more than the threshold count (typically 3–4, determined per context). Remaining tags collapse into a dark "+N" counter. The counter is distinct from a regular Tag — dark background, white text — so the reader knows it is a control, not a label.</p>
 <div class="rule"><b>Threshold</b><span>Set per-context. A table cell might show 2 and a detail panel might show 5.</span></div>
 <div class="rule"><b>Counter click</b><span>Opens a popover listing the hidden tags. The popover tags inherit the same interactivity — clicking one inside the popover also opens its own detail.</span></div>
 <div class="rule"><b>Tooltip on the counter</b><span>Optionally show the hidden tag names as a tooltip on hover, so the user can decide whether to open the popover.</span></div>
 <div class="dodont">
   <div class="dodont__item" data-kind="do"><div class="dodont__stage">
     <div style="display:flex;gap:var(--space-1);align-items:center">
-      <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">logistics</button>
-      <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">warehouse-A</button>
-      <button type="button" style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:22px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-tertiary);font-size:var(--font-size-200);cursor:pointer">+4</button>
+      <button type="button" class="tag--id">logistics</button>
+      <button type="button" class="tag--id">warehouse-A</button>
+      <button type="button" class="tag--count" aria-label="4 more tags: vendor-3, SKU-4821, export-batch-2, 3PL">+4</button>
     </div>
-  </div><div class="dodont__note"><b>Do</b> collapse overflow into a count that opens a popover.</div></div>
+  </div><div class="dodont__note"><b>Do</b> collapse overflow into a dark count pill that opens a popover.</div></div>
   <div class="dodont__item" data-kind="dont"><div class="dodont__stage" style="flex-wrap:wrap;gap:var(--space-1)">
-    <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">logistics</button>
-    <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">warehouse-A</button>
-    <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">vendor-3</button>
-    <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">SKU-4821</button>
-    <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">export-batch-2</button>
-    <button type="button" style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:var(--radius-xs);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-secondary);font-size:var(--font-size-200);cursor:pointer">3PL</button>
+    <button type="button" class="tag--id">logistics</button>
+    <button type="button" class="tag--id">warehouse-A</button>
+    <button type="button" class="tag--id">vendor-3</button>
+    <button type="button" class="tag--id">SKU-4821</button>
+    <button type="button" class="tag--id">export-batch-2</button>
+    <button type="button" class="tag--id">3PL</button>
   </div><div class="dodont__note"><b>Don't</b> render all tags — six tags in a table cell breaks the row height and hides the data beside them.</div></div>
 </div>
-<div class="api">Tag · label, onClick, ariaLabel · TagGroup · tags[], threshold (default 3), onOverflowClick</div>
+<div class="api">Tag · label, tone, onClick · TagGroup · tags[], threshold (default 3), onOverflowClick · Overflow counter: <code>.tag--count</code></div>
 </section>
 
 <div class="part" id="part-lozenge"><h2 class="part__title">Lozenge</h2></div>
@@ -341,10 +361,10 @@
 <tr><td><b>Purpose</b></td><td class="use">Attention signal on a carrier</td><td class="use">Applied filter or selection value</td><td class="use">Identifier or category label</td><td class="use">Record status</td></tr>
 <tr><td><b>Interactive</b></td><td class="use">No</td><td class="use">Yes — removable</td><td class="use">Yes — opens popover</td><td class="use">No</td></tr>
 <tr><td><b>Shape</b></td><td class="use">Pill (dot or pill)</td><td class="use">Pill</td><td class="use">Rectangle 2–4px radius</td><td class="use">Pill</td></tr>
-<tr><td><b>Colour</b></td><td class="use">Neutral / Primary / Red</td><td class="use">Single (no variants)</td><td class="use">Neutral only</td><td class="use">Semantic tones</td></tr>
+<tr><td><b>Colour</b></td><td class="use">Neutral / Primary / Red</td><td class="use">Single (no variants)</td><td class="use">Neutral · Warm · Rose · Cool</td><td class="use">Semantic tones</td></tr>
 <tr><td><b>Content</b></td><td class="use">Number or dot</td><td class="use">Pre-set option label</td><td class="use">Identifier string</td><td class="use">Status word or phrase</td></tr>
 <tr><td><b>Data source</b></td><td class="use">Live count</td><td class="use">User selection</td><td class="use">Record metadata</td><td class="use">Record state field</td></tr>
-<tr><td><b>CSS</b></td><td class="tok">badge-dot / badge-counter</td><td class="tok">.tag + .tag__x</td><td class="tok">.tag--id</td><td class="tok">.badge-ix[data-tone]</td></tr>
+<tr><td><b>CSS</b></td><td class="tok">badge-dot / badge-counter</td><td class="tok">.tag + .tag__x</td><td class="tok">.tag--id[data-tone] + .tag--count</td><td class="tok">.badge-ix[data-tone]</td></tr>
 </tbody>
 </table>
 </section>

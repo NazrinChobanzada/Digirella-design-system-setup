@@ -176,7 +176,7 @@ button.iconbtn--outline:disabled { background: var(--surface-card); border-color
 .iconbtn:active:not(:disabled)           { background: var(--surface-active); }
 
 /* --------------------------------------------------------------------------
-   Tag / chip — selectable, removable
+   Chip — selectable, removable (pill, lives inside combobox / filter bar)
    -------------------------------------------------------------------------- */
 
 .tag {
@@ -209,6 +209,47 @@ button.tag:hover { background: var(--surface-hover); color: var(--text-primary);
   font-size: 13px; line-height: 1;
 }
 .tag__x:hover { opacity: 1; background: var(--alpha-black-08); }
+
+/* --------------------------------------------------------------------------
+   Tag (identifier) — non-removable, interactive, rectangular
+   -------------------------------------------------------------------------- */
+
+.tag--id {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 3px 8px;
+  height: 22px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-default);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  font-size: var(--font-size-200);
+  cursor: pointer;
+  transition: var(--transition-interactive);
+}
+button.tag--id:hover { background: var(--surface-hover); color: var(--text-primary); }
+.tag--id[data-tone="warm"] { background: var(--surface-warning-subtle); border-color: transparent; }
+.tag--id[data-tone="rose"] { background: var(--surface-danger-subtle);  border-color: transparent; }
+.tag--id[data-tone="cool"] { background: var(--surface-info-subtle);    border-color: transparent; }
+
+/* +N overflow counter — same shape as .tag--id, dark fill */
+.tag--count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: var(--radius-xs);
+  background: var(--text-primary);
+  color: var(--surface-default, #fff);
+  font-size: var(--font-size-200);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.tag--count:hover { opacity: 0.85; }
 
 /* --------------------------------------------------------------------------
    Card
@@ -721,20 +762,21 @@ select.control { appearance: none; padding-right: 34px; cursor: pointer;
 .tip:hover .tip__bubble,
 .tip:focus-within .tip__bubble { opacity: 1; visibility: visible; }
 
-/* Badge */
+/* Lozenge — inline status label, outlined style */
 .badge-ix {
   display: inline-flex; align-items: center;
   padding: 2px 8px;
   border-radius: var(--radius-pill);
+  border: 1.5px solid var(--border-strong);
   font-size: var(--type-badge-size); line-height: var(--type-badge-leading); font-weight: var(--type-badge-weight);
   letter-spacing: var(--letter-spacing-small);
   background: var(--surface-sunken); color: var(--text-secondary);
 }
-.badge-ix[data-tone="success"] { background: var(--surface-brand-subtle); color: var(--text-success); }
-.badge-ix[data-tone="info"]    { background: var(--surface-info-subtle); color: var(--status-info); }
-.badge-ix[data-tone="warning"] { background: var(--surface-warning-subtle); color: var(--text-warning); }
-.badge-ix[data-tone="danger"]  { background: var(--surface-danger-subtle); color: var(--text-danger); }
-.badge-ix[data-tone="brand"]   { background: var(--color-primary); color: var(--color-on-primary); }
+.badge-ix[data-tone="success"] { background: var(--surface-brand-subtle);   color: var(--text-success);  border-color: var(--status-success); }
+.badge-ix[data-tone="info"]    { background: var(--surface-info-subtle);     color: var(--status-info);   border-color: var(--status-info); }
+.badge-ix[data-tone="warning"] { background: var(--surface-warning-subtle);  color: var(--text-warning);  border-color: var(--status-warning); }
+.badge-ix[data-tone="danger"]  { background: var(--surface-danger-subtle);   color: var(--text-danger);   border-color: var(--status-danger); }
+.badge-ix[data-tone="brand"]   { background: var(--surface-brand-subtle);    color: var(--color-primary); border-color: var(--color-primary); }
 
 /* Body scroll lock while an overlay is open */
 body[data-locked="true"] { overflow: hidden; }
