@@ -1,165 +1,132 @@
-<p class="page__lede">Alerts communicate a persistent status or message that is directly relevant to the user's current context — they stay on the page until dismissed or resolved.</p>
+<p class="page__lede">A short message about a condition — where it sits decides its scope, lifetime and dismissal. Severity is a separate axis from placement, and it carries meaning, not emphasis.</p>
 
 <section id="overview">
 <h2>Overview</h2>
-<p>An alert is inline and persistent. It does not vanish on its own, and it does not interrupt the user's flow. It lives in the page, at the top of a section or at the top of the full content area, and tells the user something they need to know to make sense of what they are looking at — a service outage, a pending verification, a risk they may not have noticed.</p>
-<p>Four variants cover the semantic range: info for neutral context, success for completion, warning for something that needs attention, and danger for something that requires immediate action or has already gone wrong.</p>
-<div class="demo demo--stack">
-  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-info-subtle);border-left:4px solid var(--status-info)">
-    <span style="color:var(--status-info);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px">ℹ</span>
-    <div>
-      <div style="font-weight:600;margin-bottom:var(--space-1)">Verification pending</div>
-      <div style="color:var(--text-secondary)">Your shop is visible but purchases are paused until your identity is verified. This usually takes 1–2 business days.</div>
-    </div>
-  </div>
-  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-success-subtle);border-left:4px solid var(--status-success)">
-    <span style="color:var(--status-success);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px">✓</span>
-    <div>
-      <div style="font-weight:600;margin-bottom:var(--space-1)">Payment received</div>
-      <div style="color:var(--text-secondary)">£73.00 was collected successfully. Funds will be transferred to your account in 2 business days.</div>
-    </div>
-  </div>
-  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-warning-subtle);border-left:4px solid var(--status-warning)">
-    <span style="color:var(--status-warning);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px">⚠</span>
-    <div>
-      <div style="font-weight:600;margin-bottom:var(--space-1)">Listing expires in 3 days</div>
-      <div style="color:var(--text-secondary)">Renew "Handmade ceramic mug" to keep it visible in search results.</div>
-    </div>
-  </div>
-  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-danger-subtle);border-left:4px solid var(--status-danger)">
-    <span style="color:var(--status-danger);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px">✕</span>
-    <div>
-      <div style="font-weight:600;margin-bottom:var(--space-1)">Payment failed</div>
-      <div style="color:var(--text-secondary)">Your saved card was declined. <a href="#" style="color:var(--status-danger);text-decoration:underline">Update payment method</a> to resume your subscription.</div>
-    </div>
-  </div>
-</div>
-<p class="caption">All four variants. The left border and icon carry the semantic meaning; colour reinforces it but does not carry it alone.</p>
+<p class="doc-lead">An alert is inline and persistent — it lives in the page, not over it, and it does not vanish on its own. The single most important decision is where to put it: distance between the message and its cause is what makes alerts get missed.</p>
+<div class="callout"><div>Placement decides almost everything about an alert: scope, lifetime, whether it can be dismissed, and how a screen reader hears it. Severity is independent — it answers "what kind of thing is this?", not "how loud should it be?".</div></div>
 </section>
 
 <div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div>
 
-<section id="when-to-use" data-part="guidelines">
-<h2>When to use</h2>
-<p>Alerts are for persistent, page-level or section-level status. They are not for every message — overusing them trains users to ignore them.</p>
-<table>
-<thead><tr><th>Situation</th><th>Right pattern</th><th>Why</th></tr></thead>
-<tbody>
-<tr><td>A service degradation affecting the whole page</td><td class="use">Alert, top of page</td><td class="use">The status is global, persistent, and needs to stay visible.</td></tr>
-<tr><td>A form field has a validation error</td><td class="use">Inline field error</td><td class="use">The error belongs next to the field, not at the top of the page.</td></tr>
-<tr><td>"Your profile is 80% complete"</td><td class="use">Alert, top of section</td><td class="use">Relevant to this section, persistent until resolved, no urgency.</td></tr>
-<tr><td>"Order placed successfully"</td><td class="use">Toast</td><td class="use">Transient feedback for a completed action. Should disappear; does not need to stay visible.</td></tr>
-<tr><td>A payment card about to expire</td><td class="use">Alert, warning variant</td><td class="use">The risk is real but not yet catastrophic. Persistent — it should stay until the user acts.</td></tr>
-<tr><td>A required action is blocking the user</td><td class="use">Alert, danger variant</td><td class="use">The current state is broken. The user cannot proceed without fixing it.</td></tr>
-</tbody>
-</table>
-
-<div class="dodont">
-  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
-    <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-warning-subtle);border-left:4px solid var(--status-warning)">
-      <span style="color:var(--status-warning);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px">⚠</span>
-      <div>
-        <div style="font-weight:600;font-size:var(--font-size-200);margin-bottom:var(--space-1)">Your card expires next month</div>
-        <div style="color:var(--text-secondary);font-size:var(--font-size-200)">Update your payment method to avoid interruption.</div>
-      </div>
-    </div>
-  </div><div class="dodont__note"><b>Do</b> use an alert for a persistent state the user needs to act on before their next session.</div></div>
-  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
-    <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-info-subtle);border-left:4px solid var(--status-info)">
-      <span style="color:var(--status-info);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px">ℹ</span>
-      <div>
-        <div style="font-weight:600;font-size:var(--font-size-200);margin-bottom:var(--space-1)">Settings saved</div>
-        <div style="color:var(--text-secondary);font-size:var(--font-size-200)">Your notification preferences have been updated.</div>
-      </div>
-    </div>
-  </div><div class="dodont__note"><b>Don't</b> use a persistent alert for a transient confirmation. A toast disappears on its own and does not require the user to dismiss it.</div></div>
+<section id="principles" data-part="guidelines">
+<h2>Principles</h2>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Put the message where the problem is</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">A field error belongs under the field, a section problem inside the section, a service-wide problem at the top of the page. Distance between the message and its cause is what makes people miss it.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">field → section → page</p></div></div>
+<div class="ddc"><div class="ddh ok">Severity is meaning, not emphasis</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Red means something is broken or blocked — not "this is important". A warning dressed as an error teaches people to ignore red.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">error ≠ loud · info ≠ quiet</p></div></div>
+<div class="ddc"><div class="ddh ok">Say what to do next</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Every message that reports a problem names the action: retry, fix a field, contact someone, wait. A message with no next step is noise with an icon.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">"Card declined. Try another card."</p></div></div>
+<div class="ddc"><div class="ddh ok">Never interrupt for something routine</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Saves, copies and small confirmations are toasts at most. If the user must read it to continue, it is not a toast — and if they must act on it immediately, it is a dialog.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">routine → toast · blocking → dialog</p></div></div>
 </div>
 </section>
 
-<section id="variants" data-part="guidelines">
-<h2>Variants</h2>
-<p>The variant is a semantic choice, not a visual one. Pick the one that accurately describes the situation — don't use warning for every non-critical message, or danger for anything you want to highlight.</p>
-<table>
-<thead><tr><th>Variant</th><th>Token</th><th>Use when</th><th>Don't use for</th></tr></thead>
+<section id="placement" data-part="guidelines">
+<h2>Placement</h2>
+<p class="doc-lead">Same component, four positions. The position is the real variant — it decides scope, lifetime, dismissal and live-region role.</p>
+<div class="dd">
+<div class="ddc"><div class="ddh ok">Inline</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Immediately above or below the element it concerns, inside the form flow. Never dismissible: disappears when the condition clears.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">scope: one control · tied with aria-describedby</p></div></div>
+<div class="ddc"><div class="ddh ok">Section</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Below the section heading, above section content. The message belongs to that card, panel, or step and scrolls with it.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">scope: one panel or step · dismissible when advisory</p></div></div>
+<div class="ddc"><div class="ddh ok">Page</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Top of page content, between navigation and the h1. One at a time — if two conditions apply, write one combined message.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">scope: this screen · one maximum</p></div></div>
+<div class="ddc"><div class="ddh ok">Toast</div><div class="ddb"><p style="font-size:var(--font-size-300);color:var(--text-secondary);line-height:1.55">Floating, transient, non-blocking. Confirms an action the user just took. Auto-dismisses; the only placement with a timer. Never takes focus.</p><p style="font-size:var(--font-size-200);color:var(--text-tertiary);margin-top:var(--space-2)">scope: last action · timer pauses on hover/focus</p></div></div>
+</div>
+<table style="margin-top:var(--space-5)">
+<thead><tr><th style="width:180px">Question</th><th>Inline</th><th>Section</th><th>Page</th><th>Toast</th></tr></thead>
 <tbody>
-<tr>
-  <td style="white-space:nowrap">
-    <span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:10px;height:10px;border-radius:50%;background:var(--status-info);flex-shrink:0"></span>Info</span>
-  </td>
-  <td><code>--status-info</code></td>
-  <td class="use">Neutral context the user should know about but does not need to act on immediately. System notices, feature announcements, help text for a complex flow.</td>
-  <td class="use">Errors or anything requiring action. "Info" reads as low priority.</td>
-</tr>
-<tr>
-  <td style="white-space:nowrap">
-    <span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:10px;height:10px;border-radius:50%;background:var(--status-success);flex-shrink:0"></span>Success</span>
-  </td>
-  <td><code>--status-success</code></td>
-  <td class="use">A process has completed and left a lasting positive state — verified identity, connected account, activated feature.</td>
-  <td class="use">Transient confirmations ("order placed") — use a toast. Anything negative.</td>
-</tr>
-<tr>
-  <td style="white-space:nowrap">
-    <span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:10px;height:10px;border-radius:50%;background:var(--status-warning);flex-shrink:0"></span>Warning</span>
-  </td>
-  <td><code>--status-warning</code></td>
-  <td class="use">Something is wrong or about to go wrong and the user can fix it. Expiring card, incomplete profile blocking a feature, a quota at 80%.</td>
-  <td class="use">Errors that have already occurred (those are danger). Anything you just want to emphasise.</td>
-</tr>
-<tr>
-  <td style="white-space:nowrap">
-    <span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:10px;height:10px;border-radius:50%;background:var(--status-danger);flex-shrink:0"></span>Danger</span>
-  </td>
-  <td><code>--status-danger</code></td>
-  <td class="use">Something has already gone wrong, or the user is blocked from proceeding. Payment failed, account suspended, a required field is missing in a way that breaks the whole flow.</td>
-  <td class="use">Warnings about future risk. Anything the user can safely ignore.</td>
-</tr>
+<tr><td class="tok">What does it affect?</td><td class="use">One control</td><td class="use">One panel or step</td><td class="use">This screen</td><td class="use">The last action</td></tr>
+<tr><td class="tok">Auto-dismiss?</td><td class="use">Never</td><td class="use">Never</td><td class="use">Never</td><td class="use">Yes</td></tr>
+<tr><td class="tok">Dismissible?</td><td class="use">No</td><td class="use">When advisory</td><td class="use">Usually</td><td class="use">Yes, and auto</td></tr>
+<tr><td class="tok">Max at once?</td><td class="use">One per control</td><td class="use">One per section</td><td class="use">One</td><td class="use">Three visible</td></tr>
+<tr><td class="tok">Default live region</td><td class="use">—</td><td class="use">role="status"</td><td class="use">role="status" or "alert"</td><td class="use">role="status"</td></tr>
 </tbody>
 </table>
 </section>
 
-<section id="content-guidelines" data-part="guidelines">
-<h2>Content guidelines</h2>
-
-<h3>Title</h3>
-<p>Optional, but recommended when the message has more than one sentence. The title summarises the state in five words or fewer: "Payment failed", "Account suspended", "Action required". It does not repeat the variant name ("Warning: …") — the colour and icon already say that.</p>
-
-<h3>Body</h3>
-<p>Always required. One or two sentences explaining what happened and, if the user can act, what to do. Avoid technical error codes in the body — log those separately. "Your card was declined by your bank" is useful; "Error 402: payment_failed" is not.</p>
-
-<h3>Action links</h3>
-<p>Optional. A single inline link or button that takes the user to the resolution. It should be specific — "Update payment method" rather than "Click here". The link colour matches the variant token so it reads as part of the alert, not a generic anchor. Don't add more than one action — if two things need doing, the alert body should explain the order and link to the first.</p>
-
-<div class="dodont">
-  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
-    <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-danger-subtle);border-left:4px solid var(--status-danger)">
-      <span style="color:var(--status-danger);flex-shrink:0;margin-top:2px">✕</span>
-      <div style="font-size:var(--font-size-200)">
-        <div style="font-weight:600;margin-bottom:var(--space-1)">Subscription paused</div>
-        <div style="color:var(--text-secondary)">Your last payment failed. <a href="#" style="color:var(--status-danger);text-decoration:underline">Update your card</a> to resume access.</div>
-      </div>
-    </div>
-  </div><div class="dodont__note">A specific action link names exactly what to do. The user knows what pressing it will do.</div></div>
-  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
-    <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-danger-subtle);border-left:4px solid var(--status-danger)">
-      <span style="color:var(--status-danger);flex-shrink:0;margin-top:2px">✕</span>
-      <div style="font-size:var(--font-size-200)">
-        <div style="font-weight:600;margin-bottom:var(--space-1)">Error</div>
-        <div style="color:var(--text-secondary)">Something went wrong. <a href="#" style="color:var(--status-danger);text-decoration:underline">Click here</a> to fix it.</div>
-      </div>
-    </div>
-  </div><div class="dodont__note">"Error" and "Click here" are both meaningless. The user is no closer to understanding the problem or solving it.</div></div>
-</div>
+<section id="not" data-part="guidelines">
+<h2>When not to use</h2>
+<table>
+<thead><tr><th>Situation</th><th style="width:200px">Use instead</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td class="tok">The user must answer before continuing</td><td class="use">Dialog</td><td class="use">An alert doesn't block, so the flow carries on without the answer</td></tr>
+<tr><td class="tok">One field is invalid</td><td class="use">Field error message</td><td class="use">The message belongs with the input, not at the top of the page</td></tr>
+<tr><td class="tok">Several fields invalid after submit</td><td class="use">Error summary + field errors</td><td class="use">The summary links to each field; the field error says what to fix</td></tr>
+<tr><td class="tok">A transient action confirmation — "Saved"</td><td class="use">Toast</td><td class="use">It should disappear on its own; a persistent alert creates noise</td></tr>
+<tr><td class="tok">Explaining a control before anything goes wrong</td><td class="use">Helper text or tooltip</td><td class="use">An alert implies something happened</td></tr>
+<tr><td class="tok">Nothing here yet</td><td class="use">Empty state</td><td class="use">Nothing is wrong, so no severity applies</td></tr>
+<tr><td class="tok">Ongoing status of an object</td><td class="use">Status badge or chip</td><td class="use">A badge reads at a glance and doesn't need dismissing</td></tr>
+<tr><td class="tok">Marketing or an upsell</td><td class="use">Promo card</td><td class="use">Never dress an ad as a warning — it burns the severity system for everyone</td></tr>
+</tbody>
+</table>
 </section>
 
-<div class="part" id="part-anatomy"><h2 class="part__title">Anatomy</h2></div>
+<div class="part" id="part-variants"><h2 class="part__title">Variants</h2></div>
 
-<section id="anatomy" data-part="anatomy">
-<h2>Anatomy</h2>
+<section id="variants" data-part="variants">
+<h2>Severity</h2>
+<p class="doc-lead">Severity is the second axis, independent of placement. It answers one question: what kind of thing is this? Colour, icon, and words all carry it — colour never alone.</p>
 <div class="demo demo--stack">
+  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-info-subtle);border-left:4px solid var(--status-info)">
+    <span style="color:var(--status-info);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px" aria-hidden="true">ℹ</span>
+    <div><div style="font-weight:600;margin-bottom:var(--space-1)">Verification pending</div><div style="color:var(--text-secondary)">Your shop is visible but purchases are paused until your identity is verified. This usually takes 1–2 business days.</div></div>
+  </div>
+  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-success-subtle);border-left:4px solid var(--status-success)">
+    <span style="color:var(--status-success);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px" aria-hidden="true">✓</span>
+    <div><div style="font-weight:600;margin-bottom:var(--space-1)">Identity verified</div><div style="color:var(--text-secondary)">Your account is fully active. Payouts are now enabled and will transfer in 2 business days.</div></div>
+  </div>
+  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-warning-subtle);border-left:4px solid var(--status-warning)">
+    <span style="color:var(--status-warning);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px" aria-hidden="true">⚠</span>
+    <div><div style="font-weight:600;margin-bottom:var(--space-1)">Listing expires in 3 days</div><div style="color:var(--text-secondary)">Renew "Handmade ceramic mug" to keep it visible in search results.</div></div>
+  </div>
+  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-danger-subtle);border-left:4px solid var(--status-danger)">
+    <span style="color:var(--status-danger);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px" aria-hidden="true">✕</span>
+    <div><div style="font-weight:600;margin-bottom:var(--space-1)">Payment failed</div><div style="color:var(--text-secondary)">Your saved card was declined. <a href="#" style="color:var(--status-danger);text-decoration:underline">Update payment method</a> to resume your subscription.</div></div>
+  </div>
+</div>
+<table style="margin-top:var(--space-5)">
+<thead><tr><th style="width:120px">Severity</th><th>Means</th><th>Dismissible?</th></tr></thead>
+<tbody>
+<tr><td><span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:8px;height:8px;border-radius:50%;background:var(--status-info);flex-shrink:0"></span>Info</span></td><td class="use">Context or a neutral change of state the user didn't cause</td><td class="use">Yes</td></tr>
+<tr><td><span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:8px;height:8px;border-radius:50%;background:var(--status-success);flex-shrink:0"></span>Success</span></td><td class="use">A process completed and left a lasting positive state — verified identity, activated feature</td><td class="use">Yes, or auto as a toast</td></tr>
+<tr><td><span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:8px;height:8px;border-radius:50%;background:var(--status-warning);flex-shrink:0"></span>Warning</span></td><td class="use">Nothing is broken yet, but something will go wrong or has a consequence the user can address</td><td class="use">Usually</td></tr>
+<tr><td><span style="display:inline-flex;align-items:center;gap:var(--space-2)"><span style="width:8px;height:8px;border-radius:50%;background:var(--status-danger);flex-shrink:0"></span>Danger</span></td><td class="use">Something failed or is blocked. The user cannot continue as intended</td><td class="use">No, while the condition holds</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="emphasis" data-part="variants">
+<h2>Emphasis</h2>
+<p class="doc-lead">Three levels of visual weight for the same severity. Pick by placement context, not by how strongly you feel about the message.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo demo--stack">
+  <div style="font-size:var(--font-size-100);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:var(--space-2)">Tinted</div>
+  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-warning-subtle);border-left:4px solid var(--status-warning)">
+    <span style="color:var(--status-warning);flex-shrink:0;margin-top:2px" aria-hidden="true">⚠</span>
+    <div><div style="font-weight:600;margin-bottom:var(--space-1)">Card expires next month</div><div style="font-size:var(--font-size-200);color:var(--text-secondary)">Update your payment method to avoid interruption.</div></div>
+  </div>
+  <div style="font-size:var(--font-size-100);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-top:var(--space-4);margin-bottom:var(--space-2)">Accent bar</div>
+  <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-card);border:1px solid var(--border-subtle);border-left:4px solid var(--status-warning)">
+    <span style="color:var(--status-warning);flex-shrink:0;margin-top:2px" aria-hidden="true">⚠</span>
+    <div><div style="font-weight:600;margin-bottom:var(--space-1)">Card expires next month</div><div style="font-size:var(--font-size-200);color:var(--text-secondary)">Update your payment method to avoid interruption.</div></div>
+  </div>
+  <div style="font-size:var(--font-size-100);color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-top:var(--space-4);margin-bottom:var(--space-2)">Plain</div>
+  <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+    <span style="color:var(--status-warning);flex-shrink:0;margin-top:2px" aria-hidden="true">⚠</span>
+    <div><span style="font-weight:600">Card expires next month</span> — <span style="color:var(--text-secondary);font-size:var(--font-size-200)">Update your payment method to avoid interruption.</span></div>
+  </div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-3)">
+<div class="rule"><b>Tinted</b><span>Default. Page and section placements where the message needs visual separation from surrounding content</span></div>
+<div class="rule"><b>Accent bar</b><span>Dense layouts and data rows where a full tint would compete with the items around it</span></div>
+<div class="rule"><b>Plain</b><span>Inline under a field, or inside a container that already has a background. The icon carries the severity</span></div>
+<div class="rule"><b>Never solid-filled</b><span>A solid severity colour across a wide area leaves nowhere to escalate — it is the loudest thing on the screen before any actual emergency</span></div>
+</div>
+</div>
+</section>
+
+<section id="anatomy" data-part="variants">
+<h2>Anatomy</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+<div class="demo">
   <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-warning-subtle);border-left:4px solid var(--status-warning);position:relative">
     <span class="pin" style="position:absolute;top:calc(-1 * var(--space-4));left:0">1</span>
-    <span style="color:var(--status-warning);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px">⚠</span>
+    <span style="color:var(--status-warning);font-size:var(--font-size-400);line-height:1;flex-shrink:0;margin-top:2px" aria-hidden="true">⚠</span>
     <div style="flex:1">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-3)">
         <div>
@@ -169,13 +136,10 @@
           </div>
           <div style="color:var(--text-secondary);position:relative">
             <span class="pin" style="position:absolute;top:calc(-1 * var(--space-4));left:0">3</span>
-            Your listing count has exceeded the free tier limit. <a href="#" style="color:var(--status-warning);text-decoration:underline" style="position:relative">
-              <span class="pin" style="position:absolute;top:calc(-1 * var(--space-5));left:0">4</span>
-              Upgrade your plan
-            </a> to keep all listings active.
+            Your listing count exceeded the free tier limit. <a href="#" style="color:var(--status-warning);text-decoration:underline"><span class="pin" style="position:absolute;top:calc(-1 * var(--space-5));left:0">4</span>Upgrade your plan</a> to keep all listings active.
           </div>
         </div>
-        <button class="iconbtn iconbtn--ghost" type="button" aria-label="Dismiss" style="flex-shrink:0;position:relative">
+        <button class="iconbtn iconbtn--ghost" type="button" aria-label="Dismiss shop suspension warning" style="flex-shrink:0;position:relative">
           <span class="pin" style="position:absolute;top:calc(-1 * var(--space-4));right:0">5</span>
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
@@ -183,124 +147,119 @@
     </div>
   </div>
 </div>
-<ol style="margin-top:var(--space-4)">
-  <li><b>Icon</b> — 20px, colour-matched to the variant token. Always present. It reinforces the severity without relying on the subtle background tint alone. The icon is decorative (<code>aria-hidden="true"</code>); the variant is communicated through the role and text.</li>
-  <li><b>Title</b> — Optional. <code>--font-size-300</code> at weight 600. Summarises the state. When omitted, the body carries the full message.</li>
-  <li><b>Body</b> — Always present. <code>--text-secondary</code>. The explanation and, where relevant, the consequence.</li>
-  <li><b>Action</b> — Optional. A single inline link or text button. Colour-matched to the variant. One action maximum.</li>
-  <li><b>Dismiss button</b> — Optional icon-only ghost button. Present on dismissible alerts; absent on persistent ones. See the Dismissible section for when to include it.</li>
-</ol>
+<div>
+  <ol style="display:flex;flex-direction:column;gap:var(--space-3);padding:0;margin:0;list-style:none;counter-reset:anatomy">
+    <li style="display:flex;gap:var(--space-3);align-items:baseline"><span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--surface-inverse);color:var(--text-inverse);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><div><b>Icon</b> — 18–20px, colour-matched to the severity token. Always present and always <code>aria-hidden="true"</code>.</div></li>
+    <li style="display:flex;gap:var(--space-3);align-items:baseline"><span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--surface-inverse);color:var(--text-inverse);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><div><b>Title</b> — Optional. Sentence case, no period, five words or fewer. Recommended when the body is more than one sentence.</div></li>
+    <li style="display:flex;gap:var(--space-3);align-items:baseline"><span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--surface-inverse);color:var(--text-inverse);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><div><b>Body</b> — Always required. What happened, then what to do next. One or two sentences.</div></li>
+    <li style="display:flex;gap:var(--space-3);align-items:baseline"><span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--surface-inverse);color:var(--text-inverse);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">4</span><div><b>Action</b> — Optional. One specific link or quiet button. Named for what happens — "Update card", not "Click here".</div></li>
+    <li style="display:flex;gap:var(--space-3);align-items:baseline"><span style="flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--surface-inverse);color:var(--text-inverse);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">5</span><div><b>Dismiss</b> — Optional. Top-right, 24×24 target minimum. <code>aria-label</code> names the alert — "Dismiss shop suspension warning".</div></li>
+  </ol>
+</div>
+</div>
 </section>
 
-<section id="placement" data-part="anatomy">
-<h2>Placement</h2>
-<p>Where an alert sits determines who sees it and what they associate it with. The choice is about scope — who does this message apply to?</p>
-<div class="rule"><b>Top of page</b><span>For messages that affect everything on the page — an outage, an account-level restriction, a global feature announcement. Placed between the navigation and the page title, so it appears before the user scans any content.</span></div>
-<div class="rule"><b>Top of section</b><span>For messages that affect only the content in a section or a specific form — a field-level conflict that surfaces after submission, an incomplete section in a multi-part form. Placed at the top of the relevant container, inside its padding.</span></div>
-<div class="rule"><b>Inline</b><span>For messages that relate to a single element — a table row whose data is stale, a card whose status needs attention. Placed directly inside or immediately adjacent to that element.</span></div>
-
-<div class="dodont">
-  <div class="dodont__item" data-kind="do"><div class="dodont__stage" style="padding:0;overflow:hidden;border-radius:var(--radius-md)">
-    <div style="background:var(--surface-page);padding:var(--space-3)">
-      <div style="display:flex;gap:var(--space-2);align-items:flex-start;padding:var(--space-3);border-radius:var(--radius-sm);background:var(--status-danger-subtle);border-left:3px solid var(--status-danger);margin-bottom:var(--space-3)">
-        <span style="color:var(--status-danger);flex-shrink:0;font-size:13px">✕</span>
-        <div style="font-size:var(--font-size-100);color:var(--text-secondary)">Your account is suspended pending verification.</div>
-      </div>
-      <div style="height:8px;background:var(--border-subtle);border-radius:4px;margin-bottom:var(--space-2)"></div>
-      <div style="height:8px;background:var(--border-subtle);border-radius:4px;width:80%;margin-bottom:var(--space-2)"></div>
-      <div style="height:8px;background:var(--border-subtle);border-radius:4px;width:60%"></div>
-    </div>
-  </div><div class="dodont__note">An account-level suspension alert at the top of the page, before the content it affects.</div></div>
-  <div class="dodont__item" data-kind="dont"><div class="dodont__stage" style="padding:0;overflow:hidden;border-radius:var(--radius-md)">
-    <div style="background:var(--surface-page);padding:var(--space-3)">
-      <div style="height:8px;background:var(--border-subtle);border-radius:4px;margin-bottom:var(--space-2)"></div>
-      <div style="height:8px;background:var(--border-subtle);border-radius:4px;width:80%;margin-bottom:var(--space-3)"></div>
-      <div style="display:flex;gap:var(--space-2);align-items:flex-start;padding:var(--space-3);border-radius:var(--radius-sm);background:var(--status-danger-subtle);border-left:3px solid var(--status-danger);margin-bottom:var(--space-2)">
-        <span style="color:var(--status-danger);flex-shrink:0;font-size:13px">✕</span>
-        <div style="font-size:var(--font-size-100);color:var(--text-secondary)">Your account is suspended pending verification.</div>
-      </div>
-      <div style="height:8px;background:var(--border-subtle);border-radius:4px;width:60%"></div>
-    </div>
-  </div><div class="dodont__note"><b>Don't</b> bury a page-level alert in the middle of the content. The user may never reach it.</div></div>
-</div>
+<section id="content-guidelines" data-part="variants">
+<h2>Content guidelines</h2>
+<div class="rule"><b>Title says the state, not the severity</b><span>"Payment failed", "Action required" — not "Warning:" or "Error:". The icon and colour already say that.</span></div>
+<div class="rule"><b>Body: what + what next</b><span>One or two sentences. "Your card was declined by your bank. Try a different card or contact your bank." — not just "Your card was declined."</span></div>
+<div class="rule"><b>One action maximum</b><span>If two things need doing, the body should explain the order and link to the first. A second action belongs on the page, not in the message.</span></div>
+<div class="rule"><b>No error codes in the body</b><span>"Your card was declined" is useful. "Error 402: payment_failed" is not. Technical codes belong in a collapsible detail or a log.</span></div>
+<div class="rule"><b>Never repeat the variant name</b><span>Don't start the title with "Warning:" or "Error:" — the icon already communicates this to everyone, including screen-reader users, when the live region text leads with the severity word.</span></div>
+<div class="rule"><b>Screen reader text leads with severity</b><span>When injected dynamically, the announced text should start with "Error:", "Warning:" etc. so screen-reader users hear the kind before the detail.</span></div>
 </section>
 
 <div class="part" id="part-behaviour"><h2 class="part__title">Behaviour</h2></div>
 
 <section id="dismissible" data-part="behaviour">
 <h2>Dismissible vs persistent</h2>
-<p>Most alerts should be persistent — they stay until the condition they describe is resolved, not until the user presses a button to make them go away. A user who dismisses a "payment failed" alert has not fixed the payment; they have just hidden the warning.</p>
-
-<h3>When to allow dismissal</h3>
-<p>Allow dismissal when the alert is informational and the user may genuinely not need to act: a feature announcement, an upgrade prompt, a contextual tip. These are things the user might already know about, and forcing them to see it on every visit is more annoying than useful.</p>
-<p>Do not allow dismissal on danger or warning alerts that block a workflow. If the account is suspended, dismissing the alert does not unsuspend it — and hiding the message creates a worse experience than leaving it visible.</p>
-
-<div class="dodont">
+<p class="doc-lead">Most alerts should be persistent — they stay until the condition is resolved, not until the user hides them. A user who dismisses a "payment failed" alert has not fixed the payment.</p>
+<div class="rule"><b>Allow dismissal</b><span>For informational and advisory alerts where the user may already know — a feature announcement, an upgrade prompt, a contextual tip</span></div>
+<div class="rule"><b>Prevent dismissal</b><span>On danger and warning alerts that block a workflow. If the account is suspended, hiding the message creates a worse experience than leaving it</span></div>
+<div class="rule"><b>Remember dismissals</b><span>Store the dismissed state so the announcement does not reappear on the next visit. An announcement seen and closed should stay gone</span></div>
+<div class="dodont" style="margin-top:var(--space-5)">
   <div class="dodont__item" data-kind="do"><div class="dodont__stage">
     <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-info-subtle);border-left:4px solid var(--status-info)">
-      <span style="color:var(--status-info);flex-shrink:0;margin-top:2px">ℹ</span>
-      <div style="flex:1;font-size:var(--font-size-200)">
-        <div style="font-weight:600;margin-bottom:var(--space-1)">New: Bulk listing tools</div>
-        <div style="color:var(--text-secondary)">Upload up to 50 listings at once from the Listings page.</div>
-      </div>
-      <button class="iconbtn iconbtn--ghost" type="button" aria-label="Dismiss" style="flex-shrink:0">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
+      <span style="color:var(--status-info);flex-shrink:0;margin-top:2px" aria-hidden="true">ℹ</span>
+      <div style="flex:1;font-size:var(--font-size-200)"><div style="font-weight:600;margin-bottom:var(--space-1)">New: Bulk listing tools</div><div style="color:var(--text-secondary)">Upload up to 50 listings at once from the Listings page.</div></div>
+      <button class="iconbtn iconbtn--ghost" type="button" aria-label="Dismiss" style="flex-shrink:0"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
   </div><div class="dodont__note"><b>Do</b> allow dismissal on informational announcements. The user may already know about the feature.</div></div>
   <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
     <div style="display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--status-danger-subtle);border-left:4px solid var(--status-danger)">
-      <span style="color:var(--status-danger);flex-shrink:0;margin-top:2px">✕</span>
-      <div style="flex:1;font-size:var(--font-size-200)">
-        <div style="font-weight:600;margin-bottom:var(--space-1)">Payment failed</div>
-        <div style="color:var(--text-secondary)">Your card was declined. Update your payment method to continue.</div>
-      </div>
-      <button class="iconbtn iconbtn--ghost" type="button" aria-label="Dismiss" style="flex-shrink:0">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
+      <span style="color:var(--status-danger);flex-shrink:0;margin-top:2px" aria-hidden="true">✕</span>
+      <div style="flex:1;font-size:var(--font-size-200)"><div style="font-weight:600;margin-bottom:var(--space-1)">Payment failed</div><div style="color:var(--text-secondary)">Your card was declined. Update your payment method to continue.</div></div>
+      <button class="iconbtn iconbtn--ghost" type="button" aria-label="Dismiss" style="flex-shrink:0"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
-  </div><div class="dodont__note"><b>Don't</b> make a blocking error dismissible. Hiding the alert does not resolve the payment failure.</div></div>
+  </div><div class="dodont__note"><b>Don't</b> make a blocking error dismissible. Hiding the alert does not resolve the failure.</div></div>
 </div>
-
-<h3>Remembered dismissals</h3>
-<p>When a dismissible alert is closed, store the dismissed state in local storage or a user preference so it does not reappear on next visit. An announcement the user has already seen and dismissed should stay gone.</p>
 </section>
 
-<section id="accessibility">
+<section id="lifecycle" data-part="behaviour">
+<h2>Appearing &amp; leaving</h2>
+<table>
+<thead><tr><th style="width:200px">Moment</th><th>Rule</th></tr></thead>
+<tbody>
+<tr><td class="tok">On page load</td><td class="use">Render with the page, in the layout. Nothing animates in on first paint — content that shifts after the user starts reading is a layout bug</td></tr>
+<tr><td class="tok">After an action</td><td class="use">Insert in place and push content down rather than overlay it. A message that covers what the user just read is a modal in disguise</td></tr>
+<tr><td class="tok">Entering</td><td class="use">Fade + 4–6px rise, 120–180ms. Toasts slide from their corner. Nothing bounces</td></tr>
+<tr><td class="tok">Leaving</td><td class="use">Fade out 100–150ms, then collapse the space. Collapsing first makes the page jump under the user's pointer</td></tr>
+<tr><td class="tok">On condition resolved</td><td class="use">An alert about a condition disappears when the condition clears — no extra success message on top, no dismissal needed</td></tr>
+<tr><td class="tok">On navigation</td><td class="use">Page and section alerts die with the page. Toasts finish their timer or are dropped — never carried to the next screen</td></tr>
+<tr><td class="tok">Reduced motion</td><td class="use">Appear and disappear instantly. The timer and pause behaviour for toasts remain exactly the same</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="stacking" data-part="behaviour">
+<h2>Stacking</h2>
+<div class="rule"><b>One page alert</b><span>Two stacked page banners means neither gets read. If two conditions apply, write a single message that addresses both</span></div>
+<div class="rule"><b>Toasts: three visible maximum</b><span>Newest nearest the corner. Beyond three, queue the rest — a tower of toasts covers the UI they're about</span></div>
+<div class="rule"><b>Order: severity first, then age</b><span>If two must coexist, the more severe message sits on top</span></div>
+<div class="rule"><b>Collapse repeats</b><span>"3 uploads failed", not three identical toasts. The same trigger updates the existing toast and restarts its timer rather than stacking a duplicate</span></div>
+<div class="rule"><b>Page + inline allowed</b><span>Their scopes differ: the page-level problem at the top, the specific field that caused it marked below. Two page alerts for the same event are not allowed</span></div>
+</section>
+
+<section id="accessibility" style="padding-bottom:var(--space-13)">
 <h2>Accessibility</h2>
-<p>The key failure mode for alerts is the silent update — adding an alert to the DOM after page load without announcing it to assistive technologies. The criteria below address this and the supporting requirements.</p>
 
 <div class="wcag">
 <div class="wcag__group"><h3>Live regions</h3>
 <ul class="wcag__list">
-  <li><span class="sc" data-risk="high">4.1.3</span><span>Alerts added dynamically must use a live region. Use <code>role="alert"</code> (implicit <code>aria-live="assertive"</code>) for danger and warning; use <code>role="status"</code> (implicit <code>aria-live="polite"</code>) for info and success. <span class="risk">high risk</span></span></li>
-  <li><span class="sc" data-risk="high">4.1.3</span><span><code>role="alert"</code> announces immediately, interrupting whatever the screen reader is saying. Only use it when the message is genuinely urgent. Overuse of <code>role="alert"</code> causes announcement fatigue. <span class="risk">high risk</span></span></li>
-  <li><span class="sc">4.1.3</span><span>Alerts present in the HTML on initial page load do not need a live region — they are read as part of the document structure.</span></li>
+  <li><span class="sc" data-risk="high">4.1.3</span><span>Use <code>role="alert"</code> (assertive) for danger and warning alerts injected after a user action; use <code>role="status"</code> (polite) for info and success. <span class="risk">high risk</span></span></li>
+  <li><span class="sc" data-risk="high">4.1.3</span><span>The live-region container must exist in the DOM before the message is injected. Creating container and message together announces nothing. <span class="risk">high risk</span></span></li>
+  <li><span class="sc">4.1.3</span><span>Never <code>display:none</code> a live-region container — hidden regions don't announce. Keep it present and visually empty when there is no message.</span></li>
+  <li><span class="sc">4.1.3</span><span>Alerts rendered with the initial page load need no live region — they are already in document order.</span></li>
+  <li><span class="sc">4.1.3</span><span>Use one live-region container per placement scope. Multiple assertive regions firing together garble each other.</span></li>
 </ul>
 </div>
 
-<div class="wcag__group"><h3>Role and naming</h3>
+<div class="wcag__group"><h3>Colour and icons</h3>
 <ul class="wcag__list">
-  <li><span class="sc">1.3.1</span><span>The variant must not be communicated through colour alone. The icon and the text together convey the severity to users who cannot perceive colour.</span></li>
-  <li><span class="sc">1.4.1</span><span>Each variant has a distinct icon — info ℹ, success ✓, warning ⚠, danger ✕ — so the four states are distinguishable without colour.</span></li>
-  <li><span class="sc">4.1.2</span><span>The dismiss button has an <code>aria-label</code> that names its action in context: "Dismiss verification notice", not just "Close".</span></li>
+  <li><span class="sc">1.4.1</span><span>Severity is never colour alone. The icon shape and the first word of the message carry it too — "Error: payment declined" reads the same in greyscale as it does in colour.</span></li>
+  <li><span class="sc">1.4.3</span><span>Message text reaches 4.5:1 on its tinted background — tinted backgrounds are where this quietly fails.</span></li>
+  <li><span class="sc">1.4.11</span><span>The icon and the left border reach 3:1 against the surrounding surface.</span></li>
+  <li><span class="sc">1.3.1</span><span>The icon carries <code>aria-hidden="true"</code> — severity is communicated through the live region's lead word and the surrounding text, not through the icon.</span></li>
 </ul>
 </div>
 
-<div class="wcag__group"><h3>Focus and interaction</h3>
+<div class="wcag__group"><h3>Focus</h3>
 <ul class="wcag__list">
-  <li><span class="sc">2.1.1</span><span>The dismiss button is keyboard-operable. A user who dismisses with Tab + Enter should not lose their place in the document.</span></li>
-  <li><span class="sc">2.4.3</span><span>After dismissal, focus moves to a logical nearby element — the next focusable item below the alert, or the element that was focused before the alert appeared.</span></li>
+  <li><span class="sc">3.2.2</span><span>An alert appearing after an action never moves focus unless it is a success banner on a newly loaded page — the one accepted exception, because the page itself changed.</span></li>
+  <li><span class="sc">2.1.1</span><span>Actions and the dismiss control are reachable by keyboard, in reading order.</span></li>
+  <li><span class="sc">2.4.3</span><span>After dismissal, focus moves to a logical nearby element — the next focusable item or the element focused before the alert appeared. Never to <code>body</code>.</span></li>
+  <li><span class="sc">2.5.8</span><span>The dismiss button is a 24×24 target minimum, separate from the action link.</span></li>
 </ul>
 </div>
 
 <div class="wcag__group"><h3>What you still have to do</h3>
 <ul>
-  <li>Add <code>role="alert"</code> or <code>role="status"</code> to dynamically injected alerts.</li>
-  <li>Give the dismiss button a descriptive <code>aria-label</code> that includes the subject of the alert.</li>
-  <li>Ensure the icon carries <code>aria-hidden="true"</code> — the variant is already communicated through role and text.</li>
-  <li>Store dismissals persistently so users do not see the same announcement on each visit.</li>
+  <li>Add <code>role="alert"</code> or <code>role="status"</code> to dynamically injected alerts, and make sure the container element exists in the DOM before the message is written into it.</li>
+  <li>Give the dismiss button a descriptive <code>aria-label</code> that includes the subject: "Dismiss shop suspension warning", not just "Close".</li>
+  <li>Start the announced text with the severity word — "Error: …", "Warning: …" — so screen-reader users hear the kind before the detail.</li>
+  <li>Store dismissals persistently so the same announcement does not reappear on the next visit.</li>
 </ul>
 </div>
 </div>
+<div class="api">Alert · variant (info|success|warning|danger), title?, message, action?, onDismiss?, dismissible?</div>
 </section>

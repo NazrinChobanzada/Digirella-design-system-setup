@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="../../interactive.css">
 <link rel="stylesheet" href="../../site.css">
 <style>
-.cal-popup{position:absolute;top:calc(100% + 6px);left:0;z-index:200;background:var(--surface-overlay,var(--surface-card,#fff));border:1px solid var(--border-default);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:14px;width:252px}
+/* Calendar popup — fixed so it always clears overflow clipping */
+.cal-popup{position:fixed;z-index:9999;background:var(--surface-overlay,var(--surface-card,#fff));border:1px solid var(--border-default);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:14px;width:252px}
 .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .cal-nav{background:none;border:none;cursor:pointer;padding:4px 6px;color:var(--text-secondary);border-radius:5px;line-height:0;display:flex;align-items:center}
 .cal-nav:hover{background:var(--surface-hover,rgba(0,0,0,.06))}
@@ -29,6 +30,15 @@
 .cal-month-cell[aria-selected="true"]{background:var(--color-primary,#006A09)!important;color:#fff}
 .cal-month-cell[aria-current="date"]{box-shadow:inset 0 0 0 1.5px var(--color-primary,#006A09)}
 .cal-month-cell:focus-visible{outline:2px solid var(--color-primary,#006A09);outline-offset:1px}
+
+/* Anatomy diagram */
+.anat-wrap{position:relative;display:inline-block}
+.anat-popup{background:var(--surface-card);border:1px solid var(--border-default);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.14);padding:14px;width:252px;display:inline-block}
+.anat-pin{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--color-primary,#006A09);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.25);pointer-events:none}
+.anat-legend{margin-top:var(--space-5);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2) var(--space-5)}
+.anat-legend-item{display:flex;align-items:baseline;gap:var(--space-2);font-size:var(--font-size-200)}
+.anat-legend-num{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--color-primary,#006A09);color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.anat-legend-label{color:var(--text-secondary)}
 </style>
 </head>
 <body class="ix">
@@ -190,14 +200,18 @@
 <h2>Date picker</h2>
 <p class="doc-lead">A text field with a calendar attached. The field is the primary input; the calendar is the assist. Opening it never clears what's typed, and closing it never loses it.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-<div class="demo">
+<div class="demo" style="overflow:visible;min-height:300px">
 <div class="field" style="width:220px">
 <label class="field__label" for="dp1">Delivery date</label>
-<div style="position:relative" id="dp-wrap">
-<input class="control" id="dp1" type="text" placeholder="DD/MM/YYYY" value="15/11/2026" autocomplete="off" aria-haspopup="dialog" aria-controls="dp-popup">
+<div id="dp-wrap" style="position:relative">
+<input class="control" id="dp1" type="text" placeholder="DD/MM/YYYY" value="15/11/2026" autocomplete="off" aria-haspopup="dialog" aria-controls="dp-popup" style="padding-right:36px">
 <button type="button" id="dp-btn" aria-label="Open calendar" aria-expanded="false" aria-controls="dp-popup" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;padding:4px;cursor:pointer;color:var(--text-secondary)">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 7h12" stroke="currentColor" stroke-width="1.5"/><path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
 </button>
+</div>
+<span class="field__hint">Click the calendar icon to open the picker.</span>
+</div>
+<!-- popup rendered outside field, positioned by JS -->
 <div id="dp-popup" class="cal-popup" role="dialog" aria-label="Choose date" aria-modal="true" hidden>
 <div class="cal-head">
 <button type="button" class="cal-nav" id="dp-prev" aria-label="Previous month"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -208,15 +222,115 @@
 <div class="cal-grid" id="dp-grid" role="grid" aria-labelledby="dp-month-label"></div>
 </div>
 </div>
-<span class="field__hint">The calendar button opens a picker.</span>
-</div>
-</div>
 <div style="display:flex;flex-direction:column;gap:var(--space-3)">
 <div class="rule"><b>Opening</b><span>The calendar icon opens the picker. Focusing the field does not — people typing don't want a panel over the page</span></div>
 <div class="rule"><b>Opening month</b><span>The month of the current value, or the minimum date, or today — in that order</span></div>
 <div class="rule"><b>Selecting</b><span>Writes a formatted date into the field, closes the calendar, returns focus to the field</span></div>
 <div class="rule"><b>Today</b><span>Marked with a ring, not a fill — it is not a selection</span></div>
 <div class="rule"><b>Closing</b><span>Selection, Esc, outside click or tabbing out. Esc restores the value that was there before</span></div>
+</div>
+</div>
+</section>
+
+<section id="anatomy" data-part="variants">
+<h2>Anatomy</h2>
+<p class="doc-lead">The calendar popup open, with every part labelled. The field and button (parts 1–2) are always present; the popup (3–8) appears on demand.</p>
+<div class="demo" style="align-items:flex-start;gap:var(--space-10)">
+<!-- Static anatomy diagram — pre-opened calendar -->
+<div class="anat-wrap" id="anat-outer">
+  <!-- Input field row -->
+  <div style="display:flex;align-items:center;gap:0;margin-bottom:6px;position:relative">
+    <input class="control" type="text" value="15/10/2026" readonly aria-label="Date input example" style="width:180px;padding-right:36px;cursor:default">
+    <button type="button" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;padding:4px;cursor:default;color:var(--color-primary,#006A09)" tabindex="-1" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 7h12" stroke="currentColor" stroke-width="1.5"/><path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <!-- pin 1: text input -->
+    <span class="anat-pin" style="top:-10px;left:-12px">1</span>
+    <!-- pin 2: calendar button -->
+    <span class="anat-pin" style="top:-10px;right:-12px">2</span>
+  </div>
+  <!-- Open popup -->
+  <div class="anat-popup" style="position:relative">
+    <!-- pin 3: header nav (prev) -->
+    <span class="anat-pin" style="top:-10px;left:10px">3</span>
+    <!-- pin 4: month/year label -->
+    <span class="anat-pin" style="top:-10px;left:50%;transform:translateX(-50%)">4</span>
+    <!-- pin 5: next nav -->
+    <span class="anat-pin" style="top:-10px;right:10px">5</span>
+    <!-- calendar header -->
+    <div class="cal-head" style="pointer-events:none">
+      <button type="button" class="cal-nav" tabindex="-1" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="cal-month-label">October 2026</span>
+      <button type="button" class="cal-nav" tabindex="-1" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <!-- pin 6: day-of-week row -->
+    <span class="anat-pin" style="top:42px;left:-12px">6</span>
+    <!-- day-of-week row -->
+    <div class="cal-dow"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div>
+    <!-- calendar grid — October 2026: Oct 1 = Thursday (index 3 in Mon-first) -->
+    <div class="cal-grid" style="pointer-events:none">
+      <!-- leading blanks -->
+      <button class="cal-day cal-day--other-month" disabled tabindex="-1">28</button>
+      <button class="cal-day cal-day--other-month" disabled tabindex="-1">29</button>
+      <button class="cal-day cal-day--other-month" disabled tabindex="-1">30</button>
+      <!-- Oct 1–4 -->
+      <button class="cal-day" tabindex="-1">1</button>
+      <button class="cal-day" tabindex="-1">2</button>
+      <button class="cal-day" tabindex="-1">3</button>
+      <button class="cal-day" tabindex="-1">4</button>
+      <!-- Row 2: 5–11 -->
+      <button class="cal-day" tabindex="-1">5</button>
+      <button class="cal-day" tabindex="-1">6</button>
+      <button class="cal-day" tabindex="-1">7</button>
+      <button class="cal-day" tabindex="-1">8</button>
+      <!-- Oct 9 = today -->
+      <button class="cal-day" aria-current="date" tabindex="-1">9</button>
+      <button class="cal-day" tabindex="-1">10</button>
+      <button class="cal-day" tabindex="-1">11</button>
+      <!-- Row 3: 12–18 -->
+      <button class="cal-day" tabindex="-1">12</button>
+      <button class="cal-day" tabindex="-1">13</button>
+      <button class="cal-day" tabindex="-1">14</button>
+      <!-- Oct 15 = selected -->
+      <button class="cal-day" aria-selected="true" tabindex="-1">15</button>
+      <button class="cal-day" tabindex="-1">16</button>
+      <button class="cal-day" tabindex="-1">17</button>
+      <button class="cal-day" tabindex="-1">18</button>
+      <!-- Row 4: 19–25 -->
+      <button class="cal-day" tabindex="-1">19</button>
+      <button class="cal-day" tabindex="-1">20</button>
+      <button class="cal-day" tabindex="-1">21</button>
+      <button class="cal-day" tabindex="-1">22</button>
+      <button class="cal-day" tabindex="-1">23</button>
+      <button class="cal-day" tabindex="-1">24</button>
+      <button class="cal-day" tabindex="-1">25</button>
+      <!-- Row 5: 26–31 + trailing -->
+      <button class="cal-day" tabindex="-1">26</button>
+      <button class="cal-day" tabindex="-1">27</button>
+      <button class="cal-day" tabindex="-1">28</button>
+      <button class="cal-day" tabindex="-1">29</button>
+      <button class="cal-day" tabindex="-1">30</button>
+      <button class="cal-day" tabindex="-1">31</button>
+      <button class="cal-day cal-day--other-month" disabled tabindex="-1">1</button>
+    </div>
+    <!-- pin 7: today ring -->
+    <span class="anat-pin" style="bottom:54px;left:50%;transform:translateX(-50%)">7</span>
+    <!-- pin 8: selected day -->
+    <span class="anat-pin" style="bottom:26px;left:50%;transform:translateX(-50%)">8</span>
+  </div>
+</div>
+<!-- Legend -->
+<div style="flex:1;min-width:200px">
+<div class="anat-legend">
+<div class="anat-legend-item"><span class="anat-legend-num">1</span><span class="anat-legend-label">Text input — accepts typed dates; primary input method</span></div>
+<div class="anat-legend-item"><span class="anat-legend-num">2</span><span class="anat-legend-label">Calendar icon button — opens / closes the popup</span></div>
+<div class="anat-legend-item"><span class="anat-legend-num">3</span><span class="anat-legend-label">Previous month — steps back one month; year wraps</span></div>
+<div class="anat-legend-item"><span class="anat-legend-num">4</span><span class="anat-legend-label">Month / year header — live region, announced on navigation</span></div>
+<div class="anat-legend-item"><span class="anat-legend-num">5</span><span class="anat-legend-label">Next month — steps forward one month; year wraps</span></div>
+<div class="anat-legend-item"><span class="anat-legend-num">6</span><span class="anat-legend-label">Day-of-week row — locale-driven; Monday-first in most locales</span></div>
+<div class="anat-legend-item"><span class="anat-legend-num">7</span><span class="anat-legend-label">Today — ring outline only, <code>aria-current="date"</code>, not a selection</span></div>
+<div class="anat-legend-item"><span class="anat-legend-num">8</span><span class="anat-legend-label">Selected day — filled primary colour, <code>aria-selected="true"</code></span></div>
+</div>
 </div>
 </div>
 </section>
@@ -311,14 +425,19 @@
 <h2>Month &amp; year picker</h2>
 <p class="doc-lead">When the unit of the answer is a month, a quarter, or a year, days are noise. Same field, different grid.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-<div class="demo">
+<div class="demo" style="overflow:visible;min-height:240px">
 <div class="field" style="width:180px">
 <label class="field__label" for="mp1">Billing month</label>
-<div style="position:relative" id="mp-wrap">
+<div id="mp-wrap" style="position:relative">
 <input class="control" id="mp1" type="text" value="October 2026" placeholder="Month YYYY" autocomplete="off" style="padding-right:36px">
 <button type="button" id="mp-btn" aria-label="Open month picker" aria-expanded="false" aria-controls="mp-popup" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;padding:4px;cursor:pointer;color:var(--text-secondary)">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 7h12" stroke="currentColor" stroke-width="1.5"/><path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
 </button>
+</div>
+<span class="field__hint">Calendar shows a 3×4 month grid.</span>
+</div>
+</div>
+<!-- month popup rendered outside field, positioned by JS -->
 <div id="mp-popup" class="cal-popup" role="dialog" aria-label="Choose month" aria-modal="true" hidden style="width:220px">
 <div class="cal-head">
 <button type="button" class="cal-nav" id="mp-prev" aria-label="Previous year"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -326,10 +445,6 @@
 <button type="button" class="cal-nav" id="mp-next" aria-label="Next year"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
 <div class="cal-month-grid" id="mp-grid"></div>
-</div>
-</div>
-<span class="field__hint">Calendar shows a 3×4 month grid.</span>
-</div>
 </div>
 <div style="display:flex;flex-direction:column;gap:var(--space-3)">
 <div class="rule"><b>Grid</b><span>3×4 months, with the year in the header and steppers either side</span></div>
@@ -426,6 +541,7 @@
 <div class="toc__part">Variants</div>
 <a href="#date-field" aria-current="false">Date field</a>
 <a href="#picker" aria-current="false">Date picker</a>
+<a href="#anatomy" aria-current="false">Anatomy</a>
 <a href="#range" aria-current="false">Range picker</a>
 <a href="#presets" aria-current="false">Range with presets</a>
 <a href="#time" aria-current="false">Time picker</a>
@@ -443,6 +559,9 @@
 <script src="../../site.js"></script>
 <script>
 (function(){
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var today=new Date(); today.setHours(0,0,0,0);
+
   // ── Date picker ────────────────────────────────────────────
   var input=document.getElementById('dp1'),
       btn=document.getElementById('dp-btn'),
@@ -450,10 +569,10 @@
       grid=document.getElementById('dp-grid'),
       mlabel=document.getElementById('dp-month-label'),
       prev=document.getElementById('dp-prev'),
-      next=document.getElementById('dp-next');
-  if(!input)return;
-  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  var today=new Date(); today.setHours(0,0,0,0);
+      next=document.getElementById('dp-next'),
+      wrap=document.getElementById('dp-wrap');
+  if(!input||!btn||!popup)return;
+
   var viewYear,viewMonth,selectedDate,prevVal;
 
   function parseInput(s){
@@ -490,24 +609,47 @@
     for(var j=1;j<=rem;j++){html+='<button type="button" class="cal-day cal-day--other-month" disabled tabindex="-1">'+j+'</button>';}
     grid.innerHTML=html;
   }
+  function positionPopup(){
+    var r=wrap.getBoundingClientRect();
+    popup.style.top=(r.bottom+6)+'px';
+    popup.style.left=r.left+'px';
+  }
   function openPopup(){
-    prevVal=input.value; initView(); popup.hidden=false; btn.setAttribute('aria-expanded','true'); renderGrid();
+    prevVal=input.value;
+    initView();
+    positionPopup();
+    popup.hidden=false;
+    btn.setAttribute('aria-expanded','true');
+    renderGrid();
     var f=grid.querySelector('[aria-selected="true"]')||grid.querySelector('[aria-current="date"]')||grid.querySelector('.cal-day:not([disabled])');
     if(f)f.focus();
   }
   function closePopup(restore){
-    popup.hidden=true; btn.setAttribute('aria-expanded','false');
-    if(restore)input.value=prevVal; btn.focus();
+    popup.hidden=true;
+    btn.setAttribute('aria-expanded','false');
+    if(restore)input.value=prevVal;
+    btn.focus();
   }
-  btn.addEventListener('click',function(){if(!popup.hidden)closePopup(false);else openPopup();});
-  prev.addEventListener('click',function(){viewMonth--;if(viewMonth<0){viewMonth=11;viewYear--;}renderGrid();var f=grid.querySelector('.cal-day:not([disabled])');if(f)f.focus();});
-  next.addEventListener('click',function(){viewMonth++;if(viewMonth>11){viewMonth=0;viewYear++;}renderGrid();var f=grid.querySelector('.cal-day:not([disabled])');if(f)f.focus();});
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    if(!popup.hidden)closePopup(false);else openPopup();
+  });
+  prev.addEventListener('click',function(e){
+    e.stopPropagation();
+    viewMonth--;if(viewMonth<0){viewMonth=11;viewYear--;}renderGrid();
+    var f=grid.querySelector('.cal-day:not([disabled])');if(f)f.focus();
+  });
+  next.addEventListener('click',function(e){
+    e.stopPropagation();
+    viewMonth++;if(viewMonth>11){viewMonth=0;viewYear++;}renderGrid();
+    var f=grid.querySelector('.cal-day:not([disabled])');if(f)f.focus();
+  });
   grid.addEventListener('click',function(e){
     var day=e.target.closest('.cal-day[data-date]');
     if(!day||day.disabled)return;
     var p=day.dataset.date.split('-').map(Number);
     selectedDate=new Date(p[0],p[1]-1,p[2]);
-    input.value=fmt(selectedDate); closePopup(false);
+    input.value=fmt(selectedDate);closePopup(false);
   });
   grid.addEventListener('keydown',function(e){
     var days=Array.from(grid.querySelectorAll('.cal-day:not([disabled])'));
@@ -522,7 +664,11 @@
     else if(e.key==='PageDown'){next.click();e.preventDefault();}
     else if(e.key==='PageUp'){prev.click();e.preventDefault();}
   });
-  document.addEventListener('click',function(e){if(!popup.hidden&&!popup.contains(e.target)&&e.target!==btn)closePopup(false);});
+  document.addEventListener('click',function(e){
+    if(!popup.hidden&&!popup.contains(e.target)&&e.target!==btn)closePopup(false);
+  });
+  window.addEventListener('scroll',function(){if(!popup.hidden)positionPopup();},true);
+  window.addEventListener('resize',function(){if(!popup.hidden)positionPopup();});
 
   // ── Month picker ───────────────────────────────────────────
   var mi=document.getElementById('mp1'),
@@ -531,8 +677,10 @@
       mg=document.getElementById('mp-grid'),
       myl=document.getElementById('mp-year-label'),
       mpv=document.getElementById('mp-prev'),
-      mnt=document.getElementById('mp-next');
-  if(!mi)return;
+      mnt=document.getElementById('mp-next'),
+      mpwrap=document.getElementById('mp-wrap');
+  if(!mi||!mb||!mp)return;
+
   var MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var MF=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var mpVY,mpSM,mpSY,mpPV;
@@ -556,23 +704,31 @@
     }
     mg.innerHTML=html;
   }
+  function positionMp(){
+    var r=mpwrap.getBoundingClientRect();
+    mp.style.top=(r.bottom+6)+'px';
+    mp.style.left=r.left+'px';
+  }
   function openMp(){
-    mpPV=mi.value; initMp(); mp.hidden=false; mb.setAttribute('aria-expanded','true'); renderMp();
+    mpPV=mi.value;initMp();positionMp();mp.hidden=false;mb.setAttribute('aria-expanded','true');renderMp();
     var f=mg.querySelector('[aria-selected="true"]')||mg.querySelector('[aria-current="date"]')||mg.querySelector('.cal-month-cell');
     if(f)f.focus();
   }
   function closeMp(restore){
-    mp.hidden=true; mb.setAttribute('aria-expanded','false');
-    if(restore)mi.value=mpPV; mb.focus();
+    mp.hidden=true;mb.setAttribute('aria-expanded','false');
+    if(restore)mi.value=mpPV;mb.focus();
   }
-  mb.addEventListener('click',function(){if(!mp.hidden)closeMp(false);else openMp();});
-  mpv.addEventListener('click',function(){mpVY--;renderMp();});
-  mnt.addEventListener('click',function(){mpVY++;renderMp();});
+  mb.addEventListener('click',function(e){
+    e.stopPropagation();
+    if(!mp.hidden)closeMp(false);else openMp();
+  });
+  mpv.addEventListener('click',function(e){e.stopPropagation();mpVY--;renderMp();});
+  mnt.addEventListener('click',function(e){e.stopPropagation();mpVY++;renderMp();});
   mg.addEventListener('click',function(e){
     var c=e.target.closest('.cal-month-cell[data-month]');
     if(!c)return;
-    mpSM=+c.dataset.month; mpSY=mpVY;
-    mi.value=MF[mpSM]+' '+mpSY; closeMp(false);
+    mpSM=+c.dataset.month;mpSY=mpVY;
+    mi.value=MF[mpSM]+' '+mpSY;closeMp(false);
   });
   mg.addEventListener('keydown',function(e){
     if(e.key==='Escape'){closeMp(true);e.preventDefault();return;}
@@ -586,6 +742,8 @@
     else if(e.key==='Enter'||e.key===' '){document.activeElement.click();e.preventDefault();}
   });
   document.addEventListener('click',function(e){if(!mp.hidden&&!mp.contains(e.target)&&e.target!==mb)closeMp(false);});
+  window.addEventListener('scroll',function(){if(!mp.hidden)positionMp();},true);
+  window.addEventListener('resize',function(){if(!mp.hidden)positionMp();});
 })();
 </script>
 </body>
