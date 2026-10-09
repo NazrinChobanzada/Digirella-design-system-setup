@@ -446,6 +446,73 @@
 </div>
 </section>
 
+<section id="empty-state" data-part="Behaviour">
+<h2>Empty state</h2>
+<p class="doc-lead">An empty table is an opportunity, not a dead end. The message and action shown determine whether the user understands why the table is empty and knows what to do next.</p>
+<p>Three distinct causes produce an empty table, and each deserves a different message:</p>
+<table>
+<thead><tr><th style="width:200px">Cause</th><th>Message pattern</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td class="tok">First-time empty</td><td class="use">The user has not added anything yet. "No products yet" — name the thing that will appear here.</td><td class="use">A primary button that starts the creation flow: "Add product".</td></tr>
+<tr><td class="tok">Filter returns nothing</td><td class="use">Data exists, but none matches. "No products match your filters" — confirm the data exists and blame the filter.</td><td class="use">A secondary or ghost button to clear all filters: "Clear filters".</td></tr>
+<tr><td class="tok">Search returns nothing</td><td class="use">The search term matched nothing. "No results for 'iPhon Pro'" — echo the search term so the user can spot the typo.</td><td class="use">A ghost button to clear the search: "Clear search".</td></tr>
+</tbody>
+</table>
+
+<div class="demo">
+<div style="overflow-x:auto">
+<table class="dtable" style="min-width:500px">
+<thead><tr><th>Product</th><th>SKU</th><th>Stock</th><th>Price</th></tr></thead>
+<tbody>
+<tr><td colspan="4"><div style="padding:var(--space-10) var(--space-6);text-align:center;color:var(--text-secondary)">
+  <div style="width:48px;height:48px;margin:0 auto var(--space-4);border-radius:50%;background:var(--surface-sunken);display:flex;align-items:center;justify-content:center;font-size:24px">📦</div>
+  <div style="font-size:var(--font-size-400);font-weight:600;color:var(--text-primary);margin-bottom:var(--space-2)">No products yet</div>
+  <div style="font-size:var(--font-size-300);margin-bottom:var(--space-5)">Add your first product to see it here.</div>
+  <button class="btn btn--primary" type="button">Add product</button>
+</div></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="caption">The header stays so the shape of the table is visible even when empty. The body holds a centred illustration placeholder, a heading, a description, and a single action.</p>
+
+<div style="margin-top:var(--space-6)">
+<div class="rule"><b>Always keep the header</b><span>Removing the header when empty would make the table reflow when data arrives. The column skeleton tells the user what the table will contain.</span></div>
+<div class="rule"><b>Never "No data"</b><span>"No data" says nothing about why the table is empty or what to do about it. Every empty state needs at least a heading and a one-line explanation.</span></div>
+<div class="rule"><b>One action only</b><span>A primary action for first-time empty (creation). A secondary or ghost action for filter or search empty (clear the constraint). Never show both — they are different situations and different audiences.</span></div>
+<div class="rule"><b>Filtered empty must offer to clear</b><span>If filters or a search term are active when the table is empty, always show a "Clear filters" or "Clear search" button. A user who cannot see why they are getting no results will assume the data is missing.</span></div>
+</div>
+
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-3) var(--space-5);background:var(--surface-sunken)">
+    <span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Listing</span>
+    <span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Status</span>
+    <span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right">Price</span>
+    </div>
+    <div style="padding:var(--space-8) var(--space-5);text-align:center;border-top:1px solid var(--border-subtle)">
+    <div style="font-size:var(--font-size-300);font-weight:600">No listings match your filters</div>
+    <div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:var(--space-2)">Try removing a filter to see more results.</div>
+    <div style="margin-top:var(--space-4)"><button class="btn btn--secondary" type="button">Clear filters</button></div>
+    </div>
+    </div>
+  </div><div class="dodont__note"><b>Do</b> tell the user their filters returned nothing and give them a direct way out.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-5);padding:var(--space-3) var(--space-5);background:var(--surface-sunken)">
+    <span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Listing</span>
+    <span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary)">Status</span>
+    <span style="font-size:var(--font-size-100);font-weight:600;letter-spacing:var(--letter-spacing-wide);text-transform:uppercase;color:var(--text-tertiary);text-align:right">Price</span>
+    </div>
+    <div style="padding:var(--space-8) var(--space-5);text-align:center;border-top:1px solid var(--border-subtle)">
+    <div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-secondary)">No data</div>
+    </div>
+    </div>
+  </div><div class="dodont__note"><b>Don't</b> show "No data" with no context. It says nothing about why or what to do next.</div></div>
+</div>
+</section>
+
 <section id="loading-empty-error" data-part="Behaviour">
 <h2>Loading, empty, error</h2>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">

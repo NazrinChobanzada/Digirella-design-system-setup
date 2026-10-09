@@ -1,119 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Search — Digirella</title>
-<link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="../../interactive.css">
-<link rel="stylesheet" href="../../site.css">
-</head>
-<body class="ix">
-<header class="masthead">
-  <div class="masthead__inner">
-    <button class="masthead__toggle" type="button" data-nav-toggle aria-label="Sections" aria-expanded="false">☰</button>
-    <a class="masthead__brand" href="../../index.html">digirella</a>
-    <span class="masthead__tag">Design system</span>
-    <span class="masthead__spacer"></span>
-    <span class="masthead__meta">v1.0 · primary #006A09</span>
-  </div>
-</header>
-<div class="frame">
-<nav class="sidenav" id="sidenav" aria-label="Sections">
-<div class="sidenav__section">
-<div class="sidenav__title">Foundations</div>
-<a href="../../foundations/architecture/index.html" data-status="ready"><span>Architecture</span><span class="flag">New</span></a>
-<a href="../../foundations/palette/index.html" data-status="ready"><span>Palette</span><span class="flag">New</span></a>
-<a href="../../foundations/semantic-colour/index.html" data-status="ready"><span>Semantic colour</span><span class="flag">New</span></a>
-<a href="../../foundations/typography/index.html" data-status="ready"><span>Typography</span><span class="flag">New</span></a>
-<a href="../../foundations/spacing/index.html" data-status="ready"><span>Spacing</span><span class="flag">New</span></a>
-<a href="../../foundations/shape/index.html" data-status="migrated"><span>Shape &amp; border</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../foundations/elevation/index.html" data-status="ready"><span>Elevation</span><span class="flag">New</span></a>
-<a href="../../foundations/motion/index.html" data-status="migrated"><span>Motion</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../foundations/colour-accessibility/index.html" data-status="migrated"><span>Colour accessibility</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../foundations/interaction-states/index.html" data-status="ready"><span>Interaction states</span><span class="flag">New</span></a>
-</div>
-<div class="sidenav__section">
-<div class="sidenav__title">Components</div>
-<div class="sidenav__group">Core</div>
-<a href="../../components/button/index.html" data-status="ready"><span>Button</span><span class="flag">New</span></a>
-<a href="../../components/icon-button/index.html" data-status="migrated"><span>IconButton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/card/index.html" data-status="migrated"><span>Card</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/tag/index.html" data-status="ready"><span>Tags</span><span class="flag">New</span></a>
-<div class="sidenav__group">Forms</div>
-<a href="../../components/input/index.html" data-status="ready"><span>Text input <span style="color:var(--text-tertiary);font-weight:400">· Textarea</span></span><span class="flag">New</span></a>
-<a href="../../components/formatted-input/index.html" data-status="ready"><span>Formatted input</span><span class="flag">New</span></a>
-<a href="../../components/number-input/index.html" data-status="ready"><span>Number input <span style="color:var(--text-tertiary);font-weight:400">· QuantityStepper · Slider</span></span><span class="flag">New</span></a>
-<a href="../../components/date-picker/index.html" data-status="ready"><span>DatePicker</span><span class="flag">New</span></a>
-<a href="../../components/time-picker/index.html" data-status="planned"><span>TimePicker</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../components/select/index.html" data-status="migrated"><span>Select</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/combobox/index.html" data-status="migrated"><span>Combobox</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/multiselect/index.html" data-status="migrated"><span>MultiSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/treeselect/index.html" data-status="migrated"><span>TreeSelect</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/checkbox/index.html" data-status="ready"><span>Checkbox</span><span class="flag">New</span></a>
-<a href="../../components/radio/index.html" data-status="ready"><span>Radio</span><span class="flag">New</span></a>
-<a href="../../components/switch/index.html" data-status="migrated"><span>Switch</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/search/index.html" aria-current="page" data-status="ready"><span>Search</span><span class="flag">New</span></a>
-<a href="../../components/file-upload/index.html" data-status="planned"><span>FileUpload</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<div class="sidenav__group">Navigation</div>
-<a href="../../components/tabs/index.html" data-status="migrated"><span>Tabs</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/segmented-control/index.html" data-status="migrated"><span>SegmentedControl</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/pagination/index.html" data-status="ready"><span>Pagination</span><span class="flag">New</span></a>
-<a href="../../components/breadcrumb/index.html" data-status="migrated"><span>Breadcrumb</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/steps/index.html" data-status="migrated"><span>Steps</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/side-nav/index.html" data-status="planned"><span>SideNav</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<div class="sidenav__group">Data</div>
-<a href="../../components/table/index.html" data-status="ready"><span>Table</span><span class="flag">New</span></a>
-<a href="../../components/accordion/index.html" data-status="ready"><span>Accordion</span><span class="flag">New</span></a>
-<a href="../../components/avatar/index.html" data-status="migrated"><span>Avatar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/rating/index.html" data-status="migrated"><span>Rating</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/progress-bar/index.html" data-status="migrated"><span>ProgressBar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/skeleton/index.html" data-status="migrated"><span>Skeleton</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/divider/index.html" data-status="planned"><span>Divider</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<div class="sidenav__group">Feedback</div>
-<a href="../../components/dialog/index.html" data-status="ready"><span>Dialog <span style="color:var(--text-tertiary);font-weight:400">· Modal</span></span><span class="flag">New</span></a>
-<a href="../../components/alert/index.html" data-status="ready"><span>Alert</span><span class="flag">New</span></a>
-<a href="../../components/toast/index.html" data-status="migrated"><span>Toast</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../components/tooltip/index.html" data-status="migrated"><span>Tooltip</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<div class="sidenav__group">Overlays</div>
-<a href="../../components/drawer/index.html" data-status="ready"><span>Drawer</span><span class="flag">New</span></a>
-<a href="../../components/popover/index.html" data-status="ready"><span>Popover</span><span class="flag">New</span></a>
-<a href="../../components/menu/index.html" data-status="migrated"><span>Menu</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-</div>
-<div class="sidenav__section">
-<div class="sidenav__title">Patterns</div>
-<a href="../../patterns/page-header/index.html" data-status="migrated"><span>Page header</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/product-grid/index.html" data-status="migrated"><span>Product card grid</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/filter-bar/index.html" data-status="migrated"><span>Filter bar</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/form-layout/index.html" data-status="migrated"><span>Form layout</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/order-summary/index.html" data-status="migrated"><span>Order summary</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/data-table/index.html" data-status="migrated"><span>Data table</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/empty-state/index.html" data-status="migrated"><span>Empty state</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/status-messaging/index.html" data-status="migrated"><span>Status messaging</span><span class="dot" data-status="migrated" title="Carried over from the previous structure"></span></a>
-<a href="../../patterns/loading-states/index.html" data-status="planned"><span>Loading states</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../patterns/page-layout/index.html" data-status="planned"><span>Page layout</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-<a href="../../patterns/destructive-actions/index.html" data-status="planned"><span>Destructive actions</span><span class="dot" data-status="planned" title="Planned, not built"></span></a>
-</div>
-</nav>
-<main>
-<div class="page__eyebrow">Components</div>
-<h1 class="page__title">Search <span class="flag flag--lg">New</span></h1>
 <p class="page__lede">A text field with a search icon, clear button, and optional results dropdown — the entry point for finding content within a page, section, or entire product.</p>
-<div class="doc">
-<aside class="toc" aria-label="On this page">
-<div class="toc__title">On this page</div>
-<a href="#overview" aria-current="true">Overview</a>
-<div class="toc__part">Guidelines</div>
-<a href="#when-to-use" aria-current="false">When to use</a>
-<a href="#scope" aria-current="false">Scope</a>
-<div class="toc__part">Anatomy</div>
-<a href="#anatomy" aria-current="false">Anatomy</a>
-<a href="#results" aria-current="false">Results</a>
-<div class="toc__part">Behaviour</div>
-<a href="#states" aria-current="false">States</a>
-<a href="#keyboard" aria-current="false">Keyboard interaction</a>
-<a href="#accessibility" aria-current="false">Accessibility</a>
-</aside>
 
 <section id="overview">
 <h2>Overview</h2>
@@ -191,17 +76,19 @@
       <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-tertiary);flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="search" placeholder="Search all products…" style="border:none;background:transparent;outline:none;flex:1;font-size:var(--font-size-300)">
     </div>
+    <p style="font-size:var(--font-size-200);color:var(--text-secondary);margin:0">Use search to find an item across the whole catalogue.</p>
   </div><div class="dodont__note"><b>Do</b> use search when the user is looking for something whose location they don't know.</div></div>
   <div class="dodont__item" data-kind="dont"><div class="dodont__stage" style="flex-direction:column;align-items:flex-start;gap:var(--space-3)">
     <div class="input" style="display:flex;align-items:center;gap:var(--space-3);width:100%">
       <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-tertiary);flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="search" placeholder="Search by category…" style="border:none;background:transparent;outline:none;flex:1;font-size:var(--font-size-300)">
     </div>
+    <p style="font-size:var(--font-size-200);color:var(--text-secondary);margin:0">The user is really choosing from a fixed set of categories.</p>
   </div><div class="dodont__note"><b>Don't</b> use search when the user is selecting from a known list — use a Select or filter control instead.</div></div>
 </div>
 
 <h3>Instant vs submitted search</h3>
-<p>Instant search (results appear as you type) is better for product catalogues, people directories, and tag selectors where the user may not know the exact term. Submitted search (results appear after pressing Enter or a Search button) is better for full-text document search, order lookups, and anything that runs a slow or expensive query. Instant search needs debounce — 200–300ms after the last keystroke — to avoid a request per character.</p>
+<p>Instant search (results appear as you type) is better for product catalogues, people directories, and tag selectors where the user may not know the exact term. Submitted search (results appear after pressing Enter or a Search button) is better for full-text document search, order lookups, and anything that runs a slow or expensive query. Instant search needs debounce — 200–300ms after the last keystroke — to avoid a request per character. Showing a loading indicator during the request keeps the user informed while they continue typing.</p>
 </section>
 
 <section id="scope" data-part="guidelines">
@@ -223,13 +110,13 @@
 <thead><tr><th style="width:180px">Scope pattern</th><th>When to use</th></tr></thead>
 <tbody>
 <tr><td class="tok">No scope indicator</td><td class="use">Search covers a single, obvious content type — "Search products" on a product listing page</td></tr>
-<tr><td class="tok">Static scope label</td><td class="use">Search covers one type but the page could be confused with another — a label clarifies</td></tr>
-<tr><td class="tok">Scope selector</td><td class="use">The user can choose between two or more content types from within the same search field</td></tr>
+<tr><td class="tok">Static scope label</td><td class="use">Search covers one type but the page could be confused with another — a label such as "Customers" clarifies</td></tr>
+<tr><td class="tok">Scope selector</td><td class="use">The user can choose between two or more content types — Orders, Products, Customers — from within the same search field</td></tr>
 </tbody>
 </table>
 
 <h3>Empty search</h3>
-<p>When the search field is empty and focused, do not show an empty results dropdown. Either show nothing (the dropdown appears only when there are results), show recent or popular searches, or show shortcuts to common destinations. Showing an empty or "no results" state before the user has typed anything creates confusion about what went wrong.</p>
+<p>When the search field is empty and focused, do not show an empty results dropdown. Either show nothing (the dropdown appears only when there are results), show recent or popular searches, or show shortcuts to common destinations. Showing an empty, loading, or "no results" state before the user has typed anything creates confusion about what went wrong.</p>
 
 <div class="dodont">
   <div class="dodont__item" data-kind="do"><div class="dodont__stage">
@@ -281,10 +168,14 @@
 
 <h3>Clear button</h3>
 <p>The clear button (×) appears the moment the field has a value and disappears when it is empty. It carries <code>aria-label="Clear search"</code>. Pressing it empties the field, hides the results dropdown, and moves focus back to the text input so the user can type a new query without clicking.</p>
+<p>The native browser clear button for <code>type="search"</code> is hidden — only the design system's clear button is shown, so the behaviour and appearance are consistent across browsers.</p>
 
 <h3>Results dropdown</h3>
-<p>The dropdown attaches below the field and shares its width. It uses <code>role="listbox"</code>. Each result is an <code>option</code> element with a unique <code>id</code>. The dropdown opens when there are results and closes when: the user selects a result, presses Escape, clicks outside, or clears the field.</p>
-<p>Results are grouped when the search covers multiple content types. Each group has a non-interactive heading row above its results. Limit the total results to around 8 — more than that does not help the user and makes the page feel unstable as results change.</p>
+<p>The dropdown attaches below the field and shares its width. It is a popover with <code>role="listbox"</code>. Each result is an <code>option</code> element with a unique <code>id</code>. The dropdown opens when there are results and closes when: the user selects a result, presses Escape, clicks outside, or clears the field.</p>
+<p>Results are grouped when the search covers multiple content types. Each group has a heading row (non-interactive, <code>role="presentation"</code>) above its results. Limit the total results to around 8 — more than that does not help the user and makes the page feel unstable as results change.</p>
+
+<h3>Scope indicator</h3>
+<p>When the search can be narrowed to a specific content type, a scope button leads the field. It opens a small menu listing the available scopes. The current scope is written in the button label: "Products ▾". After the user changes scope, the field clears and focuses so they can start a fresh query.</p>
 </section>
 
 <section id="results" data-part="anatomy">
@@ -321,15 +212,15 @@
 <thead><tr><th style="width:160px">Element</th><th>Detail</th></tr></thead>
 <tbody>
 <tr><td class="tok">Result item</td><td class="use">Shows enough context to confirm relevance: title, secondary attribute (price, category, date). Keep to one line; truncate with ellipsis if needed</td></tr>
-<tr><td class="tok">Match highlight</td><td class="use">Bold the matched characters using the primary colour at medium weight, not a background highlight — background highlights are harder to read against hover states</td></tr>
+<tr><td class="tok">Match highlight</td><td class="use">Bold the matched characters in the result text. Use the primary colour at medium weight, not a background highlight — background highlights are harder to read against hover states</td></tr>
 <tr><td class="tok">Group heading</td><td class="use">Non-interactive row labelling the content type and optionally the count: "Products · 3 results"</td></tr>
-<tr><td class="tok">Leading icon</td><td class="use">Optional 14px icon indicating the result type. Identical within a group — the heading already says the type</td></tr>
+<tr><td class="tok">Leading icon</td><td class="use">Optional 14px icon indicating the result type (product, page, person). Identical within a group — the group heading already says the type</td></tr>
 <tr><td class="tok">Result limit</td><td class="use">Cap at 5–8 results per group; 3–4 groups maximum. A "See all results" item at the bottom navigates to a full results page</td></tr>
 </tbody>
 </table>
 
 <h3>No results</h3>
-<p>When a query returns nothing, show the empty state inside the dropdown with a short message confirming what was searched and an optional suggestion: "No products found for 'leddar'. Did you mean 'leather'?" Do not show "no results" before the user has finished typing — wait until after the debounce period and the request has returned empty.</p>
+<p>When a query returns nothing, show the empty state inside the dropdown: a short message confirming what was searched and an optional suggestion — "No products found for 'leddar'. Did you mean 'leather'?" Do not show "no results" before the user has finished typing — wait until after the debounce period and the request has returned empty.</p>
 </section>
 
 <div class="part" id="part-behaviour"><h2 class="part__title">Behaviour</h2></div>
@@ -383,7 +274,7 @@
 <tbody>
 <tr><td class="tok">Empty</td><td class="use">Placeholder text, no clear button, no dropdown</td><td class="use">Field is ready to receive input</td></tr>
 <tr><td class="tok">Active / typing</td><td class="use">Focus ring, clear button appears, dropdown may open</td><td class="use">Debounced requests fire after 250ms idle; spinner shows while waiting</td></tr>
-<tr><td class="tok">Loading</td><td class="use">Spinner replaces clear button during request</td><td class="use">Dropdown holds its last results; user can still type</td></tr>
+<tr><td class="tok">Loading</td><td class="use">Spinner replaces clear button during request</td><td class="use">Dropdown holds its last results; cursor can still type</td></tr>
 <tr><td class="tok">Results</td><td class="use">Dropdown open, first item optionally highlighted</td><td class="use">Arrow keys navigate results; Enter selects; Escape closes and returns to field</td></tr>
 <tr><td class="tok">No results</td><td class="use">Dropdown open, shows empty state message</td><td class="use">User can keep typing to refine the query or press clear</td></tr>
 </tbody>
@@ -395,21 +286,24 @@
 
 <section id="keyboard" data-part="behaviour">
 <h2>Keyboard interaction</h2>
-<p>Search is a combobox pattern: one input field that controls one listbox of results. The keyboard contract follows ARIA Authoring Practices for combobox. Result items use <code>aria-activedescendant</code> on the input rather than moving DOM focus, so keyboard focus stays in the field throughout.</p>
+<p>Search is a combobox pattern: one input field that controls one listbox of results. The keyboard contract follows ARIA Authoring Practices for combobox.</p>
 
 <table>
 <thead><tr><th style="width:200px">Key</th><th>Result</th></tr></thead>
 <tbody>
 <tr><td><code>Type</code> in field</td><td>Triggers debounced search; dropdown opens when results are available</td></tr>
-<tr><td><code>↓</code> in field</td><td>Opens the dropdown if it has results; highlights the first result</td></tr>
-<tr><td><code>↑ ↓</code> in results</td><td>Moves the highlight between result items; wraps at top and bottom</td></tr>
+<tr><td><code>↓</code> in field</td><td>Opens the dropdown if it has results; moves focus to the first result</td></tr>
+<tr><td><code>↑ ↓</code> in results</td><td>Moves focus between result items; wraps at top and bottom</td></tr>
 <tr><td><code>Enter</code> on a result</td><td>Navigates to the result's destination or fills the field with the result's text, then closes the dropdown</td></tr>
 <tr><td><code>Enter</code> in the field</td><td>Submits the current query; on instant-search, navigates to the highlighted result or a full results page</td></tr>
-<tr><td><code>Escape</code></td><td>Closes the dropdown without selecting; focus stays in the field; value is preserved</td></tr>
+<tr><td><code>Escape</code></td><td>Closes the dropdown without selecting; focus returns to the text field; the value is preserved</td></tr>
 <tr><td><code>Alt + ↑</code></td><td>Closes the dropdown without selecting (alternative to Escape)</td></tr>
-<tr><td><code>Tab</code></td><td>Closes the dropdown and moves focus to the next focusable element; value is preserved</td></tr>
+<tr><td><code>Tab</code></td><td>Closes the dropdown and moves focus to the next focusable element on the page; the value is preserved</td></tr>
+<tr><td><code>Ctrl + A</code> in field</td><td>Selects all text in the field (standard browser behaviour)</td></tr>
 </tbody>
 </table>
+
+<p>Result items inside the dropdown are not focusable in the traditional sense — they use <code>aria-activedescendant</code> on the input to announce the active item, while visual focus styling is applied to the item itself. This keeps keyboard focus inside the field at all times, which means screen reader virtual cursor mode still works correctly.</p>
 </section>
 
 <section id="accessibility">
@@ -421,22 +315,23 @@
 <ul class="wcag__list">
 <li><span class="sc" data-risk="high">4.1.2</span><span>The input carries <code>role="combobox"</code>, <code>aria-autocomplete="list"</code>, <code>aria-controls="[results-id]"</code>, and <code>aria-expanded="true"</code> when the dropdown is open. <span class="risk">high risk</span></span></li>
 <li><span class="sc" data-risk="high">4.1.2</span><span>The results dropdown has <code>role="listbox"</code> and an <code>id</code> matching the input's <code>aria-controls</code>. Each result is <code>role="option"</code> with a unique <code>id</code>. <span class="risk">high risk</span></span></li>
-<li><span class="sc">4.1.2</span><span>The active result is referenced from the input with <code>aria-activedescendant="[result-id]"</code>, updated on each arrow key press.</span></li>
-<li><span class="sc">1.3.1</span><span>Group headings use <code>role="group"</code> with <code>aria-label</code> set to the group name. The heading element itself is <code>role="presentation"</code> to avoid double-announcing.</span></li>
+<li><span class="sc">4.1.2</span><span>The active result (highlighted by arrow key) is referenced from the input with <code>aria-activedescendant="[result-id]"</code>. This is updated on each arrow key press.</span></li>
+<li><span class="sc">1.3.1</span><span>Group headings in the dropdown use <code>role="group"</code> with <code>aria-label</code> set to the group name ("Products"). The heading element itself is <code>role="presentation"</code> to avoid double-announcing.</span></li>
 </ul>
 </div>
 
 <div class="wcag__group"><h3>Live announcements</h3>
 <ul class="wcag__list">
-<li><span class="sc">4.1.3</span><span>A visually hidden live region with <code>role="status"</code> and <code>aria-live="polite"</code> announces the result count when the dropdown opens or updates: "3 results available." Announce once, after the debounce delay and results have settled.</span></li>
+<li><span class="sc">4.1.3</span><span>A visually hidden live region announces the result count when the dropdown opens or updates: "3 results available." Use <code>role="status"</code> with <code>aria-live="polite"</code>. Do not repeat the full result list — only the count.</span></li>
 <li><span class="sc">4.1.3</span><span>When no results are found, the same region announces "No results for [query]."</span></li>
+<li><span class="sc">4.1.3</span><span>Do not announce on every keystroke — announce once, after the debounce delay and the results have settled.</span></li>
 </ul>
 </div>
 
 <div class="wcag__group"><h3>Clear button and labelling</h3>
 <ul class="wcag__list">
 <li><span class="sc" data-risk="high">1.1.1</span><span>The clear button has <code>aria-label="Clear search"</code>. The × glyph is <code>aria-hidden="true"</code>. <span class="risk">high risk</span></span></li>
-<li><span class="sc">2.4.6</span><span>The search field has a visible <code>&lt;label&gt;</code> or is associated with <code>aria-label</code> or <code>aria-labelledby</code>. A placeholder alone is not a label.</span></li>
+<li><span class="sc">2.4.6</span><span>The search field has a visible <code>&lt;label&gt;</code> or a container element that serves as its label, associated with <code>aria-label</code> or <code>aria-labelledby</code>. A placeholder alone is not a label.</span></li>
 <li><span class="sc">4.1.2</span><span>The scope button (when present) announces its current value: "Scope: Products".</span></li>
 </ul>
 </div>
@@ -451,15 +346,3 @@
 
 <div class="api">Search · value, placeholder, scope, onSearch, onSelect, onClear, debounce, maxResults</div>
 </section>
-
-<nav class="pagernav">
-<a href="../../components/switch/index.html"><span>Previous</span>Switch</a>
-<a href="../../components/file-upload/index.html" style="text-align:right"><span>Next</span>FileUpload</a>
-</nav>
-</div>
-</main>
-</div>
-<script src="../../interactive.js"></script>
-<script src="../../site.js"></script>
-</body>
-</html>

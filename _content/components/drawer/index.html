@@ -1,271 +1,292 @@
-<section><h2>Examples</h2>
-<p>A panel anchored to the edge. For side tasks like filters and cart that shouldn't take you off the page.</p>
-<div class="demo">
-<button class="btn btn--secondary" data-open="drw1" type="button">Open filters</button>
+<p class="page__lede">A drawer slides in from the edge of the viewport to surface related content or actions without navigating away from the current page.</p>
+
+<section id="overview">
+<h2>Overview</h2>
+<p>Drawers keep the user in context. Unlike a dialog, a drawer occupies a portion of the screen while the underlying page remains partially visible behind the scrim. This makes them well suited for tasks that need a lot of space — editing a record, reviewing order history, configuring a filter panel — without the feeling of a hard interruption that a dialog creates.</p>
+<div class="demo demo--stack">
+  <div style="position:relative;height:300px;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-default)">
+    <div style="position:absolute;right:0;top:0;bottom:0;width:320px;background:var(--surface-card);border-left:1px solid var(--border-default);padding:var(--space-6);display:flex;flex-direction:column">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-5)">
+        <h3 style="margin:0;font-size:var(--font-size-500)">Edit listing</h3>
+        <button class="btn btn--ghost" type="button" style="padding:var(--space-2)" aria-label="Close drawer">✕</button>
+      </div>
+      <div style="flex:1;color:var(--text-secondary)">Form fields and content go here. The body scrolls independently when content overflows.</div>
+      <div style="display:flex;gap:var(--space-3);justify-content:flex-end;padding-top:var(--space-5);border-top:1px solid var(--border-default)">
+        <button class="btn btn--ghost" type="button">Cancel</button>
+        <button class="btn btn--primary" type="button">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+<p class="caption">A right-edge drawer at the default width. Header, scrollable body, and a sticky footer with actions.</p>
 </section>
-<section><h2>Guidance</h2><p>The following comes from the shared <strong>overlays</strong> guide, which covers this component alongside its siblings.</p></section>
-<section>
-<h2>Choosing an overlay</h2>
+
+<div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div>
+
+<section id="when-to-use" data-part="guidelines">
+<h2>When to use</h2>
+<p>Choose a drawer when the task requires enough content or interaction that a dialog would feel cramped, but you still want the user to see — and return to — the page behind it. Use a dialog for short confirmations and brief forms where the binary decision is more important than the surrounding context.</p>
+
 <table>
-<thead><tr><th style="width:130px">Overlay</th><th style="width:120px">Blocks page</th><th style="width:120px">Dismissal</th><th>Use when</th></tr></thead>
+<thead><tr><th>Scenario</th><th>Drawer</th><th>Dialog</th></tr></thead>
 <tbody>
-<tr><td class="tok">Tooltip</td><td class="use">No</td><td class="use">On unhover</td><td class="use">One line naming a control. Never holds anything required.</td></tr>
-<tr><td class="tok">Toast</td><td class="use">No</td><td class="use">Auto, 4–6s</td><td class="use">Confirming something that already happened. Asks nothing.</td></tr>
-<tr><td class="tok">Alert</td><td class="use">No</td><td class="use">Condition ends</td><td class="use">A page-level condition that persists: stock low, account unverified.</td></tr>
-<tr><td class="tok">Popover</td><td class="use">No</td><td class="use">Click outside</td><td class="use">Rich detail anchored to a trigger; the user keeps working around it.</td></tr>
-<tr><td class="tok">Menu</td><td class="use">No</td><td class="use">Select or outside</td><td class="use">Three or more actions attached to one trigger.</td></tr>
-<tr><td class="tok">Drawer</td><td class="use">Partly</td><td class="use">Esc, outside</td><td class="use">A side task that needs page context: filters, mini cart, preview.</td></tr>
-<tr><td class="tok"><a href="../../components/dialog/index.html">Dialog</a></td><td class="use">Yes</td><td class="use">Esc, explicit</td><td class="use">A decision that must be answered now. <a href="../../components/dialog/index.html">Full guidance →</a></td></tr>
+<tr><td>Editing a full record or multi-field form</td><td class="use">Yes — the body scrolls, the page stays visible</td><td class="use">No — dialogs should not scroll</td></tr>
+<tr><td>A detail panel (order summary, user profile)</td><td class="use">Yes — right edge is the convention</td><td class="use">No — detail is not an interrupt</td></tr>
+<tr><td>A multi-step wizard or guided flow</td><td class="use">Yes — steps sit inside the body area</td><td class="use">Only if the flow is two steps or fewer</td></tr>
+<tr><td>Confirming an irreversible action</td><td class="use">No — a drawer reads as reversible</td><td class="use">Yes — modal weight signals consequence</td></tr>
+<tr><td>A short, two-field form ("Add tag")</td><td class="use">Only if there are related fields below</td><td class="use">Yes — it is quick and contained</td></tr>
+<tr><td>Global filter panel (25+ options)</td><td class="use">Yes — full-height, often bottom</td><td class="use">No — too many fields for a dialog</td></tr>
 </tbody>
 </table>
-<div class="dd">
-<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%"><div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Added to cart</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">2 items</div></div>
-<button class="btn btn--ghost" type="button">View cart</button><span style="color:var(--text-tertiary)">×</span>
-</div></div></div><p class="ddt">A toast confirms and offers the next step without stopping the user browsing.</p></div>
-<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%;display:flex;justify-content:center"><div style="max-width:320px;width:100%;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-400);padding:var(--space-7)"><div style="font-size:var(--type-heading-size);font-weight:600">Added to cart</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:var(--space-3)">2 items are now in your cart.</div><div style="display:flex;justify-content:flex-end;margin-top:var(--space-6)"><button class="btn btn--primary" type="button">OK</button></div></div></div></div><p class="ddt">A modal to announce success: it blocks the page and demands a click to dismiss news the user already knew.</p></div>
+
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div style="position:relative;height:180px;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-default)">
+      <div style="position:absolute;right:0;top:0;bottom:0;width:240px;background:var(--surface-card);border-left:1px solid var(--border-default);padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)">
+        <b style="font-size:var(--font-size-400)">Product details</b>
+        <span style="color:var(--text-secondary);font-size:var(--font-size-200)">Inventory, pricing, variants, shipping…</span>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Do</b> use a drawer for multi-field edit tasks where staying in context helps.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div style="display:flex;align-items:center;justify-content:center;height:180px">
+      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:var(--space-5);width:260px;text-align:center">
+        <p style="margin:0 0 var(--space-4);font-size:var(--font-size-200)">Are you sure you want to archive this product?</p>
+        <div style="display:flex;gap:var(--space-3);justify-content:center">
+          <button class="btn btn--ghost" type="button">Cancel</button>
+          <button class="btn btn--danger" type="button">Archive</button>
+        </div>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Don't</b> use a drawer for a confirmation — a dialog carries the modal weight a destructive action needs.</div></div>
 </div>
 </section>
-<section>
-<h2>Layer order</h2>
-<p class="doc-lead">One z-index scale, applied consistently, so an overlay never renders under the thing that opened it.</p>
+
+<section id="content-guidelines" data-part="guidelines">
+<h2>Content guidelines</h2>
+<p>Every drawer has three regions: a header, a scrollable body, and a footer. Each region has a clear job and should not be re-purposed.</p>
+
+<h3>Header</h3>
+<p>The title names the task or object being worked on. Keep it to one short phrase: "Edit profile", "Order #4821", "Filter results". Always include a visible close button — typically a ✕ icon with an <code>aria-label</code> — in the header's far corner. Do not rely on the scrim alone to close the drawer.</p>
+
+<h3>Body</h3>
+<p>The body scrolls independently. Treat it like a contained page: use standard form spacing, group related fields under headings, and do not rely on the footer staying in view to explain what the form does. Someone who has scrolled down to field 15 should still be able to understand what they are doing without scrolling back up.</p>
+
+<h3>Footer actions</h3>
+<p>One primary action, right-aligned. A cancel or dismiss to its left. Nothing else. The primary action completes the task: "Save", "Apply", "Confirm order". Never put a third action in the footer — if the task branches, that branching belongs in the body, not the footer.</p>
+
+<div class="callout"><div><b>One primary per drawer.</b> The same rule that limits dialogs applies here: one <code>btn--primary</code> in the footer. If two outcomes are equally important, one of them is probably a link or a ghost button leading somewhere else.</div></div>
+
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:var(--space-4)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-3);padding-bottom:var(--space-3);border-bottom:1px solid var(--border-default)">
+        <b>Edit address</b>
+        <button class="btn btn--ghost" type="button" style="padding:var(--space-1)" aria-label="Close">✕</button>
+      </div>
+      <div style="height:48px;background:var(--surface-hover);border-radius:var(--radius-sm);margin-bottom:var(--space-3)"></div>
+      <div style="display:flex;gap:var(--space-3);justify-content:flex-end">
+        <button class="btn btn--ghost" type="button">Cancel</button>
+        <button class="btn btn--primary" type="button">Save address</button>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Do</b> keep one primary in the footer, right-aligned, with a cancel to its left.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:var(--space-4)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-3);padding-bottom:var(--space-3);border-bottom:1px solid var(--border-default)">
+        <b>Edit address</b>
+      </div>
+      <div style="height:48px;background:var(--surface-hover);border-radius:var(--radius-sm);margin-bottom:var(--space-3)"></div>
+      <div style="display:flex;gap:var(--space-3);justify-content:flex-end">
+        <button class="btn btn--primary" type="button">Save address</button>
+        <button class="btn btn--primary" type="button">Save &amp; add another</button>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Don't</b> put two primary actions in the footer, and don't omit a close control.</div></div>
+</div>
+</section>
+
+<div class="part" id="part-anatomy"><h2 class="part__title">Anatomy</h2></div>
+
+<section id="anatomy" data-part="anatomy">
+<h2>Anatomy</h2>
+<div class="demo demo--stack">
+  <div style="position:relative;height:340px;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-default)">
+    <!-- Scrim -->
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.32)"></div>
+    <!-- Drawer panel -->
+    <div style="position:absolute;right:0;top:0;bottom:0;width:320px;background:var(--surface-card);border-left:1px solid var(--border-default);display:flex;flex-direction:column">
+      <!-- Header -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:var(--space-5) var(--space-6);border-bottom:1px solid var(--border-default)">
+        <span style="font-size:var(--font-size-500);font-weight:600">Drawer title</span>
+        <button class="btn btn--ghost" type="button" style="padding:var(--space-2)" aria-label="Close">✕</button>
+      </div>
+      <!-- Body -->
+      <div style="flex:1;padding:var(--space-6);color:var(--text-secondary);font-size:var(--font-size-200)">Scrollable body content</div>
+      <!-- Footer -->
+      <div style="display:flex;gap:var(--space-3);justify-content:flex-end;padding:var(--space-4) var(--space-6);border-top:1px solid var(--border-default)">
+        <button class="btn btn--ghost" type="button">Cancel</button>
+        <button class="btn btn--primary" type="button">Confirm</button>
+      </div>
+    </div>
+    <!-- Callout labels -->
+    <div style="position:absolute;left:var(--space-4);top:var(--space-4);background:var(--surface-card);border-radius:var(--radius-sm);padding:2px 8px;font-size:var(--font-size-100);font-weight:600">① Overlay / scrim</div>
+    <div style="position:absolute;right:330px;top:50%;transform:translateY(-50%);background:var(--surface-card);border-radius:var(--radius-sm);padding:2px 8px;font-size:var(--font-size-100);font-weight:600;white-space:nowrap">② Drawer panel</div>
+  </div>
+</div>
+
+<ul style="margin-top:var(--space-4)">
+  <li><b>① Overlay / scrim</b> — a semi-transparent layer that sits between the page and the drawer panel. It prevents interaction with the page beneath and signals modal context. Clicking it closes the drawer.</li>
+  <li><b>② Drawer panel</b> — the surface that slides in from the edge. It holds the header, body and footer and is the only interactive region when the drawer is open.</li>
+  <li><b>③ Header</b> — contains the title and the close button. Always visible; does not scroll. Max one line for the title; truncate with an ellipsis if longer.</li>
+  <li><b>④ Body</b> — scrolls independently. Padding of <code>--space-6</code> on all sides. Content can be any composition of form fields, text, images or sub-sections.</li>
+  <li><b>⑤ Footer actions</b> — sticks to the bottom edge. Right-aligned buttons separated by <code>--space-3</code>. One primary at the far right, a ghost or secondary cancel to its left.</li>
+</ul>
+</section>
+
+<section id="sizes" data-part="anatomy">
+<h2>Sizes &amp; positions</h2>
+<p>Drawers have four width options and three edge positions. Width and position are set at open-time and cannot be changed while the drawer is visible.</p>
+
+<h3>Widths</h3>
 <table>
-<thead><tr><th style="width:110px">Layer</th><th style="width:180px">Overlay</th><th>Rule</th></tr></thead>
+<thead><tr><th>Size</th><th>Width</th><th>Use for</th></tr></thead>
 <tbody>
-<tr><td class="tok">40</td><td class="use">Select · Combobox list</td><td class="use">Anchored to a field inside the page or a drawer.</td></tr>
-<tr><td class="tok">50</td><td class="use">Tooltip</td><td class="use">Above content, below anything interactive it might describe.</td></tr>
-<tr><td class="tok">60</td><td class="use">Popover · Menu</td><td class="use">Above page content; renders above a dialog when opened from inside one.</td></tr>
-<tr><td class="tok">90</td><td class="use">Drawer</td><td class="use">Above the page, below a dialog.</td></tr>
-<tr><td class="tok">100</td><td class="use">Dialog</td><td class="use">Above everything except toasts.</td></tr>
-<tr><td class="tok">110</td><td class="use">Toast</td><td class="use">Highest. A confirmation must be visible even over a modal, or it is lost.</td></tr>
+<tr><td>Narrow</td><td>280px</td><td>Simple detail panels, notification lists, help sidebars. Leaves most of the page visible.</td></tr>
+<tr><td>Default</td><td>400px</td><td>The standard. Fits most edit forms, filter panels and record details without feeling cramped.</td></tr>
+<tr><td>Wide</td><td>600px</td><td>Complex forms with multiple columns, rich text editors, preview panes that need breathing room.</td></tr>
+<tr><td>Full</td><td>100vw</td><td>Mobile breakpoints only, or a wizard that replaces the page entirely. Removes the scrim gap.</td></tr>
 </tbody>
 </table>
-</section>
-<section>
-<h2>Drawer</h2>
-<p class="doc-lead">An edge-anchored panel for work that benefits from keeping the page behind visible — the result count updating as filters change, the cart alongside the product. Use a Dialog instead when the task must be finished or abandoned.</p>
-<div style="display:grid;grid-template-columns:1fr 280px;gap:var(--space-7);align-items:start">
-<div style="background:var(--neutral-10);border-radius:var(--radius-md);padding:var(--space-5);display:flex;justify-content:flex-end;min-height:300px">
-<div style="width:340px;background:var(--surface-card);border-radius:var(--radius-lg) 0 0 var(--radius-lg);box-shadow:var(--shadow-400);display:flex;flex-direction:column">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;padding:var(--space-6);border-bottom:1px solid var(--border-subtle)">
-<div><div style="font-size:var(--type-heading-size);font-weight:600">Filters</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px">486 results</div></div>
-<span style="width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:18px">×</span>
-</div>
-<div style="flex:1;padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4);font-size:var(--font-size-300);color:var(--text-secondary)">
-<span style="color:var(--text-primary);font-weight:600">Condition</span><span>New · Refurbished · Used</span>
-<span style="color:var(--text-primary);font-weight:600;margin-top:var(--space-3)">Price range</span><span>0 – 10 000 ₼</span>
-</div>
-<div style="display:flex;gap:var(--space-3);justify-content:flex-end;padding:var(--space-6);border-top:1px solid var(--border-subtle)"><button class="btn btn--ghost" type="button">Clear all</button><button class="btn btn--primary" type="button">Show 128</button></div>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;gap:var(--space-4)">
-<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Side</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Right by default. Left for navigation, bottom for mobile.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Header</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Title plus a live count, and a close button — a drawer always has an explicit ×.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Body</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">The only scrolling region. A long filter list never buries the commit action.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Footer</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Sticky, right-aligned. Holds the action that closes the drawer.</div></div></div><div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Width</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">420px default. Never more than 480px — past that use a page.</div></div></div>
-</div>
-</div>
-<div style="margin-top:var(--space-6)">
-<div class="rule"><b>Apply</b><span>Two valid models: apply as the user changes (footer shows a live count) or apply on commit. Never mix them in one drawer.</span></div>
-<div class="rule"><b>Scrim</b><span>Present, so the drawer reads as a layer, but the page stays legible behind it — that visible context is the reason to choose a drawer over a dialog.</span></div>
-<div class="rule"><b>Mobile</b><span><code>side="bottom"</code>, capped at 80vh, with a drag handle. A right drawer on a 375px screen is a full-screen dialog wearing the wrong animation.</span></div>
-</div>
-<div class="api">Drawer · open, side: left | right | bottom, width, title, description, footer, onClose</div>
-</section>
-<section>
-<h2>Popover</h2>
-<p class="doc-lead">Anchored, dismissible content that is richer than a tooltip and lighter than a dialog. If it contains only a sentence, it is a tooltip; if it contains a form, it is a dialog.</p>
-<div class="demo" style="display:flex;gap:var(--space-7);align-items:flex-start;flex-wrap:wrap">
-<div style="width:280px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);box-shadow:var(--shadow-300);padding:var(--space-6)">
-<div style="font-size:var(--font-size-300);font-weight:600;margin-bottom:var(--space-4)">Shipping breakdown</div>
-<div style="display:flex;flex-direction:column;gap:var(--space-3);font-size:var(--font-size-200)">
-<div style="display:flex;justify-content:space-between"><span style="color:var(--text-secondary)">Standard · 2–4 days</span><span style="color:var(--text-success);font-weight:600">Free</span></div>
-<div style="display:flex;justify-content:space-between"><span style="color:var(--text-secondary)">Express · next day</span><span>49 ₼</span></div>
-<div style="display:flex;justify-content:space-between"><span style="color:var(--text-secondary)">Locker pickup</span><span>19 ₼</span></div>
-</div>
-</div>
-<div style="max-width:300px">
-<div class="rule"><b>Trigger</b><span>Click, never hover. A hover popover cannot be reached on touch and closes while the user moves toward it.</span></div>
-<div class="rule"><b>Content</b><span>Read-only or one small action. Multiple fields belong in a dialog.</span></div>
-<div class="rule"><b>Width</b><span>260px default, 360px maximum. Wider reads as a misplaced panel.</span></div>
-</div>
-</div>
-<div class="api">Popover · open, trigger, placement: bottom-start | bottom-end | top-start | top-end, width, onClose</div>
-</section>
-<section>
-<h2>Menu</h2>
-<p class="doc-lead">A list of actions from one trigger. Every entry does something — a menu is never used to display information or to select a value, which is a Select.</p>
-<div class="demo" style="display:flex;gap:var(--space-7);align-items:flex-start;flex-wrap:wrap">
-<div style="width:220px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);box-shadow:var(--shadow-300);padding:var(--space-2)">
-<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Edit listing<span style="font-family:var(--font-mono);font-size:var(--font-size-100);color:var(--text-tertiary)">E</span></div>
-<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Duplicate<span style="font-family:var(--font-mono);font-size:var(--font-size-100);color:var(--text-tertiary)">D</span></div>
-<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);">Share</div>
-<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);color:var(--text-disabled)">End listing early</div>
-<div style="height:1px;background:var(--border-subtle);margin:var(--space-2) 0"></div>
-<div style="display:flex;align-items:center;justify-content:space-between;padding:9px var(--space-4);border-radius:var(--radius-xs);font-size:var(--font-size-300);color:var(--text-danger)">Delete</div>
-</div>
-<div style="max-width:320px">
-<div class="rule"><b>Order</b><span>Most used first, destructive last, below a divider. Never alphabetical.</span></div>
-<div class="rule"><b>Length</b><span>Three to eight items. Two items are two buttons; more than eight needs grouping or a different pattern.</span></div>
-<div class="rule"><b>Disabled</b><span>Only with a visible reason — a tooltip on the item. Otherwise omit the entry.</span></div>
-<div class="rule"><b>Destructive</b><span><code>tone: 'danger'</code> and still followed by a confirmation dialog. The menu itself never destroys.</span></div>
-</div>
-</div>
-<div class="api">Menu · open, trigger, items: { value, label, icon?, shortcut?, tone?, disabled?, divider? }[], align, onSelect</div>
-</section>
-<section>
-<h2>Toast</h2>
-<p class="doc-lead">Confirms what already happened. It never asks a question, never blocks anything, and never carries the only copy of information the user needs.</p>
-<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-4)">
-<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Listing published</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">Live in search within a minute</div></div>
-<button class="btn btn--ghost" type="button">View</button><span style="color:var(--text-tertiary)">×</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border-left:3px solid var(--color-primary);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Listing deleted</div></div>
-<button class="btn btn--ghost" type="button">Undo</button><span style="color:var(--text-tertiary)">×</span>
-</div>
-<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-danger-subtle);border-left:3px solid var(--status-danger);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-danger)">Couldn't save the price</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">Check your connection</div></div>
-<span style="color:var(--text-tertiary)">×</span>
-</div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Duration</b><span>4 seconds without an action, 6 with one. A toast carrying Undo waits long enough to be used.</span></div>
-<div class="rule"><b>Position</b><span>Bottom right on desktop, top on mobile where the thumb and keyboard own the bottom.</span></div>
-<div class="rule"><b>Stacking</b><span>Three maximum, newest at the bottom. A fourth replaces the oldest — a queue of toasts is a log nobody reads.</span></div>
-<div class="rule"><b>Undo</b><span>The best reason to use a toast. Prefer act-then-undo over a confirmation dialog for anything genuinely reversible.</span></div>
-<div class="rule"><b>Not for</b><span>Errors that block a task, or anything the user must act on. Those persist as an Alert or a field error.</span></div>
-</div>
-<div class="api">Toast · tone: success | info | warning | danger, title, message, action, onDismiss</div>
-</section>
-<section>
-<h2>Alert</h2>
-<p class="doc-lead">A page-level condition that persists until it changes. Unlike a toast it is part of the layout, so it can be re-read, and it can carry an action the user comes back to.</p>
-<div class="demo" style="display:flex;flex-direction:column;gap:var(--space-4);max-width:620px">
-<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-warning-subtle);border:1px solid var(--amber-30);border-radius:var(--radius-sm);padding:var(--space-5)">
-<span style="color:var(--text-warning);font-weight:700;line-height:1.4">!</span>
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-warning)">Verify your payout account</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Payouts are held until the account is confirmed.</div><div style="margin-top:var(--space-4)"><button class="btn btn--secondary" type="button">Verify account</button></div></div>
-</div>
-<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-info-subtle);border:1px solid var(--blue-30);border-radius:var(--radius-sm);padding:var(--space-5)">
-<span style="color:var(--blue-70);font-weight:700;line-height:1.4">i</span>
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--blue-70)">Dispatch is slower this week</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Orders placed today ship within three business days.</div></div>
-</div>
-<div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-brand-subtle);border:1px solid var(--color-primary-border);border-radius:var(--radius-sm);padding:var(--space-5)">
-<span style="color:var(--text-success);font-weight:700;line-height:1.4">✓</span>
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-success)">Buyer protection</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Get your money back if the item doesn't match the description.</div></div>
-</div>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Placement</b><span>Directly above the content it concerns. A page-wide alert sits under the header; a section alert sits inside that section.</span></div>
-<div class="rule"><b>Dismissible</b><span>Only if the condition is informational. An alert about a blocked payout must not be dismissible — the problem does not go away.</span></div>
-<div class="rule"><b>Count</b><span>One per view. Three stacked alerts train users to skip the region entirely.</span></div>
-<div class="rule"><b>Not for</b><span>Field-level validation, which belongs under the field. An alert is for conditions, not for form errors — except as a submit-time summary.</span></div>
-</div>
-<div class="api">Alert · tone: success | info | warning | danger, title, action, onDismiss</div>
-</section>
-<section>
-<h2>Tooltip</h2>
-<p class="doc-lead">One line, on hover and focus, naming a control. Because it does not exist on touch and disappears on any movement, it can never hold anything the user needs.</p>
-<div class="demo" style="display:flex;justify-content:center;padding:var(--space-8)">
-<span style="background:var(--surface-inverse);color:var(--text-inverse);font-size:var(--font-size-200);padding:6px 10px;border-radius:var(--radius-xs);box-shadow:var(--shadow-300)">Free returns within 14 days</span>
-</div>
-<div style="margin-top:var(--space-5)">
-<div class="rule"><b>Test</b><span>If an icon needs a tooltip to be understood, it needs a visible label instead.</span></div>
-<div class="rule"><b>Delay</b><span>400ms in, instant out. No delay makes tooltips fire while the pointer crosses the screen.</span></div>
-<div class="rule"><b>Never</b><span>Interactive content, links, or more than one line. All three are a Popover.</span></div>
+
+<h3>Edge positions</h3>
+<div class="rule"><b>Right (default)</b><span>The most common. Follows the pattern set by most admin and SaaS products. Slides in from the right.</span></div>
+<div class="rule"><b>Left</b><span>Use when the triggering action is on the left side of the layout — a sidebar navigation item opening a detail panel, for example.</span></div>
+<div class="rule"><b>Bottom</b><span>For mobile or for large filter panels with many options. Slides up from the bottom. Respect <code>safe-area-inset-bottom</code> on iOS.</span></div>
+
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div style="position:relative;height:160px;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-default)">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.22)"></div>
+      <div style="position:absolute;right:0;top:0;bottom:0;width:180px;background:var(--surface-card);border-left:1px solid var(--border-default);padding:var(--space-3)">
+        <b style="font-size:var(--font-size-300)">Edit record</b>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Do</b> choose a width that fits the content — narrow for a quick detail, wide for a rich form.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div style="position:relative;height:160px;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-default)">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.22)"></div>
+      <div style="position:absolute;right:0;top:0;bottom:0;width:90%;background:var(--surface-card);border-left:1px solid var(--border-default);padding:var(--space-3)">
+        <b style="font-size:var(--font-size-300)">Edit record</b>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Don't</b> use a near-full-width drawer on desktop — it defeats the purpose of keeping context visible.</div></div>
 </div>
 </section>
-<section>
-<h2>Dismissal</h2>
-<table>
-<thead><tr><th style="width:130px">Overlay</th><th style="width:110px">Esc</th><th style="width:130px">Click outside</th><th>Auto</th></tr></thead>
-<tbody>
-<tr><td class="tok">Tooltip</td><td class="use">Yes</td><td class="use">n/a</td><td class="use">On unhover or blur</td></tr>
-<tr><td class="tok">Toast</td><td class="use">Yes</td><td class="use">No</td><td class="use">4–6s, paused on hover</td></tr>
-<tr><td class="tok">Alert</td><td class="use">No</td><td class="use">No</td><td class="use">Never — the condition ends it</td></tr>
-<tr><td class="tok">Popover</td><td class="use">Yes</td><td class="use">Yes</td><td class="use">No</td></tr>
-<tr><td class="tok">Menu</td><td class="use">Yes</td><td class="use">Yes</td><td class="use">On select</td></tr>
-<tr><td class="tok">Drawer</td><td class="use">Yes</td><td class="use">Yes, unless dirty</td><td class="use">No</td></tr>
-<tr><td class="tok">Dialog</td><td class="use">Yes</td><td class="use">Yes, unless dirty</td><td class="use">No</td></tr>
-</tbody>
-</table>
-<div class="rule" style="margin-top:var(--space-5)"><b>Esc always</b><span>Every dismissible overlay closes on Escape, and closes only the topmost one. This is the one keyboard behaviour that must never have an exception.</span></div>
-<div class="rule"><b>Pause on hover</b><span>A toast the user is reading does not disappear mid-sentence. The timer resumes when the pointer leaves.</span></div>
+
+<div class="part" id="part-behaviour"><h2 class="part__title">Behaviour</h2></div>
+
+<section id="opening-closing" data-part="behaviour">
+<h2>Opening &amp; closing</h2>
+<p>A drawer opens in response to a deliberate action — a button press, a row click, a navigation item selection. It never opens automatically. The panel animates in from the edge over <code>--transition-enter</code> (220ms, ease-out). The scrim fades in simultaneously.</p>
+
+<h3>Ways to close</h3>
+<div class="rule"><b>Overlay click</b><span>Clicking or tapping the scrim dismisses the drawer and returns focus to the trigger. This is the most common gesture, so it must always work.</span></div>
+<div class="rule"><b>Escape key</b><span>Pressing Escape closes the drawer. If there are unsaved changes, show an inline confirmation within the drawer body before closing — do not show a second dialog on top.</span></div>
+<div class="rule"><b>Close button</b><span>The ✕ in the header always closes the drawer. It is the mandatory, always-visible escape. Do not hide it on smaller screens.</span></div>
+<div class="rule"><b>Explicit submit or cancel</b><span>The footer buttons either submit and close (primary) or discard and close (ghost cancel).</span></div>
+
+<h3>What does not close the drawer</h3>
+<p>Scrolling the body does not close the drawer. Clicking inside the panel does not close the drawer. These interactions are intentional and must not be interpreted as dismissal.</p>
+
+<h3>Unsaved changes</h3>
+<p>If the drawer contains a form with unsaved changes, intercept the close gesture and show a message within the drawer: "You have unsaved changes. Discard them?" with "Keep editing" and "Discard" actions. Do not open a confirmation dialog — layering a dialog on top of a drawer breaks the focus model and confuses keyboard users.</p>
+
+<div class="callout"><div><b>Never close on scroll.</b> On mobile, the user's thumb may graze the scrim while scrolling the body. Guard the dismiss gesture against accidental touches — require a deliberate tap outside the panel, not any touch outside it.</div></div>
 </section>
-<section>
-<h2>Positioning</h2>
-<div class="rule"><b>Anchored</b><span>Popover, Menu and Tooltip attach to their trigger and follow it on scroll. They never detach or reposition mid-scroll.</span></div>
-<div class="rule"><b>Flip</b><span>Preferred side first; flip to the opposite side only when there is not enough room. Never cover the trigger — the user must see what they opened.</span></div>
-<div class="rule"><b>Shift</b><span>Slide along the cross axis to stay in the viewport, with 8px minimum clearance from the edge.</span></div>
-<div class="rule"><b>Fixed</b><span>Drawer pins to an edge, Dialog centres, Toast pins to a corner. None of them are anchored to a trigger.</span></div>
-</section>
-<section>
-<h2>Focus &amp; keyboard</h2>
-<table>
-<thead><tr><th style="width:150px">Overlay</th><th style="width:130px">Traps focus</th><th>Keyboard</th></tr></thead>
-<tbody>
-<tr><td class="tok">Dialog · Drawer</td><td class="use">Yes</td><td class="use">Focus moves in on open, cycles inside, returns to the trigger on close.</td></tr>
-<tr><td class="tok">Menu</td><td class="use">No</td><td class="use">↑ ↓ move, Enter selects, Esc closes and returns focus to the trigger.</td></tr>
-<tr><td class="tok">Popover</td><td class="use">No</td><td class="use">Focus moves in if it holds a control; Tab may leave, which closes it.</td></tr>
-<tr><td class="tok">Toast</td><td class="use">No</td><td class="use">Never steals focus. Its action is reachable by Tab while visible.</td></tr>
-<tr><td class="tok">Alert</td><td class="use">No</td><td class="use">In normal document order — it is part of the page, not a layer.</td></tr>
-</tbody>
-</table>
-<div class="rule" style="margin-top:var(--space-5)"><b>Never steal focus</b><span>Only Dialog and Drawer move focus, and only because the user asked for them. A toast that grabs focus interrupts typing.</span></div>
-</section>
-<section>
-<h2>Mobile</h2>
-<table>
-<thead><tr><th style="width:150px">Overlay</th><th>Below 600px</th></tr></thead>
-<tbody>
-<tr><td class="tok">Dialog</td><td class="use">Full screen, actions pinned to the bottom and stacked full width.</td></tr>
-<tr><td class="tok">Drawer</td><td class="use"><code>side="bottom"</code>, max 80vh, drag handle, sticky footer.</td></tr>
-<tr><td class="tok">Menu</td><td class="use">Bottom sheet. A 220px dropdown has targets too small for a thumb.</td></tr>
-<tr><td class="tok">Popover</td><td class="use">Bottom sheet, or inline expansion.</td></tr>
-<tr><td class="tok">Toast</td><td class="use">Top, full width minus gutters — the bottom belongs to the thumb and the keyboard.</td></tr>
-<tr><td class="tok">Tooltip</td><td class="use">Does not exist. Any content only in a tooltip is invisible on touch.</td></tr>
-</tbody>
-</table>
-</section>
-<section>
-<h2>Best practices</h2>
-<div class="dd">
-<div class="ddc"><div class="ddh ok">Do</div><div class="ddb"><div style="width:100%"><div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-warning-subtle);border:1px solid var(--amber-30);border-radius:var(--radius-sm);padding:var(--space-5)">
-<span style="color:var(--text-warning);font-weight:700;line-height:1.4">!</span>
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-warning)">Only 3 left in stock</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);margin-top:2px;line-height:1.5">Other buyers are viewing this item right now.</div></div>
-</div></div></div><p class="ddt">A persisting condition lives in the page, where it can be re-read while the user decides.</p></div>
-<div class="ddc"><div class="ddh no">Don't</div><div class="ddb"><div style="width:100%"><div style="display:flex;align-items:flex-start;gap:var(--space-4);background:var(--surface-warning-subtle);border-left:3px solid var(--status-warning);border-radius:var(--radius-sm);padding:var(--space-5);box-shadow:var(--shadow-300);max-width:420px">
-<div style="flex:1"><div style="font-size:var(--font-size-300);font-weight:600;color:var(--text-warning)">Only 3 left in stock</div><div style="font-size:var(--font-size-300);color:var(--text-secondary);margin-top:2px">Other buyers are viewing this item right now.</div></div>
-<span style="color:var(--text-tertiary)">×</span>
-</div></div></div><p class="ddt">A toast for a standing condition: it vanishes after four seconds and the information is gone for good.</p></div>
-</div>
-<div style="margin-top:var(--space-7)">
-<div class="rule"><b>One at a time</b><span>Never two overlays of the same kind. The only legitimate stack is a destructive confirmation over a form dialog.</span></div>
-<div class="rule"><b>No auto-open</b><span>An overlay that appears without a user action — on load, on a timer, on scroll — is an interruption nobody requested.</span></div>
-<div class="rule"><b>Escalate late</b><span>Start with the lightest overlay. Move up only when the lighter one demonstrably fails.</span></div>
-<div class="rule"><b>Preserve work</b><span>Any overlay holding input asks before discarding it, and never clears fields on error.</span></div>
+
+<section id="stacking" data-part="behaviour">
+<h2>Stacking drawers</h2>
+<p>Stacking drawers — opening a second drawer on top of a first — is a pattern to avoid. It creates a complex focus hierarchy, makes the escape route unclear (which Escape press closes which drawer?), and quickly runs out of screen real estate.</p>
+
+<h3>If stacking is unavoidable</h3>
+<p>If a workflow genuinely requires it — a detail panel that reveals a sub-edit panel — follow these rules:</p>
+<ul>
+  <li>The second drawer <strong>overlaps</strong> the first completely. Peeking the first drawer's edge behind the second creates an ambiguous layering that keyboard users cannot navigate.</li>
+  <li>Escape closes the topmost drawer only. The previous drawer must remain open and focussed when the second one closes.</li>
+  <li>Limit to two levels. Three or more nested drawers means the information architecture needs rethinking, not a third drawer.</li>
+  <li>Keep the second drawer narrower than the first if both are right-edge — this signals hierarchy visually even though they are stacked.</li>
+</ul>
+
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div style="position:relative;height:160px;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-default)">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.22)"></div>
+      <div style="position:absolute;right:0;top:0;bottom:0;width:180px;background:var(--surface-card);border-left:1px solid var(--border-default);padding:var(--space-3)">
+        <b style="font-size:var(--font-size-200)">Detail panel</b>
+      </div>
+      <div style="position:absolute;right:0;top:0;bottom:0;width:140px;background:var(--surface-card);border-left:2px solid var(--color-primary);padding:var(--space-3)">
+        <b style="font-size:var(--font-size-200)">Sub-edit</b>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Do</b> make the second drawer fully cover the first, and keep it narrower to signal hierarchy.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div style="position:relative;height:160px;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-default)">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.22)"></div>
+      <div style="position:absolute;right:0;top:0;bottom:0;width:180px;background:var(--surface-card);border-left:1px solid var(--border-default);padding:var(--space-3)">
+        <b style="font-size:var(--font-size-200)">Detail panel</b>
+      </div>
+      <div style="position:absolute;right:130px;top:0;bottom:0;width:160px;background:var(--surface-card);border-left:2px solid var(--color-primary);padding:var(--space-3)">
+        <b style="font-size:var(--font-size-200)">Sub-edit</b>
+      </div>
+    </div>
+  </div><div class="dodont__note"><b>Don't</b> let the first drawer peek behind the second — the layering confuses both keyboard and pointer users.</div></div>
 </div>
 </section>
-<section>
-<h2>Content</h2>
-<table>
-<thead><tr><th style="width:130px">Overlay</th><th style="width:250px">Rule</th><th>Example</th></tr></thead>
-<tbody>
-<tr><td class="tok">Toast</td><td class="use">Past tense, states what happened.</td><td class="use">Listing published</td></tr>
-<tr><td class="tok">Alert</td><td class="use">Present tense condition plus consequence.</td><td class="use">Payouts are held until verified</td></tr>
-<tr><td class="tok">Drawer</td><td class="use">Noun title, live count in the subtitle.</td><td class="use">Filters · 486 results</td></tr>
-<tr><td class="tok">Menu item</td><td class="use">Verb first, one to three words.</td><td class="use">Duplicate listing</td></tr>
-<tr><td class="tok">Popover</td><td class="use">A heading plus facts, no marketing.</td><td class="use">Shipping breakdown</td></tr>
-<tr><td class="tok">Tooltip</td><td class="use">A fragment, no full stop, one line.</td><td class="use">Free returns within 14 days</td></tr>
-</tbody>
-</table>
-</section>
-<section style="padding-bottom:var(--space-13)">
+
+<section id="accessibility">
 <h2>Accessibility</h2>
-<div class="rule"><b>Roles</b><span><code>role="dialog"</code> with <code>aria-modal</code> for Dialog and Drawer; <code>role="menu"</code> and <code>role="menuitem"</code> for Menu; <code>role="status"</code> for Toast; <code>role="alert"</code> for a danger Alert and <code>role="status"</code> for the rest.</span></div>
-<div class="rule"><b>Live regions</b><span>Toasts are polite, so they never interrupt what a screen reader is already reading. A blocking error is assertive — but that is an Alert, not a toast.</span></div>
-<div class="rule"><b>Trigger state</b><span><code>aria-expanded</code> and <code>aria-controls</code> on any button that opens an anchored overlay, so the state is announced before the overlay is reached.</span></div>
-<div class="rule"><b>Return focus</b><span>Every overlay that moved focus returns it to the trigger. Losing focus to the top of the page is the most common overlay bug in any system.</span></div>
-<div class="rule"><b>Inert background</b><span>Dialog and Drawer mark the page behind as <code>inert</code>, so assistive tech cannot wander into content the sighted user cannot reach.</span></div>
-<div class="rule"><b>Not colour alone</b><span>Every tone carries a glyph and a word as well as a colour — ✓ success, i info, ! warning, × danger.</span></div>
-<div class="rule"><b>Timing</b><span>Auto-dismissal pauses on hover and focus, satisfying WCAG 2.2.1. Anything the user must act on never auto-dismisses at all.</span></div>
+<p>A drawer is a dialog variant. It carries all the same ARIA obligations as a modal dialog.</p>
+
+<div class="wcag">
+<div class="wcag__group"><h3>Role and attributes</h3>
+<ul class="wcag__list">
+  <li><span class="sc" data-risk="high">4.1.2</span><span>The drawer panel carries <code>role="dialog"</code> and <code>aria-modal="true"</code>. Without <code>aria-modal</code>, some screen readers continue to read the page behind the scrim as if it were accessible. <span class="risk">high risk</span></span></li>
+  <li><span class="sc" data-risk="high">4.1.2</span><span>The panel also carries <code>aria-labelledby</code> pointing to the drawer title's id, so the screen reader announces the drawer name on open. <span class="risk">high risk</span></span></li>
+  <li><span class="sc">4.1.2</span><span>If the drawer contains a description below the title, point <code>aria-describedby</code> at it so assistive technology can announce the purpose.</span></li>
+</ul>
+</div>
+
+<div class="wcag__group"><h3>Focus management</h3>
+<ul class="wcag__list">
+  <li><span class="sc" data-risk="high">2.4.3</span><span>On open, focus moves to the first focusable element inside the panel — usually the close button or the first form field. Never leave focus on the trigger behind the scrim. <span class="risk">high risk</span></span></li>
+  <li><span class="sc" data-risk="high">2.1.2</span><span>Focus is trapped inside the drawer while it is open. Tab and Shift+Tab cycle through the panel's focusable elements without escaping to the page behind. <span class="risk">high risk</span></span></li>
+  <li><span class="sc">2.4.3</span><span>On close, focus returns to the element that triggered the drawer — usually the button that opened it. If that element is gone (e.g. a deleted row), move focus to the nearest sensible element.</span></li>
+</ul>
+</div>
+
+<div class="wcag__group"><h3>Keyboard</h3>
+<ul class="wcag__list">
+  <li><span class="sc">2.1.1</span><span><code>Escape</code> closes the drawer from any focused element inside it.</span></li>
+  <li><span class="sc">2.1.1</span><span><code>Tab</code> / <code>Shift+Tab</code> move through interactive elements. The cycle wraps at the last and first focusable element.</span></li>
+</ul>
+</div>
+
+<div class="wcag__group"><h3>Scrim and page</h3>
+<ul class="wcag__list">
+  <li><span class="sc">1.3.1</span><span>Content behind the scrim must not be reachable by keyboard or screen reader while the drawer is open. Set <code>aria-hidden="true"</code> on the main page content, or use the native <code>&lt;dialog&gt;</code> element which handles this automatically in modern browsers.</span></li>
+  <li><span class="sc">1.4.3</span><span>The title and all body text must reach 4.5:1 against the panel background.</span></li>
+</ul>
+</div>
+</div>
+
+<h3>Implementation checklist</h3>
+<ul>
+  <li>Panel: <code>role="dialog" aria-modal="true" aria-labelledby="[title-id]"</code></li>
+  <li>Move focus into the panel on open</li>
+  <li>Trap Tab/Shift+Tab inside the panel</li>
+  <li>Close on Escape, scrim click, close button, and footer cancel</li>
+  <li>Return focus to the trigger on close</li>
+  <li>Set <code>aria-hidden="true"</code> on the underlying page while the drawer is open</li>
+</ul>
 </section>

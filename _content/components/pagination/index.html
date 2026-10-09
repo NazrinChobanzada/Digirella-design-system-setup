@@ -1,7 +1,238 @@
-<section><h2>Examples</h2>
-<p>As the page count grows, the numbers in between collapse into an ellipsis. Jump to page 12 and watch the list rebuild.</p>
+<p class="page__lede">Pagination splits a large result set into fixed pages, giving users a landmark in the data and a reliable way to jump to any position in it.</p>
+
+<section id="overview">
+<h2>Overview</h2>
+<p>Pagination tells the user where they are in a data set and lets them move through it page by page or jump directly to any page. The minimum kit is a previous button, a sequence of page numbers, and a next button — plus a count that says "Page 3 of 21" so the user always knows the size of the job.</p>
 <div class="demo">
-<div class="pager" data-count="24" data-output="pgout" data-page="1" data-pager="" data-siblings="1"></div>
-<span class="out" id="pgout">Page 1 of 24</span>
+  <div class="pager" data-count="21" data-output="pgout-ov" data-page="3" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-ov">Page 3 of 21</span>
 </div>
+<p class="caption">Click the page numbers and arrows — the component is live.</p>
+</section>
+
+<div class="part" id="part-guidelines"><h2 class="part__title">Guidelines</h2></div>
+
+<section id="when-to-use" data-part="Guidelines">
+<h2>When to use</h2>
+<p>Pagination is not the only way to move through a long data set. The right choice depends on whether the total is known, whether items need to be findable by position, and whether the user needs a stable landing point.</p>
+<table>
+<thead><tr><th style="width:170px">Pattern</th><th>Use when</th><th>Not for</th></tr></thead>
+<tbody>
+<tr><td class="tok">Pagination</td><td class="use">The total is known, pages are bookmarkable, the user may want to jump to page 14 directly, or a footer must be reachable.</td><td class="use">Feeds and timelines where items have no stable position. Any context where the total is unknown or grows continuously.</td></tr>
+<tr><td class="tok">Infinite scroll</td><td class="use">Browsing feeds where the next item is always relevant and positional access is not needed — social timelines, image galleries.</td><td class="use">Results the user needs to compare, export, or audit. Any context with a footer or a sticky toolbar that must stay accessible.</td></tr>
+<tr><td class="tok">Load more</td><td class="use">A hybrid: the user decides when to extend the list. Better than infinite scroll when some items need to stay visible while more are added below.</td><td class="use">Very large sets where the user would have to click many times to reach a known item. Search results tables.</td></tr>
+</tbody>
+</table>
+<div class="rule" style="margin-top:var(--space-6)"><b>Rule of thumb</b><span>If the data set will produce more than two pages and items need to be findable, shareable or auditable by position, use pagination. Below two pages of results, no control is needed — just show all the items.</span></div>
+<div class="dodont">
+  <div class="dodont__item" data-kind="do"><div class="dodont__stage">
+    <div class="pager" data-count="21" data-output="pgout-do1" data-page="1" data-pager data-siblings="1"></div>
+    <span class="out" id="pgout-do1">Page 1 of 21</span>
+  </div><div class="dodont__note"><b>Do</b> paginate a 486-row order history so the user can bookmark page 3 and return to exactly where they were.</div></div>
+  <div class="dodont__item" data-kind="dont"><div class="dodont__stage">
+    <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--font-size-300)">
+      <div style="padding:var(--space-3) var(--space-4);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm)">New headphones from Sony</div>
+      <div style="padding:var(--space-3) var(--space-4);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm)">Your wishlist has a price drop</div>
+      <div style="padding:var(--space-3) var(--space-4);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm)">3 people liked your listing</div>
+    </div>
+    <div style="margin-top:var(--space-4)"><div class="pager" data-count="10" data-output="pgout-dont1" data-page="1" data-pager data-siblings="1"></div></div>
+  </div><div class="dodont__note"><b>Don't</b> paginate a notification feed — items arrive continuously and the user never needs to jump to "page 4 of activity".</div></div>
+</div>
+</section>
+
+<section id="page-size" data-part="Guidelines">
+<h2>Page size</h2>
+<p>The number of rows per page determines how often the user must turn a page and how much data they can compare at once. Too few rows and every scan involves a page turn; too many and the table becomes a scroll.</p>
+<table>
+<thead><tr><th style="width:100px">Size</th><th style="width:150px">Default?</th><th>Use for</th></tr></thead>
+<tbody>
+<tr><td class="tok">10</td><td class="use">—</td><td class="use">Mobile-first contexts and tables with dense rows (thumbnails, multi-line cells) where more than ten rows per screen would overwhelm.</td></tr>
+<tr><td class="tok">25</td><td class="use">Recommended default</td><td class="use">Most product and data tables. Fits a 1280px screen at comfortable density without scrolling past the footer.</td></tr>
+<tr><td class="tok">50</td><td class="use">—</td><td class="use">Power users comparing or auditing large sets, and compact-density tables where 50 rows fit without excessive scrolling.</td></tr>
+<tr><td class="tok">100</td><td class="use">—</td><td class="use">Export-like workflows where the user wants the maximum before downloading. Rarely needed in browsing contexts.</td></tr>
+</tbody>
+</table>
+<div class="rule" style="margin-top:var(--space-6)"><b>Default</b><span>Start at 25. It is enough data to give a meaningful sample and small enough to load quickly. Offer larger sizes only where the user's task genuinely involves scanning or comparing many rows at once.</span></div>
+<div class="rule"><b>User preference</b><span>If the product persists user settings, remember the last page size the user chose. A power user who always wants 50 rows should not have to reset that on every visit. Store it in user preferences, not just <code>localStorage</code>, so it follows them across devices.</span></div>
+<div class="rule"><b>Changing page size</b><span>When the user changes the page size, reset to page 1. The current page offset is no longer meaningful — staying on "page 3" while switching from 25 to 50 rows per page shows the wrong slice of data.</span></div>
+<div class="api">pageSize: 10 | 25 | 50 | 100  ·  defaultPageSize: number  ·  onPageSizeChange</div>
+</section>
+
+<div class="part" id="part-anatomy"><h2 class="part__title">Anatomy</h2></div>
+
+<section id="anatomy" data-part="Anatomy">
+<h2>Anatomy</h2>
+<div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-7);align-items:start">
+<div>
+<div class="demo" style="flex-direction:column;gap:var(--space-3);align-items:flex-start">
+  <div class="pager" data-count="21" data-output="pgout-anat" data-page="6" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-anat">Page 6 of 21</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:var(--space-4)">
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">1</span><div><div style="font-size:var(--font-size-300);font-weight:600">Previous button</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Disabled on page 1. Carries <code>aria-label="Previous page"</code>.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">2</span><div><div style="font-size:var(--font-size-300);font-weight:600">Page number buttons</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Current page uses the primary fill. Non-current pages are ghost targets. <code>aria-current="page"</code> on the active one.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">3</span><div><div style="font-size:var(--font-size-300);font-weight:600">Ellipsis (…)</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Indicates collapsed pages. Not a button — it is a visual gap marker only, excluded from the tab order.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">4</span><div><div style="font-size:var(--font-size-300);font-weight:600">Next button</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Disabled on the last page. Carries <code>aria-label="Next page"</code>.</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">5</span><div><div style="font-size:var(--font-size-300);font-weight:600">Page count info</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">"Page X of Y" connects the button state to the data above the table ("Showing 126–150 of 486").</div></div></div>
+<div style="display:flex;gap:var(--space-4);align-items:flex-start"><span class="pin">6</span><div><div style="font-size:var(--font-size-300);font-weight:600">Page size selector</div><div style="font-size:var(--font-size-200);color:var(--text-secondary);line-height:1.55;margin-top:2px">Optional. A select control offering 10, 25, 50, 100. Place it to the left of the pager or above the table.</div></div></div>
+</div>
+</div>
+</section>
+
+<section id="variants" data-part="Anatomy">
+<h2>Variants</h2>
+<p>Three variants, chosen by whether the total page count is known and how much space is available.</p>
+
+<div style="display:flex;flex-direction:column;gap:var(--space-7)">
+<div>
+<div class="cap">Numbered pages — default</div>
+<div class="demo" style="flex-direction:column;gap:var(--space-3);align-items:flex-start">
+  <div class="pager" data-count="21" data-output="pgout-v1" data-page="4" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-v1">Page 4 of 21</span>
+</div>
+<p>The full control set: previous, numbered pages with ellipsis, next, and a count. Use when the total is known and the data set has more than three pages. This is the default variant for all data tables.</p>
+</div>
+
+<div>
+<div class="cap">Previous / next only — unknown total</div>
+<div class="demo" style="gap:var(--space-3)">
+  <button class="btn btn--ghost" type="button" disabled>← Previous</button>
+  <button class="btn btn--secondary" type="button">Next →</button>
+</div>
+<p>When the backend uses cursor-based pagination and does not return a total, the page count is unknown. Show only previous and next. Never display page numbers you do not have — never guess or approximate the total.</p>
+</div>
+
+<div>
+<div class="cap">Load more — progressive disclosure</div>
+<div class="demo" style="flex-direction:column;align-items:flex-start;gap:var(--space-4)">
+<div style="display:flex;flex-direction:column;gap:var(--space-2);width:100%">
+  <div style="padding:var(--space-3) var(--space-5);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);font-size:var(--font-size-300)">Wireless headphones · ANC</div>
+  <div style="padding:var(--space-3) var(--space-5);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);font-size:var(--font-size-300)">Mechanical keyboard 75%</div>
+  <div style="padding:var(--space-3) var(--space-5);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);font-size:var(--font-size-300)">Logitech MX Master 3S</div>
+</div>
+<div style="display:flex;align-items:center;gap:var(--space-4)">
+  <button class="btn btn--secondary" type="button">Load 25 more</button>
+  <span style="font-size:var(--font-size-200);color:var(--text-secondary)">Showing 25 of 486</span>
+</div>
+</div>
+<p>Appends the next batch below what is already shown. The button label names the batch size ("Load 25 more") and the count gives position context. Reserve this for browsing lists, not comparison tables — once items accumulate past about 100, the page becomes harder to navigate than a paginated one.</p>
+</div>
+</div>
+<div class="api">variant: 'pages' | 'prevnext' | 'loadmore'</div>
+</section>
+
+<div class="part" id="part-behaviour"><h2 class="part__title">Behaviour</h2></div>
+
+<section id="ellipsis" data-part="Behaviour">
+<h2>Ellipsis</h2>
+<p>The ellipsis (…) collapses the middle of a long page sequence so the control stays compact. Three fixed rules govern which pages are shown at any point.</p>
+<table>
+<thead><tr><th style="width:260px">Rule</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td class="use">Always show the first and last page.</td><td class="use">The user needs to know the boundaries of the data set and to jump to either end without clicking through pages.</td></tr>
+<tr><td class="use">Show N sibling pages on each side of the current page (default N=1).</td><td class="use">The user scans around the current position most often. One sibling on each side is enough for most tables; raise to 2 for very large sets where skipping one page at a time is too slow.</td></tr>
+<tr><td class="use">Collapse the rest with a single … on the side where pages are hidden.</td><td class="use">Two ellipses appear when the current page is in the middle of a long run. One ellipsis appears when the current page is close to either end.</td></tr>
+</tbody>
+</table>
+
+<div style="display:flex;flex-direction:column;gap:var(--space-6);margin-top:var(--space-6)">
+<div>
+<div class="cap">Page 1 of 21 — near start, one right ellipsis</div>
+<div class="demo" style="flex-direction:column;gap:var(--space-3);align-items:flex-start">
+  <div class="pager" data-count="21" data-output="pgout-el1" data-page="1" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-el1">Page 1 of 21</span>
+</div>
+</div>
+<div>
+<div class="cap">Page 6 of 21 — middle, two ellipses</div>
+<div class="demo" style="flex-direction:column;gap:var(--space-3);align-items:flex-start">
+  <div class="pager" data-count="21" data-output="pgout-el2" data-page="6" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-el2">Page 6 of 21</span>
+</div>
+</div>
+<div>
+<div class="cap">Page 20 of 21 — near end, one left ellipsis</div>
+<div class="demo" style="flex-direction:column;gap:var(--space-3);align-items:flex-start">
+  <div class="pager" data-count="21" data-output="pgout-el3" data-page="20" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-el3">Page 20 of 21</span>
+</div>
+</div>
+</div>
+<div class="rule" style="margin-top:var(--space-6)"><b>No jump input inside the ellipsis</b><span>Do not replace the ellipsis with a text field for jumping to a page number. It creates an interaction that conflicts with keyboard navigation and is almost never used in practice. If direct jump access is needed, add an explicit "Go to page" input above or below the pagination control.</span></div>
+<div class="api">siblings: number  (default 1)</div>
+</section>
+
+<section id="edge-cases" data-part="Behaviour">
+<h2>Edge cases</h2>
+<table>
+<thead><tr><th style="width:200px">Situation</th><th>Behaviour</th></tr></thead>
+<tbody>
+<tr><td class="tok">1 page total</td><td class="use">Hide the entire pagination component. A control for a data set of one page adds noise without any value.</td></tr>
+<tr><td class="tok">2–3 pages total</td><td class="use">Show all page numbers. No ellipsis is needed; the component shrinks naturally to fit the count.</td></tr>
+<tr><td class="tok">On page 1</td><td class="use">The previous button is disabled (<code>aria-disabled="true"</code>). It must remain in the DOM and in the tab order — removing it causes focus to jump unexpectedly.</td></tr>
+<tr><td class="tok">On the last page</td><td class="use">The next button is disabled (<code>aria-disabled="true"</code>). Same rule as above.</td></tr>
+<tr><td class="tok">Page out of range</td><td class="use">If a saved URL references page 50 of a set that now has 12 pages, clamp to the last page and update the URL. Never show an empty table with no explanation.</td></tr>
+<tr><td class="tok">Data changes during session</td><td class="use">If a filter reduces the total below the current page, reset to page 1. Staying on "page 4 of 2" is disorienting and shows an empty table without context.</td></tr>
+</tbody>
+</table>
+
+<div style="display:flex;flex-direction:column;gap:var(--space-5);margin-top:var(--space-6)">
+<div>
+<div class="cap">2 pages — all pages visible, no ellipsis</div>
+<div class="demo" style="flex-direction:column;gap:var(--space-3);align-items:flex-start">
+  <div class="pager" data-count="2" data-output="pgout-ec1" data-page="1" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-ec1">Page 1 of 2</span>
+</div>
+</div>
+<div>
+<div class="cap">3 pages — all pages visible, no ellipsis</div>
+<div class="demo" style="flex-direction:column;gap:var(--space-3);align-items:flex-start">
+  <div class="pager" data-count="3" data-output="pgout-ec2" data-page="2" data-pager data-siblings="1"></div>
+  <span class="out" id="pgout-ec2">Page 2 of 3</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="accessibility">
+<h2>Accessibility</h2>
+<div class="wcag">
+<div class="wcag__group"><h3>Structure</h3>
+<p>The pagination component is a navigation landmark. Its markup must let screen reader users find it by landmark navigation and understand the current position within the data set.</p>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">4.1.2</span><span>Wrap the component in <code>&lt;nav aria-label="Pagination"&gt;</code>. Two pagination controls on one screen (top and bottom) each need a distinct label — "Pagination, top" and "Pagination, bottom". <span class="risk">high risk</span></span></li>
+<li><span class="sc" data-risk="high">1.3.1</span><span>Mark the current page with <code>aria-current="page"</code> on its button. The primary-colour fill is invisible to screen readers — the attribute is not optional. <span class="risk">high risk</span></span></li>
+<li><span class="sc">2.4.6</span><span>The landmark label "Pagination" makes the region findable by heading and landmark navigation without additional effort from the user.</span></li>
+</ul>
+</div>
+<div class="wcag__group"><h3>Buttons and controls</h3>
+<ul class="wcag__list">
+<li><span class="sc" data-risk="high">2.5.3</span><span>The previous and next buttons must have descriptive accessible names: <code>aria-label="Previous page"</code> and <code>aria-label="Next page"</code>. An accessible name of "‹" or "›" is not a name. <span class="risk">high risk</span></span></li>
+<li><span class="sc">1.4.11</span><span>The current-page button uses the primary fill. The on-primary label achieves 6.9:1 against that fill, which passes AA.</span></li>
+<li><span class="sc">2.1.1</span><span>All buttons are reachable by Tab and activated by Enter or Space. The ellipsis is not a button and is omitted from the tab order.</span></li>
+<li><span class="sc">2.5.8</span><span>Each page button is at least 34×34px, clearing the 24×24px WCAG 2.5.8 minimum target size.</span></li>
+<li><span class="sc">4.1.2</span><span>Disabled previous/next buttons use <code>aria-disabled="true"</code>, not the HTML <code>disabled</code> attribute, so they remain in the tab order and screen readers announce them as unavailable rather than simply absent.</span></li>
+</ul>
+</div>
+<div class="wcag__group"><h3>Keyboard</h3>
+<table>
+<thead><tr><th>Key</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>Tab</code></td><td>Moves between page buttons, previous and next in document order. The ellipsis span is skipped.</td></tr>
+<tr><td><code>Enter</code> / <code>Space</code></td><td>Activates the focused button and navigates to that page.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3>Minimal correct markup</h3>
+<pre style="font-size:var(--font-size-200);background:var(--surface-sunken);padding:var(--space-5);border-radius:var(--radius-md);overflow-x:auto;line-height:1.6"><code>&lt;nav aria-label="Pagination"&gt;
+  &lt;button aria-label="Previous page" aria-disabled="true"&gt;‹&lt;/button&gt;
+  &lt;button&gt;1&lt;/button&gt;
+  &lt;button aria-current="page"&gt;2&lt;/button&gt;
+  &lt;button&gt;3&lt;/button&gt;
+  &lt;span aria-hidden="true"&gt;…&lt;/span&gt;
+  &lt;button&gt;21&lt;/button&gt;
+  &lt;button aria-label="Next page"&gt;›&lt;/button&gt;
+&lt;/nav&gt;</code></pre>
 </section>
